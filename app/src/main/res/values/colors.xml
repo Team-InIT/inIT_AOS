@@ -9,7 +9,7 @@
     <color name="white">#FFFFFFFF</color>
 
     <!--main color-->
-    <color name="main_default">#0078CA1</color>
+    <color name="main_default">#1B8DA1</color>
     <color name="main_light">#E2ECF2</color>
     <color name="main_dark">#3E4152</color>
     <color name="gray_0">#F8F8F8</color>
@@ -24,4 +24,5 @@
     <color name="gray_7">#9F9F9F</color>
     <color name="tet_gray_2">#6F6F6F</color>
     <color name="text_main">#343434</color>
+    <color name="alert_color">#2A5185</color>
 </resources>
