@@ -1,18 +1,55 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".app.presentation.ui.MainActivity">
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:id="@+id/coordinatorLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/gray_4"
+        tools:context=".app.presentation.ui.MainActivity">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <androidx.fragment.app.FragmentContainerView
+            android:id="@+id/fragment_main"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <com.google.android.material.bottomappbar.BottomAppBar
+            android:id="@+id/bab_main"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:layout_gravity="bottom"
+            app:contentInsetStart="0dp"
+            app:elevation="0dp"
+            app:fabCradleRoundedCornerRadius="0dp"
+            app:fabCradleMargin="3dp">
+
+            <com.google.android.material.bottomnavigation.BottomNavigationView
+                android:id="@+id/btn_main"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textSize="11sp"
+                app:elevation="0dp"
+                app:itemIconTint="@color/menu_selector_color"
+                app:itemTextColor="@color/menu_selector_color"
+                app:labelVisibilityMode="labeled"
+                app:menu="@menu/btn_menu" />
+        </com.google.android.material.bottomappbar.BottomAppBar>
+
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fab_writing"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/main_default"
+            android:src="@drawable/ic_writing"
+            app:borderWidth="0dp"
+            app:elevation="0dp"
+            app:layout_anchor="@id/btn_main"
+            app:tint="@color/white"
+            android:contentDescription="@string/writing" />
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+
+</layout>

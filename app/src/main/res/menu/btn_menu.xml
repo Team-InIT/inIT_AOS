@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/menu_home"
+        android:title="@string/home"
+        android:icon="@drawable/ic_home"/>
+
+    <item
+        android:id="@+id/menu_search"
+        android:title="@string/search"
+        android:icon="@drawable/ic_search"/>
+
+    <item
+        android:id="@+id/menu_empty"
+        android:title=""
+        android:enabled="false"/>
+
+    <item
+        android:id="@+id/menu_alarm"
+        android:title="@string/alarm"
+        android:icon="@drawable/ic_alarm"/>
+
+    <item
+        android:id="@+id/menu_mypage"
+        android:title="@string/mypage"
+        android:icon="@drawable/ic_mypage"/>
+
+</menu>

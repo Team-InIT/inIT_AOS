@@ -1,12 +1,40 @@
 package com.init_android.app.presentation.ui
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.init_android.R
+import com.init_android.app.presentation.ui.alarm.AlarmFragment
+import com.init_android.app.presentation.ui.home.HomeFragment
+import com.init_android.app.presentation.ui.mypage.MyPageFragment
+import com.init_android.app.presentation.ui.search.SearchFragment
+import com.init_android.databinding.ActivityMainBinding
+import com.playtogether_android.app.presentation.base.BaseActivity
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+            initBottomNavi()
+    }
+
+    private fun initBottomNavi() {
+        supportFragmentManager.beginTransaction().add(R.id.fragment_main, HomeFragment()).commit()
+
+        binding.btnMain.setOnItemSelectedListener {
+            when (it.itemId) {
+                R.id.menu_home -> {
+                    supportFragmentManager.beginTransaction().replace(R.id.fragment_main, HomeFragment()).commit()
+                }
+                R.id.menu_search -> {
+                    supportFragmentManager.beginTransaction().replace(R.id.fragment_main, SearchFragment()).commit()
+                }
+                R.id.menu_alarm -> {
+                    supportFragmentManager.beginTransaction().replace(R.id.fragment_main, AlarmFragment()).commit()
+                }
+                R.id.menu_mypage -> {
+                    supportFragmentManager.beginTransaction().replace(R.id.fragment_main, MyPageFragment()).commit()
+                }
+            }
+            return@setOnItemSelectedListener true
+        }
     }
 }
