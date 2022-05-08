@@ -6,4 +6,26 @@
     <string name="alarm">알림</string>
     <string name="mypage">마이페이지</string>
     <string name="writing">글쓰기</string>
+
+    <string name="id">아이디</string>
+    <string name="pw">비밀번호</string>
+    <string name="login">로그인</string>
+    <string name="register">회원가입</string>
+    <string name="login_info">아직 회원이 아니신가요?</string>
+    <string name="next">다음</string>
+
+    <string name="signup_info_one">아이디와 비밀번호를\n 입력해주세요.</string>
+    <string name="signup_info_two">기본 정보를\n 입력해주세요.</string>
+    <string name="confirm_already_exist">중복확인</string>
+    
+    <string name="name">이름</string>
+    <string name="belong">소속</string>
+    <string name="email">이메일</string>
+    <string name="sex">성별</string>
+
+    <string name="man">남성</string>
+    <string name="woman">여성</string>
+    <string name="etc">기타</string>
+
+    <string name="position">포지션</string>
 </resources>
