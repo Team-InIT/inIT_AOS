@@ -15,7 +15,7 @@
     <string name="next">다음</string>
 
     <string name="signup_info_one">아이디와 비밀번호를\n 입력해주세요.</string>
-    <string name="signup_info_two">기본 정보를\n 입력해주세요.</string>
+    <string name="signup_info_two">기본 정보를 입력해주세요.</string>
     <string name="confirm_already_exist">중복확인</string>
     
     <string name="name">이름</string>
@@ -28,4 +28,18 @@
     <string name="etc">기타</string>
 
     <string name="position">포지션</string>
+
+    <string name="id_hint">영문,한글,숫자를 합하여 2–8자</string>
+    <string name="pw_hint">영문, 숫자를 합하여 6–20자</string>
+    <string name="pw_hint_confirm">비밀번호 확인</string>
+    <string name="signup_done">회원가입 완료</string>
+
+    <string name="top">상</string>
+    <string name="middle">중</string>
+    <string name="bottom">하</string>
+
+    <string name="warn_id_check">중복된 아이디입니다.</string>
+    <string name="warn_id">최소 2글자이상 입력해주세요.</string>
+    <string name="warn_pw">올바른 형식으로 입력해주세요.</string>
+    <string name="warn_pw_check">비밀번호가 일치하지 않습니다.</string>
 </resources>

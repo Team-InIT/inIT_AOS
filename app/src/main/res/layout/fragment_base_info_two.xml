@@ -19,14 +19,16 @@
 
         <TextView
             android:id="@+id/tv_title"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:text="@string/signup_info_two"
             android:textColor="@color/black"
-            android:textFontWeight="700"
+            android:textStyle="bold"
             android:textSize="24sp"
-            app:layout_constraintStart_toStartOf="@+id/ibtn_back"
+            android:layout_marginHorizontal="36dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/ibtn_back" />
 
         <TextView
@@ -35,6 +37,8 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:text="@string/position"
+            android:textSize="16sp"
+            android:textColor="@color/text_main"
             app:layout_constraintStart_toStartOf="@id/tv_title"
             app:layout_constraintTop_toBottomOf="@id/tv_title" />
 
@@ -52,6 +56,8 @@
             android:id="@+id/tv_skill"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:textColor="@color/text_main"
             app:layout_constraintStart_toStartOf="@id/rv_position"
             app:layout_constraintTop_toBottomOf="@id/rv_position"
             android:layout_marginTop="10dp"
@@ -65,27 +71,27 @@
             app:layout_constraintTop_toBottomOf="@id/tv_skill"
             app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginTop="10dp"
-            android:layout_marginEnd="10dp">
+            android:layout_marginEnd="36dp">
 
             <androidx.appcompat.widget.AppCompatButton
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:background="@drawable/selector_skill_left_btn"
-                android:text="상"
+                android:text="@string/top"
                 android:layout_weight="1"/>
 
             <androidx.appcompat.widget.AppCompatButton
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:background="@drawable/selector_skill_btn"
-                android:text="중"
+                android:text="@string/middle"
                 android:layout_weight="1"/>
 
             <androidx.appcompat.widget.AppCompatButton
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:background="@drawable/selector_skill_right_btn"
-                android:text="하"
+                android:text="@string/bottom"
                 android:layout_weight="1"/>
 
         </LinearLayout>
@@ -97,7 +103,7 @@
             android:layout_marginHorizontal="24dp"
             android:layout_marginBottom="12dp"
             android:background="@drawable/selector_login_btn"
-            android:text="다음"
+            android:text="@string/signup_done"
             android:textColor="@color/white"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
