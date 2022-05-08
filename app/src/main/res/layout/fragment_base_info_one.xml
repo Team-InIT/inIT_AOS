@@ -61,7 +61,7 @@
                 android:layout_height="match_parent">
 
                 <EditText
-                    android:id="@+id/etv_id"
+                    android:id="@+id/etv_name"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:background="@drawable/selector_login_bg"
@@ -207,6 +207,7 @@
             android:orientation="horizontal">
 
             <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_man"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:background="@drawable/selector_sex_btn"
@@ -215,6 +216,7 @@
                 android:layout_weight="1"/>
 
             <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_woman"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:background="@drawable/selector_sex_btn"
@@ -223,6 +225,7 @@
                 android:layout_weight="1"/>
 
             <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_etc"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:background="@drawable/selector_sex_btn"
