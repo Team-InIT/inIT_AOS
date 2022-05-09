@@ -19,14 +19,16 @@
 
         <TextView
             android:id="@+id/tv_title"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:text="@string/signup_info_one"
             android:textColor="@color/black"
-            android:textFontWeight="700"
+            android:textStyle="bold"
             android:textSize="24sp"
-            app:layout_constraintStart_toStartOf="@+id/ibtn_back"
+            android:layout_marginHorizontal="36dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/ibtn_back" />
 
         <TextView
@@ -35,6 +37,8 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:text="@string/id"
+            android:textSize="16sp"
+            android:textColor="@color/text_main"
             app:layout_constraintStart_toStartOf="@id/tv_title"
             app:layout_constraintTop_toBottomOf="@id/tv_title" />
 
@@ -59,9 +63,10 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:background="@drawable/selector_login_bg"
-                    android:hint="@string/id"
+                    android:hint="@string/id_hint"
                     android:inputType="text"
                     android:maxLines="1"
+                    android:textSize="12sp"
                     android:paddingHorizontal="16dp"
                     android:textColor="@color/black" />
 
@@ -81,11 +86,13 @@
             android:id="@+id/btn_id_confirm"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:background="@drawable/selector_login_btn"
+            android:enabled="false"
             android:text="@string/confirm_already_exist"
             android:textColor="@color/white"
-            android:background="@drawable/selector_login_btn"
-            android:layout_marginStart="5dp"
-            android:layout_marginEnd="10dp"
+            android:textSize="12sp"
+            android:layout_marginEnd="36dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/ll_id"
             app:layout_constraintTop_toTopOf="@id/ll_id" />
@@ -94,12 +101,13 @@
             android:id="@+id/tv_warn_id"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintStart_toStartOf="@id/ll_id"
-            app:layout_constraintTop_toBottomOf="@id/ll_id"
             android:layout_marginTop="10dp"
-            android:textSize="12sp"
+            android:text="@string/warn_id"
             android:textColor="@color/red"
-            android:text="중복된 아이디입니다."/>
+            android:textSize="12sp"
+            android:visibility="invisible"
+            app:layout_constraintEnd_toEndOf="@+id/btn_id_confirm"
+            app:layout_constraintTop_toBottomOf="@id/ll_id" />
 
 
         <TextView
@@ -108,8 +116,11 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:text="@string/pw"
-            app:layout_constraintStart_toStartOf="@id/tv_warn_id"
+            android:textColor="@color/text_main"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="@+id/ll_id"
             app:layout_constraintTop_toBottomOf="@id/tv_warn_id" />
+
         <LinearLayout
             android:id="@+id/ll_pw"
             android:layout_width="0dp"
@@ -131,11 +142,12 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:background="@drawable/selector_login_bg"
-                    android:hint="@string/pw"
+                    android:hint="@string/pw_hint"
                     android:inputType="textPassword"
                     android:maxLines="1"
                     android:paddingHorizontal="16dp"
-                    android:textColor="@color/black" />
+                    android:textColor="@color/black"
+                    android:textSize="12sp" />
 
                 <ImageButton
                     android:id="@+id/ibtn_pw_close"
@@ -153,12 +165,13 @@
             android:id="@+id/tv_warn_pw"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintStart_toStartOf="@id/ll_pw"
-            app:layout_constraintTop_toBottomOf="@id/ll_pw"
             android:layout_marginTop="10dp"
-            android:textSize="12sp"
+            android:text="@string/warn_pw"
             android:textColor="@color/red"
-            android:text="최소 6글자이상 입력해주세요."/>
+            android:textSize="12sp"
+            android:visibility="invisible"
+            app:layout_constraintEnd_toEndOf="@+id/ll_pw"
+            app:layout_constraintTop_toBottomOf="@id/ll_pw" />
 
 
         <TextView
@@ -167,7 +180,9 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:text="@string/pw"
-            app:layout_constraintStart_toStartOf="@id/tv_warn_pw"
+            android:textColor="@color/text_main"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="@+id/ll_pw"
             app:layout_constraintTop_toBottomOf="@id/tv_warn_pw" />
         <LinearLayout
             android:id="@+id/ll_pw_confirm"
@@ -190,7 +205,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:background="@drawable/selector_login_bg"
-                    android:hint="@string/pw"
+                    android:hint="@string/pw_hint_confirm"
+                    android:textSize="12sp"
                     android:inputType="textPassword"
                     android:maxLines="1"
                     android:paddingHorizontal="16dp"
@@ -212,25 +228,28 @@
             android:id="@+id/tv_warn_pw_confirm"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintStart_toStartOf="@id/ll_pw_confirm"
-            app:layout_constraintTop_toBottomOf="@id/ll_pw_confirm"
             android:layout_marginTop="10dp"
-            android:textSize="12sp"
+            android:text="@string/warn_pw_check"
             android:textColor="@color/red"
-            android:text="최소 6글자이상 입력해주세요."/>
+            android:textSize="12sp"
+            android:visibility="invisible"
+            app:layout_constraintEnd_toEndOf="@+id/ll_pw_confirm"
+            app:layout_constraintTop_toBottomOf="@id/ll_pw_confirm" />
 
 
-            <androidx.appcompat.widget.AppCompatButton
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="24dp"
-                android:layout_marginBottom="12dp"
-                android:background="@drawable/selector_login_btn"
-                android:text="다음"
-                android:textColor="@color/white"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent" />
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_next"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="24dp"
+            android:layout_marginBottom="12dp"
+            android:background="@drawable/selector_login_btn"
+            android:text="@string/next"
+            android:enabled="false"
+            android:textColor="@color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

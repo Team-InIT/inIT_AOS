@@ -20,55 +20,60 @@
 
         <TextView
             android:id="@+id/tv_title"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:text="@string/signup_info_two"
             android:textColor="@color/black"
-            android:textFontWeight="700"
+            android:textStyle="bold"
             android:textSize="24sp"
-            app:layout_constraintStart_toStartOf="@+id/ibtn_back"
+            android:layout_marginHorizontal="36dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/ibtn_back" />
 
         <TextView
-            android:id="@+id/tv_id"
+            android:id="@+id/tv_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:text="@string/name"
+            android:textSize="16sp"
+            android:textColor="@color/text_main"
             app:layout_constraintStart_toStartOf="@id/tv_title"
             app:layout_constraintTop_toBottomOf="@id/tv_title" />
 
         <LinearLayout
-            android:id="@+id/ll_id"
+            android:id="@+id/ll_name"
             android:layout_width="0dp"
             android:layout_height="48dp"
             android:layout_marginTop="10dp"
-            android:layout_marginEnd="10dp"
+            android:layout_marginEnd="36dp"
             android:background="@drawable/selector_login_bg"
             android:orientation="horizontal"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_chainStyle="spread"
-            app:layout_constraintStart_toStartOf="@id/tv_id"
-            app:layout_constraintTop_toBottomOf="@+id/tv_id">
+            app:layout_constraintStart_toStartOf="@id/tv_name"
+            app:layout_constraintTop_toBottomOf="@+id/tv_name">
 
             <FrameLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
                 <EditText
-                    android:id="@+id/etv_id"
+                    android:id="@+id/etv_name"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:background="@drawable/selector_login_bg"
                     android:hint="@string/name"
                     android:inputType="text"
                     android:maxLines="1"
+                    android:textSize="12sp"
                     android:paddingHorizontal="16dp"
                     android:textColor="@color/black" />
 
                 <ImageButton
-                    android:id="@+id/ibtn_id_close"
+                    android:id="@+id/ibtn_name_close"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_gravity="center|end"
@@ -81,41 +86,44 @@
 
 
         <TextView
-            android:id="@+id/tv_pw"
+            android:id="@+id/tv_email"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:text="@string/email"
-            app:layout_constraintStart_toStartOf="@id/ll_id"
-            app:layout_constraintTop_toBottomOf="@+id/ll_id"/>
+            android:textSize="16sp"
+            android:textColor="@color/text_main"
+            app:layout_constraintStart_toStartOf="@id/ll_name"
+            app:layout_constraintTop_toBottomOf="@+id/ll_name"/>
         <LinearLayout
-            android:id="@+id/ll_pw"
+            android:id="@+id/ll_email"
             android:layout_width="0dp"
             android:layout_height="48dp"
             android:layout_marginTop="10dp"
             android:background="@drawable/selector_login_bg"
             android:orientation="horizontal"
-            app:layout_constraintEnd_toEndOf="@id/ll_id"
-            app:layout_constraintStart_toStartOf="@id/tv_pw"
-            app:layout_constraintTop_toBottomOf="@+id/tv_pw">
+            app:layout_constraintEnd_toEndOf="@id/ll_name"
+            app:layout_constraintStart_toStartOf="@id/tv_email"
+            app:layout_constraintTop_toBottomOf="@+id/tv_email">
 
             <FrameLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
                 <EditText
-                    android:id="@+id/etv_pw"
+                    android:id="@+id/etv_email"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:background="@drawable/selector_login_bg"
                     android:hint="@string/email"
-                    android:inputType="textPassword"
+                    android:inputType="textEmailAddress"
                     android:maxLines="1"
+                    android:textSize="12sp"
                     android:paddingHorizontal="16dp"
                     android:textColor="@color/black" />
 
                 <ImageButton
-                    android:id="@+id/ibtn_pw_close"
+                    android:id="@+id/ibtn_email_close"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_gravity="center|end"
@@ -128,42 +136,45 @@
 
 
         <TextView
-            android:id="@+id/tv_pw_confirm"
+            android:id="@+id/tv_belong"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/belong"
             android:layout_marginTop="10dp"
-            app:layout_constraintTop_toBottomOf="@+id/ll_pw"
-            app:layout_constraintStart_toStartOf="@id/ll_pw" />
+            android:textSize="16sp"
+            android:textColor="@color/text_main"
+            app:layout_constraintTop_toBottomOf="@+id/ll_email"
+            app:layout_constraintStart_toStartOf="@id/ll_email" />
         <LinearLayout
-            android:id="@+id/ll_pw_confirm"
+            android:id="@+id/ll_belong"
             android:layout_width="0dp"
             android:layout_height="48dp"
             android:layout_marginTop="10dp"
             android:background="@drawable/selector_login_bg"
             android:orientation="horizontal"
-            app:layout_constraintEnd_toEndOf="@id/ll_id"
+            app:layout_constraintEnd_toEndOf="@id/ll_name"
             app:layout_constraintHorizontal_chainStyle="spread"
-            app:layout_constraintStart_toStartOf="@id/tv_pw_confirm"
-            app:layout_constraintTop_toBottomOf="@+id/tv_pw_confirm">
+            app:layout_constraintStart_toStartOf="@id/tv_belong"
+            app:layout_constraintTop_toBottomOf="@+id/tv_belong">
 
             <FrameLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
                 <EditText
-                    android:id="@+id/etv_pw_confirm"
+                    android:id="@+id/etv_belong"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:background="@drawable/selector_login_bg"
                     android:hint="@string/belong"
                     android:inputType="textPassword"
                     android:maxLines="1"
+                    android:textSize="12sp"
                     android:paddingHorizontal="16dp"
                     android:textColor="@color/black" />
 
                 <ImageButton
-                    android:id="@+id/ibtn_pw_confirm_close"
+                    android:id="@+id/ibtn_belong_close"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_gravity="center|end"
@@ -180,8 +191,10 @@
             android:layout_height="wrap_content"
             android:text="@string/sex"
             android:layout_marginTop="10dp"
-            app:layout_constraintTop_toBottomOf="@+id/ll_pw_confirm"
-            app:layout_constraintStart_toStartOf="@id/ll_pw_confirm" />
+            android:textSize="16sp"
+            android:textColor="@color/text_main"
+            app:layout_constraintTop_toBottomOf="@+id/ll_belong"
+            app:layout_constraintStart_toStartOf="@id/ll_belong" />
 
         <LinearLayout
             android:id="@+id/ll_sex"
@@ -190,27 +203,32 @@
             android:layout_marginTop="10dp"
             app:layout_constraintStart_toStartOf="@id/tv_sex"
             app:layout_constraintTop_toBottomOf="@id/tv_sex"
-            app:layout_constraintEnd_toEndOf="@id/ll_pw_confirm"
+            app:layout_constraintEnd_toEndOf="@id/ll_belong"
             android:orientation="horizontal">
 
             <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_man"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:background="@drawable/selector_login_btn"
+                android:background="@drawable/selector_sex_btn"
                 android:text="@string/man"
+                android:layout_marginEnd="5dp"
                 android:layout_weight="1"/>
 
             <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_woman"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:background="@drawable/selector_login_btn"
+                android:background="@drawable/selector_sex_btn"
                 android:text="@string/woman"
+                android:layout_marginEnd="5dp"
                 android:layout_weight="1"/>
 
             <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_etc"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:background="@drawable/selector_login_btn"
+                android:background="@drawable/selector_sex_btn"
                 android:text="@string/etc"
                 android:layout_weight="1"/>
 
@@ -218,12 +236,13 @@
 
 
         <androidx.appcompat.widget.AppCompatButton
-            android:layout_width="match_parent"
+            android:id="@+id/btn_next"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="24dp"
             android:layout_marginBottom="12dp"
             android:background="@drawable/selector_login_btn"
             android:text="다음"
+            android:layout_marginHorizontal="24dp"
             android:textColor="@color/white"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

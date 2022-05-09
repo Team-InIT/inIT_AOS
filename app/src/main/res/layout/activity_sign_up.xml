@@ -11,9 +11,9 @@
         android:id="@+id/pb_signup"
         android:layout_width="0dp"
         android:layout_height="6dp"
-        android:orientation="horizontal"
         style="@android:style/Widget.ProgressBar.Horizontal"
         android:progress="30"
+        android:progressDrawable="@drawable/custom_progressbar"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
