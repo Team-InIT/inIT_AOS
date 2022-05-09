@@ -108,10 +108,10 @@ class BaseInfoOneFragment :
                 }
 
                 checkArray[3] = true
-                checkNextBtnState() // 버튼 활성화 체크
             }
         }
 
+        checkNextBtnState() // 버튼 활성화 체크
     }
 
     // 성별 버튼 이벤트 초기화
