@@ -108,7 +108,7 @@ class BaseInfoOneFragment :
                 }
 
                 checkArray[3] = true
-            }
+            }else checkArray[3] = false
         }
 
         checkNextBtnState() // 버튼 활성화 체크
