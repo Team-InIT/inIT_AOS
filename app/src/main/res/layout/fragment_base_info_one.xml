@@ -3,6 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -166,7 +167,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:background="@drawable/selector_login_bg"
-                    android:hint="@string/belong"
+                    android:hint="@string/belong_hint"
                     android:inputType="textPassword"
                     android:maxLines="1"
                     android:textSize="12sp"
@@ -186,6 +187,55 @@
         </LinearLayout>
 
         <TextView
+            android:id="@+id/tv_academic"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/academic"
+            android:layout_marginTop="10dp"
+            android:textSize="16sp"
+            android:textColor="@color/text_main"
+            app:layout_constraintTop_toBottomOf="@+id/ll_belong"
+            app:layout_constraintStart_toStartOf="@id/ll_belong" />
+
+        <LinearLayout
+            android:id="@+id/ll_academic"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            app:layout_constraintStart_toStartOf="@id/tv_academic"
+            app:layout_constraintTop_toBottomOf="@id/tv_academic"
+            app:layout_constraintEnd_toEndOf="@id/ll_belong"
+            android:orientation="horizontal">
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_in_school"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/selector_sex_btn"
+                android:text="@string/in_school"
+                android:layout_marginEnd="5dp"
+                android:layout_weight="1"/>
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_rest_school"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/selector_sex_btn"
+                android:text="@string/rest_school"
+                android:layout_marginEnd="5dp"
+                android:layout_weight="1"/>
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_graduate"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/selector_sex_btn"
+                android:text="@string/graduate"
+                android:layout_weight="1"/>
+
+        </LinearLayout>
+
+        <TextView
             android:id="@+id/tv_sex"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -193,8 +243,8 @@
             android:layout_marginTop="10dp"
             android:textSize="16sp"
             android:textColor="@color/text_main"
-            app:layout_constraintTop_toBottomOf="@+id/ll_belong"
-            app:layout_constraintStart_toStartOf="@id/ll_belong" />
+            app:layout_constraintTop_toBottomOf="@+id/ll_academic"
+            app:layout_constraintStart_toStartOf="@id/ll_academic" />
 
         <LinearLayout
             android:id="@+id/ll_sex"
@@ -203,7 +253,7 @@
             android:layout_marginTop="10dp"
             app:layout_constraintStart_toStartOf="@id/tv_sex"
             app:layout_constraintTop_toBottomOf="@id/tv_sex"
-            app:layout_constraintEnd_toEndOf="@id/ll_belong"
+            app:layout_constraintEnd_toEndOf="@id/ll_academic"
             android:orientation="horizontal">
 
             <androidx.appcompat.widget.AppCompatButton
@@ -231,9 +281,7 @@
                 android:background="@drawable/selector_sex_btn"
                 android:text="@string/etc"
                 android:layout_weight="1"/>
-
         </LinearLayout>
-
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btn_next"

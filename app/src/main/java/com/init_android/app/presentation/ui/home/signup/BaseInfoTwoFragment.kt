@@ -25,13 +25,18 @@ class BaseInfoTwoFragment :
 
         selectBtnInit()
         initPositionRV()
+
+        goBackBtn() // 뒤로가기
     }
 
     // RV 초기화
     private fun initPositionRV() {
         positionAdapter = PositionAdapter()
         binding.rvPosition.adapter = positionAdapter
-        positionAdapter.positionList.addAll(
+
+        val itemList = positionAdapter.positionList
+
+        itemList.addAll(
             listOf(
                 PositionData("DESIGN", R.drawable.ic_designer, false),
                 PositionData("PLAN", R.drawable.ic_planner, false),
@@ -43,14 +48,25 @@ class BaseInfoTwoFragment :
             )
         )
 
+        positionAdapter.notifyDataSetChanged()
+
         // 아이템 선택 이벤트
         positionAdapter.setItemClickListener(object : PositionAdapter.OnItemClickListener {
             override fun onClick(v: View, position: Int) {
-                v.isSelected = v.isSelected == false
+
+                if(itemList[position].checkState){ // 아이템 선택됨
+                    itemList[position].checkState = false // 선택 off
+                }else{ // 아이템 선택x
+                    for (i in 0 until itemList.size){ // 모든 선택 off
+                        itemList[i].checkState = false
+                    }
+                    itemList[position].checkState = true // 클릭 요소만  선택 on
+                }
+
+                 positionAdapter.notifyDataSetChanged() // 클릭할 때마다 데이터 갱신
             }
         })
 
-        positionAdapter.notifyDataSetChanged()
     }
 
     // 숙련도 선택 이벤트
@@ -93,5 +109,12 @@ class BaseInfoTwoFragment :
     // 다음 버튼 활성화 여부 체크
     private fun checkNextBtnState() {
         binding.btnNext.isEnabled = checkState != false
+    }
+
+    // 뒤로가기 버튼 활성화
+    private fun goBackBtn(){
+        binding.ibtnBack.setOnClickListener {
+            (activity as SignUpActivity).finish()
+        }
     }
 }

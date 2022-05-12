@@ -17,8 +17,8 @@ class BaseInfoOneFragment :
     BaseFragment<FragmentBaseInfoOneBinding>(R.layout.fragment_base_info_one) {
 
     // check 변수 확인
-    // checkArray => (이름, 이메일, 소속, 성별)
-    var checkArray = arrayOf(false, false, false, false)
+    // checkArray => (이름, 이메일, 소속, 학적상태, 성별)
+    var checkArray = arrayOf(false, false, false, false, false)
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -30,6 +30,8 @@ class BaseInfoOneFragment :
         observeEditTxtField()
         textClearEvent()
         selectBtnInit()
+
+        goBackBtn() // 뒤로가기
 
     }
 
@@ -84,6 +86,36 @@ class BaseInfoOneFragment :
         }
     }
 
+    // 학적상태 선택 이벤트
+    private fun selectAcademic(btn:AppCompatButton){
+        btn.isSelected = !btn.isSelected
+
+        // 나머지 버튼 비활성화
+        binding.apply {
+            if (btn.isSelected) {
+                when (btn) {
+                    btnInSchool -> {
+                        btnRestSchool.isSelected = false
+                        btnGraduate.isSelected = false
+                    }
+                    btnRestSchool -> {
+                        btnInSchool.isSelected = false
+                        btnGraduate.isSelected = false
+                    }
+                    btnGraduate -> {
+                        btnInSchool.isSelected = false
+                        btnRestSchool.isSelected = false
+                    }
+                }
+
+                checkArray[3] = true
+            }else checkArray[3] = false
+        }
+
+        checkNextBtnState() // 버튼 활성화 체크
+
+    }
+
     // 성별 선택 이벤트
     private fun selectSexBtn(btn: AppCompatButton) {
 
@@ -107,24 +139,35 @@ class BaseInfoOneFragment :
                     }
                 }
 
-                checkArray[3] = true
-            }else checkArray[3] = false
+                checkArray[4] = true
+            }else checkArray[4] = false
         }
 
         checkNextBtnState() // 버튼 활성화 체크
     }
 
-    // 성별 버튼 이벤트 초기화
+    // 버튼 이벤트 초기화
     private fun selectBtnInit() {
         binding.apply {
             btnMan.setOnClickListener { selectSexBtn(btnMan) }
             btnWoman.setOnClickListener { selectSexBtn(btnWoman) }
             btnEtc.setOnClickListener { selectSexBtn(btnEtc) }
+
+            btnInSchool.setOnClickListener { selectAcademic(btnInSchool) }
+            btnRestSchool.setOnClickListener { selectAcademic(btnRestSchool) }
+            btnGraduate.setOnClickListener { selectAcademic(btnGraduate) }
         }
     }
 
     // 다음 버튼 활성화 여부 체크
     private fun checkNextBtnState() {
-        binding.btnNext.isEnabled = checkArray.contentEquals(arrayOf(true, true, true, true))
+        binding.btnNext.isEnabled = checkArray.contentEquals(arrayOf(true, true, true ,true, true))
+    }
+
+    // 뒤로가기 버튼 활성화
+    private fun goBackBtn(){
+        binding.ibtnBack.setOnClickListener {
+            (activity as SignUpActivity).finish()
+        }
     }
 }

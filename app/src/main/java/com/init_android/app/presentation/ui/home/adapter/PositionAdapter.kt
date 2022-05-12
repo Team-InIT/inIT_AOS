@@ -39,10 +39,11 @@ class PositionAdapter : RecyclerView.Adapter<PositionAdapter.PositionViewHolder>
         private val binding : ItemRvPositionBinding
     ) : RecyclerView.ViewHolder(binding.root){
 
-
         fun onBind(data : PositionData){
             binding.tvPosition.text = data.positionType
             Glide.with(binding.root).load(data.icon).into(binding.ivIcon)
+
+            binding.root.isSelected = data.checkState != false
         }
     }
 
