@@ -23,6 +23,8 @@ class PersonalInfoFragment :
         initTransFragmentEvent() // fragment 교체
         observeEditTxtField() // 텍스트 활동 감지
         textClearEvent() // 텍스트 clear 이벤트
+
+        goBackBtn() // 뒤로가기
     }
 
     // Fragment 교체
@@ -115,6 +117,13 @@ class PersonalInfoFragment :
     // 다음 버튼 활성화 여부 체크
     private fun checkNextBtnState() {
         binding.btnNext.isEnabled = checkArray.contentEquals(arrayOf(true, true, true))
+    }
+
+    // 뒤로가기 버튼 활성화
+    private fun goBackBtn(){
+        binding.ibtnBack.setOnClickListener {
+            (activity as SignUpActivity).finish()
+        }
     }
 
     // todo 중복확인 서버 통신 시도

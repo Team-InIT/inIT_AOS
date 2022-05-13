@@ -19,18 +19,24 @@
     <string name="confirm_already_exist">중복확인</string>
     
     <string name="name">이름</string>
-    <string name="belong">소속</string>
+    <string name="belong">학교(직장명)</string>
     <string name="email">이메일</string>
+    <string name="academic">학적상태</string>
     <string name="sex">성별</string>
 
     <string name="man">남성</string>
     <string name="woman">여성</string>
     <string name="etc">기타</string>
+    
+    <string name="in_school">재학</string>
+    <string name="rest_school">휴학</string>
+    <string name="graduate">졸업</string>
 
     <string name="position">포지션</string>
 
     <string name="id_hint">영문,한글,숫자를 합하여 2–8자</string>
     <string name="pw_hint">영문, 숫자를 합하여 6–20자</string>
+    <string name="belong_hint">인잇대학교</string>
     <string name="pw_hint_confirm">비밀번호 확인</string>
     <string name="signup_done">회원가입 완료</string>
 
