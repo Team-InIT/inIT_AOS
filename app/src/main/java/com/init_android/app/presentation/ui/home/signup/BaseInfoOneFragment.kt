@@ -6,11 +6,15 @@ import android.text.TextWatcher
 import android.view.View
 import android.widget.EditText
 import android.widget.ImageButton
+import android.widget.Toast
 import androidx.appcompat.widget.AppCompatButton
 import androidx.core.widget.doOnTextChanged
 import com.init_android.R
 import com.init_android.databinding.FragmentBaseInfoOneBinding
 import com.playtogether_android.app.presentation.base.BaseFragment
+import java.util.*
+import kotlin.collections.ArrayList
+import kotlin.math.sign
 
 // 기본정보(1)
 class BaseInfoOneFragment :
@@ -20,11 +24,20 @@ class BaseInfoOneFragment :
     // checkArray => (이름, 이메일, 소속, 학적상태, 성별)
     var checkArray = arrayOf(false, false, false, false, false)
 
+    // 넘겨줄 회원정보 배열 선언(id,pw, // 이름,이메일,소속,학적상태,성별)
+    private var signUpArray = arrayListOf<Any>()
+
+    // 선택된 학적상태, 성별 버튼을 찾기 위한 변수
+    var academicSelected = 0
+    var sexSelected = 0
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         // 프로그레스바 진행 정도
         (activity as SignUpActivity).binding.pbSignup.progress = 60
+
+        getBundle() // 이전 fragment 에서 정보 받아오기
 
         initTransFragmentEvent()
         observeEditTxtField()
@@ -35,10 +48,35 @@ class BaseInfoOneFragment :
 
     }
 
+    // bundle 값 받아오기
+    private fun getBundle(){
+        val bundle = arguments
+        val arrayList = bundle?.getSerializable("signUpArray")
+        signUpArray.add((arrayList as ArrayList<*>)[0])
+        signUpArray.add(arrayList[1])
+    }
+
     // Fragment 초기화
     private fun initTransFragmentEvent() {
         binding.btnNext.setOnClickListener {
             val baseInfoTwoFragment = BaseInfoTwoFragment()
+
+            // fragment 에 회원가입 정보 넘겨주기
+            val name = binding.etvName.text.toString() // 이름
+            val email = binding.etvEmail.text.toString() // 이메일
+            val belong =  binding.etvBelong.text.toString()// 소속
+            val academic = academicSelected// 학적상태
+            val sex = sexSelected // 성별
+
+            signUpArray.add(name)
+            signUpArray.add(email)
+            signUpArray.add(belong)
+            signUpArray.add(academic)
+            signUpArray.add(sex)
+
+            val bundle = Bundle()
+            bundle.putSerializable("signUpArray",signUpArray)
+            baseInfoTwoFragment.arguments = bundle
 
             parentFragmentManager.beginTransaction()
                 .replace(R.id.fragment_sign_up, baseInfoTwoFragment)
@@ -109,6 +147,13 @@ class BaseInfoOneFragment :
                 }
 
                 checkArray[3] = true
+
+                when(btn){
+                    btnInSchool -> academicSelected = 0
+                    btnRestSchool -> academicSelected = 1
+                    btnGraduate -> academicSelected = 2
+                }
+
             }else checkArray[3] = false
         }
 
@@ -140,6 +185,13 @@ class BaseInfoOneFragment :
                 }
 
                 checkArray[4] = true
+
+                when(btn){
+                    btnMan -> sexSelected = 0
+                    btnWoman -> sexSelected = 1
+                    btnEtc -> sexSelected = 2
+                }
+
             }else checkArray[4] = false
         }
 

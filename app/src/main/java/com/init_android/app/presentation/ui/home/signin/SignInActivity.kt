@@ -71,11 +71,11 @@ class SignInActivity : BaseActivity<ActivitySignInBinding>(R.layout.activity_sig
 
     // 홈화면 이동
     private fun initLoginBtn(){
-        loginNetWork()// 로그인 서버 통신 시도
+        tryPostLogin()// 로그인 서버 통신 시도
     }
 
     // 로그인 서버통신 함수
-    private fun loginNetWork(){
+    private fun tryPostLogin(){
         val requestSignIn = RequestSignIn(
             id = binding.etvId.text.toString(),
             pw = binding.etvPw.text.toString()
