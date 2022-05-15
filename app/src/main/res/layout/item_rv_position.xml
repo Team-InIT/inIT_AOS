@@ -44,8 +44,8 @@
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:background="@color/signup_selector_color"
-                android:layout_weight="1">
+                android:layout_weight="1"
+                android:background="@drawable/selector_signup_position">
 
                 <TextView
                     android:id="@+id/tv_position"
