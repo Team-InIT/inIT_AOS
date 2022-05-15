@@ -27,7 +27,7 @@
     <string name="man">남성</string>
     <string name="woman">여성</string>
     <string name="etc">기타</string>
-    
+
     <string name="in_school">재학</string>
     <string name="rest_school">휴학</string>
     <string name="graduate">졸업</string>
@@ -69,5 +69,10 @@
     <string name="open_project_select">선택해주세요</string>
     <string name="open_project_detail">상세설명</string>
     <string name="open_project_write">작성해주세요</string>
+
+    <string name="online">온라인</string>
+    <string name="offline">오프라인</string>
+    <string name="enrollment">재학상태</string>
+    <string name="finish">완료</string>
 
 </resources>

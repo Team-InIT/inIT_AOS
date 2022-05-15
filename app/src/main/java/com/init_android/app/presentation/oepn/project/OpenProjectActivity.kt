@@ -1,4 +1,4 @@
-package com.init_android.app.presentation.ui
+package com.init_android.app.presentation.oepn.project
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
