@@ -3,12 +3,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <data></data>
+    <data>
+
+    </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:context=".presentation.ui.createThunder.CreateThunderActivity">
+        android:layout_height="match_parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/cl_open_project_top"
@@ -18,7 +19,7 @@
             app:layout_constraintTop_toTopOf="parent">
 
             <ImageView
-                android:id="@+id/iv_createthunder_back"
+                android:id="@+id/iv_open_project_back"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
@@ -29,7 +30,7 @@
                 app:srcCompat="@drawable/ic_icn_back" />
 
             <TextView
-                android:id="@+id/tv_createthunder_openthunder"
+                android:id="@+id/tv_open_project_open"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
@@ -43,7 +44,7 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/tv_createthunder_openthunder2"
+                android:id="@+id/tv_open_project_opensub"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp"
@@ -55,14 +56,15 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tv_createthunder_openthunder" />
+                app:layout_constraintTop_toBottomOf="@+id/tv_open_project_open" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/cl_createthunder_bottom"
+            android:id="@+id/cl_open_project_bottom"
             android:layout_width="match_parent"
             android:layout_height="0dp"
+            android:background="@color/gray_3"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintTop_toBottomOf="@id/cl_open_project_top">
 
@@ -78,12 +80,12 @@
                     android:layout_height="match_parent">
 
                     <TextView
-                        android:id="@+id/tv_createthunder_name"
+                        android:id="@+id/tv_open_project_name"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="20dp"
                         android:layout_marginTop="20dp"
-                        android:fontFamily="@font/noto_sans_kr_bold"
+                        android:fontFamily="@font/noto_sans_kr_medium"
                         android:includeFontPadding="false"
                         android:text="@string/open_project_name"
                         android:textColor="@color/black"
@@ -92,7 +94,7 @@
                         app:layout_constraintTop_toTopOf="parent" />
 
                     <EditText
-                        android:id="@+id/et_createthunder_name"
+                        android:id="@+id/et_open_project_name"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="13dp"
@@ -103,14 +105,197 @@
                         android:hint="@string/open_project_name_hint"
                         android:includeFontPadding="false"
                         android:inputType="textPersonName"
-                        android:paddingVertical="20dp"
+                        android:paddingVertical="13dp"
                         android:textColor="@color/gray_2"
                         android:textColorHint="@color/gray_6"
                         android:textSize="14sp"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="@id/tv_createthunder_name"
-                        app:layout_constraintTop_toBottomOf="@id/tv_createthunder_name" />
+                        app:layout_constraintStart_toStartOf="@id/tv_open_project_name"
+                        app:layout_constraintTop_toBottomOf="@id/tv_open_project_name" />
+
+                    <TextView
+                        android:id="@+id/tv_open_project_type"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="20dp"
+                        android:fontFamily="@font/noto_sans_kr_medium"
+                        android:includeFontPadding="false"
+                        android:text="@string/open_project_sort"
+                        android:textColor="@color/black"
+                        android:textSize="16sp"
+                        android:layout_marginTop="15dp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/et_open_project_name" />
+
+                    <EditText
+                        android:id="@+id/et_open_project_type"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="20dp"
+                        android:background="@drawable/selector_login_bg"
+                        android:fontFamily="@font/noto_sans_kr_regular"
+                        android:gravity="center"
+                        android:hint="@string/open_project_name_hint"
+                        android:includeFontPadding="false"
+                        android:inputType="textPersonName"
+                        android:paddingVertical="13dp"
+                        android:textColor="@color/gray_2"
+                        android:textColorHint="@color/gray_6"
+                        android:textSize="14sp"
+                        android:layout_marginTop="13dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="@id/tv_open_project_name"
+                        app:layout_constraintTop_toBottomOf="@+id/tv_open_project_type" />
+
+                    <TextView
+                        android:id="@+id/tv_open_project_time"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="20dp"
+                        android:fontFamily="@font/noto_sans_kr_medium"
+                        android:includeFontPadding="false"
+                        android:text="@string/open_project_gather"
+                        android:textColor="@color/black"
+                        android:textSize="16sp"
+                        android:layout_marginTop="15dp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/et_open_project_type" />
+
+
+                    <TextView
+                        android:id="@+id/tv_open_project_start"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="13dp"
+                        android:fontFamily="@font/noto_sans_kr_medium"
+                        android:includeFontPadding="false"
+                        android:text="2022.05.15"
+                        android:textColor="@color/black"
+                        android:textSize="16sp"
+                        app:layout_constraintEnd_toEndOf="@+id/et_open_project_date_when_start"
+                        app:layout_constraintStart_toStartOf="@+id/et_open_project_date_when_start"
+                        app:layout_constraintTop_toBottomOf="@+id/tv_open_project_time" />
+
+                    <TextView
+                        android:id="@+id/tv_open_project_at"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="13dp"
+                        android:fontFamily="@font/noto_sans_kr_medium"
+                        android:includeFontPadding="false"
+                        android:text="~"
+                        android:textColor="@color/black"
+                        android:textSize="16sp"
+                        app:layout_constraintEnd_toStartOf="@+id/et_open_project_date_end"
+                        app:layout_constraintStart_toEndOf="@+id/tv_open_project_start"
+                        app:layout_constraintTop_toBottomOf="@+id/tv_open_project_time" />
+
+                    <EditText
+                        android:id="@+id/et_open_project_date_end"
+                        android:layout_width="150dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="13dp"
+                        android:layout_marginEnd="20dp"
+                        android:background="@drawable/selector_login_bg"
+                        android:fontFamily="@font/noto_sans_kr_regular"
+                        android:gravity="center"
+                        android:hint="@string/open_project_write"
+                        android:includeFontPadding="false"
+                        android:inputType="textPersonName"
+                        android:paddingVertical="13dp"
+                        android:textColor="@color/gray_2"
+                        android:textColorHint="@color/gray_6"
+                        android:textSize="14sp"
+                        app:layout_constraintBottom_toBottomOf="@+id/tv_open_project_start"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/tv_open_project_time" />
+
+
+                    <TextView
+                        android:id="@+id/tv_open_project_when"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginTop="20dp"
+                        android:fontFamily="@font/noto_sans_kr_medium"
+                        android:includeFontPadding="false"
+                        android:text="@string/open_project_process"
+                        android:textColor="@color/black"
+                        android:textSize="16sp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/tv_open_project_at" />
+
+
+                    <EditText
+                        android:id="@+id/et_open_project_date_when_start"
+                        android:layout_width="150dp"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/selector_login_bg"
+                        android:fontFamily="@font/noto_sans_kr_regular"
+                        android:gravity="center"
+                        android:hint="@string/open_project_write"
+                        android:includeFontPadding="false"
+                        android:layout_marginTop="13dp"
+                        android:inputType="textPersonName"
+                        android:paddingVertical="13dp"
+                        android:textColor="@color/gray_2"
+                        android:textColorHint="@color/gray_6"
+                        android:textSize="14sp"
+                        app:layout_constraintStart_toStartOf="@+id/tv_open_project_when"
+                        app:layout_constraintTop_toBottomOf="@+id/tv_open_project_when" />
+
+                    <TextView
+                        android:id="@+id/tv_open_project_when_at"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:fontFamily="@font/noto_sans_kr_medium"
+                        android:includeFontPadding="false"
+                        android:text="~"
+                        android:textColor="@color/black"
+                        android:textSize="16sp"
+                        app:layout_constraintBottom_toBottomOf="@+id/et_open_project_date_when_start"
+                        app:layout_constraintEnd_toStartOf="@+id/et_open_project_date_when_end"
+                        app:layout_constraintStart_toEndOf="@+id/et_open_project_date_when_start"
+                        app:layout_constraintTop_toBottomOf="@+id/tv_open_project_when" />
+
+                    <EditText
+                        android:id="@+id/et_open_project_date_when_end"
+                        android:layout_width="150dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="30dp"
+                        android:layout_marginEnd="20dp"
+                        android:background="@drawable/selector_login_bg"
+                        android:fontFamily="@font/noto_sans_kr_regular"
+                        android:gravity="center"
+                        android:hint="@string/open_project_write"
+                        android:includeFontPadding="false"
+                        android:inputType="textPersonName"
+                        android:paddingVertical="13dp"
+                        android:textColor="@color/gray_2"
+                        android:textColorHint="@color/gray_6"
+                        android:textSize="14sp"
+                        app:layout_constraintBottom_toBottomOf="@+id/et_open_project_date_when_start"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/tv_open_project_at"
+                        app:layout_constraintTop_toTopOf="@+id/et_open_project_date_when_start" />
+
+                    <TextView
+                        android:id="@+id/tv_open_project_people"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/noto_sans_kr_medium"
+                        android:includeFontPadding="false"
+                        android:text="@string/open_project_people"
+                        android:textColor="@color/black"
+                        android:textSize="16sp"
+                        android:layout_marginTop="20dp"
+                        app:layout_constraintStart_toStartOf="@+id/et_open_project_date_when_start"
+                        app:layout_constraintTop_toBottomOf="@+id/et_open_project_date_when_start" />
+
                 </androidx.constraintlayout.widget.ConstraintLayout>
+
+
             </ScrollView>
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
