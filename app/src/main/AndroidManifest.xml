@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.init_android">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -10,11 +10,17 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:usesCleartextTraffic="true"
-        android:theme="@style/Theme.InitAndroid">
+        android:theme="@style/Theme.InitAndroid"
+        android:usesCleartextTraffic="true">
+        <activity
+            android:name=".app.presentation.oepn.project.OpenProjectSecondActivity"
+            android:exported="true" />
+        <activity
+            android:name=".app.presentation.oepn.project.OpenProjectActivity"
+            android:exported="true" />
         <activity
             android:name=".app.presentation.ui.home.signup.SignUpActivity"
-            android:exported="true" >
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -24,7 +30,7 @@
         <activity
             android:name=".app.presentation.ui.home.signin.SignInActivity"
             android:exported="true"
-            android:theme="@style/Theme.InitAndroid.NoActionBar"/>
+            android:theme="@style/Theme.InitAndroid.NoActionBar" />
         <activity
             android:name=".app.presentation.ui.MainActivity"
             android:exported="true" />
