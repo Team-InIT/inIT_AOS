@@ -1,16 +1,17 @@
 package com.init_android.app.data.response
 
-import java.lang.reflect.Member
 
 data class ResponseSignIn(
     val member: List<Member>,
-    val message: String
+    val message: String,
+    val code:Int
 )
 
 data class Member(
     val mNum:Int,
     val mType:Int,
     val mID:String,
+    val mPW:String,
     val mName:String,
     val mEmail:String,
     val mDept:String,

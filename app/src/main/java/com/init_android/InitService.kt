@@ -9,7 +9,7 @@ import retrofit2.http.Body
 import retrofit2.http.POST
 
 interface InitService {
-    @POST("auth/login")
+    @POST("/login")
     fun postLogin(
         @Body body: RequestSignIn
     ): Call<ResponseSignIn>

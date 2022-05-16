@@ -6,6 +6,7 @@ import android.text.Editable
 import android.text.TextWatcher
 import android.util.Log
 import android.view.View
+import android.widget.Toast
 import com.init_android.R
 import com.init_android.app.ServiceCreator
 import com.init_android.app.data.request.RequestSignIn
@@ -71,7 +72,9 @@ class SignInActivity : BaseActivity<ActivitySignInBinding>(R.layout.activity_sig
 
     // 홈화면 이동
     private fun initLoginBtn(){
-        tryPostLogin()// 로그인 서버 통신 시도
+        binding.btnLogin.setOnClickListener {
+            tryPostLogin()// 로그인 서버 통신 시도
+        }
     }
 
     // 로그인 서버통신 함수
@@ -81,6 +84,7 @@ class SignInActivity : BaseActivity<ActivitySignInBinding>(R.layout.activity_sig
             pw = binding.etvPw.text.toString()
         )
 
+
         val call: Call<ResponseSignIn> = ServiceCreator.initService.postLogin(requestSignIn)
 
         call.enqueue(object:Callback<ResponseSignIn>{
@@ -88,8 +92,9 @@ class SignInActivity : BaseActivity<ActivitySignInBinding>(R.layout.activity_sig
                 call: Call<ResponseSignIn>,
                 response: Response<ResponseSignIn>
             ) {
-                if(response.isSuccessful){ // 로그인 성공
+                if(response.body()?.code == 205){ // 로그인 성공
                     startActivity(Intent(this@SignInActivity, MainActivity::class.java))
+                    Toast.makeText(this@SignInActivity, response.body()?.message, Toast.LENGTH_SHORT).show()
                 }else{
                     // 로그인 실패 시 -> warning 텍스트 visibility 변경해주기
                     binding.tvWarning.visibility = View.VISIBLE
