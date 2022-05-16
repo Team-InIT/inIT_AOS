@@ -51,6 +51,7 @@
 
     <!-- 글쓰기(프로젝트뷰)-->
     <string name="open_project_title">글쓰기(1/2)</string>
+    <string name="open_project_title_second">글쓰기(2/2)</string>
     <string name="project">프로젝트</string>
     <string name="open_project_name">프로젝트 이름</string>
     <string name="open_project_name_hint">프로젝트 이름을 작성해주세요</string>

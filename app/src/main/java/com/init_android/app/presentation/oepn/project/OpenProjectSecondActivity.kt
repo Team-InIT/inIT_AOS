@@ -1,5 +1,6 @@
 package com.init_android.app.presentation.oepn.project
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -21,6 +22,20 @@ class OpenProjectSecondActivity : AppCompatActivity() {
             makeRadioButton3(tvServerHigh, tvServerMid, tvServerLow)
         }
 
+        initNextBtn()
+        initBackBtn()
+
+    }
+
+    private fun initNextBtn() {
+        binding.tvFinish.setOnClickListener {
+            finish()
+        }
+    }
+
+    private fun initBackBtn() {
+        startActivity(Intent(this, OpenProjectActivity::class.java))
+        finish()
     }
 
     private fun makeRadioButton3(view1 : View, view2 : View, view3 : View){

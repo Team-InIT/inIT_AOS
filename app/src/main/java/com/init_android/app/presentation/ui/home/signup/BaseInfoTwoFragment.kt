@@ -38,13 +38,13 @@ class BaseInfoTwoFragment :
 
         itemList.addAll(
             listOf(
-                PositionData("DESIGN", R.drawable.ic_designer, false),
-                PositionData("PLAN", R.drawable.ic_planner, false),
-                PositionData("IOS", R.drawable.ic_ios, false),
-                PositionData("ANDROID", R.drawable.ic_android, false),
-                PositionData("WEB", R.drawable.ic_website, false),
-                PositionData("GAME", R.drawable.ic_game, false),
-                PositionData("SERVER", R.drawable.ic_server, false)
+//                PositionData("DESIGN", R.drawable.ic_designer, false),
+//                PositionData("PLAN", R.drawable.ic_planner, false),
+//                PositionData("IOS", R.drawable.ic_ios, false),
+//                PositionData("ANDROID", R.drawable.ic_android, false),
+//                PositionData("WEB", R.drawable.ic_website, false),
+//                PositionData("GAME", R.drawable.ic_game, false),
+//                PositionData("SERVER", R.drawable.ic_server, false)
             )
         )
 

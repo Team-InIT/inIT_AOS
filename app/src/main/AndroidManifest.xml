@@ -13,14 +13,11 @@
         android:theme="@style/Theme.InitAndroid"
         android:usesCleartextTraffic="true">
         <activity
-            android:name=".app.presentation.oepn.project.OpenProject2Activity"
-            android:exported="false" />
-        <activity
             android:name=".app.presentation.oepn.project.OpenProjectSecondActivity"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name=".app.presentation.oepn.project.OpenProjectActivity"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name=".app.presentation.ui.home.signup.SignUpActivity"
             android:exported="true">
