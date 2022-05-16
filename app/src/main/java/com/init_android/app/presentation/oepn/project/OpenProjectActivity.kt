@@ -46,7 +46,7 @@ class OpenProjectActivity : BaseActivity<ActivityOpenProjectBinding>(R.layout.ac
         }
     }
 
-    // 로그인 서버통신 함수
+    // 서버통신 함수
     private fun tryPostAddProject(){
         val requestAddProject = RequestAddProject(
             pTitle = binding.etOpenProjectName.toString(),
