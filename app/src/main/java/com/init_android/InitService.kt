@@ -1,8 +1,10 @@
 package com.init_android
 
+import com.init_android.app.data.request.RequestAddProject
 import com.init_android.app.data.request.RequestIdCheck
 import com.init_android.app.data.request.RequestSignIn
 import com.init_android.app.data.request.RequestSignUp
+import com.init_android.app.data.response.ResponseAddProject
 import com.init_android.app.data.response.ResponseIdCheck
 import com.init_android.app.data.response.ResponseSignIn
 import com.init_android.app.data.response.ResponseSignUp
@@ -25,4 +27,9 @@ interface InitService {
     fun postRegister(
         @Body body: RequestSignUp
     ):Call<ResponseSignUp>
+
+    @POST("/addProject")
+    fun postAddProject(
+        @Body body: RequestAddProject
+    ) : Call<ResponseAddProject>
 }
