@@ -1,13 +1,25 @@
 package com.init_android.app.presentation.ui.home.signup
 
+import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.EditText
 import android.widget.ImageButton
+import android.widget.Toast
 import androidx.core.widget.doOnTextChanged
 import com.init_android.R
+import com.init_android.app.ServiceCreator
+import com.init_android.app.data.request.RequestIdCheck
+import com.init_android.app.data.request.RequestSignIn
+import com.init_android.app.data.response.ResponseIdCheck
+import com.init_android.app.data.response.ResponseSignIn
+import com.init_android.app.presentation.ui.MainActivity
 import com.init_android.databinding.FragmentPersonalInfoBinding
 import com.playtogether_android.app.presentation.base.BaseFragment
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 import java.util.regex.Pattern
 
 // 회원가입(id/pw)
@@ -16,13 +28,14 @@ class PersonalInfoFragment :
 
     // check 변수 확인
     // checkArray => (중복확인, 비밀번호 정규식, 비밀번호 일치)
-    var checkArray = arrayOf(true, false, false)
+    var checkArray = arrayOf(false, false, false)
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initTransFragmentEvent() // fragment 교체
         observeEditTxtField() // 텍스트 활동 감지
         textClearEvent() // 텍스트 clear 이벤트
+        initIdConfirmBtn() // 중복확인 버튼 이벤트
 
         goBackBtn() // 뒤로가기
     }
@@ -137,7 +150,44 @@ class PersonalInfoFragment :
         }
     }
 
-    // todo 중복확인 서버 통신 시도
+    // 중복확인 버튼 이벤트
+    private fun initIdConfirmBtn(){
+        binding.btnIdConfirm.setOnClickListener {
+            tryPostCheckId()
+        }
+    }
+
+    // 중복확인 서버 통신 시도
+    private fun tryPostCheckId(){
+
+        val requestIdCheck = RequestIdCheck(id=binding.etvId.text.toString())
+
+        val call: Call<ResponseIdCheck> = ServiceCreator.initService.postIdCheck(requestIdCheck)
+
+        call.enqueue(object: Callback<ResponseIdCheck> {
+            override fun onResponse(
+                call: Call<ResponseIdCheck>,
+                response: Response<ResponseIdCheck>
+            ) {
+                if(response.body()?.is_check == true){ // 통과
+                    checkArray[0] = true
+                    binding.btnIdConfirm.isEnabled = false // 버튼 활성화 막기
+                    Toast.makeText(requireContext(), "사용 가능한 아이디입니다.", Toast.LENGTH_SHORT).show()
+                }else{ // 이미 사용중인 아이디입니다.
+                    Toast.makeText(requireContext(), "이미 사용중인 아이디입니다.", Toast.LENGTH_SHORT).show()
+                    checkArray[1] = false
+                }
+
+                checkNextBtnState()
+            }
+
+            override fun onFailure(call: Call<ResponseIdCheck>, t: Throwable) { // 서버 통신에러
+                Log.e("NetworkTest", "error:$t")
+            }
+
+        })
+
+    }
 
     // 다음화면으로 데이터 넘겨주기
 }

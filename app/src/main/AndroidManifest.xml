@@ -30,7 +30,8 @@
         <activity
             android:name=".app.presentation.ui.home.signin.SignInActivity"
             android:exported="true"
-            android:theme="@style/Theme.InitAndroid.NoActionBar" />
+            android:theme="@style/Theme.InitAndroid.NoActionBar" >
+        </activity>
         <activity
             android:name=".app.presentation.ui.MainActivity"
             android:exported="true" />

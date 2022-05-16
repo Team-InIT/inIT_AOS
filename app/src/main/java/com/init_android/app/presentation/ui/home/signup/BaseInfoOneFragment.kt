@@ -64,13 +64,13 @@ class BaseInfoOneFragment :
             // fragment 에 회원가입 정보 넘겨주기
             val name = binding.etvName.text.toString() // 이름
             val email = binding.etvEmail.text.toString() // 이메일
-            val belong =  binding.etvBelong.text.toString()// 소속
+            val dept =  binding.etvBelong.text.toString()// 소속
             val academic = academicSelected// 학적상태
             val sex = sexSelected // 성별
 
             signUpArray.add(name)
             signUpArray.add(email)
-            signUpArray.add(belong)
+            signUpArray.add(dept)
             signUpArray.add(academic)
             signUpArray.add(sex)
 
