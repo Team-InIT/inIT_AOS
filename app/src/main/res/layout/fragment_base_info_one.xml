@@ -187,7 +187,6 @@
                                 android:layout_height="match_parent"
                                 android:background="@drawable/selector_login_bg"
                                 android:hint="@string/belong_hint"
-                                android:inputType="textPassword"
                                 android:maxLines="1"
                                 android:paddingHorizontal="16dp"
                                 android:textColor="@color/black"

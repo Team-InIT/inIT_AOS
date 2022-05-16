@@ -162,7 +162,6 @@ class PersonalInfoFragment :
 
         val requestIdCheck = RequestIdCheck(id=binding.etvId.text.toString())
 
-
         val call: Call<ResponseIdCheck> = ServiceCreator.initService.postIdCheck(requestIdCheck)
 
         call.enqueue(object: Callback<ResponseIdCheck> {

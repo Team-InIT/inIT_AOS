@@ -68,13 +68,13 @@ class BaseInfoTwoFragment :
 
         itemList.addAll(
             listOf(
-//                PositionData("DESIGN", R.drawable.ic_designer, false),
-//                PositionData("PLAN", R.drawable.ic_planner, false),
-//                PositionData("IOS", R.drawable.ic_ios, false),
-//                PositionData("ANDROID", R.drawable.ic_android, false),
-//                PositionData("WEB", R.drawable.ic_website, false),
-//                PositionData("GAME", R.drawable.ic_game, false),
-//                PositionData("SERVER", R.drawable.ic_server, false)
+                PositionData("DESIGN", R.drawable.ic_designer, false),
+                PositionData("PLAN", R.drawable.ic_planner, false),
+                PositionData("IOS", R.drawable.ic_ios, false),
+                PositionData("ANDROID", R.drawable.ic_android, false),
+                PositionData("WEB", R.drawable.ic_website, false),
+                PositionData("GAME", R.drawable.ic_game, false),
+                PositionData("SERVER", R.drawable.ic_server, false)
             )
         )
 
@@ -179,21 +179,20 @@ class BaseInfoTwoFragment :
         signUpArray.add(positionSelected) // 포지션
         signUpArray.add(skillSelected) // 숙련도
 
+
         val requestSignUp = RequestSignUp(
-            mNum = signUpArray[0] as Int,
-            mType = signUpArray[1] as Int,
-            mID = signUpArray[2] as String,
-            mName = signUpArray[3] as String,
-            mEmail = signUpArray[4] as String,
-            mDept = signUpArray[5] as String,
-            mAcademic = signUpArray[6] as String,
-            mGender = signUpArray[7] as Int,
-            mPosition = signUpArray[8] as Int,
-            mLevel = signUpArray[9] as Int,
-            mApproval = signUpArray[10] as Int,
-            mIntroduction = signUpArray[11] as String
+            mID = signUpArray[0] as String,
+            mPW = signUpArray[1] as String,
+            mName = signUpArray[2] as String,
+            mEmail = signUpArray[3] as String,
+            mDept = signUpArray[4] as String,
+            mAcademic = signUpArray[5] as Int,
+            mGender = signUpArray[6] as Int,
+            mPosition = signUpArray[7] as Int,
+            mLevel = signUpArray[8] as Int,
         )
 
+        // Log.d("testing",signUpArray.toString())
         val call: Call<ResponseSignUp> = ServiceCreator.initService.postRegister(requestSignUp)
 
         call.enqueue(object: Callback<ResponseSignUp> {
@@ -201,8 +200,10 @@ class BaseInfoTwoFragment :
                 call: Call<ResponseSignUp>,
                 response: Response<ResponseSignUp>
             ) {
-                if(response.isSuccessful){ // 회원가입 성공
+                if(response.body()?.message != null){ // 회원가입 성공
                     Toast.makeText(requireContext(), "회원가입 성공", Toast.LENGTH_SHORT).show()
+                    requireActivity().finish()
+                    startActivity(Intent(requireContext(), SignInActivity::class.java))
                 }else{
                     Toast.makeText(requireContext(), "회원가입 실패", Toast.LENGTH_SHORT).show()
                 }
