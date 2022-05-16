@@ -28,5 +28,12 @@
     <style name="Theme.InitAndroid.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
     <style name="Theme.InitAndroid.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
-
+    //데이트피커
+    <style name="MySpinnerDatePickerStyle" parent="Theme.AppCompat.Light.Dialog">
+        <!-- 상단 색 변경 -->
+        <item name="colorAccent">@color/main_default</item>
+        <!-- 선택한 날짜를 표시할 색상 -->
+        <item name="colorControlActivated">@color/main_default</item>
+        <item name="colorControlHighlight">@color/main_default</item>
+    </style>
 </resources>

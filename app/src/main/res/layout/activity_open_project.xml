@@ -116,25 +116,27 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/et_open_project_name" />
 
-                <EditText
-                    android:id="@+id/et_open_project_type"
-                    android:layout_width="0dp"
+                <Spinner
+                    android:id="@+id/spinner_open_project_type"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="13dp"
-                    android:layout_marginEnd="20dp"
-                    android:background="@drawable/selector_login_bg"
+                    android:background="@color/white"
                     android:fontFamily="@font/noto_sans_kr_regular"
-                    android:gravity="center"
-                    android:hint="@string/open_project_name_hint"
-                    android:includeFontPadding="false"
-                    android:inputType="textPersonName"
-                    android:paddingVertical="13dp"
-                    android:textColor="@color/gray_2"
-                    android:textColorHint="@color/gray_6"
-                    android:textSize="14sp"
+                    android:popupBackground="@drawable/rectangle_white_border_8"
+                    android:popupElevation="0dp"
+                    android:spinnerMode="dropdown"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:text="모바일"
+                    android:layout_marginTop="10dp"
+                    android:textColor="@color/black"
+                    android:textSize="12sp"
                     app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="1.0"
                     app:layout_constraintStart_toStartOf="@id/tv_open_project_name"
                     app:layout_constraintTop_toBottomOf="@+id/tv_open_project_type" />
+
+
 
                 <TextView
                     android:id="@+id/tv_open_project_time"
@@ -148,7 +150,7 @@
                     android:textColor="@color/black"
                     android:textSize="16sp"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/et_open_project_type" />
+                    app:layout_constraintTop_toBottomOf="@+id/spinner_open_project_type" />
 
 
                 <TextView
@@ -179,7 +181,7 @@
                     app:layout_constraintStart_toEndOf="@+id/tv_open_project_start"
                     app:layout_constraintTop_toBottomOf="@+id/tv_open_project_time" />
 
-                <EditText
+                <TextView
                     android:id="@+id/et_open_project_date_end"
                     android:layout_width="150dp"
                     android:layout_height="wrap_content"
@@ -214,7 +216,7 @@
                     app:layout_constraintTop_toBottomOf="@+id/tv_open_project_at" />
 
 
-                <EditText
+                <TextView
                     android:id="@+id/et_open_project_date_when_start"
                     android:layout_width="150dp"
                     android:layout_height="wrap_content"
@@ -247,7 +249,7 @@
                     app:layout_constraintStart_toEndOf="@+id/et_open_project_date_when_start"
                     app:layout_constraintTop_toBottomOf="@+id/tv_open_project_when" />
 
-                <EditText
+                <TextView
                     android:id="@+id/et_open_project_date_when_end"
                     android:layout_width="150dp"
                     android:layout_height="wrap_content"
@@ -307,11 +309,11 @@
                     android:background="@drawable/selector_login_bg"
                     android:fontFamily="@font/noto_sans_kr_regular"
                     android:gravity="center"
-                    android:hint="@string/open_project_write"
+                    android:text="0"
                     android:includeFontPadding="false"
                     android:inputType="textPersonName"
                     android:paddingVertical="13dp"
-                    android:textColor="@color/gray_2"
+                    android:textColor="@color/black"
                     android:textColorHint="@color/gray_6"
                     android:textSize="14sp"
                     app:layout_constraintStart_toStartOf="@+id/tv_open_project_plan"
@@ -345,11 +347,11 @@
                     android:background="@drawable/selector_login_bg"
                     android:fontFamily="@font/noto_sans_kr_regular"
                     android:gravity="center"
-                    android:hint="@string/open_project_write"
+                    android:text="0"
                     android:includeFontPadding="false"
                     android:inputType="textPersonName"
                     android:paddingVertical="13dp"
-                    android:textColor="@color/gray_2"
+                    android:textColor="@color/black"
                     android:textColorHint="@color/gray_6"
                     android:textSize="14sp"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -382,11 +384,11 @@
                     android:background="@drawable/selector_login_bg"
                     android:fontFamily="@font/noto_sans_kr_regular"
                     android:gravity="center"
-                    android:hint="@string/open_project_write"
+                    android:text="0"
                     android:includeFontPadding="false"
                     android:inputType="textPersonName"
                     android:paddingVertical="13dp"
-                    android:textColor="@color/gray_2"
+                    android:textColor="@color/black"
                     android:textColorHint="@color/gray_6"
                     android:textSize="14sp"
                     app:layout_constraintStart_toStartOf="@+id/tv_open_project_aos"
@@ -420,11 +422,11 @@
                     android:background="@drawable/selector_login_bg"
                     android:fontFamily="@font/noto_sans_kr_regular"
                     android:gravity="center"
-                    android:hint="@string/open_project_write"
+                    android:text="0"
                     android:includeFontPadding="false"
                     android:inputType="textPersonName"
                     android:paddingVertical="13dp"
-                    android:textColor="@color/gray_2"
+                    android:textColor="@color/black"
                     android:textColorHint="@color/gray_6"
                     android:textSize="14sp"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -458,11 +460,11 @@
                     android:background="@drawable/selector_login_bg"
                     android:fontFamily="@font/noto_sans_kr_regular"
                     android:gravity="center"
-                    android:hint="@string/open_project_write"
+                    android:text="0"
                     android:includeFontPadding="false"
                     android:inputType="textPersonName"
                     android:paddingVertical="13dp"
-                    android:textColor="@color/gray_2"
+                    android:textColor="@color/black"
                     android:textColorHint="@color/gray_6"
                     android:textSize="14sp"
                     app:layout_constraintStart_toStartOf="@+id/tv_open_project_game"
@@ -496,11 +498,11 @@
                     android:background="@drawable/selector_login_bg"
                     android:fontFamily="@font/noto_sans_kr_regular"
                     android:gravity="center"
-                    android:hint="@string/open_project_write"
+                    android:text="0"
                     android:includeFontPadding="false"
                     android:inputType="textPersonName"
                     android:paddingVertical="13dp"
-                    android:textColor="@color/gray_2"
+                    android:textColor="@color/black"
                     android:textColorHint="@color/gray_6"
                     android:textSize="14sp"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -534,11 +536,11 @@
                     android:background="@drawable/selector_login_bg"
                     android:fontFamily="@font/noto_sans_kr_regular"
                     android:gravity="center"
-                    android:hint="@string/open_project_write"
+                    android:text="0"
                     android:includeFontPadding="false"
                     android:inputType="textPersonName"
                     android:paddingVertical="13dp"
-                    android:textColor="@color/gray_2"
+                    android:textColor="@color/black"
                     android:textColorHint="@color/gray_6"
                     android:textSize="14sp"
                     app:layout_constraintStart_toStartOf="@+id/tv_open_project_server"
