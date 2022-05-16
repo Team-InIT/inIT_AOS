@@ -20,7 +20,7 @@ class SignUpActivity : BaseActivity<ActivitySignUpBinding>(R.layout.activity_sig
     private fun initTransFragmentEvent() {
         val fragment_depth1 = PersonalInfoFragment()
 
-        supportFragmentManager.beginTransaction().add(R.id.fragment_sign_up, BaseInfoTwoFragment())
+        supportFragmentManager.beginTransaction().add(R.id.fragment_sign_up, fragment_depth1)
             .commit()
     }
 }

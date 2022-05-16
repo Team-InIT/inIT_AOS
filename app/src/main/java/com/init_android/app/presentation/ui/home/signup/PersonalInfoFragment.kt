@@ -27,10 +27,21 @@ class PersonalInfoFragment :
         goBackBtn() // 뒤로가기
     }
 
+
     // Fragment 교체
     private fun initTransFragmentEvent() {
         binding.btnNext.setOnClickListener {
             val baseInfoOneFragment = BaseInfoOneFragment()
+
+            val id = binding.etvId.text.toString()
+            val pw = binding.etvPw.text.toString()
+
+            // fragment 에 회원가입 정보 넘겨주기 (id, pw)
+            val signUpArray = arrayListOf<Any>(id,pw) // 넘겨줄 배열
+            val bundle = Bundle()
+            bundle.putSerializable("signUpArray",signUpArray)
+            baseInfoOneFragment.arguments = bundle
+
             parentFragmentManager.beginTransaction()
                 .replace(R.id.fragment_sign_up, baseInfoOneFragment)
                 .commit()
