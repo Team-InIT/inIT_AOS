@@ -13,7 +13,8 @@ class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-            initBottomNavi()
+        initBottomNavi()
+        settingId()
     }
 
     private fun initBottomNavi() {
@@ -22,19 +23,28 @@ class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
         binding.btnMain.setOnItemSelectedListener {
             when (it.itemId) {
                 R.id.menu_home -> {
-                    supportFragmentManager.beginTransaction().replace(R.id.fragment_main, HomeFragment()).commit()
+                    supportFragmentManager.beginTransaction()
+                        .replace(R.id.fragment_main, HomeFragment()).commit()
                 }
                 R.id.menu_search -> {
-                    supportFragmentManager.beginTransaction().replace(R.id.fragment_main, SearchFragment()).commit()
+                    supportFragmentManager.beginTransaction()
+                        .replace(R.id.fragment_main, SearchFragment()).commit()
                 }
                 R.id.menu_alarm -> {
-                    supportFragmentManager.beginTransaction().replace(R.id.fragment_main, AlarmFragment()).commit()
+                    supportFragmentManager.beginTransaction()
+                        .replace(R.id.fragment_main, AlarmFragment()).commit()
                 }
                 R.id.menu_mypage -> {
-                    supportFragmentManager.beginTransaction().replace(R.id.fragment_main, MyPageFragment()).commit()
+                    supportFragmentManager.beginTransaction()
+                        .replace(R.id.fragment_main, MyPageFragment()).commit()
                 }
             }
             return@setOnItemSelectedListener true
         }
+    }
+
+    //userId저장
+    private fun settingId() {
+        val userId = intent.getIntExtra("userId", 0)
     }
 }

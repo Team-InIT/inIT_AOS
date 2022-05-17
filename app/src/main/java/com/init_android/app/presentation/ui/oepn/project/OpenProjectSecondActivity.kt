@@ -1,7 +1,6 @@
-package com.init_android.app.presentation.oepn.project
+package com.init_android.app.presentation.ui.oepn.project
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import com.init_android.R

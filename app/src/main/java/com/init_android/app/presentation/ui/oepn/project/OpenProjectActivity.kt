@@ -1,4 +1,4 @@
-package com.init_android.app.presentation.oepn.project
+package com.init_android.app.presentation.ui.oepn.project
 
 import android.app.DatePickerDialog
 import android.content.Intent
@@ -8,6 +8,7 @@ import android.util.Log
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
+import android.widget.Spinner
 import android.widget.Toast
 import androidx.core.content.ContextCompat
 import com.init_android.R
@@ -27,6 +28,7 @@ import java.util.*
 class OpenProjectActivity :
     BaseActivity<ActivityOpenProjectBinding>(R.layout.activity_open_project) {
 
+    var value = 0
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -47,9 +49,10 @@ class OpenProjectActivity :
 
     // 서버통신 함수
     private fun tryPostAddProject() {
+
         val requestAddProject = RequestAddProject(
             pTitle = binding.etOpenProjectName.toString(),
-            pType = 1,
+            pType = value,
             pRdateStart = "2022.05.17",
             pRdateDue = binding.etOpenProjectDateEnd.toString(),
             pPdateStart = binding.etOpenProjectDateWhenStart.toString(),
@@ -63,6 +66,8 @@ class OpenProjectActivity :
             pServer = Integer.parseInt(binding.etOpenProjectServer.text.toString()),
             mNum = 6
         )
+
+        Log.d("pType", "" + value)
 
 
         val call: Call<ResponseAddProject> =
@@ -230,6 +235,7 @@ class OpenProjectActivity :
         binding.spinnerOpenProjectType.setAdapter(adapter)
         binding.spinnerOpenProjectType.setSelection(0)
 
+
     }
 
 
@@ -243,7 +249,17 @@ class OpenProjectActivity :
                     position: Int,
                     id: Long
                 ) {
+                    val spinner = findViewById<View>(R.id.spinner_open_project_type) as Spinner
+                    val text = spinner.selectedItem.toString()
+                    if (text == "웹") {
+                        value = 0
+                    } else if (text == "모바일") {
+                        value = 1
+                    } else {
+                        value = 2
+                    }
                 }
+
                 override fun onNothingSelected(p0: AdapterView<*>?) {
                 }
             }
