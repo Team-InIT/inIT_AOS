@@ -49,7 +49,8 @@ class OpenProjectActivity :
 
     // 서버통신 함수
     private fun tryPostAddProject() {
-
+        val userId = intent.getIntExtra("userId", 0)
+        Log.d("userId", ""+userId)
         val requestAddProject = RequestAddProject(
             pTitle = binding.etOpenProjectName.toString(),
             pType = value,
@@ -64,7 +65,7 @@ class OpenProjectActivity :
             pGame = Integer.parseInt(binding.etOpenProjectGame.text.toString()),
             pWeb = Integer.parseInt(binding.etOpenProjectWeb.text.toString()),
             pServer = Integer.parseInt(binding.etOpenProjectServer.text.toString()),
-            mNum = 6
+            mNum = userId
         )
 
         Log.d("pType", "" + value)
