@@ -24,9 +24,12 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import java.lang.String
+import java.text.SimpleDateFormat
 import java.util.*
 
 class OpenProjectActivity : BaseActivity<ActivityOpenProjectBinding>(R.layout.activity_open_project) {
+
+    val formatter = SimpleDateFormat("yyyy-MM-dd")
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -49,12 +52,12 @@ class OpenProjectActivity : BaseActivity<ActivityOpenProjectBinding>(R.layout.ac
     // 서버통신 함수
     private fun tryPostAddProject(){
         val requestAddProject = RequestAddProject(
-            pTitle = binding.etOpenProjectName.toString(),
+            pTitle = binding.etOpenProjectName.text.toString(),
             pType = 1,
-            pRdateStart= "2022.05.17",
-            pRdateDue = binding.etOpenProjectDateEnd.toString(),
-            pPdateStart = binding.etOpenProjectDateWhenStart.toString(),
-            pPdateDue=binding.etOpenProjectDateWhenEnd.toString(),
+            pRdateStart= formatter.parse("2022-05-17"),
+            pRdateDue = formatter.parse(binding.etOpenProjectDateEnd.text.toString().replace(".","-")),
+            pPdateStart = formatter.parse(binding.etOpenProjectDateWhenStart.text.toString().replace(".","-")),
+            pPdateDue=formatter.parse(binding.etOpenProjectDateWhenEnd.text.toString().replace(".","-")),
             pPlan=Integer.parseInt(binding.etOpenProjectPlan.text.toString()),
             pDesign=Integer.parseInt(binding.etOpenProjectDesign.text.toString()),
             pAndroid=Integer.parseInt(binding.etOpenProjectAos.text.toString()),
