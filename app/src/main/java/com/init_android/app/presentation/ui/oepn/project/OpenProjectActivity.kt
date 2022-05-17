@@ -22,13 +22,18 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import java.lang.String
+import java.text.SimpleDateFormat
 import java.util.*
+
 
 
 class OpenProjectActivity :
     BaseActivity<ActivityOpenProjectBinding>(R.layout.activity_open_project) {
 
     var value = 0
+    val formatter = SimpleDateFormat("yyyy-MM-dd")
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -50,17 +55,17 @@ class OpenProjectActivity :
     // 서버통신 함수
     private fun tryPostAddProject() {
         val userId = intent.getIntExtra("userId", 0)
-        Log.d("userId", ""+userId)
+
         val requestAddProject = RequestAddProject(
-            pTitle = binding.etOpenProjectName.toString(),
+            pTitle = binding.etOpenProjectName.text.toString(),
             pType = value,
-            pRdateStart = "2022.05.17",
-            pRdateDue = binding.etOpenProjectDateEnd.toString(),
-            pPdateStart = binding.etOpenProjectDateWhenStart.toString(),
-            pPdateDue = binding.etOpenProjectDateWhenEnd.toString(),
-            pPlan = Integer.parseInt(binding.etOpenProjectPlan.text.toString()),
-            pDesign = Integer.parseInt(binding.etOpenProjectDesign.text.toString()),
-            pAndroid = Integer.parseInt(binding.etOpenProjectAos.text.toString()),
+            pRdateStart= formatter.parse("2022-05-17"),
+            pRdateDue = formatter.parse(binding.etOpenProjectDateEnd.text.toString().replace(".","-")),
+            pPdateStart = formatter.parse(binding.etOpenProjectDateWhenStart.text.toString().replace(".","-")),
+            pPdateDue=formatter.parse(binding.etOpenProjectDateWhenEnd.text.toString().replace(".","-")),
+            pPlan=Integer.parseInt(binding.etOpenProjectPlan.text.toString()),
+            pDesign=Integer.parseInt(binding.etOpenProjectDesign.text.toString()),
+            pAndroid=Integer.parseInt(binding.etOpenProjectAos.text.toString()),
             pIos = Integer.parseInt(binding.etOpenProjectIos.text.toString()),
             pGame = Integer.parseInt(binding.etOpenProjectGame.text.toString()),
             pWeb = Integer.parseInt(binding.etOpenProjectWeb.text.toString()),
@@ -69,7 +74,7 @@ class OpenProjectActivity :
         )
 
         Log.d("pType", "" + value)
-
+        Log.d("userId", ""+userId)
 
         val call: Call<ResponseAddProject> =
             ServiceCreator.initService.postAddProject(requestAddProject)
