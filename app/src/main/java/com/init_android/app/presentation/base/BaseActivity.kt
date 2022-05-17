@@ -5,6 +5,7 @@ import androidx.annotation.LayoutRes
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
+import com.init_android.app.util.PreferenceUtil
 
 abstract class BaseActivity <T : ViewDataBinding>(
     @LayoutRes private val layoutResId: Int
@@ -16,7 +17,6 @@ abstract class BaseActivity <T : ViewDataBinding>(
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         _binding = DataBindingUtil.setContentView(this, layoutResId)
-
     }
 
     override fun onDestroy() {

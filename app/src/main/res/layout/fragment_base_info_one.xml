@@ -188,6 +188,7 @@
                                 android:background="@drawable/selector_login_bg"
                                 android:hint="@string/belong_hint"
                                 android:maxLines="1"
+                                android:inputType="text"
                                 android:paddingHorizontal="16dp"
                                 android:textColor="@color/black"
                                 android:textSize="12sp" />
