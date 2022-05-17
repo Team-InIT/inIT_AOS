@@ -7,11 +7,13 @@ import android.text.TextWatcher
 import android.util.Log
 import android.view.View
 import android.widget.Toast
+import androidx.activity.viewModels
 import com.init_android.R
 import com.init_android.app.ServiceCreator
 import com.init_android.app.data.request.RequestSignIn
 import com.init_android.app.data.response.ResponseSignIn
 import com.init_android.app.presentation.ui.MainActivity
+import com.init_android.app.presentation.ui.home.signin.viewmodel.SignViewModel
 import com.init_android.app.presentation.ui.home.signup.SignUpActivity
 import com.init_android.databinding.ActivitySignInBinding
 import com.playtogether_android.app.presentation.base.BaseActivity
@@ -20,6 +22,8 @@ import retrofit2.Callback
 import retrofit2.Response
 
 class SignInActivity : BaseActivity<ActivitySignInBinding>(R.layout.activity_sign_in) {
+
+    private val signViewModel: SignViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -93,7 +97,11 @@ class SignInActivity : BaseActivity<ActivitySignInBinding>(R.layout.activity_sig
                 response: Response<ResponseSignIn>
             ) {
                 if(response.body()?.code == 205){ // 로그인 성공
-                    startActivity(Intent(this@SignInActivity, MainActivity::class.java))
+                    val userId = signViewModel.signIn.value?.mNum ?: 0
+                    val intent = Intent(this@SignInActivity, MainActivity::class.java)
+                    intent.putExtra("userId", userId)
+                    startActivity(intent)
+                    finish()
                     Toast.makeText(this@SignInActivity, response.body()?.message, Toast.LENGTH_SHORT).show()
                 }else{
                     // 로그인 실패 시 -> warning 텍스트 visibility 변경해주기

@@ -23,9 +23,10 @@
             android:paddingTop="15dp"
             android:paddingBottom="15dp"
             android:paddingStart="16dp"
-            android:textColor="@drawable/selector_text"
+            android:textColor="@color/black"
             android:textSize="14sp"
             android:text="모바일"
+            android:textAlignment="center"
             tools:text="뭐지"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />

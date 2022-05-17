@@ -1,17 +1,17 @@
-package com.init_android.app.presentation.oepn.project
+package com.init_android.app.presentation.ui.oepn.project
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import com.init_android.R
 import com.init_android.databinding.ActivityOpenProjectSecondBinding
+import com.playtogether_android.app.presentation.base.BaseActivity
 
-class OpenProjectSecondActivity : AppCompatActivity() {
-    private lateinit var binding : ActivityOpenProjectSecondBinding
+class OpenProjectSecondActivity : BaseActivity<ActivityOpenProjectSecondBinding>(R.layout.activity_open_project_second) {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityOpenProjectSecondBinding.inflate(layoutInflater)
+
 
         with(binding){
             makeRadioButton2(tvOnline, tvOffline)

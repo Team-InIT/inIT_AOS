@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/82104/AppData/Local/Android/Sdk/platforms/android-31/data/res/layout/simple_spinner_dropdown_item.xml" value="0.1" />
         <entry key="..\:/Users/82104/inIT_AOS/app/src/main/res/drawable-v24/ic_icn_back.xml" value="0.1" />
         <entry key="..\:/Users/82104/inIT_AOS/app/src/main/res/drawable/rectagnle_fill_main_radius_10.xml" value="0.1965" />
         <entry key="..\:/Users/82104/inIT_AOS/app/src/main/res/drawable/rectangle_fill_main_left_radius_10.xml" value="0.1" />
@@ -14,7 +15,7 @@
         <entry key="..\:/Users/82104/inIT_AOS/app/src/main/res/drawable/selector_skill_btn.xml" value="0.1" />
         <entry key="..\:/Users/82104/inIT_AOS/app/src/main/res/drawable/selector_text.xml" value="0.1" />
         <entry key="..\:/Users/82104/inIT_AOS/app/src/main/res/layout/activity_main.xml" value="0.2" />
-        <entry key="..\:/Users/82104/inIT_AOS/app/src/main/res/layout/activity_open_project.xml" value="0.1509433962264151" />
+        <entry key="..\:/Users/82104/inIT_AOS/app/src/main/res/layout/activity_open_project.xml" value="0.1" />
         <entry key="..\:/Users/82104/inIT_AOS/app/src/main/res/layout/activity_open_project2.xml" value="0.264" />
         <entry key="..\:/Users/82104/inIT_AOS/app/src/main/res/layout/activity_open_project_second.xml" value="0.24561403508771928" />
         <entry key="..\:/Users/82104/inIT_AOS/app/src/main/res/layout/activity_sign_in.xml" value="0.2536231884057971" />
@@ -26,7 +27,7 @@
         <entry key="..\:/Users/82104/inIT_AOS/app/src/main/res/layout/fragment_my_page.xml" value="0.18854166666666666" />
         <entry key="..\:/Users/82104/inIT_AOS/app/src/main/res/layout/fragment_personal_info.xml" value="0.23802083333333332" />
         <entry key="..\:/Users/82104/inIT_AOS/app/src/main/res/layout/fragment_search.xml" value="0.18854166666666666" />
-        <entry key="..\:/Users/82104/inIT_AOS/app/src/main/res/layout/item_kind_spinner.xml" value="0.1245136186770428" />
+        <entry key="..\:/Users/82104/inIT_AOS/app/src/main/res/layout/item_kind_spinner.xml" value="0.264" />
         <entry key="..\:/Users/82104/inIT_AOS/app/src/main/res/layout/item_rv_position.xml" value="0.1408514492753623" />
         <entry key="..\:/Users/82104/inIT_AOS/app/src/main/res/layout/spinner_item.xml" value="0.1" />
         <entry key="..\:/Users/Lenovo/StudioProjects/inIT_AOS/app/src/main/res/drawable/ic_writing.xml" value="0.238" />

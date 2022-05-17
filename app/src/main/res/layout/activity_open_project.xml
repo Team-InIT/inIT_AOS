@@ -12,6 +12,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/main_default"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
             <ImageView
@@ -120,22 +123,22 @@
                     android:id="@+id/spinner_open_project_type"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="20dp"
                     android:background="@color/white"
                     android:fontFamily="@font/noto_sans_kr_regular"
                     android:popupBackground="@drawable/rectangle_white_border_8"
                     android:popupElevation="0dp"
                     android:spinnerMode="dropdown"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginEnd="20dp"
                     android:text="모바일"
-                    android:layout_marginTop="10dp"
+                    android:textAlignment="center"
                     android:textColor="@color/black"
                     android:textSize="12sp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="1.0"
                     app:layout_constraintStart_toStartOf="@id/tv_open_project_name"
                     app:layout_constraintTop_toBottomOf="@+id/tv_open_project_type" />
-
 
 
                 <TextView
@@ -171,34 +174,37 @@
                     android:id="@+id/tv_open_project_at"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
                     android:layout_marginTop="13dp"
+                    android:layout_marginEnd="20dp"
                     android:fontFamily="@font/noto_sans_kr_medium"
                     android:includeFontPadding="false"
                     android:text="~"
                     android:textColor="@color/black"
                     android:textSize="16sp"
                     app:layout_constraintEnd_toStartOf="@+id/et_open_project_date_end"
+                    app:layout_constraintHorizontal_bias="0.5"
                     app:layout_constraintStart_toEndOf="@+id/tv_open_project_start"
                     app:layout_constraintTop_toBottomOf="@+id/tv_open_project_time" />
 
                 <TextView
                     android:id="@+id/et_open_project_date_end"
-                    android:layout_width="150dp"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="13dp"
-                    android:layout_marginEnd="20dp"
                     android:background="@drawable/selector_login_bg"
                     android:fontFamily="@font/noto_sans_kr_regular"
                     android:gravity="center"
                     android:hint="@string/open_project_write"
                     android:includeFontPadding="false"
-                    android:inputType="textPersonName"
                     android:paddingVertical="13dp"
                     android:textColor="@color/gray_2"
                     android:textColorHint="@color/gray_6"
                     android:textSize="14sp"
                     app:layout_constraintBottom_toBottomOf="@+id/tv_open_project_start"
-                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintEnd_toEndOf="@+id/et_open_project_date_when_end"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="@+id/et_open_project_design"
                     app:layout_constraintTop_toBottomOf="@+id/tv_open_project_time" />
 
                 <TextView
@@ -215,10 +221,9 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/tv_open_project_at" />
 
-
                 <TextView
                     android:id="@+id/et_open_project_date_when_start"
-                    android:layout_width="150dp"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="13dp"
                     android:background="@drawable/selector_login_bg"
@@ -226,11 +231,11 @@
                     android:gravity="center"
                     android:hint="@string/open_project_write"
                     android:includeFontPadding="false"
-                    android:inputType="textPersonName"
                     android:paddingVertical="13dp"
                     android:textColor="@color/gray_2"
                     android:textColorHint="@color/gray_6"
                     android:textSize="14sp"
+                    app:layout_constraintEnd_toEndOf="@+id/et_open_project_plan"
                     app:layout_constraintStart_toStartOf="@+id/tv_open_project_when"
                     app:layout_constraintTop_toBottomOf="@+id/tv_open_project_when" />
 
@@ -238,7 +243,6 @@
                     android:id="@+id/tv_open_project_when_at"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
                     android:fontFamily="@font/noto_sans_kr_medium"
                     android:includeFontPadding="false"
                     android:text="~"
@@ -247,27 +251,24 @@
                     app:layout_constraintBottom_toBottomOf="@+id/et_open_project_date_when_start"
                     app:layout_constraintEnd_toStartOf="@+id/et_open_project_date_when_end"
                     app:layout_constraintStart_toEndOf="@+id/et_open_project_date_when_start"
-                    app:layout_constraintTop_toBottomOf="@+id/tv_open_project_when" />
+                    app:layout_constraintTop_toTopOf="@+id/et_open_project_date_when_start" />
 
                 <TextView
                     android:id="@+id/et_open_project_date_when_end"
-                    android:layout_width="150dp"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="30dp"
-                    android:layout_marginEnd="20dp"
                     android:background="@drawable/selector_login_bg"
                     android:fontFamily="@font/noto_sans_kr_regular"
                     android:gravity="center"
                     android:hint="@string/open_project_write"
                     android:includeFontPadding="false"
-                    android:inputType="textPersonName"
                     android:paddingVertical="13dp"
                     android:textColor="@color/gray_2"
                     android:textColorHint="@color/gray_6"
                     android:textSize="14sp"
                     app:layout_constraintBottom_toBottomOf="@+id/et_open_project_date_when_start"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toEndOf="@+id/tv_open_project_at"
+                    app:layout_constraintEnd_toEndOf="@+id/et_open_project_design"
+                    app:layout_constraintStart_toStartOf="@+id/et_open_project_design"
                     app:layout_constraintTop_toTopOf="@+id/et_open_project_date_when_start" />
 
                 <TextView
@@ -303,20 +304,24 @@
 
                 <EditText
                     android:id="@+id/et_open_project_plan"
-                    android:layout_width="150dp"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
                     android:layout_marginTop="5dp"
+                    android:layout_marginEnd="10dp"
                     android:background="@drawable/selector_login_bg"
                     android:fontFamily="@font/noto_sans_kr_regular"
                     android:gravity="center"
-                    android:text="0"
                     android:includeFontPadding="false"
                     android:inputType="number"
                     android:paddingVertical="13dp"
+                    android:text="0"
                     android:textColor="@color/black"
                     android:textColorHint="@color/gray_6"
                     android:textSize="14sp"
-                    app:layout_constraintStart_toStartOf="@+id/tv_open_project_plan"
+                    app:layout_constraintEnd_toStartOf="@+id/et_open_project_design"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/tv_open_project_plan" />
 
 
@@ -340,21 +345,25 @@
 
                 <EditText
                     android:id="@+id/et_open_project_design"
-                    android:layout_width="150dp"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
                     android:layout_marginTop="4dp"
                     android:layout_marginEnd="20dp"
                     android:background="@drawable/selector_login_bg"
                     android:fontFamily="@font/noto_sans_kr_regular"
                     android:gravity="center"
-                    android:text="0"
                     android:includeFontPadding="false"
                     android:inputType="number"
                     android:paddingVertical="13dp"
+                    android:text="0"
                     android:textColor="@color/black"
                     android:textColorHint="@color/gray_6"
                     android:textSize="14sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/et_open_project_plan"
                     app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toEndOf="@+id/et_open_project_plan"
                     app:layout_constraintTop_toBottomOf="@+id/tv_open_project_design" />
 
 
@@ -378,20 +387,23 @@
 
                 <EditText
                     android:id="@+id/et_open_project_aos"
-                    android:layout_width="150dp"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
                     android:layout_marginTop="5dp"
                     android:background="@drawable/selector_login_bg"
                     android:fontFamily="@font/noto_sans_kr_regular"
                     android:gravity="center"
-                    android:text="0"
                     android:includeFontPadding="false"
                     android:inputType="number"
                     android:paddingVertical="13dp"
+                    android:text="0"
                     android:textColor="@color/black"
                     android:textColorHint="@color/gray_6"
                     android:textSize="14sp"
-                    app:layout_constraintStart_toStartOf="@+id/tv_open_project_aos"
+                    app:layout_constraintEnd_toEndOf="@+id/et_open_project_plan"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/tv_open_project_aos" />
 
 
@@ -415,22 +427,24 @@
 
                 <EditText
                     android:id="@+id/et_open_project_ios"
-                    android:layout_width="150dp"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
+                    android:layout_marginTop="4dp"
                     android:layout_marginEnd="20dp"
                     android:background="@drawable/selector_login_bg"
                     android:fontFamily="@font/noto_sans_kr_regular"
                     android:gravity="center"
-                    android:text="0"
                     android:includeFontPadding="false"
                     android:inputType="number"
                     android:paddingVertical="13dp"
+                    android:text="0"
                     android:textColor="@color/black"
                     android:textColorHint="@color/gray_6"
                     android:textSize="14sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/et_open_project_aos"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="@+id/tv_open_project_ios"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="@+id/et_open_project_design"
                     app:layout_constraintTop_toBottomOf="@+id/tv_open_project_ios" />
 
 
@@ -454,19 +468,20 @@
 
                 <EditText
                     android:id="@+id/et_open_project_game"
-                    android:layout_width="150dp"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
                     android:background="@drawable/selector_login_bg"
                     android:fontFamily="@font/noto_sans_kr_regular"
                     android:gravity="center"
-                    android:text="0"
                     android:includeFontPadding="false"
                     android:inputType="number"
                     android:paddingVertical="13dp"
+                    android:text="0"
                     android:textColor="@color/black"
                     android:textColorHint="@color/gray_6"
                     android:textSize="14sp"
+                    app:layout_constraintEnd_toEndOf="@+id/et_open_project_aos"
                     app:layout_constraintStart_toStartOf="@+id/tv_open_project_game"
                     app:layout_constraintTop_toBottomOf="@+id/tv_open_project_game" />
 
@@ -491,22 +506,22 @@
 
                 <EditText
                     android:id="@+id/et_open_project_web"
-                    android:layout_width="150dp"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
                     android:layout_marginEnd="20dp"
                     android:background="@drawable/selector_login_bg"
                     android:fontFamily="@font/noto_sans_kr_regular"
                     android:gravity="center"
-                    android:text="0"
                     android:includeFontPadding="false"
                     android:inputType="number"
                     android:paddingVertical="13dp"
+                    android:text="0"
                     android:textColor="@color/black"
                     android:textColorHint="@color/gray_6"
                     android:textSize="14sp"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="@+id/tv_open_project_web"
+                    app:layout_constraintStart_toStartOf="@+id/tv_open_project_design"
                     app:layout_constraintTop_toBottomOf="@+id/tv_open_project_web" />
 
 
@@ -530,19 +545,20 @@
 
                 <EditText
                     android:id="@+id/et_open_project_server"
-                    android:layout_width="150dp"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
                     android:background="@drawable/selector_login_bg"
                     android:fontFamily="@font/noto_sans_kr_regular"
                     android:gravity="center"
-                    android:text="0"
                     android:includeFontPadding="false"
                     android:inputType="number"
                     android:paddingVertical="13dp"
+                    android:text="0"
                     android:textColor="@color/black"
                     android:textColorHint="@color/gray_6"
                     android:textSize="14sp"
+                    app:layout_constraintEnd_toEndOf="@+id/et_open_project_game"
                     app:layout_constraintStart_toStartOf="@+id/tv_open_project_server"
                     app:layout_constraintTop_toBottomOf="@+id/tv_open_project_server" />
 
