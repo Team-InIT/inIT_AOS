@@ -15,6 +15,7 @@
             android:id="@+id/cl_signup_majorInfo_major"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
@@ -27,9 +28,12 @@
                 android:paddingTop="13dp"
                 android:paddingBottom="13dp"
                 android:text="모바일"
-                android:textColor="@color/gray_3"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:background="@drawable/rectangle_stroke_gray_radius_10"
                 android:textSize="15sp"
                 app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.0" />

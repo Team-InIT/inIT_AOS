@@ -7,16 +7,13 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.AdapterView
-import android.widget.SpinnerAdapter
+import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.core.content.ContextCompat
 import com.init_android.R
 import com.init_android.app.ServiceCreator
 import com.init_android.app.data.request.RequestAddProject
-import com.init_android.app.data.request.RequestSignIn
 import com.init_android.app.data.response.ResponseAddProject
-import com.init_android.app.data.response.ResponseSignIn
-import com.init_android.app.presentation.ui.MainActivity
 import com.init_android.app.util.PixelRatio
 import com.init_android.databinding.ActivityOpenProjectBinding
 import com.playtogether_android.app.presentation.base.BaseActivity
@@ -26,7 +23,9 @@ import retrofit2.Response
 import java.lang.String
 import java.util.*
 
-class OpenProjectActivity : BaseActivity<ActivityOpenProjectBinding>(R.layout.activity_open_project) {
+
+class OpenProjectActivity :
+    BaseActivity<ActivityOpenProjectBinding>(R.layout.activity_open_project) {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -47,38 +46,46 @@ class OpenProjectActivity : BaseActivity<ActivityOpenProjectBinding>(R.layout.ac
     }
 
     // 서버통신 함수
-    private fun tryPostAddProject(){
+    private fun tryPostAddProject() {
         val requestAddProject = RequestAddProject(
             pTitle = binding.etOpenProjectName.toString(),
             pType = 1,
-            pRdateStart= "2022.05.17",
+            pRdateStart = "2022.05.17",
             pRdateDue = binding.etOpenProjectDateEnd.toString(),
             pPdateStart = binding.etOpenProjectDateWhenStart.toString(),
-            pPdateDue=binding.etOpenProjectDateWhenEnd.toString(),
-            pPlan=Integer.parseInt(binding.etOpenProjectPlan.text.toString()),
-            pDesign=Integer.parseInt(binding.etOpenProjectDesign.text.toString()),
-            pAndroid=Integer.parseInt(binding.etOpenProjectAos.text.toString()),
+            pPdateDue = binding.etOpenProjectDateWhenEnd.toString(),
+            pPlan = Integer.parseInt(binding.etOpenProjectPlan.text.toString()),
+            pDesign = Integer.parseInt(binding.etOpenProjectDesign.text.toString()),
+            pAndroid = Integer.parseInt(binding.etOpenProjectAos.text.toString()),
             pIos = Integer.parseInt(binding.etOpenProjectIos.text.toString()),
             pGame = Integer.parseInt(binding.etOpenProjectGame.text.toString()),
-            pWeb=Integer.parseInt(binding.etOpenProjectWeb.text.toString()),
-            pServer=Integer.parseInt(binding.etOpenProjectServer.text.toString()),
+            pWeb = Integer.parseInt(binding.etOpenProjectWeb.text.toString()),
+            pServer = Integer.parseInt(binding.etOpenProjectServer.text.toString()),
             mNum = 6
         )
 
 
-        val call: Call<ResponseAddProject> = ServiceCreator.initService.postAddProject(requestAddProject)
+        val call: Call<ResponseAddProject> =
+            ServiceCreator.initService.postAddProject(requestAddProject)
 
-        call.enqueue(object: Callback<ResponseAddProject> {
+        call.enqueue(object : Callback<ResponseAddProject> {
             override fun onResponse(
                 call: Call<ResponseAddProject>,
                 response: Response<ResponseAddProject>
             ) {
-                if(response.body()?.code == 201){ // 로그인 성공
-                    startActivity(Intent(this@OpenProjectActivity, OpenProjectSecondActivity::class.java))
+                if (response.body()?.code == 201) { // 로그인 성공
+                    startActivity(
+                        Intent(
+                            this@OpenProjectActivity,
+                            OpenProjectSecondActivity::class.java
+                        )
+                    )
                     finish()
-                    Toast.makeText(this@OpenProjectActivity, "작성이 완료되었습니다", Toast.LENGTH_SHORT).show()
-                }else{
-                    Toast.makeText(this@OpenProjectActivity, "작성이 실패되었습니다", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this@OpenProjectActivity, "작성이 완료되었습니다", Toast.LENGTH_SHORT)
+                        .show()
+                } else {
+                    Toast.makeText(this@OpenProjectActivity, "작성이 실패되었습니다", Toast.LENGTH_SHORT)
+                        .show()
                 }
             }
 
@@ -211,14 +218,22 @@ class OpenProjectActivity : BaseActivity<ActivityOpenProjectBinding>(R.layout.ac
 
     }
 
+    //스피너
     private fun setupSpinner() {
         val list = listOf("웹", "모바일", "게임")
         val spinnerAdapter = SpinnerAdapter(this@OpenProjectActivity, R.layout.spinner_item, list)
         binding.spinnerOpenProjectType.adapter = spinnerAdapter
         binding.spinnerOpenProjectType.dropDownVerticalOffset = PixelRatio().dpToPx(52)
+
+        val adapter: ArrayAdapter<kotlin.String> =
+            ArrayAdapter<kotlin.String>(this, android.R.layout.simple_spinner_dropdown_item, list)
+        binding.spinnerOpenProjectType.setAdapter(adapter)
+        binding.spinnerOpenProjectType.setSelection(0)
+
     }
 
 
+    //스피너 핸들러
     private fun setupSpinnerHandler() {
         binding.spinnerOpenProjectType.onItemSelectedListener =
             object : AdapterView.OnItemSelectedListener {
@@ -228,9 +243,7 @@ class OpenProjectActivity : BaseActivity<ActivityOpenProjectBinding>(R.layout.ac
                     position: Int,
                     id: Long
                 ) {
-
                 }
-
                 override fun onNothingSelected(p0: AdapterView<*>?) {
                 }
             }

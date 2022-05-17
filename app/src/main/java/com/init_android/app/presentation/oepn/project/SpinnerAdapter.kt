@@ -2,6 +2,7 @@ package com.init_android.app.presentation.oepn.project
 
 import android.annotation.SuppressLint
 import android.content.Context
+import android.graphics.Color
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -33,7 +34,6 @@ class SpinnerAdapter(
         )
 
         binding.textSignupMajorinfoMajor.text = "모바일"
-
         return binding.root
     }
 
