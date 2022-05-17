@@ -17,16 +17,16 @@
             android:exported="true" />
         <activity
             android:name=".app.presentation.oepn.project.OpenProjectActivity"
-            android:exported="true" />
-        <activity
-            android:name=".app.presentation.ui.home.signup.SignUpActivity"
-            android:exported="true">
+            android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".app.presentation.ui.home.signup.SignUpActivity"
+            android:exported="true"/>
         <activity
             android:name=".app.presentation.ui.home.signin.SignInActivity"
             android:exported="true"
