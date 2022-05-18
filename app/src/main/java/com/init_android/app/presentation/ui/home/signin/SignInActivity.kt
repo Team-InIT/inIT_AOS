@@ -103,8 +103,8 @@ class SignInActivity : BaseActivity<ActivitySignInBinding>(R.layout.activity_sig
                     startActivity(intent)
                     finish()
                     Toast.makeText(this@SignInActivity, response.body()?.message, Toast.LENGTH_SHORT).show()
-                }else{
-                    // 로그인 실패 시 -> warning 텍스트 visibility 변경해주기
+                }else{ // 201~204 -> 로그인 실패
+                    binding.tvWarning.text = response.body()?.message
                     binding.tvWarning.visibility = View.VISIBLE
                 }
             }
