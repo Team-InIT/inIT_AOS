@@ -3,10 +3,13 @@ package com.init_android.app.util
 import android.content.Context
 import android.content.SharedPreferences
 
-class PreferenceUtil(context: Context) {
+object PreferenceUtil {
 
-    private val prefs: SharedPreferences =
-        context.getSharedPreferences("INIT_APP", Context.MODE_PRIVATE)
+    private lateinit var prefs:SharedPreferences
+
+    fun init(context: Context){
+        prefs = context.getSharedPreferences("INIT_APP", Context.MODE_PRIVATE)
+    }
 
     fun getString(key: String, defValue: String?): String {
         return prefs.getString(key, defValue).toString()
