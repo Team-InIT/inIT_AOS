@@ -21,9 +21,7 @@
             android:layout_height="56dp"
             android:layout_gravity="bottom"
             app:contentInsetStart="0dp"
-            app:elevation="0dp"
-            app:fabCradleRoundedCornerRadius="0dp"
-            app:fabCradleMargin="3dp">
+            app:elevation="0dp">
 
             <com.google.android.material.bottomnavigation.BottomNavigationView
                 android:id="@+id/btn_main"
@@ -38,17 +36,6 @@
         </com.google.android.material.bottomappbar.BottomAppBar>
 
 
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/fab_writing"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:backgroundTint="@color/main_default"
-            android:src="@drawable/ic_writing"
-            app:borderWidth="0dp"
-            app:elevation="0dp"
-            app:layout_anchor="@id/btn_main"
-            app:tint="@color/white"
-            android:contentDescription="@string/writing" />
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
 
