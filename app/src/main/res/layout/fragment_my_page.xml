@@ -10,7 +10,8 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="@color/white">
 
         <ScrollView
             android:id="@+id/scrollView2"
@@ -52,7 +53,7 @@
                     android:id="@+id/iv_my_page_profile"
                     android:layout_width="100dp"
                     android:layout_height="100dp"
-                    android:layout_marginTop="16dp"
+                    android:layout_marginTop="32dp"
                     android:layout_marginStart="16dp"
                     android:background="@drawable/ic_launcher_background"
                     app:layout_constraintStart_toStartOf="parent"
@@ -74,6 +75,7 @@
                     android:id="@+id/iv_my_page_position"
                     android:layout_width="28dp"
                     android:layout_height="28dp"
+                    android:layout_marginTop="4dp"
                     android:src="@drawable/ic_android"
                     app:layout_constraintStart_toStartOf="@+id/tv_my_page_profile_name"
                     app:layout_constraintTop_toBottomOf="@+id/tv_my_page_profile_name" />
@@ -97,6 +99,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
                     android:layout_marginEnd="16dp"
+                    android:layout_marginTop="4dp"
                     android:text="긴글 테스트으으으ㅡ으으으으이미이ffffffffffffffffffffffffffffffffffffffffffffffffffffㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅣㅣㅣㅣㅣ이이이이ㅣ이잉이이이이이이ㅣ잉이아ㅓ마ㅣㄹ어ㅏ럴미어리피ㅓㅣㅁㅍㅇ"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/iv_my_page_profile"
@@ -109,13 +112,18 @@
                     android:id="@+id/tab_home"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
+                    android:background="@color/gray_3"
+                    android:layout_marginTop="28dp"
+                    app:tabMaxWidth="0dp"
+                    app:tabGravity="fill"
                     app:layout_constraintTop_toBottomOf="@+id/readMoreTextView"
-                    app:tabMode="scrollable"
+                    app:tabMode="fixed"
                     app:tabTextColor="@color/black" />
 
 
                 <androidx.viewpager2.widget.ViewPager2
                     android:id="@+id/vp_home"
+                    android:background="@color/gray_3"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -127,6 +135,7 @@
                     android:id="@+id/fragment_container"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
+                    android:background="@color/gray_3"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
