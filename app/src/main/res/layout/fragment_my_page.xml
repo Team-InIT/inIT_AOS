@@ -111,13 +111,14 @@
                 <com.google.android.material.tabs.TabLayout
                     android:id="@+id/tab_home"
                     android:layout_width="match_parent"
-                    android:layout_height="0dp"
+                    android:layout_height="wrap_content"
                     android:background="@color/gray_3"
                     android:layout_marginTop="28dp"
                     app:tabMaxWidth="0dp"
                     app:tabGravity="fill"
                     app:layout_constraintTop_toBottomOf="@+id/readMoreTextView"
                     app:tabMode="fixed"
+                    app:tabSelectedTextColor="@color/main_default"
                     app:tabTextColor="@color/black" />
 
 
