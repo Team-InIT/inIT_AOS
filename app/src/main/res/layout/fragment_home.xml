@@ -30,10 +30,30 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
 
+                <androidx.viewpager2.widget.ViewPager2
+                    android:id="@+id/vp_include_project"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="24dp"
+                    android:layout_marginHorizontal="16dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_include_project" />
 
-
-
-
+                <com.tbuonomo.viewpagerdotsindicator.DotsIndicator
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="22dp"
+                    app:dotsCornerRadius="8dp"
+                    app:dotsSize="10dp"
+                    app:dotsSpacing="19dp"
+                    app:dotsColor="@color/gray_2"
+                    app:selectedDotColor="@color/main_default"
+                    app:progressMode="true"
+                    android:layout_marginHorizontal="146dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/vp_include_project" />
 
 
                 <androidx.cardview.widget.CardView
