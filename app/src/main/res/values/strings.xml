@@ -76,4 +76,9 @@
     <string name="enrollment">재학상태</string>
     <string name="finish">완료</string>
 
+
+    <!-- HomeFragment -->
+    <string name="include_project">소속 프로젝트</string>
+    <string name="recommend_project">추천 프로젝트</string>
+
 </resources>

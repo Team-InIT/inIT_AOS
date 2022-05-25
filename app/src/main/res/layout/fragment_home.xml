@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools">
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -9,11 +10,17 @@
         tools:context=".app.presentation.ui.home.HomeFragment">
 
         <TextView
-            android:id="@+id/tv_hoho"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="2011.11.12"
-            />
+            android:id="@+id/tv_include_project"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/include_project"
+            android:layout_marginTop="48dp"
+            android:layout_marginStart="16dp"
+            android:textSize="20sp"
+            android:textColor="@color/black"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
