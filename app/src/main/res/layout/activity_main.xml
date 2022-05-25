@@ -34,8 +34,6 @@
                 app:labelVisibilityMode="labeled"
                 app:menu="@menu/btn_menu" />
         </com.google.android.material.bottomappbar.BottomAppBar>
-
-
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
 
