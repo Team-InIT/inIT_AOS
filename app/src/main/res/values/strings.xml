@@ -75,5 +75,7 @@
     <string name="offline">오프라인</string>
     <string name="enrollment">재학상태</string>
     <string name="finish">완료</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>
