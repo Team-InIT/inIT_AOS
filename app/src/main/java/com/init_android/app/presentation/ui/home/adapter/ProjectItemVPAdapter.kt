@@ -6,7 +6,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.init_android.app.data.model.ProjectItemData
 import com.init_android.databinding.ItemVpProjectBinding
 
-class ProjectVPAdapter(private val itemList:MutableList<ProjectItemData>):RecyclerView.Adapter<ProjectVPAdapter.ProjectVPHolder>() {
+class ProjectItemVPAdapter(private val itemList:MutableList<ProjectItemData>):RecyclerView.Adapter<ProjectItemVPAdapter.ProjectVPHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProjectVPHolder {
         val binding = ItemVpProjectBinding.inflate(LayoutInflater.from(parent.context),parent,false)
