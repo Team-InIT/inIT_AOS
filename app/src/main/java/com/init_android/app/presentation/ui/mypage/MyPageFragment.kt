@@ -1,5 +1,6 @@
 package com.init_android.app.presentation.ui.mypage
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import com.google.android.material.tabs.TabLayoutMediator
@@ -17,6 +18,7 @@ class MyPageFragment : BaseFragment<FragmentMyPageBinding>(R.layout.fragment_my_
 
         initAdapter()
         initTab()
+        settingBtnListener()
     }
 
     private fun initAdapter() {
@@ -34,5 +36,12 @@ class MyPageFragment : BaseFragment<FragmentMyPageBinding>(R.layout.fragment_my_
         TabLayoutMediator(binding.tabHome, binding.vpHome) {tab, position ->
             tab.text = tabLabel[position]
         }.attach()
+    }
+
+    private fun settingBtnListener() {
+        binding.ivMypageSetting.setOnClickListener {
+            val intentSetting = Intent(requireActivity(), MyPageSettingActivity::class.java)
+            startActivity(intentSetting)
+        }
     }
 }

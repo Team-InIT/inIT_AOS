@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/cl_mypage_setting"
+            android:layout_width="match_parent"
+            android:layout_height="68dp"
+            android:background="@color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/img_mypage_setting_move_page"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginStart="16dp"
+                android:background="@drawable/ic_baseline_arrow"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tv_mypage_setting"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/noto_sans_kr_medium"
+                android:text="@string/string_my_setting"
+                android:layout_marginStart="25dp"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                app:layout_constraintBottom_toBottomOf="@+id/img_mypage_setting_move_page"
+                app:layout_constraintStart_toEndOf="@+id/img_mypage_setting_move_page"
+                app:layout_constraintTop_toTopOf="@+id/img_mypage_setting_move_page" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <TextView
+            android:id="@+id/tv_mypage_reset_pw"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="21dp"
+            android:fontFamily="@font/noto_sans_kr_regular"
+            android:text="@string/mypage_reset_pw"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cl_mypage_setting" />
+
+        <ImageView
+            android:id="@+id/iv_mypage_reset_pw"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="20dp"
+            android:background="@drawable/btn_right_arrow"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_mypage_reset_pw"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/tv_mypage_reset_pw" />
+
+        <View
+            android:id="@+id/view_mypage_bar1"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="16dp"
+            android:background="@color/gray_0"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_mypage_reset_pw" />
+
+        <TextView
+            android:id="@+id/tv_mypage_alarm"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="21dp"
+            android:fontFamily="@font/noto_sans_kr_regular"
+            android:text="@string/mypage_setting_alarm"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="@+id/tv_mypage_reset_pw"
+            app:layout_constraintTop_toBottomOf="@+id/view_mypage_bar1" />
+
+        <ImageView
+            android:id="@+id/iv_mypage_alarm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/btn_right_arrow"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_mypage_alarm"
+            app:layout_constraintEnd_toEndOf="@+id/iv_mypage_reset_pw"
+            app:layout_constraintStart_toStartOf="@+id/iv_mypage_reset_pw"
+            app:layout_constraintTop_toTopOf="@+id/tv_mypage_alarm" />
+
+        <View
+            android:id="@+id/view_mypage_bar2"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="16dp"
+            android:background="@color/gray_0"
+            app:layout_constraintEnd_toEndOf="@+id/tv_mypage_alarm"
+            app:layout_constraintStart_toStartOf="@+id/tv_mypage_alarm"
+            app:layout_constraintTop_toBottomOf="@+id/tv_mypage_alarm" />
+
+        <TextView
+            android:id="@+id/tv_mypage_appinfo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="21dp"
+            android:fontFamily="@font/noto_sans_kr_regular"
+            android:text="@string/mypage_app_info"
+            android:textColor="@color/text_main"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="@+id/tv_mypage_alarm"
+            app:layout_constraintTop_toBottomOf="@+id/view_mypage_bar2" />
+
+        <ImageView
+            android:id="@+id/iv_mypage_appinfo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/btn_right_arrow"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_mypage_appinfo"
+            app:layout_constraintEnd_toEndOf="@+id/iv_mypage_alarm"
+            app:layout_constraintStart_toStartOf="@+id/iv_mypage_alarm"
+            app:layout_constraintTop_toTopOf="@+id/tv_mypage_appinfo" />
+
+
+        <View
+            android:id="@+id/view_mypage_bar3"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="16dp"
+            android:background="@color/gray_0"
+            app:layout_constraintEnd_toEndOf="@+id/tv_mypage_appinfo"
+            app:layout_constraintStart_toStartOf="@+id/tv_mypage_appinfo"
+            app:layout_constraintTop_toBottomOf="@+id/tv_mypage_appinfo" />
+
+
+
+        <TextView
+            android:id="@+id/tv_mypage_logout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="16dp"
+            android:fontFamily="@font/noto_sans_kr_regular"
+            android:text="@string/string_logout"
+            android:textColor="@color/main_default"
+            android:textSize="14sp"
+            app:layout_constraintStart_toStartOf="@+id/tv_mypage_alarm"
+            app:layout_constraintTop_toBottomOf="@+id/view_mypage_bar3" />
+
+
+        <TextView
+            android:id="@+id/tv_mypage_quit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:fontFamily="@font/noto_sans_kr_regular"
+            android:text="@string/string_delete_person_info"
+            android:textColor="@color/main_default"
+            android:textSize="14sp"
+            android:layout_marginTop="16dp"
+            app:layout_constraintStart_toStartOf="@+id/tv_mypage_logout"
+            app:layout_constraintTop_toBottomOf="@+id/tv_mypage_logout" />
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
