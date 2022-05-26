@@ -8,142 +8,154 @@
 
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/white">
 
-        <ScrollView
-            android:id="@+id/scrollView2"
+    <ScrollView
+        android:id="@+id/scrollView2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
+
             <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/cl_my_page_main_title"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:background="@color/main_default"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
 
-
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:id="@+id/cl_my_page_main_title"
-                    android:layout_width="match_parent"
+                <TextView
+                    android:id="@+id/tv_my_page_main_title"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:background="@color/main_default"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent">
-
-                    <TextView
-                        android:id="@+id/tv_my_page_main_title"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="16dp"
-                        android:fontFamily="@font/noto_sans_kr_medium"
-                        android:text="@string/mypage"
-                        android:textColor="@color/white"
-                        android:textSize="20sp"
-                        android:layout_marginTop="32dp"
-                        android:layout_marginBottom="16dp"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
-
-                </androidx.constraintlayout.widget.ConstraintLayout>
-
-                <ImageView
-                    android:id="@+id/iv_my_page_profile"
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
+                    android:layout_marginStart="16dp"
                     android:layout_marginTop="32dp"
-                    android:layout_marginStart="16dp"
-                    android:background="@drawable/ic_launcher_background"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/cl_my_page_main_title" />
-
-                <TextView
-                    android:id="@+id/tv_my_page_profile_name"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
+                    android:layout_marginBottom="16dp"
                     android:fontFamily="@font/noto_sans_kr_medium"
-                    android:text="이름"
-                    android:textColor="@color/black"
+                    android:text="@string/mypage"
+                    android:textColor="@color/white"
                     android:textSize="20sp"
-                    app:layout_constraintStart_toEndOf="@+id/iv_my_page_profile"
-                    app:layout_constraintTop_toTopOf="@+id/iv_my_page_profile" />
-
-                <ImageView
-                    android:id="@+id/iv_my_page_position"
-                    android:layout_width="28dp"
-                    android:layout_height="28dp"
-                    android:layout_marginTop="4dp"
-                    android:src="@drawable/ic_android"
-                    app:layout_constraintStart_toStartOf="@+id/tv_my_page_profile_name"
-                    app:layout_constraintTop_toBottomOf="@+id/tv_my_page_profile_name" />
-
-                <TextView
-                    android:id="@+id/tv_my_page_postion"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/noto_sans_kr_medium"
-                    android:text="Android Developer"
-                    android:textColor="@color/main_default"
-                    android:textSize="14sp"
-                    android:layout_marginStart="6dp"
-                    app:layout_constraintBottom_toBottomOf="@+id/iv_my_page_position"
-                    app:layout_constraintStart_toEndOf="@+id/iv_my_page_position"
-                    app:layout_constraintTop_toBottomOf="@+id/tv_my_page_profile_name" />
-
-                <kr.co.prnd.readmore.ReadMoreTextView
-                    android:id="@+id/readMoreTextView"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginEnd="16dp"
-                    android:layout_marginTop="4dp"
-                    android:text="긴글 테스트으으으ㅡ으으으으이미이ffffffffffffffffffffffffffffffffffffffffffffffffffffㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅣㅣㅣㅣㅣ이이이이ㅣ이잉이이이이이이ㅣ잉이아ㅓ마ㅣㄹ어ㅏ럴미어리피ㅓㅣㅁㅍㅇ"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toEndOf="@+id/iv_my_page_profile"
-                    app:layout_constraintTop_toBottomOf="@+id/iv_my_page_position"
-                    app:readMoreColor="@color/gray_6"
-                    app:readMoreMaxLine="4"
-                    app:readMoreText="…더보기" />
-
-                <com.google.android.material.tabs.TabLayout
-                    android:id="@+id/tab_home"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@color/gray_3"
-                    android:layout_marginTop="28dp"
-                    app:tabMaxWidth="0dp"
-                    app:tabGravity="fill"
-                    app:layout_constraintTop_toBottomOf="@+id/readMoreTextView"
-                    app:tabMode="fixed"
-                    app:tabSelectedTextColor="@color/main_default"
-                    app:tabTextColor="@color/black" />
-
-
-                <androidx.viewpager2.widget.ViewPager2
-                    android:id="@+id/vp_home"
-                    android:background="@color/gray_3"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/tab_home" />
-
-                <androidx.fragment.app.FragmentContainerView
-                    android:id="@+id/fragment_container"
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:background="@color/gray_3"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/vp_home" />
-
+                    app:layout_constraintTop_toTopOf="parent" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
-        </ScrollView>
-    </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <ImageView
+                android:id="@+id/iv_my_page_profile"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="32dp"
+                android:background="@drawable/ic_launcher_background"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/cl_my_page_main_title" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/rectangle_stroke_gray_radius_10"
+                android:fontFamily="@font/noto_sans_kr_medium"
+                android:text="프로필 수정"
+                android:textColor="@color/gray_5"
+                android:layout_marginTop="8dp"
+                android:paddingTop="2dp"
+                android:paddingBottom="2dp"
+                android:paddingStart="10dp"
+                android:paddingEnd="10dp"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toEndOf="@+id/iv_my_page_profile"
+                app:layout_constraintStart_toStartOf="@+id/iv_my_page_profile"
+                app:layout_constraintTop_toBottomOf="@+id/iv_my_page_profile" />
+
+
+            <TextView
+                android:id="@+id/tv_my_page_profile_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:fontFamily="@font/noto_sans_kr_medium"
+                android:text="이름"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                app:layout_constraintStart_toEndOf="@+id/iv_my_page_profile"
+                app:layout_constraintTop_toTopOf="@+id/iv_my_page_profile" />
+
+            <ImageView
+                android:id="@+id/iv_my_page_position"
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:layout_marginTop="4dp"
+                android:src="@drawable/ic_android"
+                app:layout_constraintStart_toStartOf="@+id/tv_my_page_profile_name"
+                app:layout_constraintTop_toBottomOf="@+id/tv_my_page_profile_name" />
+
+            <TextView
+                android:id="@+id/tv_my_page_postion"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="6dp"
+                android:fontFamily="@font/noto_sans_kr_medium"
+                android:text="Android Developer"
+                android:textColor="@color/main_default"
+                android:textSize="14sp"
+                app:layout_constraintBottom_toBottomOf="@+id/iv_my_page_position"
+                app:layout_constraintStart_toEndOf="@+id/iv_my_page_position"
+                app:layout_constraintTop_toBottomOf="@+id/tv_my_page_profile_name" />
+
+            <kr.co.prnd.readmore.ReadMoreTextView
+                android:id="@+id/readMoreTextView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginEnd="16dp"
+                android:text="긴글 테스트으으으ㅡ으으으으이미이ffffffffffffffffffffffffffffffffffffffffffffffffffffㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅣㅣㅣㅣㅣ이이이이ㅣ이잉이이이이이이ㅣ잉이아ㅓ마ㅣㄹ어ㅏ럴미어리피ㅓㅣㅁㅍㅇ"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/iv_my_page_profile"
+                app:layout_constraintTop_toBottomOf="@+id/iv_my_page_position"
+                app:readMoreColor="@color/gray_6"
+                app:readMoreMaxLine="4"
+                app:readMoreText="…더보기" />
+
+            <com.google.android.material.tabs.TabLayout
+                android:id="@+id/tab_home"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="28dp"
+                android:background="@color/gray_3"
+                app:layout_constraintTop_toBottomOf="@+id/readMoreTextView"
+                app:tabGravity="fill"
+                app:tabMaxWidth="0dp"
+                app:tabMode="fixed"
+                app:tabSelectedTextColor="@color/main_default"
+                app:tabTextColor="@color/black" />
+
+
+            <androidx.viewpager2.widget.ViewPager2
+                android:id="@+id/vp_home"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/gray_3"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tab_home" />
+
+            <androidx.fragment.app.FragmentContainerView
+                android:id="@+id/fragment_container"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:background="@color/gray_3"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/vp_home" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
 </layout>
