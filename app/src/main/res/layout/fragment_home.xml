@@ -29,32 +29,53 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
+                <TextView
+                    android:id="@+id/tv_include_show_all"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="56dp"
+                    android:layout_marginEnd="16dp"
+                    android:text="@string/show_all"
+                    android:textColor="@color/black"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
 
                 <androidx.viewpager2.widget.ViewPager2
                     android:id="@+id/vp_include_project"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="24dp"
-                    android:layout_marginHorizontal="16dp"
-                    app:layout_constraintStart_toStartOf="parent"
+                    android:clipToPadding="false"
+                    android:clipChildren="false"
                     app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/tv_include_project" />
 
-                <com.tbuonomo.viewpagerdotsindicator.DotsIndicator
+                <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="22dp"
-                    app:dotsCornerRadius="8dp"
-                    app:dotsSize="10dp"
-                    app:dotsSpacing="19dp"
-                    app:dotsColor="@color/gray_2"
-                    app:selectedDotColor="@color/main_default"
-                    app:progressMode="true"
-                    android:layout_marginHorizontal="146dp"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/vp_include_project" />
+                    app:layout_constraintEnd_toEndOf="@id/vp_include_project"
+                    app:layout_constraintStart_toStartOf="@id/vp_include_project"
+                    app:layout_constraintTop_toBottomOf="@id/vp_include_project">
 
+                    <com.tbuonomo.viewpagerdotsindicator.SpringDotsIndicator
+                        android:id="@+id/indicator_include"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:foregroundGravity="center"
+                        app:dotsColor="@color/main_default"
+                        app:dotsStrokeColor="@color/gray_2"
+                        app:dotsCornerRadius="8dp"
+                        app:dotsSize="10dp"
+                        app:dotsStrokeWidth="8dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:progressMode="true" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
 
                 <androidx.cardview.widget.CardView
                     android:id="@+id/card_view_no_include"
@@ -62,9 +83,9 @@
                     android:layout_height="108dp"
                     android:layout_marginHorizontal="16dp"
                     android:layout_marginTop="24dp"
+                    android:visibility="gone"
                     app:cardCornerRadius="14dp"
                     app:cardElevation="0dp"
-                    android:visibility="gone"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/tv_include_project">
@@ -91,7 +112,7 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
-                    android:id="@+id/tv_show_all"
+                    android:id="@+id/tv_reco_show_all"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="287dp"
@@ -107,9 +128,9 @@
                     android:layout_height="108dp"
                     android:layout_marginHorizontal="16dp"
                     android:layout_marginTop="24dp"
+                    android:visibility="gone"
                     app:cardCornerRadius="14dp"
                     app:cardElevation="0dp"
-                    android:visibility="gone"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/tv_recommend_project">
@@ -129,12 +150,14 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="16dp"
-                    android:layout_marginVertical="24dp"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
+                    android:layout_marginTop="24dp"
+                    android:layout_marginBottom="80dp"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                     app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/tv_recommend_project"
-                    tools:listitem="@layout/item_project"/>
+                    tools:listitem="@layout/item_rv_project" />
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.core.widget.NestedScrollView>
 
