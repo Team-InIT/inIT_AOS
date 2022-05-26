@@ -24,7 +24,7 @@ class RecommendProjectActivity:BaseActivity<ActivityRecommendProjectBinding>(R.l
     }
 
     private fun initRecyclerView(){
-        val rvAdapter = ProjectItemRVAdapter()
+        val rvAdapter = ProjectItemRVAdapter(this)
         rvAdapter.updateProjectList(recoList)
         binding.rvRecommendProject.adapter = rvAdapter
     }

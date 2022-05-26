@@ -81,7 +81,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
     }
 
     private fun initRecyclerView(){
-        val rvAdapter = ProjectItemRVAdapter()
+        val rvAdapter = ProjectItemRVAdapter(requireContext())
         rvAdapter.updateProjectList(recoList)
         binding.rvRecommendProject.adapter = rvAdapter
     }
