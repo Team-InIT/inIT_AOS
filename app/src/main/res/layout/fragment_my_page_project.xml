@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/gray_3">
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/cl_my_page_join"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/rectagnle_fill_white_radius_8"
+            app:layout_constraintEnd_toStartOf="@+id/cl_my_page_upload"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/tv_my_page_join"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="38dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="38dp"
+                android:fontFamily="@font/noto_sans_kr_regular"
+                android:text="@string/string_join"
+                android:textColor="@color/black"
+                android:textSize="16dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tv_my_page_join_num"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="3dp"
+                android:layout_marginBottom="16dp"
+                android:fontFamily="@font/noto_sans_kr_bold"
+                android:text="0"
+                android:textColor="@color/tet_gray_2"
+                android:textSize="32sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/tv_my_page_join"
+                app:layout_constraintStart_toStartOf="@+id/tv_my_page_join"
+                app:layout_constraintTop_toBottomOf="@+id/tv_my_page_join" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/cl_my_page_upload"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:background="@drawable/rectagnle_fill_white_radius_8"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/cl_my_page_join"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/tv_my_page_upload"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="38dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="38dp"
+                android:fontFamily="@font/noto_sans_kr_regular"
+                android:text="@string/string_upload"
+                android:textColor="@color/black"
+                android:textSize="16dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tv_my_page_upload_num"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="3dp"
+                android:layout_marginBottom="16dp"
+                android:fontFamily="@font/noto_sans_kr_bold"
+                android:text="0"
+                android:textColor="@color/tet_gray_2"
+                android:textSize="32sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/tv_my_page_upload"
+                app:layout_constraintStart_toStartOf="@+id/tv_my_page_upload"
+                app:layout_constraintTop_toBottomOf="@+id/tv_my_page_upload" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/cl_my_page_approve"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/rectagnle_fill_white_radius_8"
+            app:layout_constraintEnd_toEndOf="@+id/cl_my_page_join"
+            app:layout_constraintStart_toStartOf="@+id/cl_my_page_join"
+            app:layout_constraintTop_toBottomOf="@+id/cl_my_page_join">
+
+
+            <TextView
+                android:id="@+id/tv_mypage_approve"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/noto_sans_kr_regular"
+                android:text="@string/string_ready_approve"
+                android:textColor="@color/black"
+                android:textSize="16dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tv_mypage_approve_num"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:layout_marginBottom="16dp"
+                android:fontFamily="@font/noto_sans_kr_bold"
+                android:text="0"
+                android:textColor="@color/tet_gray_2"
+                android:textSize="32sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/tv_mypage_approve"
+                app:layout_constraintStart_toStartOf="@+id/tv_mypage_approve"
+                app:layout_constraintTop_toBottomOf="@+id/tv_mypage_approve" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/cl_my_page_heart"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/rectagnle_fill_white_radius_8"
+            app:layout_constraintEnd_toEndOf="@+id/cl_my_page_upload"
+            app:layout_constraintStart_toStartOf="@+id/cl_my_page_upload"
+            app:layout_constraintTop_toTopOf="@+id/cl_my_page_approve">
+
+            <TextView
+                android:id="@+id/tv_mypage_heart"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/noto_sans_kr_regular"
+                android:text="@string/string_heart"
+                android:textColor="@color/black"
+                android:textSize="16dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tv_mypage_heart_num"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:layout_marginBottom="16dp"
+                android:fontFamily="@font/noto_sans_kr_bold"
+                android:text="0"
+                android:textColor="@color/tet_gray_2"
+                android:textSize="32sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/tv_mypage_heart"
+                app:layout_constraintStart_toStartOf="@+id/tv_mypage_heart"
+                app:layout_constraintTop_toBottomOf="@+id/tv_mypage_heart" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
