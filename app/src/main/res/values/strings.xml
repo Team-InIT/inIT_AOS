@@ -87,8 +87,17 @@
     <string name="no_recoomend_project">추천된 프로젝트가 없어요!\n개인정보 입력을 완료해주세요!</string>
 
     <!--MyPage-->
+    <string name="string_modify">수정</string>
     <string name="string_join">참여</string>
     <string name="string_upload">업로드</string>
     <string name="string_ready_approve">승인대기</string>
     <string name="string_heart">찜</string>
+    <string name="string_belong">소속</string>
+    <string name="string_acadmic">학적</string>
+    <string name="string_technology_stack">기술 스택</string>
+    <string name="string_link">링크</string>
+    <string name="string_github">깃허브</string>
+    <string name="string_notion">노션</string>
+    <string name="string_blog">블로그</string>
+
 </resources>

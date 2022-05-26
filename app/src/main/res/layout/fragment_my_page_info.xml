@@ -17,11 +17,11 @@
             android:id="@+id/tv_mypage_basic_info"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="18dp"
+            android:layout_marginTop="16dp"
             android:text="기본정보"
             android:textColor="@color/black"
             android:textSize="16sp"
-            android:layout_marginTop="16dp"
-            android:layout_marginStart="18dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -30,13 +30,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:text="수정"
             android:layout_marginEnd="18dp"
+            android:fontFamily="@font/noto_sans_kr_bold"
+            android:text="@string/string_modify"
             android:textColor="@color/main_default"
             android:textSize="16sp"
-            android:fontFamily="@font/noto_sans_kr_bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/constraintLayout"
@@ -47,6 +48,7 @@
             android:layout_marginEnd="16dp"
             android:background="@drawable/rectagnle_fill_white_radius_8"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tv_mypage_basic_info">
 
@@ -56,7 +58,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="26dp"
                 android:layout_marginTop="16dp"
-                android:text="이메일"
+                android:text="@string/email"
                 android:textColor="@color/tet_gray_2"
                 android:textSize="16sp"
                 app:layout_constraintStart_toStartOf="parent"
@@ -90,7 +92,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="13dp"
-                android:text="이메일"
+                android:text="@string/string_belong"
                 android:textColor="@color/tet_gray_2"
                 android:textSize="16sp"
                 app:layout_constraintStart_toStartOf="@+id/tv_mypage_basic_info_email"
@@ -100,7 +102,7 @@
                 android:id="@+id/tv_mypage_basic_info_belong_answer"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="stop@gmail.com"
+                android:text="서울여자대학교"
                 android:textColor="@color/black"
                 android:textSize="16sp"
                 app:layout_constraintBottom_toBottomOf="@+id/tv_mypage_basic_info_belong"
@@ -125,7 +127,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="13dp"
-                android:text="이메일"
+                android:text="@string/string_acadmic"
                 android:textColor="@color/tet_gray_2"
                 android:textSize="16sp"
                 app:layout_constraintStart_toStartOf="@+id/tv_mypage_basic_info_belong"
@@ -135,7 +137,7 @@
                 android:id="@+id/tv_mypage_basic_info_academic_answer"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="stop@gmail.com"
+                android:text="휴학"
                 android:textColor="@color/black"
                 android:textSize="16sp"
                 app:layout_constraintBottom_toBottomOf="@+id/tv_mypage_basic_info_academic"
@@ -161,7 +163,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="13dp"
                 android:layout_marginBottom="16dp"
-                android:text="이메일"
+                android:text="@string/sex"
                 android:textColor="@color/tet_gray_2"
                 android:textSize="16sp"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -172,7 +174,7 @@
                 android:id="@+id/tv_mypage_basic_info_gender_answer"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="stop@gmail.com"
+                android:text="여"
                 android:textColor="@color/black"
                 android:textSize="16sp"
                 app:layout_constraintBottom_toBottomOf="@+id/tv_mypage_basic_info_gender"
@@ -181,15 +183,14 @@
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-
         <TextView
             android:id="@+id/tv_mypage_basic_stack"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="기술스택"
+            android:layout_marginTop="24dp"
+            android:text="@string/string_technology_stack"
             android:textColor="@color/black"
             android:textSize="16sp"
-            android:layout_marginTop="24dp"
             app:layout_constraintStart_toStartOf="@+id/tv_mypage_basic_info"
             app:layout_constraintTop_toBottomOf="@+id/constraintLayout" />
 
@@ -198,7 +199,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/noto_sans_kr_bold"
-            android:text="수정"
+            android:text="@string/string_modify"
             android:textColor="@color/main_default"
             android:textSize="16sp"
             app:layout_constraintBottom_toBottomOf="@+id/tv_mypage_basic_stack"
@@ -211,8 +212,8 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:background="@drawable/rectangle_white_border_8"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             android:orientation="horizontal"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintEnd_toEndOf="@+id/constraintLayout"
             app:layout_constraintStart_toStartOf="@+id/constraintLayout"
             app:layout_constraintTop_toBottomOf="@+id/tv_mypage_basic_stack"
@@ -225,8 +226,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="18dp"
-            android:text="링크"
             android:layout_marginTop="24dp"
+            android:text="@string/string_link"
             android:textColor="@color/black"
             android:textSize="16sp"
             app:layout_constraintStart_toStartOf="parent"
@@ -249,8 +250,8 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp"
             android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
             android:background="@drawable/rectagnle_fill_white_radius_8"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -262,7 +263,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="26dp"
                 android:layout_marginTop="16dp"
-                android:text="이메일"
+                android:text="@string/string_github"
                 android:textColor="@color/tet_gray_2"
                 android:textSize="16sp"
                 app:layout_constraintStart_toStartOf="parent"
@@ -296,7 +297,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:text="이메일"
+                android:text="@string/string_notion"
                 android:textColor="@color/tet_gray_2"
                 android:textSize="16sp"
                 app:layout_constraintStart_toStartOf="@+id/tv_mypage_basic_link_github"
@@ -330,10 +331,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:text="이메일"
+                android:layout_marginBottom="16dp"
+                android:text="@string/string_blog"
                 android:textColor="@color/tet_gray_2"
                 android:textSize="16sp"
-                android:layout_marginBottom="16dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="@+id/tv_mypage_basic_link_notion"
                 app:layout_constraintTop_toBottomOf="@+id/view_my_page_info_5" />
@@ -349,7 +350,6 @@
                 app:layout_constraintEnd_toEndOf="@+id/tv_mypage_basic_notion_answer"
                 app:layout_constraintTop_toTopOf="@+id/tv_mypage_basic_link_blog" />
         </androidx.constraintlayout.widget.ConstraintLayout>
-
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
