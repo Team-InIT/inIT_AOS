@@ -4,7 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
+        <variable
+            name="projectItem"
+            type="com.init_android.app.data.model.ProjectItemData" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -22,9 +24,10 @@
             android:textColor="@color/main_default"
             android:textSize="12sp"
             android:textStyle="bold"
+            android:text="@{projectItem.pType}"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:text="안드로이드" />
+            tools:text ="@string/type_android"/>
 
         <TextView
             android:id="@+id/tv_title"
@@ -36,10 +39,11 @@
             android:maxLines="1"
             android:textColor="@color/black"
             android:textStyle="bold"
+            android:text="@{projectItem.pTitle}"
             app:layout_constraintEnd_toStartOf="@+id/layout_d_day"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tv_position"
-            tools:text="네이버 해커톤 같이 참여할 분 구해여~" />
+            tools:text="@string/title_example" />
 
         <LinearLayout
             android:id="@+id/layout_more_info"
@@ -72,10 +76,11 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="2dp"
+                    android:text="@{projectItem.pLocation}"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toEndOf="@id/iv_location"
                     app:layout_constraintTop_toTopOf="parent"
-                    tools:text="강남구" />
+                    tools:text="@string/location_gangnam_gu" />
 
                 <ImageView
                     android:id="@+id/iv_count"
@@ -92,6 +97,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="2dp"
+                    android:text="@{projectItem.pTotalNum}"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toEndOf="@id/iv_count"
                     app:layout_constraintTop_toTopOf="parent"
@@ -118,6 +124,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="2dp"
+                    android:text="@{projectItem.pStartDate+'~'+projectItem.pEndDate}"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toEndOf="@id/iv_date"
                     app:layout_constraintTop_toTopOf="parent"
@@ -142,20 +149,22 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:text="D-DAY"
+                android:text="@{projectItem.pDDay}"
                 android:textColor="@color/white"
                 android:textSize="12sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                tools:text="@string/dday_dday"/>
         </LinearLayout>
 
         <TextView
             android:id="@+id/tv_writer"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="이혜빈"
+            android:text="@{projectItem.pWriter}"
             android:textColor="@color/black"
             app:layout_constraintBottom_toBottomOf="@id/layout_more_info"
-            app:layout_constraintEnd_toEndOf="@id/layout_d_day" />
+            app:layout_constraintEnd_toEndOf="@id/layout_d_day"
+            tools:text="@string/writer"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

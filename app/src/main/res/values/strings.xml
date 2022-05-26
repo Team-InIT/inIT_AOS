@@ -83,5 +83,16 @@
     <string name="show_all">전체보기></string>
     <string name="no_include_project">소속된 프로젝트가 없어요!</string>
     <string name="no_recoomend_project">추천된 프로젝트가 없어요!\n개인정보 입력을 완료해주세요!</string>
+    <string name="type_android">안드로이드</string>
+    <string name="type_ios">iOS</string>
+    <string name="type_web">웹</string>
+    <string name="type_server">서버</string>
+    <string name="type_game">게임</string>
+    <string name="title_example">네이버 해커톤 같이 하실 분 구해요~</string>
+    <string name="dday_dday">D-DAY</string>
+    <string name="dday_fin">FIN</string>
+    <string name="dday_ing">ING</string>
+    <string name="writer">작성자</string>
+    <string name="location_gangnam_gu">강남구</string>
 
 </resources>
