@@ -1,11 +1,13 @@
 package com.init_android.app.presentation.ui.home
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import com.init_android.R
 import com.init_android.app.data.model.ProjectItemData
 import com.init_android.app.presentation.ui.home.adapter.ProjectItemRVAdapter
 import com.init_android.app.presentation.ui.home.adapter.ProjectItemVPAdapter
+import com.init_android.app.presentation.ui.home.recommendproject.RecommendProjectActivity
 import com.init_android.databinding.FragmentHomeBinding
 import com.playtogether_android.app.presentation.base.BaseFragment
 
@@ -18,6 +20,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        initShowAllEvent()
         tryGetHomeProject()
     }
 
@@ -78,8 +81,16 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
     }
 
     private fun initRecyclerView(){
-        val rvAdapter = ProjectItemRVAdapter()
+        val rvAdapter = ProjectItemRVAdapter(requireContext())
         rvAdapter.updateProjectList(recoList)
         binding.rvRecommendProject.adapter = rvAdapter
     }
+
+    // 전체보기 클릭 이벤트 -> 추천 프로젝트 화면으로 이동
+    private fun initShowAllEvent(){
+        binding.tvRecoShowAll.setOnClickListener {
+            startActivity(Intent(requireContext(),RecommendProjectActivity::class.java))
+        }
+    }
+
 }
