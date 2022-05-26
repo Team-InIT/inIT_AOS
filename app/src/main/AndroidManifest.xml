@@ -35,6 +35,8 @@
         <activity
             android:name=".app.presentation.ui.MainActivity"
             android:exported="true" />
+        <activity android:name=".app.presentation.ui.home.recommendproject.RecommendProjectActivity"
+            android:exported="true"/>
     </application>
 
 </manifest>
