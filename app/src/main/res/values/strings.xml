@@ -86,4 +86,9 @@
     <string name="no_include_project">소속된 프로젝트가 없어요!</string>
     <string name="no_recoomend_project">추천된 프로젝트가 없어요!\n개인정보 입력을 완료해주세요!</string>
 
+    <!--MyPage-->
+    <string name="string_join">참여</string>
+    <string name="string_upload">업로드</string>
+    <string name="string_ready_approve">승인대기</string>
+    <string name="string_heart">찜</string>
 </resources>
