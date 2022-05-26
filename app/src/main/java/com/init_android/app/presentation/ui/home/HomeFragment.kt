@@ -18,12 +18,11 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        testListFunc()
-
+        tryGetHomeProject()
     }
 
     // 서버 통신 - 데이터 존재 여부 검사
-    private fun testListFunc(){
+    private fun tryGetHomeProject(){
 
         includeList.add(ProjectItemData("안드로이드","서울여대 해커톤 나가실 분","노원구","1/4","2022.06.11","2022.06.24","장윤정","D-DAY"))
         includeList.add(ProjectItemData("웹","서울여대 해커톤 나가실 분","노원구","1/4","2022.06.11","2022.06.24","장윤정","D-DAY"))
