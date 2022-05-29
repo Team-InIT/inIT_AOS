@@ -122,5 +122,7 @@
     <string name="string_delete_person_info">탈퇴</string>
     <string name="mypage_input">직접 입력해주세요</string>
     <string name="string_basic_info">기본정보</string>
+    <string name="string_edit_profile">프로필 편집</string>
+    <string name="string_introduction">자기소개</string>
 
 </resources>

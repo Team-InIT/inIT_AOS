@@ -19,10 +19,17 @@ class MyPageFragment : BaseFragment<FragmentMyPageBinding>(R.layout.fragment_my_
         initAdapter()
         initTab()
         settingBtnListener()
+        editProfileListener()
     }
 
+    //tab layout adapter
     private fun initAdapter() {
-        val fragmentList = listOf(MyPageInfoFragment(), MyPageProjectFragment(),MyPageFeedFragment(),MyPageRateFragment())
+        val fragmentList = listOf(
+            MyPageInfoFragment(),
+            MyPageProjectFragment(),
+            MyPageFeedFragment(),
+            MyPageRateFragment()
+        )
         myPageTabAdapter = MyPageTabAdapter(this)
         myPageTabAdapter.fragments.addAll(fragmentList)
 
@@ -31,23 +38,30 @@ class MyPageFragment : BaseFragment<FragmentMyPageBinding>(R.layout.fragment_my_
 
     }
 
-    private fun initTab(){
+    private fun initTab() {
         val tabLabel = listOf("정보", "프로젝트", "피드", "평가")
-        TabLayoutMediator(binding.tabHome, binding.vpHome) {tab, position ->
+        TabLayoutMediator(binding.tabHome, binding.vpHome) { tab, position ->
             tab.text = tabLabel[position]
         }.attach()
     }
 
+    //톱니바퀴 클릭 리스너
     private fun settingBtnListener() {
         binding.ivMypageSetting.setOnClickListener {
             val intentSetting = Intent(requireActivity(), MyPageSettingActivity::class.java)
             startActivity(intentSetting)
         }
+    }
 
+    //프로필 편집 클릭 리스너
+    private fun editProfileListener() {
         binding.tvMyPageModifyProfile.setOnClickListener {
             val intentModifyProfile = Intent(requireActivity(), MyPageModifyProfileActivity::class.java)
+            intentModifyProfile.putExtra("name", binding.tvMyPageProfileName.text.toString())
+            intentModifyProfile.putExtra("position", binding.tvMyPagePostion.text.toString())
+            intentModifyProfile.putExtra("level", binding.tvMyPagePositionLevel.text.toString())
+            intentModifyProfile.putExtra("introduction", binding.readMoreTextView.text.toString())
             startActivity(intentModifyProfile)
         }
-
     }
 }
