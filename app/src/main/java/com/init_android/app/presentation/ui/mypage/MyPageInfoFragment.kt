@@ -19,26 +19,40 @@ class MyPageInfoFragment : BaseFragment<FragmentMyPageInfoBinding>(R.layout.frag
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         btnClickListener()
+        linkClickListener()
+        basicInfoListener()
 
     }
 
     private fun btnClickListener() {
-        binding.tvMypageBasicInfoModify.setOnClickListener {
-            val intentBasicInfo = Intent(requireActivity(), MyPageModifyBasicInfoActivity::class.java)
-            startActivity(intentBasicInfo)
-        }
-
         binding.tvMypageBasicStackModify.setOnClickListener {
             val intentStack = Intent(requireActivity(), MyPageModifyStackActivity::class.java)
             startActivity(intentStack)
         }
+    }
 
+    //링크 수정 클릭 리스너
+    private fun linkClickListener() {
         binding.tvMypageBasicLinkModify.setOnClickListener {
             val intentLink = Intent(requireActivity(), MyPageModifyLinkActivity::class.java)
             intentLink.putExtra("github", binding.tvMypageBasicGithubAnswer.text.toString())
             intentLink.putExtra("notion", binding.tvMypageBasicNotionAnswer.text.toString())
             intentLink.putExtra("blog", binding.tvMypageBasicBlogAnswer.text.toString())
             startActivity(intentLink)
+        }
+    }
+
+    //기본 정보 수정 클릭 리스너
+    private fun basicInfoListener() {
+        binding.tvMypageBasicInfoModify.setOnClickListener {
+            val intentBasicInfo = Intent(requireActivity(), MyPageModifyBasicInfoActivity::class.java)
+            intentBasicInfo.putExtra("email", binding.tvMypageBasicInfoEmailAnswer.text.toString())
+            intentBasicInfo.putExtra("belong", binding.tvMypageBasicInfoBelongAnswer.text.toString())
+            intentBasicInfo.putExtra("academic", binding.tvMypageBasicInfoAcademicAnswer.text.toString())
+            intentBasicInfo.putExtra("gender", binding.tvMypageBasicInfoGenderAnswer.text.toString())
+
+
+            startActivity(intentBasicInfo)
         }
     }
 

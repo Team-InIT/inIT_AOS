@@ -121,5 +121,6 @@
     <string name="string_logout">로그아웃</string>
     <string name="string_delete_person_info">탈퇴</string>
     <string name="mypage_input">직접 입력해주세요</string>
+    <string name="string_basic_info">기본정보</string>
 
 </resources>
