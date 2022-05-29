@@ -48,5 +48,6 @@ class MyPageFragment : BaseFragment<FragmentMyPageBinding>(R.layout.fragment_my_
             val intentModifyProfile = Intent(requireActivity(), MyPageModifyProfileActivity::class.java)
             startActivity(intentModifyProfile)
         }
+
     }
 }
