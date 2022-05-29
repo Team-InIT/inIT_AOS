@@ -114,5 +114,12 @@
     <string name="string_github">깃허브</string>
     <string name="string_notion">노션</string>
     <string name="string_blog">블로그</string>
+    <string name="string_my_setting">내 설정</string>
+    <string name="mypage_reset_pw">비밀번호 재설정</string>
+    <string name="mypage_setting_alarm">알림 설정</string>
+    <string name="mypage_app_info">앱 정보</string>
+    <string name="string_logout">로그아웃</string>
+    <string name="string_delete_person_info">탈퇴</string>
+    <string name="mypage_input">직접 입력해주세요</string>
 
 </resources>
