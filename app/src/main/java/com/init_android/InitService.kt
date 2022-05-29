@@ -1,13 +1,7 @@
 package com.init_android
 
-import com.init_android.app.data.request.RequestAddProject
-import com.init_android.app.data.request.RequestIdCheck
-import com.init_android.app.data.request.RequestSignIn
-import com.init_android.app.data.request.RequestSignUp
-import com.init_android.app.data.response.ResponseAddProject
-import com.init_android.app.data.response.ResponseIdCheck
-import com.init_android.app.data.response.ResponseSignIn
-import com.init_android.app.data.response.ResponseSignUp
+import com.init_android.app.data.request.*
+import com.init_android.app.data.response.*
 import retrofit2.Call
 import retrofit2.http.Body
 import retrofit2.http.POST
@@ -32,4 +26,7 @@ interface InitService {
     fun postAddProject(
         @Body body: RequestAddProject
     ) : Call<ResponseAddProject>
+
+    @POST("/home")
+    suspend fun postHome(@Body body: RequestHome): ResponseHome
 }

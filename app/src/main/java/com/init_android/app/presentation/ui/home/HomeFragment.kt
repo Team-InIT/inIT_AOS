@@ -2,10 +2,13 @@ package com.init_android.app.presentation.ui.home
 
 import android.os.Bundle
 import android.view.View
+import androidx.fragment.app.viewModels
 import com.init_android.R
 import com.init_android.app.data.model.ProjectItemData
+import com.init_android.app.data.request.RequestHome
 import com.init_android.app.presentation.ui.home.adapter.ProjectItemRVAdapter
 import com.init_android.app.presentation.ui.home.adapter.ProjectItemVPAdapter
+import com.init_android.app.presentation.ui.home.viewmodel.HomeViewModel
 import com.init_android.databinding.FragmentHomeBinding
 import com.playtogether_android.app.presentation.base.BaseFragment
 
@@ -15,6 +18,8 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
     val includeList = mutableListOf<ProjectItemData>()
     val recoList = mutableListOf<ProjectItemData>()
 
+    private val homeViewModel:HomeViewModel by viewModels()
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -23,6 +28,28 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
 
     // 서버 통신 - 데이터 존재 여부 검사
     private fun tryGetHomeProject(){
+
+        /*val requestHome = RequestHome(
+            mNum = 3,
+            mPosition = 6,
+            mLevel = 0
+        )
+
+        homeViewModel.postHomeData(requestHome)
+        */
+
+        /*homeViewModel.homeData.observe(viewLifecycleOwner){
+            val includeList = it.list_belong
+            val recommendList = it.list_recommend
+
+            // 소속 프로젝트
+            if (includeList != null){
+                for(i in 0 until includeList.size){
+                    includeList?.add(ProjectItemData(includeList[i].pType,includeList[i].pTitle,includeList[i],includeList[i].))
+                }
+            }
+            // 추천 프로젝트
+        }*/
 
         includeList.add(ProjectItemData("안드로이드","서울여대 해커톤 나가실 분","노원구","1/4","2022.06.11","2022.06.24","장윤정","D-DAY"))
         includeList.add(ProjectItemData("웹","서울여대 해커톤 나가실 분","노원구","1/4","2022.06.11","2022.06.24","장윤정","D-DAY"))
