@@ -60,6 +60,8 @@
         <entry key="..\:/Users/Lenovo/StudioProjects/inIT_AOS/app/src/main/res/drawable/menu_selector_drawable.xml" value="0.158" />
         <entry key="..\:/Users/Lenovo/StudioProjects/inIT_AOS/app/src/main/res/drawable/rectagnle_fill_main_radius_5.xml" value="0.2375" />
         <entry key="..\:/Users/Lenovo/StudioProjects/inIT_AOS/app/src/main/res/drawable/rectagnle_fill_right_radius_10.xml" value="0.2605" />
+        <entry key="..\:/Users/Lenovo/StudioProjects/inIT_AOS/app/src/main/res/drawable/rectagnle_fill_white_radius_40.xml" value="0.219" />
+        <entry key="..\:/Users/Lenovo/StudioProjects/inIT_AOS/app/src/main/res/drawable/rectagnle_fill_white_radius_8.xml" value="0.219" />
         <entry key="..\:/Users/Lenovo/StudioProjects/inIT_AOS/app/src/main/res/drawable/rectagnle_stroke_main.xml" value="0.2605" />
         <entry key="..\:/Users/Lenovo/StudioProjects/inIT_AOS/app/src/main/res/drawable/rectagnle_stroke_main_left_radius_10.xml" value="0.2605" />
         <entry key="..\:/Users/Lenovo/StudioProjects/inIT_AOS/app/src/main/res/drawable/rectangle_fill_gray_radius_10.xml" value="0.2605" />
@@ -91,7 +93,11 @@
         <entry key="..\:/Users/Lenovo/StudioProjects/inIT_AOS/app/src/main/res/layout/fragment_home.xml" value="0.2552083333333333" />
         <entry key="..\:/Users/Lenovo/StudioProjects/inIT_AOS/app/src/main/res/layout/fragment_my_page.xml" value="0.2552083333333333" />
         <entry key="..\:/Users/Lenovo/StudioProjects/inIT_AOS/app/src/main/res/layout/fragment_personal_info.xml" value="0.7444794952681388" />
-        <entry key="..\:/Users/Lenovo/StudioProjects/inIT_AOS/app/src/main/res/layout/fragment_search.xml" value="0.2552083333333333" />
+        <entry key="..\:/Users/Lenovo/StudioProjects/inIT_AOS/app/src/main/res/layout/fragment_search.xml" value="0.6" />
+        <entry key="..\:/Users/Lenovo/StudioProjects/inIT_AOS/app/src/main/res/layout/fragment_search_partner.xml" value="0.536" />
+        <entry key="..\:/Users/Lenovo/StudioProjects/inIT_AOS/app/src/main/res/layout/fragment_search_recruit_finish.xml" value="0.72" />
+        <entry key="..\:/Users/Lenovo/StudioProjects/inIT_AOS/app/src/main/res/layout/fragment_search_recruiting.xml" value="1.0" />
+        <entry key="..\:/Users/Lenovo/StudioProjects/inIT_AOS/app/src/main/res/layout/item_project.xml" value="1.196875" />
         <entry key="..\:/Users/Lenovo/StudioProjects/inIT_AOS/app/src/main/res/layout/item_rv_position.xml" value="0.2552083333333333" />
         <entry key="..\:/Users/Lenovo/StudioProjects/inIT_AOS/app/src/main/res/menu/btn_menu.xml" value="0.8" />
       </map>
