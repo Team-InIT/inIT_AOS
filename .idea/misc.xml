@@ -24,10 +24,10 @@
         <entry key="..\:/Users/82104/inIT_AOS/app/src/main/res/layout/activity_main.xml" value="0.2" />
         <entry key="..\:/Users/82104/inIT_AOS/app/src/main/res/layout/activity_my_page_modify_basic_info.xml" value="0.1556420233463035" />
         <entry key="..\:/Users/82104/inIT_AOS/app/src/main/res/layout/activity_my_page_modify_link.xml" value="0.264" />
-        <entry key="..\:/Users/82104/inIT_AOS/app/src/main/res/layout/activity_my_page_modify_profile.xml" value="0.10283687943262411" />
+        <entry key="..\:/Users/82104/inIT_AOS/app/src/main/res/layout/activity_my_page_modify_profile.xml" value="0.2" />
         <entry key="..\:/Users/82104/inIT_AOS/app/src/main/res/layout/activity_my_page_modify_stack.xml" value="0.1099290780141844" />
         <entry key="..\:/Users/82104/inIT_AOS/app/src/main/res/layout/activity_my_page_setting.xml" value="0.2" />
-        <entry key="..\:/Users/82104/inIT_AOS/app/src/main/res/layout/activity_open_project.xml" value="0.264" />
+        <entry key="..\:/Users/82104/inIT_AOS/app/src/main/res/layout/activity_open_project.xml" value="0.12" />
         <entry key="..\:/Users/82104/inIT_AOS/app/src/main/res/layout/activity_open_project2.xml" value="0.264" />
         <entry key="..\:/Users/82104/inIT_AOS/app/src/main/res/layout/activity_open_project_second.xml" value="0.1" />
         <entry key="..\:/Users/82104/inIT_AOS/app/src/main/res/layout/activity_recommend_project.xml" value="0.19791666666666666" />
@@ -61,8 +61,6 @@
         <entry key="..\:/Users/Lenovo/StudioProjects/inIT_AOS/app/src/main/res/drawable/menu_selector_drawable.xml" value="0.158" />
         <entry key="..\:/Users/Lenovo/StudioProjects/inIT_AOS/app/src/main/res/drawable/rectagnle_fill_main_radius_5.xml" value="0.2375" />
         <entry key="..\:/Users/Lenovo/StudioProjects/inIT_AOS/app/src/main/res/drawable/rectagnle_fill_right_radius_10.xml" value="0.2605" />
-        <entry key="..\:/Users/Lenovo/StudioProjects/inIT_AOS/app/src/main/res/drawable/rectagnle_fill_white_radius_40.xml" value="0.219" />
-        <entry key="..\:/Users/Lenovo/StudioProjects/inIT_AOS/app/src/main/res/drawable/rectagnle_fill_white_radius_8.xml" value="0.219" />
         <entry key="..\:/Users/Lenovo/StudioProjects/inIT_AOS/app/src/main/res/drawable/rectagnle_stroke_main.xml" value="0.2605" />
         <entry key="..\:/Users/Lenovo/StudioProjects/inIT_AOS/app/src/main/res/drawable/rectagnle_stroke_main_left_radius_10.xml" value="0.2605" />
         <entry key="..\:/Users/Lenovo/StudioProjects/inIT_AOS/app/src/main/res/drawable/rectangle_fill_gray_radius_10.xml" value="0.2605" />
@@ -94,11 +92,7 @@
         <entry key="..\:/Users/Lenovo/StudioProjects/inIT_AOS/app/src/main/res/layout/fragment_home.xml" value="0.2552083333333333" />
         <entry key="..\:/Users/Lenovo/StudioProjects/inIT_AOS/app/src/main/res/layout/fragment_my_page.xml" value="0.2552083333333333" />
         <entry key="..\:/Users/Lenovo/StudioProjects/inIT_AOS/app/src/main/res/layout/fragment_personal_info.xml" value="0.7444794952681388" />
-        <entry key="..\:/Users/Lenovo/StudioProjects/inIT_AOS/app/src/main/res/layout/fragment_search.xml" value="0.6" />
-        <entry key="..\:/Users/Lenovo/StudioProjects/inIT_AOS/app/src/main/res/layout/fragment_search_partner.xml" value="0.536" />
-        <entry key="..\:/Users/Lenovo/StudioProjects/inIT_AOS/app/src/main/res/layout/fragment_search_recruit_finish.xml" value="0.72" />
-        <entry key="..\:/Users/Lenovo/StudioProjects/inIT_AOS/app/src/main/res/layout/fragment_search_recruiting.xml" value="1.0" />
-        <entry key="..\:/Users/Lenovo/StudioProjects/inIT_AOS/app/src/main/res/layout/item_project.xml" value="1.196875" />
+        <entry key="..\:/Users/Lenovo/StudioProjects/inIT_AOS/app/src/main/res/layout/fragment_search.xml" value="0.2552083333333333" />
         <entry key="..\:/Users/Lenovo/StudioProjects/inIT_AOS/app/src/main/res/layout/item_rv_position.xml" value="0.2552083333333333" />
         <entry key="..\:/Users/Lenovo/StudioProjects/inIT_AOS/app/src/main/res/menu/btn_menu.xml" value="0.8" />
       </map>
