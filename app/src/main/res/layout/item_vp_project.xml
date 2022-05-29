@@ -25,7 +25,7 @@
             android:textColor="@color/main_default"
             android:textSize="12sp"
             android:textStyle="bold"
-            android:text="@{projectItem.pType}"
+            pTypeBind = "@{projectItem.pType}"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:text ="@string/type_android"/>
@@ -73,15 +73,15 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
-                    android:id="@+id/tv_location"
+                    android:id="@+id/tv_on_off"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="2dp"
-                    android:text="@{projectItem.pLocation}"
+                    pOnOffBind = "@{projectItem.pOnOff}"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toEndOf="@id/iv_location"
                     app:layout_constraintTop_toTopOf="parent"
-                    tools:text="@string/location_gangnam_gu" />
+                    tools:text="@string/online" />
 
                 <ImageView
                     android:id="@+id/iv_count"
@@ -90,7 +90,7 @@
                     android:layout_marginStart="8dp"
                     android:src="@drawable/ic_count"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toEndOf="@id/tv_location"
+                    app:layout_constraintStart_toEndOf="@id/tv_on_off"
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
@@ -98,11 +98,11 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="2dp"
-                    android:text="@{projectItem.pTotalNum}"
+                    android:text="@{String.valueOf(projectItem.pTotalNum)}"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toEndOf="@id/iv_count"
                     app:layout_constraintTop_toTopOf="parent"
-                    tools:text="1/13" />
+                    tools:text="13" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -140,6 +140,7 @@
             android:layout_marginTop="12dp"
             android:layout_marginEnd="8dp"
             android:paddingVertical="4dp"
+            pStateBgBind = "@{projectItem.pState}"
             android:background="@drawable/rectangle_fill_red_radius_14"
             android:paddingHorizontal="10dp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -150,7 +151,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:text="@{projectItem.pDDay}"
+                pStateBind="@{projectItem.pState}"
                 android:textColor="@color/white"
                 android:textSize="12sp"
                 android:textStyle="bold"
