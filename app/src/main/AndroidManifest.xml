@@ -13,10 +13,25 @@
         android:theme="@style/Theme.InitAndroid"
         android:usesCleartextTraffic="true">
         <activity
-            android:name="com.init_android.app.presentation.ui.oepn.project.OpenProjectSecondActivity"
+            android:name=".app.presentation.ui.mypage.MyPageModifyStackActivity"
+            android:exported="false" />
+        <activity
+            android:name=".app.presentation.ui.mypage.MyPageModifyBasicInfoActivity"
+            android:exported="false" />
+        <activity
+            android:name=".app.presentation.ui.mypage.MyPageModifyProfileActivity"
+            android:exported="false" />
+        <activity
+            android:name=".app.presentation.ui.mypage.MyPageModifyLinkActivity"
             android:exported="true" />
         <activity
-            android:name="com.init_android.app.presentation.ui.oepn.project.OpenProjectActivity"
+            android:name=".app.presentation.ui.mypage.MyPageSettingActivity"
+            android:exported="false" />
+        <activity
+            android:name=".app.presentation.ui.oepn.project.OpenProjectSecondActivity"
+            android:exported="true" />
+        <activity
+            android:name=".app.presentation.ui.oepn.project.OpenProjectActivity"
             android:exported="true" />
         <activity
             android:name=".app.presentation.ui.home.signup.SignUpActivity"
@@ -30,10 +45,12 @@
         <activity
             android:name=".app.presentation.ui.home.signin.SignInActivity"
             android:exported="true"
-            android:theme="@style/Theme.InitAndroid.NoActionBar" >
-        </activity>
+            android:theme="@style/Theme.InitAndroid.NoActionBar" />
         <activity
             android:name=".app.presentation.ui.MainActivity"
+            android:exported="true" />
+        <activity
+            android:name=".app.presentation.ui.home.recommendproject.RecommendProjectActivity"
             android:exported="true" />
     </application>
 

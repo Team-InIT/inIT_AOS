@@ -21,14 +21,18 @@
         <!-- 폰트 padding 없애기 -->
         <item name="android:includeFontPadding">false</item>
     </style>
+
     <style name="Theme.InitAndroid.NoActionBar">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
     </style>
+
     <style name="Theme.InitAndroid.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
     <style name="Theme.InitAndroid.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
     //데이트피커
+
     <style name="MySpinnerDatePickerStyle" parent="Theme.AppCompat.Light.Dialog">
         <!-- 상단 색 변경 -->
         <item name="colorAccent">@color/main_default</item>
