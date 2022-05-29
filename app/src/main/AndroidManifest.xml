@@ -13,10 +13,20 @@
         android:theme="@style/Theme.InitAndroid"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".app.presentation.ui.mypage.MyPageModifyStackActivity"
+            android:exported="false" />
+        <activity
+            android:name=".app.presentation.ui.mypage.MyPageModifyBasicInfoActivity"
+            android:exported="false" />
+        <activity
+            android:name=".app.presentation.ui.mypage.MyPageModifyProfileActivity"
+            android:exported="false" />
+        <activity
+            android:name=".app.presentation.ui.mypage.MyPageModifyLinkActivity"
+            android:exported="true" />
+        <activity
             android:name=".app.presentation.ui.mypage.MyPageSettingActivity"
-            android:exported="false"
-            android:label="@string/title_activity_my_page_setting"
-            android:theme="@style/Theme.InitAndroid.NoActionBar" />
+            android:exported="false" />
         <activity
             android:name=".app.presentation.ui.oepn.project.OpenProjectSecondActivity"
             android:exported="true" />

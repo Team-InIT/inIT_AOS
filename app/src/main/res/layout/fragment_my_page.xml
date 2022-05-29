@@ -67,6 +67,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/cl_my_page_main_title" />
 
             <TextView
+                android:id="@+id/tv_my_page_modify_profile"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@drawable/rectangle_stroke_gray_radius_10"
