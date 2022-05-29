@@ -145,7 +145,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
                     android:text="숙련도"
-                    android:textColor="@color/text_main"
+                    android:fontFamily="@font/noto_sans_kr_medium"
+                    android:textColor="@color/black"
                     android:textSize="16sp"
                     app:layout_constraintStart_toStartOf="@id/rv_position"
                     app:layout_constraintTop_toBottomOf="@id/rv_position" />
@@ -167,7 +168,8 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:background="@drawable/selector_skill_left_btn"
-                        android:text="@string/top" />
+                        android:text="@string/top"
+                        android:textColor="@drawable/selector_text" />
 
                     <androidx.appcompat.widget.AppCompatButton
                         android:id="@+id/btn_middle"
@@ -175,7 +177,8 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:background="@drawable/selector_skill_btn"
-                        android:text="@string/middle" />
+                        android:text="@string/middle"
+                        android:textColor="@drawable/selector_text" />
 
                     <androidx.appcompat.widget.AppCompatButton
                         android:id="@+id/btn_bottom"
@@ -183,7 +186,8 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:background="@drawable/selector_skill_right_btn"
-                        android:text="@string/bottom" />
+                        android:text="@string/bottom"
+                        android:textColor="@drawable/selector_text" />
 
                 </LinearLayout>
 
@@ -193,7 +197,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
                     android:text="@string/string_introduction"
-                    android:textColor="@color/text_main"
+                    android:fontFamily="@font/noto_sans_kr_medium"
+                    android:textColor="@color/black"
                     android:textSize="16sp"
                     app:layout_constraintStart_toStartOf="@+id/ll_skill"
                     app:layout_constraintTop_toBottomOf="@+id/ll_skill" />
@@ -230,7 +235,7 @@
                     android:backgroundTint="@color/main_default"
                     android:gravity="center"
                     android:paddingVertical="6dp"
-                    android:text="@string/next"
+                    android:text="@string/finish"
                     android:textColor="@color/white"
                     android:textSize="18sp"
                     app:layout_constraintBottom_toBottomOf="parent"

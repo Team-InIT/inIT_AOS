@@ -119,6 +119,18 @@
                 app:layout_constraintStart_toEndOf="@+id/iv_my_page_position"
                 app:layout_constraintTop_toBottomOf="@+id/tv_my_page_profile_name" />
 
+            <TextView
+                android:id="@+id/tv_my_page_position_level"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/top"
+                android:layout_marginStart="6dp"
+                android:fontFamily="@font/noto_sans_kr_medium"
+                android:textSize="12sp"
+                app:layout_constraintBottom_toBottomOf="@+id/tv_my_page_postion"
+                app:layout_constraintStart_toEndOf="@+id/tv_my_page_postion"
+                app:layout_constraintTop_toTopOf="@+id/tv_my_page_postion" />
+
             <kr.co.prnd.readmore.ReadMoreTextView
                 android:id="@+id/readMoreTextView"
                 android:layout_width="0dp"
