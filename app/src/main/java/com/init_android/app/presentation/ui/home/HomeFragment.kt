@@ -67,6 +67,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
                 }
             }
 
+
             Log.d("helpme",includeList.toString())
             // 추천 프로젝트
         }

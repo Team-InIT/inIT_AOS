@@ -32,6 +32,7 @@ data class ProjectData(
         val pPlanf:Int?,
         val pIosf:Int?,
         val pAosf:Int?,
+        val pDesignf: Int?,
         val pGamef:Int?,
         val pWebf:Int?,
         val pServerf:Int?,
