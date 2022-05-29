@@ -43,5 +43,10 @@ class MyPageFragment : BaseFragment<FragmentMyPageBinding>(R.layout.fragment_my_
             val intentSetting = Intent(requireActivity(), MyPageSettingActivity::class.java)
             startActivity(intentSetting)
         }
+
+        binding.tvMyPageModifyProfile.setOnClickListener {
+            val intentModifyProfile = Intent(requireActivity(), MyPageModifyProfileActivity::class.java)
+            startActivity(intentModifyProfile)
+        }
     }
 }

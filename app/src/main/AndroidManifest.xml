@@ -13,6 +13,15 @@
         android:theme="@style/Theme.InitAndroid"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".app.presentation.ui.mypage.MyPageModifyStackActivity"
+            android:exported="false" />
+        <activity
+            android:name=".app.presentation.ui.mypage.MyPageModifyBasicInfoActivity"
+            android:exported="false" />
+        <activity
+            android:name=".app.presentation.ui.mypage.MyPageModifyProfileActivity"
+            android:exported="false" />
+        <activity
             android:name=".app.presentation.ui.mypage.MyPageModifyLinkActivity"
             android:exported="true" />
         <activity
