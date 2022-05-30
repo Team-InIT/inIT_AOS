@@ -32,6 +32,11 @@ interface InitService {
     @POST("/home")
     suspend fun postHome(@Body body: RequestHome): ResponseHome
 
+
     @POST("/myPage")
     suspend fun postMyPageInfo(@Body body: RequestMyInfo) : ResponseMyInfo
+
+    @POST("/getRecommenedProject")
+    suspend fun postRecoProject(@Body body: RequestRecoProject): ResponseRecoProject
+
 }
