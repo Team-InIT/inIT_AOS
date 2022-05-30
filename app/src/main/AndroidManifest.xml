@@ -13,6 +13,9 @@
         android:theme="@style/Theme.InitAndroid"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".app.presentation.ui.mypage.NotificationSettingActivity"
+            android:exported="false" />
+        <activity
             android:name=".app.presentation.ui.mypage.MyPageModifyStackActivity"
             android:exported="false" />
         <activity

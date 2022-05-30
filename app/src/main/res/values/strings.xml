@@ -96,7 +96,7 @@
     <string name="dday_ing">ING</string>
     <string name="writer">작성자</string>
     <string name="location_gangnam_gu">강남구</string>
-    
+
     <!-- SearchFragment -->
     <string name="search_area_recruit">프로젝트 이름을 검색해주세요</string>
     <string name="search_area_partner">파트원 이름을 검색해주세요</string>
