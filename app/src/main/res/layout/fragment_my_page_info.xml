@@ -23,7 +23,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="18dp"
                 android:layout_marginTop="16dp"
-                android:text="기본정보"
+                android:text="@string/string_basic_info"
                 android:textColor="@color/black"
                 android:textSize="16sp"
                 app:layout_constraintStart_toStartOf="parent"
@@ -38,7 +38,8 @@
                 android:fontFamily="@font/noto_sans_kr_bold"
                 android:text="@string/string_modify"
                 android:textColor="@color/main_default"
-                android:textSize="16sp"
+                android:textSize="12sp"
+                app:layout_constraintBottom_toBottomOf="@+id/tv_mypage_basic_info"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -205,7 +206,7 @@
                 android:fontFamily="@font/noto_sans_kr_bold"
                 android:text="@string/string_modify"
                 android:textColor="@color/main_default"
-                android:textSize="16sp"
+                android:textSize="12sp"
                 app:layout_constraintBottom_toBottomOf="@+id/tv_mypage_basic_stack"
                 app:layout_constraintEnd_toEndOf="@+id/tv_mypage_basic_info_modify"
                 app:layout_constraintTop_toTopOf="@+id/tv_mypage_basic_stack" />
@@ -242,9 +243,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/noto_sans_kr_bold"
-                android:text="수정"
+                android:text="@string/string_modify"
                 android:textColor="@color/main_default"
-                android:textSize="16sp"
+                android:textSize="12sp"
                 app:layout_constraintBottom_toBottomOf="@+id/tv_mypage_basic_link"
                 app:layout_constraintEnd_toEndOf="@+id/tv_mypage_basic_info_modify"
                 app:layout_constraintTop_toTopOf="@+id/tv_mypage_basic_link" />

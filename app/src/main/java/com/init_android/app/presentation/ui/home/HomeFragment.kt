@@ -124,15 +124,15 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
     }
 
     private fun initRecyclerView() {
-        val rvAdapter = ProjectItemRVAdapter()
-        rvAdapter.updateProjectList(recoList)
-        binding.rvRecommendProject.adapter = rvAdapter
+        //val rvAdapter = ProjectItemRVAdapter()
+//        rvAdapter.updateProjectList(recoList)
+//        binding.rvRecommendProject.adapter = rvAdapter
     }
 
     // 전체보기 클릭 이벤트 -> 추천 프로젝트 화면으로 이동
     private fun initShowAllEvent(){
         binding.tvRecoShowAll.setOnClickListener {
-            startActivity(Intent(requireContext(),RecommendProjectActivity::class.java))
+            //startActivity(Intent(requireContext(),RecommendProjectActivity::class.java))
         }
     }
 

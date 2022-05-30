@@ -96,7 +96,7 @@
     <string name="dday_ing">ING</string>
     <string name="writer">작성자</string>
     <string name="location_gangnam_gu">강남구</string>
-    
+
     <!-- SearchFragment -->
     <string name="search_area_recruit">프로젝트 이름을 검색해주세요</string>
     <string name="search_area_partner">파트원 이름을 검색해주세요</string>
@@ -124,5 +124,5 @@
     <string name="string_basic_info">기본정보</string>
     <string name="string_edit_profile">프로필 편집</string>
     <string name="string_introduction">자기소개</string>
-
+    <string name="string_notification">알림</string>
 </resources>

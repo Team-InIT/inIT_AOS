@@ -62,8 +62,8 @@
 
         <ImageView
             android:id="@+id/iv_mypage_reset_pw"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
             android:layout_marginEnd="20dp"
             android:background="@drawable/btn_right_arrow"
             app:layout_constraintBottom_toBottomOf="@+id/tv_mypage_reset_pw"
@@ -97,8 +97,8 @@
 
         <ImageView
             android:id="@+id/iv_mypage_alarm"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
             android:background="@drawable/btn_right_arrow"
             app:layout_constraintBottom_toBottomOf="@+id/tv_mypage_alarm"
             app:layout_constraintEnd_toEndOf="@+id/iv_mypage_reset_pw"
@@ -132,8 +132,8 @@
 
         <ImageView
             android:id="@+id/iv_mypage_appinfo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
             android:background="@drawable/btn_right_arrow"
             app:layout_constraintBottom_toBottomOf="@+id/tv_mypage_appinfo"
             app:layout_constraintEnd_toEndOf="@+id/iv_mypage_alarm"
