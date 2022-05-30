@@ -19,8 +19,8 @@ class RecommendProjectActivity:BaseActivity<ActivityRecommendProjectBinding>(R.l
     }
 
     private fun tryGetRecommendProject(){
-        recoList.add(ProjectItemData("웹","서울여대 해커톤 나가실 분","노원구","1/4","2022.06.11","2022.06.24","장윤정","D-DAY"))
-        initRecyclerView()
+        //recoList.add(ProjectItemData("웹","서울여대 해커톤 나가실 분","노원구","1/4","2022.06.11","2022.06.24","장윤정","D-DAY"))
+        //initRecyclerView()
     }
 
     private fun initRecyclerView(){
