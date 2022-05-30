@@ -61,8 +61,8 @@
 
             <ImageView
                 android:id="@+id/iv_my_page_profile"
-                android:layout_width="80dp"
-                android:layout_height="80dp"
+                android:layout_width="64dp"
+                android:layout_height="64dp"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="32dp"
                 android:background="@drawable/ic_launcher_background"

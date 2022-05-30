@@ -82,4 +82,24 @@ object BindingAdapter {
         }
     }
 
+    @JvmStatic
+    @BindingAdapter("mAcademic")
+    fun setAcademic(textView: TextView, pType: Int) {
+        when(pType) {
+            0 -> {textView.text = "재학"}
+            1 -> {textView.text = "휴학"}
+            2 -> {textView.text = "졸업"}
+        }
+    }
+
+    @JvmStatic
+    @BindingAdapter("mGender")
+    fun setGender(textView: TextView, pType: Int) {
+        when(pType) {
+            0 -> {textView.text = "남"}
+            1 -> {textView.text = "여"}
+            2 -> {textView.text = "기타"}
+        }
+    }
+
 }
