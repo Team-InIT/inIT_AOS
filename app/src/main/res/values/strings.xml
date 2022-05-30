@@ -124,5 +124,5 @@
     <string name="string_basic_info">기본정보</string>
     <string name="string_edit_profile">프로필 편집</string>
     <string name="string_introduction">자기소개</string>
-
+    <string name="string_notification">알림</string>
 </resources>
