@@ -1,7 +1,9 @@
 package com.init_android
 
 import com.init_android.app.data.request.*
+import com.init_android.app.data.request.mypage.RequestMyInfo
 import com.init_android.app.data.response.*
+import com.init_android.app.data.response.mypage.ResponseMyInfo
 import retrofit2.Call
 import retrofit2.http.Body
 import retrofit2.http.POST
@@ -30,6 +32,11 @@ interface InitService {
     @POST("/home")
     suspend fun postHome(@Body body: RequestHome): ResponseHome
 
+
+    @POST("/myPage")
+    suspend fun postMyPageInfo(@Body body: RequestMyInfo) : ResponseMyInfo
+
     @POST("/getRecommenedProject")
     suspend fun postRecoProject(@Body body: RequestRecoProject): ResponseRecoProject
+
 }

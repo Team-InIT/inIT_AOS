@@ -58,4 +58,48 @@ object BindingAdapter {
         }
     }
 
+    @JvmStatic
+    @BindingAdapter("pPostion")
+    fun setPostion(textView: TextView, pType: Int) {
+        when(pType) {
+            0 -> {textView.text = "Planer"}
+            1 -> {textView.text = "Designer"}
+            2 -> {textView.text = "IOS Developer"}
+            3 -> {textView.text = "Android Developer"}
+            4 -> {textView.text = "Web Developer"}
+            5 -> {textView.text = "Game Developer"}
+            6 -> {textView.text = "Server Developer"}
+        }
+    }
+
+    @JvmStatic
+    @BindingAdapter("pLevel")
+    fun setLevel(textView: TextView, pType: Int) {
+        when(pType) {
+            0 -> {textView.text = "상"}
+            1 -> {textView.text = "중"}
+            2 -> {textView.text = "하"}
+        }
+    }
+
+    @JvmStatic
+    @BindingAdapter("mAcademic")
+    fun setAcademic(textView: TextView, pType: Int) {
+        when(pType) {
+            0 -> {textView.text = "재학"}
+            1 -> {textView.text = "휴학"}
+            2 -> {textView.text = "졸업"}
+        }
+    }
+
+    @JvmStatic
+    @BindingAdapter("mGender")
+    fun setGender(textView: TextView, pType: Int) {
+        when(pType) {
+            0 -> {textView.text = "남"}
+            1 -> {textView.text = "여"}
+            2 -> {textView.text = "기타"}
+        }
+    }
+
 }
