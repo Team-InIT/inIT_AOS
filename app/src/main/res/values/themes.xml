@@ -20,6 +20,8 @@
         <item name="android:checkboxStyle">@style/customCheckboxFontStyle</item>
         <!-- 폰트 padding 없애기 -->
         <item name="android:includeFontPadding">false</item>
+        <!-- 스크롤 시 애니메이션 발생 효과 없애기-->
+        <item name="android:overScrollMode">never</item>
     </style>
 
     <style name="Theme.InitAndroid.NoActionBar">
