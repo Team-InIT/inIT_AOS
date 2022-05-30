@@ -4,6 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+        <variable
+            name="User"
+            type="com.init_android.app.data.response.mypage.ResponseMyInfo.MInfo" />
 
 
     </data>
@@ -58,8 +61,8 @@
 
             <ImageView
                 android:id="@+id/iv_my_page_profile"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="32dp"
                 android:background="@drawable/ic_launcher_background"
@@ -91,7 +94,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:fontFamily="@font/noto_sans_kr_medium"
-                android:text="이름"
+                android:text="@{User.mName}"
                 android:textColor="@color/black"
                 android:textSize="20sp"
                 app:layout_constraintStart_toEndOf="@+id/iv_my_page_profile"
@@ -112,7 +115,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="6dp"
                 android:fontFamily="@font/noto_sans_kr_medium"
-                android:text="Android Developer"
+                pPostion= "@{User.mPosition}"
                 android:textColor="@color/main_default"
                 android:textSize="14sp"
                 app:layout_constraintBottom_toBottomOf="@+id/iv_my_page_position"
@@ -123,7 +126,7 @@
                 android:id="@+id/tv_my_page_position_level"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/top"
+                pLevel="@{User.mLevel}"
                 android:layout_marginStart="6dp"
                 android:fontFamily="@font/noto_sans_kr_medium"
                 android:textSize="12sp"
@@ -138,7 +141,7 @@
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="4dp"
                 android:layout_marginEnd="16dp"
-                android:text="긴글 테스트으으으ㅡ으으으으이미이ffffffffffffffffffffffffffffffffffffffffffffffffffffㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅣㅣㅣㅣㅣ이이이이ㅣ이잉이이이이이이ㅣ잉이아ㅓ마ㅣㄹ어ㅏ럴미어리피ㅓㅣㅁㅍㅇ"
+                android:text="@{User.mIntroduction}"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/iv_my_page_profile"
                 app:layout_constraintTop_toBottomOf="@+id/iv_my_page_position"
