@@ -125,4 +125,10 @@
     <string name="string_edit_profile">프로필 편집</string>
     <string name="string_introduction">자기소개</string>
     <string name="string_notification">알림</string>
+
+    <!--Message-->
+    <string name="message_write">님께 메시지 작성</string>
+    <string name="message_select_project">제안할 프로젝트를 선택해주세요</string>
+    <string name="message_write_in_300">최대 300자 이내로 쪽지 내용을 작성해주세요</string>
+    <string name="message_send">전송하기</string>
 </resources>
