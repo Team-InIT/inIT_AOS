@@ -131,4 +131,8 @@
     <string name="message_select_project">제안할 프로젝트를 선택해주세요</string>
     <string name="message_write_in_300">최대 300자 이내로 쪽지 내용을 작성해주세요</string>
     <string name="message_send">전송하기</string>
+
+    <!--Dialog-->
+    <string name="string_yes">네</string>
+    <string name="string_no">아니오</string>
 </resources>
