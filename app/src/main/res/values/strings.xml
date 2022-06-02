@@ -125,6 +125,9 @@
     <string name="string_edit_profile">프로필 편집</string>
     <string name="string_introduction">자기소개</string>
     <string name="string_notification">알림</string>
+    <string name="string_stack">기술스택</string>
+    <string name="string_add">추가</string>
+    <string name="string_delete_all">전체삭제</string>
 
     <!--Message-->
     <string name="message_write">님께 메시지 작성</string>
