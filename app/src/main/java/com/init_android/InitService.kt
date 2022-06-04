@@ -1,9 +1,11 @@
 package com.init_android
 
 import com.init_android.app.data.request.*
+import com.init_android.app.data.request.mypage.RequestModifyBasicInfo
 import com.init_android.app.data.request.mypage.RequestModifyLink
 import com.init_android.app.data.request.mypage.RequestMyInfo
 import com.init_android.app.data.response.*
+import com.init_android.app.data.response.mypage.ResponseModifyBasicInfo
 import com.init_android.app.data.response.mypage.ResponseModifyLink
 import com.init_android.app.data.response.mypage.ResponseMyInfo
 import retrofit2.Call
@@ -19,29 +21,33 @@ interface InitService {
     @POST("/idCheck")
     fun postIdCheck(
         @Body body: RequestIdCheck
-    ):Call<ResponseIdCheck>
+    ): Call<ResponseIdCheck>
 
     @POST("/signUp")
     fun postRegister(
         @Body body: RequestSignUp
-    ):Call<ResponseSignUp>
+    ): Call<ResponseSignUp>
 
     @POST("/addProject")
     fun postAddProject(
         @Body body: RequestAddProject
-    ) : Call<ResponseAddProject>
+    ): Call<ResponseAddProject>
 
     @POST("/home")
     suspend fun postHome(@Body body: RequestHome): ResponseHome
 
 
     @POST("/myPage")
-    suspend fun postMyPageInfo(@Body body: RequestMyInfo) : ResponseMyInfo
+    suspend fun postMyPageInfo(@Body body: RequestMyInfo): ResponseMyInfo
 
     @POST("/getRecommenedProject")
     suspend fun postRecoProject(@Body body: RequestRecoProject): ResponseRecoProject
 
-    //링크 조회 서버통신
+    //링크 수정 서버통신
     @POST("/updateLink")
-    suspend fun postModifyLink(@Body body: RequestModifyLink) : ResponseModifyLink
+    suspend fun postModifyLink(@Body body: RequestModifyLink): ResponseModifyLink
+
+    //기본 정보 수정 서버 통신
+    @POST("/editBasicInfo")
+    suspend fun postModifyBasicInfo(@Body body: RequestModifyBasicInfo): ResponseModifyBasicInfo
 }
