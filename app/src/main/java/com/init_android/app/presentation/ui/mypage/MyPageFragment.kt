@@ -29,6 +29,11 @@ class MyPageFragment : BaseFragment<FragmentMyPageBinding>(R.layout.fragment_my_
         initNetwork()
     }
 
+    override fun onResume() {
+        super.onResume()
+        initNetwork()
+    }
+
     private fun initNetwork() {
         val requestMyInfo = RequestMyInfo(
             mNum = 1

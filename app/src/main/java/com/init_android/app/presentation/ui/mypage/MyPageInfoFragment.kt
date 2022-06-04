@@ -30,6 +30,12 @@ class MyPageInfoFragment : BaseFragment<FragmentMyPageInfoBinding>(R.layout.frag
 
     }
 
+    override fun onResume() {
+        super.onResume()
+        initNetwork()
+
+    }
+
     private fun btnClickListener() {
         binding.tvMypageBasicStackModify.setOnClickListener {
             val intentStack = Intent(requireActivity(), MyPageModifyStackActivity::class.java)
