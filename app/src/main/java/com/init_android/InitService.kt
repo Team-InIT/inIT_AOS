@@ -1,8 +1,10 @@
 package com.init_android
 
 import com.init_android.app.data.request.*
+import com.init_android.app.data.request.mypage.RequestModifyLink
 import com.init_android.app.data.request.mypage.RequestMyInfo
 import com.init_android.app.data.response.*
+import com.init_android.app.data.response.mypage.ResponseModifyLink
 import com.init_android.app.data.response.mypage.ResponseMyInfo
 import retrofit2.Call
 import retrofit2.http.Body
@@ -39,4 +41,7 @@ interface InitService {
     @POST("/getRecommenedProject")
     suspend fun postRecoProject(@Body body: RequestRecoProject): ResponseRecoProject
 
+    //링크 조회 서버통신
+    @POST("/updateLink")
+    suspend fun postModifyLink(@Body body: RequestModifyLink) : ResponseModifyLink
 }
