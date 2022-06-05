@@ -151,4 +151,5 @@
     <string name="feed_writing_write_info">작성해주세요.</string>
     <string name="feed_writing_link">링크 추가</string>
     <string name="feed_writing_project_type">프로젝트 유형</string>
+    <string name="feed_detail_go_to_project">프로젝트 보러가기</string>
 </resources>
