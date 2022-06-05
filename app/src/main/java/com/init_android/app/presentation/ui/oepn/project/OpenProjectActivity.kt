@@ -11,6 +11,8 @@ import android.widget.ArrayAdapter
 import android.widget.Spinner
 import android.widget.Toast
 import androidx.core.content.ContextCompat
+import androidx.databinding.adapters.TextViewBindingAdapter.setText
+import com.google.android.material.chip.Chip
 import com.init_android.R
 import com.init_android.app.data.ServiceCreator
 import com.init_android.app.data.request.RequestAddProject
@@ -43,6 +45,7 @@ class OpenProjectActivity :
         initDatePickerDialogGoingEnd()
         setupSpinner()
         setupSpinnerHandler()
+        initChipGroup()
 
     }
 
@@ -271,5 +274,20 @@ class OpenProjectActivity :
             }
     }
 
+    //칩그룹
+    private fun initChipGroup() {
+        binding.tvOpenProjectStack.setOnClickListener {
+            val string = binding.etMyPageStack.text
+            if (string.isNullOrEmpty()) {
+                Toast.makeText(this, "stack을 입력해주세요", Toast.LENGTH_SHORT).show()
+            } else {
+                binding.chipGroup.addView(Chip(this).apply {
+                    text = string
+                    isCloseIconVisible = true
+                    setOnCloseIconClickListener { binding.chipGroup.removeView(this) }
+                })
+            }
+        }
+    }
 
 }
