@@ -7,10 +7,12 @@
     </data>
     <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_height="match_parent"
+        android:background="@color/gray_2">
+
+    <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/layout_feed_top"
@@ -33,11 +35,11 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
         </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.appbar.AppBarLayout>
 
         <androidx.core.widget.NestedScrollView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:layout_behavior="android.support.design.widget.AppBarLayout$ScrollingViewBehavior"/>
+            android:layout_height="match_parent">
 
         <LinearLayout
             android:id="@+id/layout_feed_write"
@@ -50,7 +52,7 @@
             app:layout_constraintEnd_toEndOf="parent">
 
             <TextView
-                android:id="@+id/tv_select_project"
+                android:id="@+id/tv_project_select"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="@color/black"
@@ -58,8 +60,25 @@
                 android:text="@string/feed_writing_select_project"/>
 
             <Spinner
+                android:id="@+id/spinner_project_select"
+                android:layout_marginTop="8dp"
+                android:layout_width="match_parent"
+                android:layout_height="32dp"/>
+
+            <TextView
+                android:id="@+id/tv_select_project"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:layout_marginTop="8dp"
+                android:text="@string/feed_writing_select_project"/>
+
+
+            <androidx.appcompat.widget.AppCompatSpinner
                 android:id="@+id/spinner_select_project"
                 android:layout_marginTop="8dp"
+                android:background="@drawable/rectangle_stroke_gray_radius_8"
+                android:text="@string/feed_writing_select_project"
                 android:layout_width="match_parent"
                 android:layout_height="32dp"/>
 
@@ -76,6 +95,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="14sp"
+                android:gravity="center"
+                android:paddingVertical="4dp"
+                android:background="@drawable/rectangle_stroke_gray_radius_8"
                 android:hint="@string/feed_writing_project_name_hint"
                 android:layout_marginTop="8dp"
                 android:textColor="@color/black"/>
@@ -88,10 +110,11 @@
                 android:layout_marginTop="8dp"
                 android:text="@string/feed_writing_project_type"/>
 
-            <Spinner
+            <androidx.appcompat.widget.AppCompatSpinner
                 android:id="@+id/spinner_project_type"
                 android:layout_marginTop="8dp"
                 android:layout_width="match_parent"
+                android:background="@drawable/rectangle_stroke_gray_radius_8"
                 android:layout_height="32dp"/>
 
             <TextView
@@ -111,7 +134,7 @@
                 android:layout_width="95dp"
                 android:layout_height="95dp"
                 android:background="@color/white"
-                app:strokeColor="@color/gray_3"
+                app:strokeColor="@color/gray_5"
                 app:strokeWidth="1dp"
                 app:cardCornerRadius="8dp"
                 app:cardElevation="0dp">
@@ -125,8 +148,8 @@
                 <com.google.android.material.card.MaterialCardView
                     android:layout_width="95dp"
                     android:layout_height="95dp"
+                    android:layout_marginStart="8dp"
                     android:background="@color/white"
-                    app:strokeColor="@color/gray_3"
                     app:cardCornerRadius="8dp"
                     app:cardElevation="0dp">
                     <ImageView
@@ -140,8 +163,13 @@
             <EditText
                 android:id="@+id/etv_detail"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="148dp"
                 android:layout_marginTop="8dp"
+                android:gravity="top"
+                android:textSize="14sp"
+                android:paddingStart="8dp"
+                android:paddingTop="8dp"
+                android:background="@drawable/rectangle_stroke_gray_radius_8"
                 android:hint="@string/feed_writing_detail"/>
 
             <TextView
@@ -157,17 +185,27 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textUri"
+                android:gravity="center"
                 android:layout_marginTop="8dp"
+                android:paddingVertical="4dp"
+                android:textSize="14sp"
+                android:background="@drawable/rectangle_stroke_gray_radius_8"
                 android:hint="@string/feed_writing_write_info"/>
 
             <androidx.appcompat.widget.AppCompatButton
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="8dp"
+                android:textSize="18sp"
+                android:background="@drawable/selector_gray_to_mint_radius"
                 android:text="@string/finish"/>
 
         </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
 
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 </layout>

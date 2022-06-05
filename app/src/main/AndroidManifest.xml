@@ -58,6 +58,8 @@
         <activity
             android:name=".app.presentation.ui.home.recommendproject.RecommendProjectActivity"
             android:exported="true" />
+        <activity android:name=".app.presentation.ui.feed.write.FeedWritingActivity"
+            android:exported="true"/>
     </application>
 
 </manifest>
