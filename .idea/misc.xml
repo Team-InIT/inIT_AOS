@@ -109,6 +109,11 @@
         <entry key="..\:/Users/Lenovo/StudioProjects/inIT_AOS/app/src/main/res/layout/fragment_search.xml" value="0.2552083333333333" />
         <entry key="..\:/Users/Lenovo/StudioProjects/inIT_AOS/app/src/main/res/layout/item_rv_position.xml" value="0.2552083333333333" />
         <entry key="..\:/Users/Lenovo/StudioProjects/inIT_AOS/app/src/main/res/menu/btn_menu.xml" value="0.8" />
+        <entry key="app/src/main/res/drawable/ic_feed.xml" value="0.2185" />
+        <entry key="app/src/main/res/drawable/ic_feed_add.xml" value="0.2185" />
+        <entry key="app/src/main/res/drawable/ic_search.xml" value="0.2185" />
+        <entry key="app/src/main/res/layout/fragment_feed.xml" value="0.2328125" />
+        <entry key="app/src/main/res/layout/item_partner.xml" value="0.165" />
       </map>
     </option>
   </component>

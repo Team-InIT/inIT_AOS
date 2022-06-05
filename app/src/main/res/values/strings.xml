@@ -138,4 +138,8 @@
     <!--Dialog-->
     <string name="string_yes">네</string>
     <string name="string_no">아니오</string>
+
+    <!-- Feed -->
+    <string name="feed_feed">피드</string>
+    <string name="feed_search_tab">프로젝트 이름을 검색해주세요</string>
 </resources>
