@@ -72,4 +72,8 @@ dependencies {
     implementation 'androidx.activity:activity-ktx:1.4.0'
     implementation 'androidx.fragment:fragment-ktx:1.4.1'
 
+    // 라이브 데이터
+    // LiveData
+    implementation "androidx.lifecycle:lifecycle-livedata-ktx:2.5.0-rc01"
+
 }
