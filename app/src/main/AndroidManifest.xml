@@ -15,7 +15,7 @@
         android:usesCleartextTraffic="true">
         <activity
             android:name=".app.presentation.ui.mypage.message.WriteMessageActivity"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name=".app.presentation.ui.mypage.NotificationSettingActivity"
             android:exported="false" />

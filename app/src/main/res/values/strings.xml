@@ -138,6 +138,7 @@
     <!--Dialog-->
     <string name="string_yes">네</string>
     <string name="string_no">아니오</string>
+    <string name="bottom_sheet_join">지원하기</string>
 
     <!-- Feed -->
     <string name="feed_feed">피드</string>
