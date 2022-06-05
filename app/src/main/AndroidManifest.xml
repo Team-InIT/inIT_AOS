@@ -61,6 +61,8 @@
             android:exported="true" />
         <activity android:name=".app.presentation.ui.feed.write.FeedWritingActivity"
             android:exported="true"/>
+        <activity android:name=".app.presentation.ui.feed.detail.FeedDetailActivity"
+            android:exported="true"/>
     </application>
 
 </manifest>
