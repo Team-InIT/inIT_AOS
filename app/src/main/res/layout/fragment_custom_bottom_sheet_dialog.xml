@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@drawable/rectangle_white_border_8">
+
+    <data>
+        <variable
+            name="title"
+            type="String" />
+
+        <variable
+            name="fragment"
+            type="com.init_android.app.util.CustomBottomSheetDialog"/>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cl_custom_bottom_sheet"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/tv_bottomsheeet_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="24dp"
+                android:fontFamily="@font/noto_sans_kr_medium"
+                android:text="@{title}"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageButton
+            android:id="@+id/btn_bottomsheet_cancel"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginEnd="16dp"
+            android:background="@drawable/ic_close"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_bottomsheeet_title"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/tv_bottomsheeet_title" />
+
+            <View
+                android:id="@+id/view_bottomsheet_main_line"
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginEnd="24dp"
+                android:background="@color/main_default"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_bottomsheeet_title" />
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_bottomsheet"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:overScrollMode="never"
+            android:layout_marginStart="32dp"
+            android:layout_marginVertical="16dp"
+            android:layout_marginEnd="32dp"
+            android:orientation="vertical"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintBottom_toTopOf="@+id/btn_bottomsheet_complete"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/view_bottomsheet_main_line"
+            tools:listitem="@layout/item_bottomsheet_list" />
+
+        <android.widget.Button
+            android:id="@+id/btn_bottomsheet_complete"
+            style="?android:attr/borderlessButtonStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="32dp"
+            android:layout_marginVertical="16dp"
+            android:background="@drawable/selector_gray_to_mint_radius"
+            android:fontFamily="@font/noto_sans_kr_bold"
+            android:paddingVertical="19dp"
+            android:text="@string/bottom_sheet_join"
+            android:textAlignment="center"
+            android:textColor="@drawable/selector_text"
+            android:textSize="16sp"
+            android:onClick="@{fragment::completeBtnListener}"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

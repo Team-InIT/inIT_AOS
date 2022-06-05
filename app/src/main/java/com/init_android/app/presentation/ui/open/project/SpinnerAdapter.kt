@@ -1,4 +1,4 @@
-package com.init_android.app.presentation.ui.oepn.project
+package com.init_android.app.presentation.ui.open.project
 
 import android.annotation.SuppressLint
 import android.content.Context

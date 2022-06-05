@@ -1,4 +1,4 @@
-package com.init_android.app.presentation.ui.oepn.project
+package com.init_android.app.presentation.ui.open.project
 
 import android.app.DatePickerDialog
 import android.content.Intent
@@ -14,16 +14,11 @@ import androidx.activity.viewModels
 import androidx.core.content.ContextCompat
 import com.google.android.material.chip.Chip
 import com.init_android.R
-import com.init_android.app.data.ServiceCreator
 import com.init_android.app.data.request.RequestAddProject
-import com.init_android.app.data.response.ResponseAddProject
-import com.init_android.app.presentation.ui.oepn.viewmodel.ProjectViewModel
+import com.init_android.app.presentation.ui.open.viewmodel.ProjectViewModel
 import com.init_android.app.util.PixelRatio
 import com.init_android.databinding.ActivityOpenProjectBinding
 import com.playtogether_android.app.presentation.base.BaseActivity
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
 import java.text.SimpleDateFormat
 import java.util.*
 
