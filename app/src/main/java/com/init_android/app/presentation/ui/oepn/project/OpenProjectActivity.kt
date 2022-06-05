@@ -12,7 +12,7 @@ import android.widget.Spinner
 import android.widget.Toast
 import androidx.core.content.ContextCompat
 import com.init_android.R
-import com.init_android.app.ServiceCreator
+import com.init_android.app.data.ServiceCreator
 import com.init_android.app.data.request.RequestAddProject
 import com.init_android.app.data.response.ResponseAddProject
 import com.init_android.app.util.PixelRatio
