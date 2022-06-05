@@ -59,7 +59,7 @@ class MyPageModifyLinkActivity : BaseActivity<ActivityMyPageModifyLinkBinding>(R
     private fun linkModifyNetwork() {
         binding.tvFinish.setOnClickListener {
             val requestModifyLink = RequestModifyLink(
-                mNum = 2,
+                mNum = 1,
                 mGit = binding.etMyPageLinkGithub.text.toString(),
                 mNotion = binding.etMyPageLinkNotion.text.toString(),
                 mBlog = binding.etMyPageLinkBlog.text.toString()

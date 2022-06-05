@@ -36,7 +36,7 @@ class MyPageFragment : BaseFragment<FragmentMyPageBinding>(R.layout.fragment_my_
 
     private fun initNetwork() {
         val requestMyInfo = RequestMyInfo(
-            mNum = 2
+            mNum = 1
         )
 
         myPageViewModel.postMyInfo(requestMyInfo)
