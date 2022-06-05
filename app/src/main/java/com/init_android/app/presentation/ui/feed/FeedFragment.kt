@@ -6,4 +6,5 @@ import com.playtogether_android.app.presentation.base.BaseFragment
 
 class FeedFragment : BaseFragment<FragmentFeedBinding>(R.layout.fragment_feed) {
 
+
 }

@@ -61,7 +61,7 @@
                 android:layout_height="match_parent"
                 android:textSize="12sp"
                 android:layout_marginHorizontal="16dp"
-                android:hint="@string/feed_search_tab"
+                android:hint="@string/feed_search_hint"
                 android:textColor="@color/black"
                 android:background="@null" />
             <ImageView
