@@ -57,4 +57,8 @@ interface InitService {
     //마이페이지 프로젝트 갯수 서버통신
     @POST("/countProject")
     suspend fun postCountProject(@Body body : RequestCountProject) : ResponseCountProject
+
+    //피드 참여한 프로젝트 바텀시트
+    @POST("/finishedProject")
+    suspend fun postFinishProject(@Body body: RequestFinishProject) : ResponseFinishProject
 }
