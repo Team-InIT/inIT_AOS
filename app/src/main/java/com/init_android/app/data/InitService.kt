@@ -31,9 +31,9 @@ interface InitService {
     ): Call<ResponseSignUp>
 
     @POST("/addProject")
-    fun postAddProject(
+    suspend fun postAddProject(
         @Body body: RequestAddProject
-    ): Call<ResponseAddProject>
+    ): ResponseAddProject
 
     @POST("/home")
     suspend fun postHome(@Body body: RequestHome): ResponseHome

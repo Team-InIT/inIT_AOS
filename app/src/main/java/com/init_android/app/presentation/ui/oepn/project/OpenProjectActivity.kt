@@ -10,12 +10,14 @@ import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Spinner
 import android.widget.Toast
+import androidx.activity.viewModels
 import androidx.core.content.ContextCompat
 import com.google.android.material.chip.Chip
 import com.init_android.R
 import com.init_android.app.data.ServiceCreator
 import com.init_android.app.data.request.RequestAddProject
 import com.init_android.app.data.response.ResponseAddProject
+import com.init_android.app.presentation.ui.oepn.viewmodel.ProjectViewModel
 import com.init_android.app.util.PixelRatio
 import com.init_android.databinding.ActivityOpenProjectBinding
 import com.playtogether_android.app.presentation.base.BaseActivity
@@ -32,6 +34,7 @@ class OpenProjectActivity :
     var value = 0
     val formatter = SimpleDateFormat("yyyy-MM-dd")
 
+    private val projectViewModel : ProjectViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -49,7 +52,9 @@ class OpenProjectActivity :
 
     private fun initNextBtn() {
         binding.tvFinish.setOnClickListener {
-            tryPostAddProject()
+            startActivity(Intent(this, OpenProjectSecondActivity::class.java))
+            finish()
+            //tryPostAddProject()
         }
     }
 
@@ -95,35 +100,8 @@ class OpenProjectActivity :
         Log.d("pType", "" + value)
         Log.d("userId", "" + userId)
 
-        val call: Call<ResponseAddProject> =
-            ServiceCreator.initService.postAddProject(requestAddProject)
 
-        call.enqueue(object : Callback<ResponseAddProject> {
-            override fun onResponse(
-                call: Call<ResponseAddProject>,
-                response: Response<ResponseAddProject>
-            ) {
-                if (response.body()?.code == 201) { // 로그인 성공
-                    startActivity(
-                        Intent(
-                            this@OpenProjectActivity,
-                            OpenProjectSecondActivity::class.java
-                        )
-                    )
-                    finish()
-                    Toast.makeText(this@OpenProjectActivity, "작성이 완료되었습니다", Toast.LENGTH_SHORT)
-                        .show()
-                } else {
-                    Toast.makeText(this@OpenProjectActivity, "작성이 실패되었습니다", Toast.LENGTH_SHORT)
-                        .show()
-                }
-            }
-
-            override fun onFailure(call: Call<ResponseAddProject>, t: Throwable) { // 서버 통신에러
-                Log.e("NetworkTest", "error:$t")
-            }
-
-        })
+        projectViewModel.postOpenProject(requestAddProject)
 
     }
 
