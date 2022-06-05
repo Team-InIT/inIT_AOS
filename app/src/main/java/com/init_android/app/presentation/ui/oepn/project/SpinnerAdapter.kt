@@ -12,7 +12,7 @@ import com.init_android.R
 import com.init_android.databinding.ItemKindSpinnerBinding
 import com.init_android.databinding.SpinnerItemBinding
 
-class SpinnerAdapter(
+open class SpinnerAdapter(
     context: Context,
     @LayoutRes private var resId: Int,
     private var values: List<String>
