@@ -56,4 +56,7 @@ interface InitService {
     //회원 탈퇴 서버통신
     @POST("/withdraw")
     suspend fun postQuit(@Body body: RequestQuit) : ResponseQuit
+
+    //스택 수정 서버통신
+
 }
