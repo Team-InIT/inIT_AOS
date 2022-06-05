@@ -7,11 +7,9 @@ import android.view.View
 import android.widget.Toast
 import androidx.appcompat.widget.AppCompatButton
 import com.init_android.R
-import com.init_android.app.ServiceCreator
+import com.init_android.app.data.ServiceCreator
 import com.init_android.app.data.request.RequestSignUp
-import com.init_android.app.data.response.ResponseSignIn
 import com.init_android.app.data.response.ResponseSignUp
-import com.init_android.app.presentation.ui.MainActivity
 import com.init_android.app.presentation.ui.home.adapter.PositionAdapter
 import com.init_android.app.presentation.ui.home.adapter.PositionData
 import com.init_android.app.presentation.ui.home.signin.SignInActivity

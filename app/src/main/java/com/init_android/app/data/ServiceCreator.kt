@@ -1,6 +1,5 @@
-package com.init_android.app
+package com.init_android.app.data
 
-import com.init_android.InitService
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
