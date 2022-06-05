@@ -1,6 +1,5 @@
 package com.init_android.app.presentation.ui.home.signup
 
-import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.View
@@ -9,12 +8,9 @@ import android.widget.ImageButton
 import android.widget.Toast
 import androidx.core.widget.doOnTextChanged
 import com.init_android.R
-import com.init_android.app.ServiceCreator
+import com.init_android.app.data.ServiceCreator
 import com.init_android.app.data.request.RequestIdCheck
-import com.init_android.app.data.request.RequestSignIn
 import com.init_android.app.data.response.ResponseIdCheck
-import com.init_android.app.data.response.ResponseSignIn
-import com.init_android.app.presentation.ui.MainActivity
 import com.init_android.databinding.FragmentPersonalInfoBinding
 import com.playtogether_android.app.presentation.base.BaseFragment
 import retrofit2.Call

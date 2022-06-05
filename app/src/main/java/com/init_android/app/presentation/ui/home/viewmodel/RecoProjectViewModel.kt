@@ -5,7 +5,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.init_android.app.ServiceCreator
+import com.init_android.app.data.ServiceCreator
 import com.init_android.app.data.request.RequestRecoProject
 import com.init_android.app.data.response.ResponseRecoProject
 import kotlinx.coroutines.launch
