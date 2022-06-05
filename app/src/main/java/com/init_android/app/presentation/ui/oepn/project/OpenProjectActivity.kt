@@ -23,10 +23,9 @@ import com.playtogether_android.app.presentation.base.BaseActivity
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import java.lang.String
 import java.text.SimpleDateFormat
 import java.util.*
-
+import kotlin.collections.ArrayList
 
 
 class OpenProjectActivity :
@@ -62,13 +61,19 @@ class OpenProjectActivity :
         val requestAddProject = RequestAddProject(
             pTitle = binding.etOpenProjectName.text.toString(),
             pType = value,
-            pRdateStart= formatter.parse("2022-05-17"),
-            pRdateDue = formatter.parse(binding.etOpenProjectDateEnd.text.toString().replace(".","-")),
-            pPdateStart = formatter.parse(binding.etOpenProjectDateWhenStart.text.toString().replace(".","-")),
-            pPdateDue=formatter.parse(binding.etOpenProjectDateWhenEnd.text.toString().replace(".","-")),
-            pPlan=Integer.parseInt(binding.etOpenProjectPlan.text.toString()),
-            pDesign=Integer.parseInt(binding.etOpenProjectDesign.text.toString()),
-            pAndroid=Integer.parseInt(binding.etOpenProjectAos.text.toString()),
+            pRdateStart = formatter.parse("2022-05-17"),
+            pRdateDue = formatter.parse(
+                binding.etOpenProjectDateEnd.text.toString().replace(".", "-")
+            ),
+            pPdateStart = formatter.parse(
+                binding.etOpenProjectDateWhenStart.text.toString().replace(".", "-")
+            ),
+            pPdateDue = formatter.parse(
+                binding.etOpenProjectDateWhenEnd.text.toString().replace(".", "-")
+            ),
+            pPlan = Integer.parseInt(binding.etOpenProjectPlan.text.toString()),
+            pDesign = Integer.parseInt(binding.etOpenProjectDesign.text.toString()),
+            pAndroid = Integer.parseInt(binding.etOpenProjectAos.text.toString()),
             pIos = Integer.parseInt(binding.etOpenProjectIos.text.toString()),
             pGame = Integer.parseInt(binding.etOpenProjectGame.text.toString()),
             pWeb = Integer.parseInt(binding.etOpenProjectWeb.text.toString()),
@@ -77,7 +82,7 @@ class OpenProjectActivity :
         )
 
         Log.d("pType", "" + value)
-        Log.d("userId", ""+userId)
+        Log.d("userId", "" + userId)
 
         val call: Call<ResponseAddProject> =
             ServiceCreator.initService.postAddProject(requestAddProject)
@@ -276,18 +281,39 @@ class OpenProjectActivity :
 
     //칩그룹
     private fun initChipGroup() {
-        binding.tvOpenProjectStack.setOnClickListener {
+        binding.tvMyPageAdd.setOnClickListener {
             val string = binding.etMyPageStack.text
             if (string.isNullOrEmpty()) {
                 Toast.makeText(this, "stack을 입력해주세요", Toast.LENGTH_SHORT).show()
             } else {
                 binding.chipGroup.addView(Chip(this).apply {
                     text = string
+
                     isCloseIconVisible = true
                     setOnCloseIconClickListener { binding.chipGroup.removeView(this) }
                 })
             }
         }
-    }
 
+        binding.tvFinish.setOnClickListener {
+            val chipList = ArrayList<String>()
+            for (i: Int in 1..binding.chipGroup.childCount) {
+                val chip: Chip = binding.chipGroup.getChildAt(i - 1) as Chip
+                chipList.add(chip.text.toString())
+            }
+
+            var output = "count: ${chipList.size}\n"
+            for (i in chipList) {
+                val lastList = chipList.get(chipList.size-1)
+                if ("$i" == lastList)
+                    output += "$i"
+                else {
+                    output += "$i,"
+                }
+            }
+            Log.d("test", output)
+        }
+    }
 }
+
+

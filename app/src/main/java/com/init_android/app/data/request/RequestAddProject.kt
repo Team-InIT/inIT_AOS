@@ -6,6 +6,7 @@ data class RequestAddProject(
 
     val pTitle: String,
     val pType: Int,
+    val pRecruitStart : Date,
     val pRdateStart: Date,
     val pRdateDue: Date,
     val pPdateStart: Date,
@@ -17,6 +18,7 @@ data class RequestAddProject(
     val pGame:Int,
     val pWeb: Int,
     val pServer: Int,
-    val mNum: Int
+    val mNum: Int,
+    val pStack : String
 
 )
