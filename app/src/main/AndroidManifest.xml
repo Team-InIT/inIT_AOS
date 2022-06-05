@@ -35,10 +35,10 @@
             android:name=".app.presentation.ui.mypage.MyPageSettingActivity"
             android:exported="false" />
         <activity
-            android:name=".app.presentation.ui.oepn.project.OpenProjectSecondActivity"
+            android:name=".app.presentation.ui.open.project.OpenProjectSecondActivity"
             android:exported="true" />
         <activity
-            android:name=".app.presentation.ui.oepn.project.OpenProjectActivity"
+            android:name=".app.presentation.ui.open.project.OpenProjectActivity"
             android:exported="true" />
         <activity
             android:name=".app.presentation.ui.home.signup.SignUpActivity"

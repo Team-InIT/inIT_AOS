@@ -14,7 +14,7 @@ import com.init_android.app.presentation.ui.home.adapter.ProjectItemVPAdapter
 import com.init_android.app.presentation.ui.home.recommendproject.RecommendProjectActivity
 import com.init_android.app.presentation.ui.home.viewmodel.HomeViewModel
 import com.init_android.app.presentation.ui.mypage.MyPageSettingActivity
-import com.init_android.app.presentation.ui.oepn.project.OpenProjectActivity
+import com.init_android.app.presentation.ui.open.project.OpenProjectActivity
 import com.init_android.app.util.DateUtil
 
 import com.init_android.databinding.FragmentHomeBinding

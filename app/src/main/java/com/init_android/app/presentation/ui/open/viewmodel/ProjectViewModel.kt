@@ -1,4 +1,4 @@
-package com.init_android.app.presentation.ui.oepn.viewmodel
+package com.init_android.app.presentation.ui.open.viewmodel
 
 import android.util.Log
 import androidx.lifecycle.LiveData
