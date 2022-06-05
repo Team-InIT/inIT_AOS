@@ -113,13 +113,7 @@
         <entry key="app/src/main/res/drawable/ic_feed_add.xml" value="0.2185" />
         <entry key="app/src/main/res/drawable/ic_search.xml" value="0.2185" />
         <entry key="app/src/main/res/drawable/rectagnle_stroke_gray_radius_16.xml" value="0.221" />
-        <entry key="app/src/main/res/drawable/rectangle_stroke_gray_3_radius_10.xml" value="0.194" />
-        <entry key="app/src/main/res/drawable/rectangle_stroke_gray_radius_10.xml" value="0.194" />
         <entry key="app/src/main/res/drawable/rectangle_stroke_gray_radius_8.xml" value="0.221" />
-        <entry key="app/src/main/res/drawable/selector_gray_to_mint_radius.xml" value="0.194" />
-        <entry key="app/src/main/res/drawable/selector_sex_btn.xml" value="0.194" />
-        <entry key="app/src/main/res/drawable/selector_signup_position.xml" value="0.194" />
-        <entry key="app/src/main/res/layout/activity_feed_writing.xml" value="0.75" />
         <entry key="app/src/main/res/layout/fragment_feed.xml" value="0.2328125" />
         <entry key="app/src/main/res/layout/item_feed_list.xml" value="0.165625" />
         <entry key="app/src/main/res/layout/item_partner.xml" value="0.165" />

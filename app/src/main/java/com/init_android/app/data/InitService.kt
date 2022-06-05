@@ -1,13 +1,15 @@
-package com.init_android
+package com.init_android.app.data
 
 import com.init_android.app.data.request.*
 import com.init_android.app.data.request.mypage.RequestModifyBasicInfo
 import com.init_android.app.data.request.mypage.RequestModifyLink
 import com.init_android.app.data.request.mypage.RequestMyInfo
+import com.init_android.app.data.request.mypage.RequestQuit
 import com.init_android.app.data.response.*
 import com.init_android.app.data.response.mypage.ResponseModifyBasicInfo
 import com.init_android.app.data.response.mypage.ResponseModifyLink
 import com.init_android.app.data.response.mypage.ResponseMyInfo
+import com.init_android.app.data.response.mypage.ResponseQuit
 import retrofit2.Call
 import retrofit2.http.Body
 import retrofit2.http.POST
@@ -50,4 +52,8 @@ interface InitService {
     //기본 정보 수정 서버 통신
     @POST("/editBasicInfo")
     suspend fun postModifyBasicInfo(@Body body: RequestModifyBasicInfo): ResponseModifyBasicInfo
+
+    //회원 탈퇴 서버통신
+    @POST("/withdraw")
+    suspend fun postQuit(@Body body: RequestQuit) : ResponseQuit
 }

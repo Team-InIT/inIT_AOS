@@ -142,7 +142,6 @@
     <!-- Feed -->
     <string name="feed_feed">피드</string>
     <string name="feed_search_hint">프로젝트 이름을 검색해주세요</string>
-
     <string name="feed_writing_writing">피드 작성</string>
     <string name="feed_writing_select_project">프로젝트 선택</string>
     <string name="feed_writing_select_info">선택해주세요.</string>
