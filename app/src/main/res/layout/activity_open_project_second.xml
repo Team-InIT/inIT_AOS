@@ -66,60 +66,19 @@
                 android:layout_height="match_parent"
                 android:background="#EDEDED">
 
-                <TextView
-                    android:id="@+id/tv_on_off"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="19dp"
-                    android:layout_marginTop="32dp"
-                    android:fontFamily="@font/noto_sans_kr_medium"
-                    android:text="온/오프라인 여부"
-                    android:textColor="@color/black"
-                    android:textSize="16sp"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <TextView
-                    android:id="@+id/tv_online"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="7dp"
-                    android:background="@drawable/selector_rectangle_border"
-                    android:clickable="true"
-                    android:paddingHorizontal="28dp"
-                    android:paddingVertical="6dp"
-                    android:text="@string/online"
-                    android:textColor="@drawable/selector_text"
-                    android:textSize="14sp"
-                    app:layout_constraintStart_toStartOf="@+id/tv_on_off"
-                    app:layout_constraintTop_toBottomOf="@+id/tv_on_off" />
-
-                <TextView
-                    android:id="@+id/tv_offline"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="7dp"
-                    android:background="@drawable/selector_rectangle_border"
-                    android:paddingVertical="6dp"
-                    android:paddingStart="22dp"
-                    android:paddingEnd="20dp"
-                    android:text="@string/offline"
-                    android:textColor="@drawable/selector_text"
-                    app:layout_constraintBottom_toBottomOf="@+id/tv_online"
-                    app:layout_constraintStart_toEndOf="@+id/tv_online"
-                    app:layout_constraintTop_toTopOf="@+id/tv_online" />
 
                 <TextView
                     android:id="@+id/tv_gender"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="15dp"
                     android:fontFamily="@font/noto_sans_kr_medium"
                     android:text="@string/sex"
                     android:textColor="@color/black"
                     android:textSize="16sp"
-                    app:layout_constraintStart_toStartOf="@+id/tv_online"
-                    app:layout_constraintTop_toBottomOf="@+id/tv_online" />
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="24dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
                     android:id="@+id/tv_male"
@@ -396,23 +355,261 @@
                     app:layout_constraintTop_toTopOf="@+id/tv_server_mid" />
 
                 <TextView
+                    android:id="@+id/tv_aos"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/selector_rectangle_border"
+                    android:backgroundTint="@color/main_default"
+                    android:paddingHorizontal="9dp"
+                    android:paddingVertical="1dp"
+                    android:text="@string/and"
+                    android:textColor="@color/white"
+                    android:layout_marginTop="16dp"
+                    android:textSize="12sp"
+                    app:layout_constraintStart_toStartOf="@+id/tv_server_high"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_server_high" />
+
+                <TextView
+                    android:id="@+id/tv_aos_high"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/selector_rectangle_border"
+                    android:paddingHorizontal="41dp"
+                    android:paddingVertical="6dp"
+                    android:text="@string/top"
+                    android:layout_marginTop="5dp"
+                    android:textColor="@drawable/selector_text"
+                    android:textSize="14sp"
+                    app:layout_constraintStart_toStartOf="@+id/tv_aos"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_aos" />
+
+                <TextView
+                    android:id="@+id/tv_aos_mid"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="7dp"
+                    android:background="@drawable/selector_rectangle_border"
+                    android:paddingHorizontal="41dp"
+                    android:paddingVertical="6dp"
+                    android:text="@string/middle"
+                    android:textColor="@drawable/selector_text"
+                    android:textSize="14sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/tv_aos_high"
+                    app:layout_constraintStart_toEndOf="@+id/tv_server_high"
+                    app:layout_constraintTop_toTopOf="@+id/tv_aos_high" />
+
+                <TextView
+                    android:id="@+id/tv_aos_low"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="7dp"
+                    android:background="@drawable/selector_rectangle_border"
+                    android:paddingHorizontal="41dp"
+                    android:paddingVertical="6dp"
+                    android:text="@string/bottom"
+                    android:textColor="@drawable/selector_text"
+                    android:textSize="14sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/tv_aos_mid"
+                    app:layout_constraintStart_toEndOf="@+id/tv_server_mid"
+                    app:layout_constraintTop_toTopOf="@+id/tv_aos_mid" />
+
+                <TextView
+                    android:id="@+id/tv_ios"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/selector_rectangle_border"
+                    android:backgroundTint="@color/main_default"
+                    android:paddingHorizontal="9dp"
+                    android:paddingVertical="1dp"
+                    android:text="@string/ios"
+                    android:textColor="@color/white"
+                    android:layout_marginTop="16dp"
+                    android:textSize="12sp"
+                    app:layout_constraintStart_toStartOf="@+id/tv_aos_high"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_aos_high" />
+
+                <TextView
+                    android:id="@+id/tv_ios_high"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/selector_rectangle_border"
+                    android:paddingHorizontal="41dp"
+                    android:paddingVertical="6dp"
+                    android:text="@string/top"
+                    android:layout_marginTop="5dp"
+                    android:textColor="@drawable/selector_text"
+                    android:textSize="14sp"
+                    app:layout_constraintStart_toStartOf="@+id/tv_aos"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_ios" />
+
+                <TextView
+                    android:id="@+id/tv_ios_mid"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="7dp"
+                    android:background="@drawable/selector_rectangle_border"
+                    android:paddingHorizontal="41dp"
+                    android:paddingVertical="6dp"
+                    android:text="@string/middle"
+                    android:textColor="@drawable/selector_text"
+                    android:textSize="14sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/tv_ios_high"
+                    app:layout_constraintStart_toEndOf="@+id/tv_server_high"
+                    app:layout_constraintTop_toTopOf="@+id/tv_ios_high" />
+
+                <TextView
+                    android:id="@+id/tv_ios_low"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="7dp"
+                    android:background="@drawable/selector_rectangle_border"
+                    android:paddingHorizontal="41dp"
+                    android:paddingVertical="6dp"
+                    android:text="@string/bottom"
+                    android:textColor="@drawable/selector_text"
+                    android:textSize="14sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/tv_ios_mid"
+                    app:layout_constraintStart_toEndOf="@+id/tv_server_mid"
+                    app:layout_constraintTop_toTopOf="@+id/tv_ios_mid" />
+
+
+                <TextView
+                    android:id="@+id/tv_web"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/selector_rectangle_border"
+                    android:backgroundTint="@color/main_default"
+                    android:paddingHorizontal="9dp"
+                    android:paddingVertical="1dp"
+                    android:text="@string/web"
+                    android:textColor="@color/white"
+                    android:layout_marginTop="16dp"
+                    android:textSize="12sp"
+                    app:layout_constraintStart_toStartOf="@+id/tv_ios_high"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_ios_high" />
+
+                <TextView
+                    android:id="@+id/tv_web_high"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/selector_rectangle_border"
+                    android:paddingHorizontal="41dp"
+                    android:paddingVertical="6dp"
+                    android:text="@string/top"
+                    android:layout_marginTop="5dp"
+                    android:textColor="@drawable/selector_text"
+                    android:textSize="14sp"
+                    app:layout_constraintStart_toStartOf="@+id/tv_aos"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_web" />
+
+                <TextView
+                    android:id="@+id/tv_web_mid"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="7dp"
+                    android:background="@drawable/selector_rectangle_border"
+                    android:paddingHorizontal="41dp"
+                    android:paddingVertical="6dp"
+                    android:text="@string/middle"
+                    android:textColor="@drawable/selector_text"
+                    android:textSize="14sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/tv_web_high"
+                    app:layout_constraintStart_toEndOf="@+id/tv_server_high"
+                    app:layout_constraintTop_toTopOf="@+id/tv_web_high" />
+
+                <TextView
+                    android:id="@+id/tv_web_low"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="7dp"
+                    android:background="@drawable/selector_rectangle_border"
+                    android:paddingHorizontal="41dp"
+                    android:paddingVertical="6dp"
+                    android:text="@string/bottom"
+                    android:textColor="@drawable/selector_text"
+                    android:textSize="14sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/tv_web_mid"
+                    app:layout_constraintStart_toEndOf="@+id/tv_server_mid"
+                    app:layout_constraintTop_toTopOf="@+id/tv_web_mid" />
+
+
+                <TextView
+                    android:id="@+id/tv_game"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/selector_rectangle_border"
+                    android:backgroundTint="@color/main_default"
+                    android:paddingHorizontal="9dp"
+                    android:paddingVertical="1dp"
+                    android:text="@string/game"
+                    android:textColor="@color/white"
+                    android:layout_marginTop="16dp"
+                    android:textSize="12sp"
+                    app:layout_constraintStart_toStartOf="@+id/tv_web_high"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_web_high" />
+
+                <TextView
+                    android:id="@+id/tv_game_high"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/selector_rectangle_border"
+                    android:paddingHorizontal="41dp"
+                    android:paddingVertical="6dp"
+                    android:text="@string/top"
+                    android:layout_marginTop="5dp"
+                    android:textColor="@drawable/selector_text"
+                    android:textSize="14sp"
+                    app:layout_constraintStart_toStartOf="@+id/tv_game"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_game" />
+
+                <TextView
+                    android:id="@+id/tv_game_mid"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="7dp"
+                    android:background="@drawable/selector_rectangle_border"
+                    android:paddingHorizontal="41dp"
+                    android:paddingVertical="6dp"
+                    android:text="@string/middle"
+                    android:textColor="@drawable/selector_text"
+                    android:textSize="14sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/tv_game_high"
+                    app:layout_constraintStart_toEndOf="@+id/tv_server_high"
+                    app:layout_constraintTop_toTopOf="@+id/tv_game_high" />
+
+                <TextView
+                    android:id="@+id/tv_game_low"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="7dp"
+                    android:background="@drawable/selector_rectangle_border"
+                    android:paddingHorizontal="41dp"
+                    android:paddingVertical="6dp"
+                    android:text="@string/bottom"
+                    android:textColor="@drawable/selector_text"
+                    android:textSize="14sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/tv_game_mid"
+                    app:layout_constraintStart_toEndOf="@+id/tv_server_mid"
+                    app:layout_constraintTop_toTopOf="@+id/tv_game_mid" />
+
+                <TextView
                     android:id="@+id/tv_finish"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="20dp"
-                    android:layout_marginTop="38dp"
                     android:layout_marginBottom="20dp"
                     android:background="@drawable/rectangle_green_border_6"
                     android:backgroundTint="@color/main_default"
                     android:gravity="center"
                     android:paddingVertical="6dp"
                     android:text="@string/finish"
+                    android:layout_marginTop="32dp"
                     android:textColor="@color/white"
                     android:textSize="18sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/tv_server_high" />
+                    app:layout_constraintTop_toBottomOf="@+id/tv_game_high" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
