@@ -11,7 +11,6 @@ import android.widget.ArrayAdapter
 import android.widget.Spinner
 import android.widget.Toast
 import androidx.core.content.ContextCompat
-import androidx.databinding.adapters.TextViewBindingAdapter.setText
 import com.google.android.material.chip.Chip
 import com.init_android.R
 import com.init_android.app.data.ServiceCreator
@@ -25,7 +24,6 @@ import retrofit2.Callback
 import retrofit2.Response
 import java.text.SimpleDateFormat
 import java.util.*
-import kotlin.collections.ArrayList
 
 
 class OpenProjectActivity :
@@ -45,6 +43,7 @@ class OpenProjectActivity :
         setupSpinner()
         setupSpinnerHandler()
         initChipGroup()
+        initOnOff()
 
     }
 
@@ -324,6 +323,22 @@ class OpenProjectActivity :
                 }
             }
             Log.d("test", output)
+        }
+    }
+
+    //온,오프라인 selector
+    private fun initOnOff() {
+        binding.ivWriteOnline.isSelected = false
+        binding.ivWriteOffline.isSelected = false
+
+        binding.ivWriteOnline.setOnClickListener {
+            binding.ivWriteOnline.isSelected = true
+            binding.ivWriteOffline.isSelected = false
+        }
+
+        binding.ivWriteOffline.setOnClickListener {
+            binding.ivWriteOnline.isSelected = false
+            binding.ivWriteOffline.isSelected = true
         }
     }
 }
