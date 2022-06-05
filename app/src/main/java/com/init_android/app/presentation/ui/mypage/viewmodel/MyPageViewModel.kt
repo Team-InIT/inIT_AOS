@@ -6,14 +6,8 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.init_android.app.data.ServiceCreator
-import com.init_android.app.data.request.mypage.RequestModifyBasicInfo
-import com.init_android.app.data.request.mypage.RequestModifyLink
-import com.init_android.app.data.request.mypage.RequestMyInfo
-import com.init_android.app.data.request.mypage.RequestQuit
-import com.init_android.app.data.response.mypage.ResponseModifyBasicInfo
-import com.init_android.app.data.response.mypage.ResponseModifyLink
-import com.init_android.app.data.response.mypage.ResponseMyInfo
-import com.init_android.app.data.response.mypage.ResponseQuit
+import com.init_android.app.data.request.mypage.*
+import com.init_android.app.data.response.mypage.*
 import kotlinx.coroutines.launch
 
 class MyPageViewModel() : ViewModel() {
@@ -35,6 +29,10 @@ class MyPageViewModel() : ViewModel() {
     private val _quit = MutableLiveData<ResponseQuit>()
     val quit: LiveData<ResponseQuit>
         get() = _quit
+
+    private val _countProject = MutableLiveData<ResponseCountProject>()
+    val countProject: LiveData<ResponseCountProject>
+        get() = _countProject
 
     // 서버통신
     fun postMyInfo(requestMyInfo: RequestMyInfo) {
@@ -95,7 +93,22 @@ class MyPageViewModel() : ViewModel() {
                 }
                 .onFailure {
                     it.printStackTrace()
-                    Log.d("QUit", "서버 통신 실패")
+                    Log.d("Quit", "서버 통신 실패")
+                }
+        }
+    }
+
+    //프로젝트 갯수 조회 서버통신
+    fun postCountProject(requestCountProject: RequestCountProject) {
+        viewModelScope.launch {
+            kotlin.runCatching { ServiceCreator.initService.postCountProject(requestCountProject) }
+                .onSuccess {
+                    _countProject.value = it
+                    Log.d("CountProject", "서버 통신 성공")
+                }
+                .onFailure {
+                    it.printStackTrace()
+                    Log.d("CountProject", "서버 통신 실패")
                 }
         }
     }
