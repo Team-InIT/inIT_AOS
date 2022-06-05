@@ -138,4 +138,18 @@
     <!--Dialog-->
     <string name="string_yes">네</string>
     <string name="string_no">아니오</string>
+
+    <!-- Feed -->
+    <string name="feed_feed">피드</string>
+    <string name="feed_search_hint">프로젝트 이름을 검색해주세요</string>
+
+    <string name="feed_writing_writing">피드 작성</string>
+    <string name="feed_writing_select_project">프로젝트 선택</string>
+    <string name="feed_writing_select_info">선택해주세요.</string>
+    <string name="feed_writing_project_name">프로젝트 이름</string>
+    <string name="feed_writing_project_name_hint">프로젝트 이름을 작성해주세요.</string>
+    <string name="feed_writing_detail">상세설명</string>
+    <string name="feed_writing_write_info">작성해주세요.</string>
+    <string name="feed_writing_link">링크 추가</string>
+    <string name="feed_writing_project_type">프로젝트 유형</string>
 </resources>
