@@ -5,7 +5,9 @@
 
     <data>
 
-
+        <variable
+            name="info"
+            type="com.init_android.app.data.response.mypage.ResponseCountProject" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -35,7 +37,7 @@
                 android:fontFamily="@font/noto_sans_kr_regular"
                 android:text="@string/string_join"
                 android:textColor="@color/black"
-                android:textSize="16dp"
+                android:textSize="16sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -47,13 +49,14 @@
                 android:layout_marginTop="3dp"
                 android:layout_marginBottom="16dp"
                 android:fontFamily="@font/noto_sans_kr_bold"
-                android:text="0"
+                android:text="@{info.join}"
                 android:textColor="@color/tet_gray_2"
                 android:textSize="32sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="@+id/tv_my_page_join"
                 app:layout_constraintStart_toStartOf="@+id/tv_my_page_join"
-                app:layout_constraintTop_toBottomOf="@+id/tv_my_page_join" />
+                app:layout_constraintTop_toBottomOf="@+id/tv_my_page_join"
+                tools:text="1" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
 
@@ -79,7 +82,7 @@
                 android:fontFamily="@font/noto_sans_kr_regular"
                 android:text="@string/string_upload"
                 android:textColor="@color/black"
-                android:textSize="16dp"
+                android:textSize="16sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -91,13 +94,14 @@
                 android:layout_marginTop="3dp"
                 android:layout_marginBottom="16dp"
                 android:fontFamily="@font/noto_sans_kr_bold"
-                android:text="0"
+                android:text="@{info.upload}"
                 android:textColor="@color/tet_gray_2"
                 android:textSize="32sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="@+id/tv_my_page_upload"
                 app:layout_constraintStart_toStartOf="@+id/tv_my_page_upload"
-                app:layout_constraintTop_toBottomOf="@+id/tv_my_page_upload" />
+                app:layout_constraintTop_toBottomOf="@+id/tv_my_page_upload"
+                tools:text="0" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -120,7 +124,7 @@
                 android:fontFamily="@font/noto_sans_kr_regular"
                 android:text="@string/string_ready_approve"
                 android:textColor="@color/black"
-                android:textSize="16dp"
+                android:textSize="16sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -132,13 +136,14 @@
                 android:layout_marginTop="2dp"
                 android:layout_marginBottom="16dp"
                 android:fontFamily="@font/noto_sans_kr_bold"
-                android:text="0"
+                android:text="@{info.disapproval}"
                 android:textColor="@color/tet_gray_2"
                 android:textSize="32sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="@+id/tv_mypage_approve"
                 app:layout_constraintStart_toStartOf="@+id/tv_mypage_approve"
-                app:layout_constraintTop_toBottomOf="@+id/tv_mypage_approve" />
+                app:layout_constraintTop_toBottomOf="@+id/tv_mypage_approve"
+                tools:text="0" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -158,7 +163,7 @@
                 android:fontFamily="@font/noto_sans_kr_regular"
                 android:text="@string/string_heart"
                 android:textColor="@color/black"
-                android:textSize="16dp"
+                android:textSize="16sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -170,13 +175,14 @@
                 android:layout_marginTop="2dp"
                 android:layout_marginBottom="16dp"
                 android:fontFamily="@font/noto_sans_kr_bold"
-                android:text="0"
+                android:text="@{info.zzim}"
                 android:textColor="@color/tet_gray_2"
                 android:textSize="32sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="@+id/tv_mypage_heart"
                 app:layout_constraintStart_toStartOf="@+id/tv_mypage_heart"
-                app:layout_constraintTop_toBottomOf="@+id/tv_mypage_heart" />
+                app:layout_constraintTop_toBottomOf="@+id/tv_mypage_heart"
+                tools:text="0" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
