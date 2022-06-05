@@ -155,7 +155,8 @@
                     <ImageView
                         android:id="@+id/iv_project_img"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"/>
+                        android:layout_height="match_parent"
+                        android:scaleType="fitXY"/>
                 </com.google.android.material.card.MaterialCardView>
             </LinearLayout>
 
@@ -200,7 +201,7 @@
                 android:layout_marginTop="16dp"
                 android:layout_marginBottom="8dp"
                 android:textSize="18sp"
-                android:background="@drawable/selector_gray_to_mint_radius"
+                android:background="@drawable/rectangle_fill_main_radius_10"
                 android:text="@string/finish"/>
 
         </LinearLayout>
