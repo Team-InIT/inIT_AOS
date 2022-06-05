@@ -8,12 +8,10 @@ import androidx.fragment.app.viewModels
 import com.init_android.R
 import com.init_android.app.data.model.ProjectItemData
 import com.init_android.app.data.request.RequestHome
-import com.init_android.app.data.response.ProjectData
 import com.init_android.app.presentation.ui.home.adapter.ProjectItemRVAdapter
 import com.init_android.app.presentation.ui.home.adapter.ProjectItemVPAdapter
 import com.init_android.app.presentation.ui.home.recommendproject.RecommendProjectActivity
 import com.init_android.app.presentation.ui.home.viewmodel.HomeViewModel
-import com.init_android.app.presentation.ui.mypage.MyPageSettingActivity
 import com.init_android.app.presentation.ui.open.project.OpenProjectActivity
 import com.init_android.app.util.DateUtil
 

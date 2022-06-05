@@ -39,9 +39,9 @@
             android:layout_height="24dp"
             android:layout_marginEnd="16dp"
             android:background="@drawable/ic_close"
-            app:layout_constraintBottom_toTopOf="@+id/view_bottomsheet_main_line"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_bottomsheeet_title"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="@+id/tv_bottomsheeet_title" />
 
             <View
                 android:id="@+id/view_bottomsheet_main_line"

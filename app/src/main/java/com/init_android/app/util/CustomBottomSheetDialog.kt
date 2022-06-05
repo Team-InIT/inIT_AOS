@@ -15,6 +15,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.init_android.R
 import com.init_android.app.data.model.SelectableData
+import com.init_android.app.presentation.ui.home.viewmodel.mainViewModel
 import com.init_android.databinding.FragmentCustomBottomSheetDialogBinding
 
 
@@ -80,6 +81,7 @@ class CustomBottomSheetDialog(private val title: String) : BottomSheetDialogFrag
 
     private fun initBottomSheetSetting() {
         binding.btnBottomsheetComplete.isEnabled = false
+        binding.btnBottomsheetComplete.isSelected = true
     }
 
     private fun setClickListener() {
