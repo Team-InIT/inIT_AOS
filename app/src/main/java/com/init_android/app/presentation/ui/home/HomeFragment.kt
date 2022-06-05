@@ -13,6 +13,8 @@ import com.init_android.app.presentation.ui.home.adapter.ProjectItemRVAdapter
 import com.init_android.app.presentation.ui.home.adapter.ProjectItemVPAdapter
 import com.init_android.app.presentation.ui.home.recommendproject.RecommendProjectActivity
 import com.init_android.app.presentation.ui.home.viewmodel.HomeViewModel
+import com.init_android.app.presentation.ui.mypage.MyPageSettingActivity
+import com.init_android.app.presentation.ui.oepn.project.OpenProjectActivity
 import com.init_android.app.util.DateUtil
 
 import com.init_android.databinding.FragmentHomeBinding
@@ -31,6 +33,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
 
         initShowAllEvent()
         tryGetHomeProject()
+        writeBtnClick()
     }
 
     // 서버 통신 - 데이터 존재 여부 검사
@@ -156,6 +159,14 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
     private fun initShowAllEvent(){
         binding.tvRecoShowAll.setOnClickListener {
             startActivity(Intent(requireContext(), RecommendProjectActivity::class.java))
+        }
+    }
+
+    //글쓰기 뷰 도입
+    private fun writeBtnClick() {
+        binding.fabWriting.setOnClickListener {
+            val intent = Intent(requireActivity(), OpenProjectActivity::class.java)
+            startActivity(intent)
         }
     }
 

@@ -14,7 +14,6 @@ class OpenProjectSecondActivity : BaseActivity<ActivityOpenProjectSecondBinding>
 
 
         with(binding){
-            makeRadioButton2(tvOnline, tvOffline)
             makeRadioButton2(tvMale, tvFemale)
             makeRadioButton3(tvEnroll, tvLeave, tvGraduate)
             makeRadioButton3(tvPlanHigh, tvPlanMid, tvPlanLow)

@@ -3,10 +3,10 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="../../Library/Android/sdk/platforms/android-31/data/res/layout/simple_spinner_dropdown_item.xml" value="0.19746376811594202" />
         <entry key="..\:/Users/82104/AppData/Local/Android/Sdk/platforms/android-31/data/res/layout/simple_spinner_dropdown_item.xml" value="0.1" />
         <entry key="..\:/Users/82104/inIT_AOS/app/src/main/res/drawable-v24/ic_icn_back.xml" value="0.1" />
         <entry key="..\:/Users/82104/inIT_AOS/app/src/main/res/drawable-v24/selector_rectangle_gray_to_mint.xml" value="0.132" />
+        <entry key="..\:/Users/82104/inIT_AOS/app/src/main/res/drawable-xxhdpi/selector_check_box.xml" value="0.1" />
         <entry key="..\:/Users/82104/inIT_AOS/app/src/main/res/drawable/custom_progressbar.xml" value="0.1395" />
         <entry key="..\:/Users/82104/inIT_AOS/app/src/main/res/drawable/ic_alarm.xml" value="0.1395" />
         <entry key="..\:/Users/82104/inIT_AOS/app/src/main/res/drawable/ic_back.xml" value="0.1355" />
@@ -17,10 +17,12 @@
         <entry key="..\:/Users/82104/inIT_AOS/app/src/main/res/drawable/rectagnle_fill_white_radius_8.xml" value="0.111" />
         <entry key="..\:/Users/82104/inIT_AOS/app/src/main/res/drawable/rectangle_fill_gray_radius_10.xml" value="0.111" />
         <entry key="..\:/Users/82104/inIT_AOS/app/src/main/res/drawable/rectangle_fill_main_left_radius_10.xml" value="0.1" />
+        <entry key="..\:/Users/82104/inIT_AOS/app/src/main/res/drawable/rectangle_fill_main_radius_10.xml" value="0.1" />
         <entry key="..\:/Users/82104/inIT_AOS/app/src/main/res/drawable/rectangle_fill_white_border_black01_radius10.xml" value="0.1" />
         <entry key="..\:/Users/82104/inIT_AOS/app/src/main/res/drawable/rectangle_green_border_6.xml" value="0.106" />
         <entry key="..\:/Users/82104/inIT_AOS/app/src/main/res/drawable/rectangle_stroke_gray_radius_10.xml" value="0.168" />
         <entry key="..\:/Users/82104/inIT_AOS/app/src/main/res/drawable/rectangle_white_border_8.xml" value="0.106" />
+        <entry key="..\:/Users/82104/inIT_AOS/app/src/main/res/drawable/selector_gray_to_mint_radius.xml" value="0.1" />
         <entry key="..\:/Users/82104/inIT_AOS/app/src/main/res/drawable/selector_ic_switch.xml" value="0.1" />
         <entry key="..\:/Users/82104/inIT_AOS/app/src/main/res/drawable/selector_login_bg.xml" value="0.1" />
         <entry key="..\:/Users/82104/inIT_AOS/app/src/main/res/drawable/selector_login_btn.xml" value="0.1" />
@@ -35,12 +37,12 @@
         <entry key="..\:/Users/82104/inIT_AOS/app/src/main/res/layout/activity_my_page_modify_basic_info.xml" value="0.1556420233463035" />
         <entry key="..\:/Users/82104/inIT_AOS/app/src/main/res/layout/activity_my_page_modify_link.xml" value="0.264" />
         <entry key="..\:/Users/82104/inIT_AOS/app/src/main/res/layout/activity_my_page_modify_profile.xml" value="0.2" />
-        <entry key="..\:/Users/82104/inIT_AOS/app/src/main/res/layout/activity_my_page_modify_stack.xml" value="0.2" />
-        <entry key="..\:/Users/82104/inIT_AOS/app/src/main/res/layout/activity_my_page_setting.xml" value="0.1" />
+        <entry key="..\:/Users/82104/inIT_AOS/app/src/main/res/layout/activity_my_page_modify_stack.xml" value="0.19444444444444445" />
+        <entry key="..\:/Users/82104/inIT_AOS/app/src/main/res/layout/activity_my_page_setting.xml" value="0.264" />
         <entry key="..\:/Users/82104/inIT_AOS/app/src/main/res/layout/activity_notification_setting.xml" value="0.2" />
-        <entry key="..\:/Users/82104/inIT_AOS/app/src/main/res/layout/activity_open_project.xml" value="0.12" />
+        <entry key="..\:/Users/82104/inIT_AOS/app/src/main/res/layout/activity_open_project.xml" value="0.264" />
         <entry key="..\:/Users/82104/inIT_AOS/app/src/main/res/layout/activity_open_project2.xml" value="0.264" />
-        <entry key="..\:/Users/82104/inIT_AOS/app/src/main/res/layout/activity_open_project_second.xml" value="0.1" />
+        <entry key="..\:/Users/82104/inIT_AOS/app/src/main/res/layout/activity_open_project_second.xml" value="0.264" />
         <entry key="..\:/Users/82104/inIT_AOS/app/src/main/res/layout/activity_recommend_project.xml" value="0.19791666666666666" />
         <entry key="..\:/Users/82104/inIT_AOS/app/src/main/res/layout/activity_sign_in.xml" value="0.2536231884057971" />
         <entry key="..\:/Users/82104/inIT_AOS/app/src/main/res/layout/activity_sign_up.xml" value="0.2" />
@@ -67,7 +69,7 @@
         <entry key="..\:/Users/82104/inIT_AOS/app/src/main/res/layout/item_position.xml" value="0.6" />
         <entry key="..\:/Users/82104/inIT_AOS/app/src/main/res/layout/item_project.xml" value="0.264" />
         <entry key="..\:/Users/82104/inIT_AOS/app/src/main/res/layout/item_rating_list.xml" value="0.2" />
-        <entry key="..\:/Users/82104/inIT_AOS/app/src/main/res/layout/item_rv_position.xml" value="0.1408514492753623" />
+        <entry key="..\:/Users/82104/inIT_AOS/app/src/main/res/layout/item_rv_position.xml" value="0.264" />
         <entry key="..\:/Users/82104/inIT_AOS/app/src/main/res/layout/item_rv_project.xml" value="0.536" />
         <entry key="..\:/Users/82104/inIT_AOS/app/src/main/res/layout/item_stack.xml" value="0.19739583333333333" />
         <entry key="..\:/Users/82104/inIT_AOS/app/src/main/res/layout/item_vp_project.xml" value="0.2" />
@@ -110,21 +112,6 @@
         <entry key="..\:/Users/Lenovo/StudioProjects/inIT_AOS/app/src/main/res/layout/fragment_search.xml" value="0.2552083333333333" />
         <entry key="..\:/Users/Lenovo/StudioProjects/inIT_AOS/app/src/main/res/layout/item_rv_position.xml" value="0.2552083333333333" />
         <entry key="..\:/Users/Lenovo/StudioProjects/inIT_AOS/app/src/main/res/menu/btn_menu.xml" value="0.8" />
-        <entry key="app/src/main/res/drawable/ic_feed.xml" value="0.2185" />
-        <entry key="app/src/main/res/drawable/ic_feed_add.xml" value="0.2185" />
-        <entry key="app/src/main/res/drawable/ic_search.xml" value="0.2185" />
-        <entry key="app/src/main/res/drawable/rectagnle_stroke_gray_radius_16.xml" value="0.221" />
-        <entry key="app/src/main/res/drawable/rectangle_stroke_gray_3_radius_10.xml" value="0.194" />
-        <entry key="app/src/main/res/drawable/rectangle_stroke_gray_radius_10.xml" value="0.194" />
-        <entry key="app/src/main/res/drawable/rectangle_stroke_gray_radius_8.xml" value="0.221" />
-        <entry key="app/src/main/res/drawable/selector_gray_to_mint_radius.xml" value="0.194" />
-        <entry key="app/src/main/res/drawable/selector_sex_btn.xml" value="0.194" />
-        <entry key="app/src/main/res/drawable/selector_signup_position.xml" value="0.194" />
-        <entry key="app/src/main/res/layout/activity_feed_writing.xml" value="0.4260485651214128" />
-        <entry key="app/src/main/res/layout/fragment_feed.xml" value="0.2328125" />
-        <entry key="app/src/main/res/layout/item_feed_list.xml" value="0.165625" />
-        <entry key="app/src/main/res/layout/item_partner.xml" value="0.165" />
-        <entry key="app/src/main/res/layout/spinner_item.xml" value="0.19746376811594202" />
       </map>
     </option>
   </component>

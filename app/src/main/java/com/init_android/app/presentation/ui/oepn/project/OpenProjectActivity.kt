@@ -10,21 +10,22 @@ import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Spinner
 import android.widget.Toast
+import androidx.activity.viewModels
 import androidx.core.content.ContextCompat
+import com.google.android.material.chip.Chip
 import com.init_android.R
 import com.init_android.app.data.ServiceCreator
 import com.init_android.app.data.request.RequestAddProject
 import com.init_android.app.data.response.ResponseAddProject
+import com.init_android.app.presentation.ui.oepn.viewmodel.ProjectViewModel
 import com.init_android.app.util.PixelRatio
 import com.init_android.databinding.ActivityOpenProjectBinding
 import com.playtogether_android.app.presentation.base.BaseActivity
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import java.lang.String
 import java.text.SimpleDateFormat
 import java.util.*
-
 
 
 class OpenProjectActivity :
@@ -33,6 +34,7 @@ class OpenProjectActivity :
     var value = 0
     val formatter = SimpleDateFormat("yyyy-MM-dd")
 
+    private val projectViewModel : ProjectViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -43,12 +45,16 @@ class OpenProjectActivity :
         initDatePickerDialogGoingEnd()
         setupSpinner()
         setupSpinnerHandler()
+        initChipGroup()
+        initOnOff()
 
     }
 
     private fun initNextBtn() {
         binding.tvFinish.setOnClickListener {
-            tryPostAddProject()
+            startActivity(Intent(this, OpenProjectSecondActivity::class.java))
+            finish()
+            //tryPostAddProject()
         }
     }
 
@@ -59,52 +65,43 @@ class OpenProjectActivity :
         val requestAddProject = RequestAddProject(
             pTitle = binding.etOpenProjectName.text.toString(),
             pType = value,
-            pRdateStart= formatter.parse("2022-05-17"),
-            pRdateDue = formatter.parse(binding.etOpenProjectDateEnd.text.toString().replace(".","-")),
-            pPdateStart = formatter.parse(binding.etOpenProjectDateWhenStart.text.toString().replace(".","-")),
-            pPdateDue=formatter.parse(binding.etOpenProjectDateWhenEnd.text.toString().replace(".","-")),
-            pPlan=Integer.parseInt(binding.etOpenProjectPlan.text.toString()),
-            pDesign=Integer.parseInt(binding.etOpenProjectDesign.text.toString()),
-            pAndroid=Integer.parseInt(binding.etOpenProjectAos.text.toString()),
+            pRecruitStart = formatter.parse("2022-06-05"),
+            pRecruitDue = formatter.parse(
+                binding.etOpenProjectDateEnd.text.toString().replace(".", "-")
+            ),
+            pStart = formatter.parse(
+                binding.etOpenProjectDateWhenStart.text.toString().replace(".", "-")
+            ),
+            pDue = formatter.parse(
+                binding.etOpenProjectDateWhenEnd.text.toString().replace(".", "-")
+            ),
+            pPlan = Integer.parseInt(binding.etOpenProjectPlan.text.toString()),
+            pDesign = Integer.parseInt(binding.etOpenProjectDesign.text.toString()),
             pIos = Integer.parseInt(binding.etOpenProjectIos.text.toString()),
+            pAos = Integer.parseInt(binding.etOpenProjectAos.text.toString()),
             pGame = Integer.parseInt(binding.etOpenProjectGame.text.toString()),
             pWeb = Integer.parseInt(binding.etOpenProjectWeb.text.toString()),
             pServer = Integer.parseInt(binding.etOpenProjectServer.text.toString()),
-            mNum = userId
+            pDescription = binding.etOpenProjectIntroduction.text.toString(),
+            pOnOff = 1,
+            pGender = 0,
+            pAcademic = 1,
+            pPlanf = 1,
+            pDesignf = 1,
+            pIosf = null,
+            pAosf = null,
+            pGamef = null,
+            pWebf = null,
+            pServerf = null,
+            mNum = 1,
+            pStack = "java,kotlin"
         )
 
         Log.d("pType", "" + value)
-        Log.d("userId", ""+userId)
+        Log.d("userId", "" + userId)
 
-        val call: Call<ResponseAddProject> =
-            ServiceCreator.initService.postAddProject(requestAddProject)
 
-        call.enqueue(object : Callback<ResponseAddProject> {
-            override fun onResponse(
-                call: Call<ResponseAddProject>,
-                response: Response<ResponseAddProject>
-            ) {
-                if (response.body()?.code == 201) { // 로그인 성공
-                    startActivity(
-                        Intent(
-                            this@OpenProjectActivity,
-                            OpenProjectSecondActivity::class.java
-                        )
-                    )
-                    finish()
-                    Toast.makeText(this@OpenProjectActivity, "작성이 완료되었습니다", Toast.LENGTH_SHORT)
-                        .show()
-                } else {
-                    Toast.makeText(this@OpenProjectActivity, "작성이 실패되었습니다", Toast.LENGTH_SHORT)
-                        .show()
-                }
-            }
-
-            override fun onFailure(call: Call<ResponseAddProject>, t: Throwable) { // 서버 통신에러
-                Log.e("NetworkTest", "error:$t")
-            }
-
-        })
+        projectViewModel.postOpenProject(requestAddProject)
 
     }
 
@@ -271,5 +268,57 @@ class OpenProjectActivity :
             }
     }
 
+    //칩그룹
+    private fun initChipGroup() {
+        binding.tvMyPageAdd.setOnClickListener {
+            val string = binding.etMyPageStack.text
+            if (string.isNullOrEmpty()) {
+                Toast.makeText(this, "stack을 입력해주세요", Toast.LENGTH_SHORT).show()
+            } else {
+                binding.chipGroup.addView(Chip(this).apply {
+                    text = string
 
+                    isCloseIconVisible = true
+                    setOnCloseIconClickListener { binding.chipGroup.removeView(this) }
+                })
+            }
+        }
+
+        binding.tvFinish.setOnClickListener {
+            val chipList = ArrayList<String>()
+            for (i: Int in 1..binding.chipGroup.childCount) {
+                val chip: Chip = binding.chipGroup.getChildAt(i - 1) as Chip
+                chipList.add(chip.text.toString())
+            }
+
+            var output = "count: ${chipList.size}\n"
+            for (i in chipList) {
+                val lastList = chipList.get(chipList.size-1)
+                if ("$i" == lastList)
+                    output += "$i"
+                else {
+                    output += "$i,"
+                }
+            }
+            Log.d("test", output)
+        }
+    }
+
+    //온,오프라인 selector
+    private fun initOnOff() {
+        binding.ivWriteOnline.isSelected = false
+        binding.ivWriteOffline.isSelected = false
+
+        binding.ivWriteOnline.setOnClickListener {
+            binding.ivWriteOnline.isSelected = true
+            binding.ivWriteOffline.isSelected = false
+        }
+
+        binding.ivWriteOffline.setOnClickListener {
+            binding.ivWriteOnline.isSelected = false
+            binding.ivWriteOffline.isSelected = true
+        }
+    }
 }
+
+

@@ -1,15 +1,9 @@
 package com.init_android.app.data
 
 import com.init_android.app.data.request.*
-import com.init_android.app.data.request.mypage.RequestModifyBasicInfo
-import com.init_android.app.data.request.mypage.RequestModifyLink
-import com.init_android.app.data.request.mypage.RequestMyInfo
-import com.init_android.app.data.request.mypage.RequestQuit
+import com.init_android.app.data.request.mypage.*
 import com.init_android.app.data.response.*
-import com.init_android.app.data.response.mypage.ResponseModifyBasicInfo
-import com.init_android.app.data.response.mypage.ResponseModifyLink
-import com.init_android.app.data.response.mypage.ResponseMyInfo
-import com.init_android.app.data.response.mypage.ResponseQuit
+import com.init_android.app.data.response.mypage.*
 import retrofit2.Call
 import retrofit2.http.Body
 import retrofit2.http.POST
@@ -31,9 +25,9 @@ interface InitService {
     ): Call<ResponseSignUp>
 
     @POST("/addProject")
-    fun postAddProject(
+    suspend fun postAddProject(
         @Body body: RequestAddProject
-    ): Call<ResponseAddProject>
+    ): ResponseAddProject
 
     @POST("/home")
     suspend fun postHome(@Body body: RequestHome): ResponseHome
@@ -56,4 +50,11 @@ interface InitService {
     //회원 탈퇴 서버통신
     @POST("/withdraw")
     suspend fun postQuit(@Body body: RequestQuit) : ResponseQuit
+
+    //스택 수정 서버통신
+
+
+    //마이페이지 프로젝트 갯수 서버통신
+    @POST("/countProject")
+    suspend fun postCountProject(@Body body : RequestCountProject) : ResponseCountProject
 }
