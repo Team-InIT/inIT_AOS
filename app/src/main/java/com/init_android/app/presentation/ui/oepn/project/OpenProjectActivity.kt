@@ -61,24 +61,36 @@ class OpenProjectActivity :
         val requestAddProject = RequestAddProject(
             pTitle = binding.etOpenProjectName.text.toString(),
             pType = value,
-            pRdateStart = formatter.parse("2022-05-17"),
-            pRdateDue = formatter.parse(
+            pRecruitStart = formatter.parse("2022-06-05"),
+            pRecruitDue = formatter.parse(
                 binding.etOpenProjectDateEnd.text.toString().replace(".", "-")
             ),
-            pPdateStart = formatter.parse(
+            pStart = formatter.parse(
                 binding.etOpenProjectDateWhenStart.text.toString().replace(".", "-")
             ),
-            pPdateDue = formatter.parse(
+            pDue = formatter.parse(
                 binding.etOpenProjectDateWhenEnd.text.toString().replace(".", "-")
             ),
             pPlan = Integer.parseInt(binding.etOpenProjectPlan.text.toString()),
             pDesign = Integer.parseInt(binding.etOpenProjectDesign.text.toString()),
-            pAndroid = Integer.parseInt(binding.etOpenProjectAos.text.toString()),
             pIos = Integer.parseInt(binding.etOpenProjectIos.text.toString()),
+            pAos = Integer.parseInt(binding.etOpenProjectAos.text.toString()),
             pGame = Integer.parseInt(binding.etOpenProjectGame.text.toString()),
             pWeb = Integer.parseInt(binding.etOpenProjectWeb.text.toString()),
             pServer = Integer.parseInt(binding.etOpenProjectServer.text.toString()),
-            mNum = userId
+            pDescription = binding.etOpenProjectIntroduction.text.toString(),
+            pOnOff = 1,
+            pGender = 0,
+            pAcademic = 1,
+            pPlanf = 1,
+            pDesignf = 1,
+            pIosf = null,
+            pAosf = null,
+            pGamef = null,
+            pWebf = null,
+            pServerf = null,
+            mNum = 1,
+            pStack = "java,kotlin"
         )
 
         Log.d("pType", "" + value)
