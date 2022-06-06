@@ -140,6 +140,7 @@
     <string name="string_delete_all">전체삭제</string>
     <string name="detail_school_status">학적 상태</string>
     <string name="detail_part_condition">파트별 조건</string>
+    <string name="string_at"> ~ </string>
 
     <!--Message-->
     <string name="message_write">님께 메시지 작성</string>

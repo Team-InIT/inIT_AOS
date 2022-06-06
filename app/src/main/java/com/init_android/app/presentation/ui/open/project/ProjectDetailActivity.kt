@@ -3,18 +3,25 @@ package com.init_android.app.presentation.ui.open.project
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.activity.viewModels
 import com.init_android.R
+import com.init_android.app.data.request.project.RequestProjectDetail
 import com.init_android.app.presentation.ui.open.partner.PartnerCheckActivity
+import com.init_android.app.presentation.ui.open.viewmodel.ProjectViewModel
 import com.init_android.databinding.ActivityProjectDetailBinding
 import com.playtogether_android.app.presentation.base.BaseActivity
 
 class ProjectDetailActivity : BaseActivity<ActivityProjectDetailBinding>(R.layout.activity_project_detail) {
+
+    private val projectViewModel : ProjectViewModel by viewModels()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         backBtnListener()
         checkMemBtnClickListener()
         heartClickListener()
+        initNetwork()
 
     }
 
@@ -36,6 +43,17 @@ class ProjectDetailActivity : BaseActivity<ActivityProjectDetailBinding>(R.layou
     private fun heartClickListener() {
         binding.ivProjectDetailHeart.setOnClickListener {
             binding.ivProjectDetailHeart.isSelected = !binding.ivProjectDetailHeart.isSelected
+        }
+    }
+
+    private fun initNetwork() {
+        val requestProjectDetail = RequestProjectDetail(
+            pNum = 1
+        )
+
+        projectViewModel.postProjectDetail(requestProjectDetail)
+        projectViewModel.detailProject.observe(this) {
+            binding.project = it
         }
     }
 

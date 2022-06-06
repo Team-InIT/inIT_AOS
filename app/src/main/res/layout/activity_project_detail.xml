@@ -3,6 +3,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <data>
+        <variable
+            name="Project"
+            type="com.init_android.app.data.response.project.ResponseProjectDetail" />
+    </data>
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -144,6 +150,7 @@
                         android:fontFamily="@font/noto_sans_kr_medium"
                         android:textColor="@color/black"
                         android:textSize="20sp"
+                        android:text="@{Project.ProjectInfo.PTitle}"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
                         tools:text="inIT" />
@@ -191,10 +198,24 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="8dp"
                         android:layout_marginTop="8dp"
+                        android:text="@{Project.ProjectInfo.pRecruitStart}"
                         android:fontFamily="@font/noto_sans_kr_regular"
                         android:textColor="@color/tet_gray_2"
                         android:textSize="16sp"
                         app:layout_constraintStart_toEndOf="@+id/tv_detail_gather"
+                        app:layout_constraintTop_toBottomOf="@+id/tv_detail_kind_answer"
+                        tools:text="@string/string_kind" />
+
+                    <TextView
+                        android:id="@+id/tv_detail_gather_answer_due"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:fontFamily="@font/noto_sans_kr_regular"
+                        android:text="@{@string/stirng_at + Project.ProjectInfo.pRecruitDue}"
+                        android:textColor="@color/tet_gray_2"
+                        android:textSize="16sp"
+                        app:layout_constraintStart_toEndOf="@+id/tv_detail_gather_answer"
                         app:layout_constraintTop_toBottomOf="@+id/tv_detail_kind_answer"
                         tools:text="@string/string_kind" />
 
@@ -218,9 +239,23 @@
                         android:fontFamily="@font/noto_sans_kr_regular"
                         android:textColor="@color/tet_gray_2"
                         android:textSize="16sp"
+                        android:text="@{Project.ProjectInfo.pStart}"
                         app:layout_constraintBottom_toBottomOf="@+id/tv_detail_going"
                         app:layout_constraintStart_toEndOf="@+id/tv_detail_going"
                         app:layout_constraintTop_toTopOf="@+id/tv_detail_going"
+                        tools:text="@string/string_kind" />
+
+                    <TextView
+                        android:id="@+id/tv_detail_going_answer_due"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/noto_sans_kr_regular"
+                        android:textColor="@color/tet_gray_2"
+                        android:textSize="16sp"
+                        android:text="@{@string/stirng_at + Project.ProjectInfo.pDue}"
+                        app:layout_constraintBottom_toBottomOf="@+id/tv_detail_going_answer"
+                        app:layout_constraintStart_toEndOf="@+id/tv_detail_going_answer"
+                        app:layout_constraintTop_toTopOf="@+id/tv_detail_going_answer"
                         tools:text="@string/string_kind" />
 
                     <TextView
@@ -229,7 +264,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
                         android:fontFamily="@font/noto_sans_kr_medium"
-                        android:text="@string/string_going_time"
+                        android:text="@string/string_going_kind"
                         android:textColor="@color/black"
                         android:textSize="16sp"
                         app:layout_constraintStart_toStartOf="@+id/tv_detail_going"
@@ -243,6 +278,7 @@
                         android:fontFamily="@font/noto_sans_kr_regular"
                         android:textColor="@color/tet_gray_2"
                         android:textSize="16sp"
+                        pOnOffBind="@{Project.ProjectInfo.pOnOff}"
                         app:layout_constraintBottom_toBottomOf="@+id/tv_detail_going_kind"
                         app:layout_constraintStart_toEndOf="@+id/tv_detail_going_kind"
                         app:layout_constraintTop_toTopOf="@+id/tv_detail_going_kind"
@@ -267,7 +303,7 @@
                         android:layout_marginTop="4dp"
                         android:layout_marginEnd="16dp"
                         android:layout_marginBottom="16dp"
-                        android:text="@{}"
+                        android:text="@{Project.ProjectInfo.pDescription}"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="@+id/tv_detail_description"
