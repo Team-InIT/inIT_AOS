@@ -2,8 +2,10 @@ package com.init_android.app.data
 
 import com.init_android.app.data.request.*
 import com.init_android.app.data.request.mypage.*
+import com.init_android.app.data.request.project.RequestProjectDetail
 import com.init_android.app.data.response.*
 import com.init_android.app.data.response.mypage.*
+import com.init_android.app.data.response.project.ResponseProjectDetail
 import retrofit2.Call
 import retrofit2.http.Body
 import retrofit2.http.POST
@@ -61,4 +63,8 @@ interface InitService {
     //피드 참여한 프로젝트 바텀시트
     @POST("/finishedProject")
     suspend fun postFinishProject(@Body body: RequestFinishProject) : ResponseFinishProject
+
+    //프로젝트 상세보기
+    @POST("/detailProject")
+    suspend fun postProjectDetail(@Body body: RequestProjectDetail) : ResponseProjectDetail
 }
