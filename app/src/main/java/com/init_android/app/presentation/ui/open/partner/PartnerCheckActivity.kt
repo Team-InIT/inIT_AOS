@@ -32,7 +32,15 @@ class PartnerCheckActivity :
         initAdapter()
         initTab()
         clickListener()
+        backBtnClickListener()
 
+    }
+
+    //뒤로가기 버튼 클릭 리스너
+    private fun backBtnClickListener() {
+        binding.ivOpenProjectBack.setOnClickListener {
+            finish()
+        }
     }
 
     private fun initAdapter() {
