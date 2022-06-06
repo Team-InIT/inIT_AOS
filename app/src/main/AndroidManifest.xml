@@ -15,7 +15,7 @@
         android:usesCleartextTraffic="true">
         <activity
             android:name=".app.presentation.ui.open.project.ProjectDetailActivity"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name=".app.presentation.ui.open.partner.PartnerCheckActivity"
             android:exported="false" />
