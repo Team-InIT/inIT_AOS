@@ -3,7 +3,7 @@
     package="com.init_android">
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -13,6 +13,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.InitAndroid"
         android:usesCleartextTraffic="true">
+        <activity
+            android:name=".app.presentation.ui.open.partner.PartnerCheckActivity"
+            android:exported="false" />
         <activity
             android:name=".app.presentation.ui.mypage.message.WriteMessageActivity"
             android:exported="true" />
@@ -59,10 +62,12 @@
         <activity
             android:name=".app.presentation.ui.home.recommendproject.RecommendProjectActivity"
             android:exported="true" />
-        <activity android:name=".app.presentation.ui.feed.write.FeedWritingActivity"
-            android:exported="true"/>
-        <activity android:name=".app.presentation.ui.feed.detail.FeedDetailActivity"
-            android:exported="true"/>
+        <activity
+            android:name=".app.presentation.ui.feed.write.FeedWritingActivity"
+            android:exported="true" />
+        <activity
+            android:name=".app.presentation.ui.feed.detail.FeedDetailActivity"
+            android:exported="true" />
     </application>
 
 </manifest>

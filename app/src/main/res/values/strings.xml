@@ -70,6 +70,8 @@
     <string name="open_project_select">선택해주세요</string>
     <string name="open_project_detail">상세설명</string>
     <string name="open_project_write">작성해주세요</string>
+    <string name="project_info_check">프로젝트 정보 확인</string>
+    <string name="project_partner_info">팀원 정보</string>
 
     <string name="online">온라인</string>
     <string name="offline">오프라인</string>
