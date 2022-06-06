@@ -57,6 +57,8 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tv_project_detail" />
 
+
+
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <ScrollView
@@ -70,6 +72,16 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="#EDEDED">
+
+                <ImageView
+                    android:id="@+id/iv_project_detail_heart"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="16dp"
+                    app:layout_constraintBottom_toBottomOf="@+id/tv_partner_num"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/tv_partner_num"
+                    app:srcCompat="@drawable/selector_heart" />
 
                 <TextView
                     android:id="@+id/tv_partner_info"
