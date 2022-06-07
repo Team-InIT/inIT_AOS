@@ -2,6 +2,7 @@ package com.init_android.app.presentation.ui.open.project
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import com.init_android.R
 import com.init_android.databinding.ActivityOpenProjectSecondBinding
@@ -12,6 +13,10 @@ class OpenProjectSecondActivity : BaseActivity<ActivityOpenProjectSecondBinding>
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        initNextBtn()
+        initBackBtn()
+
+        Log.d("Test", "OpenSecondView")
 
         with(binding){
             makeRadioButton2(tvMale, tvFemale)
@@ -20,9 +25,6 @@ class OpenProjectSecondActivity : BaseActivity<ActivityOpenProjectSecondBinding>
             makeRadioButton3(tvDesignHigh, tvDesignMid, tvDesignLow)
             makeRadioButton3(tvServerHigh, tvServerMid, tvServerLow)
         }
-
-        initNextBtn()
-        initBackBtn()
 
     }
 
