@@ -29,12 +29,11 @@ class OpenProjectActivity :
     var value = 0
     val formatter = SimpleDateFormat("yyyy-MM-dd")
 
-    private val projectViewModel : ProjectViewModel by viewModels()
+    private val projectViewModel: ProjectViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        initNextBtn()
         initDatePickerDialog()
         initDatePickerDialogGoingStart()
         initDatePickerDialogGoingEnd()
@@ -42,11 +41,31 @@ class OpenProjectActivity :
         setupSpinnerHandler()
         initChipGroup()
         initOnOff()
+        initNextBtn()
 
     }
 
     private fun initNextBtn() {
-        binding.tvFinish.setOnClickListener {
+        binding.tvWriteFinish.setOnClickListener {
+            val chipList = ArrayList<String>()
+            for (i: Int in 1..binding.chipGroup.childCount) {
+                val chip: Chip = binding.chipGroup.getChildAt(i - 1) as Chip
+                chipList.add(chip.text.toString())
+            }
+
+            var output = "count: ${chipList.size}\n"
+            for (i in chipList) {
+                val lastList = chipList.get(chipList.size - 1)
+                if ("$i" == lastList)
+                    output += "$i"
+                else {
+                    output += "$i,"
+                }
+            }
+            Log.d("test", output)
+
+
+            Log.d("Test", "isClick")
             startActivity(Intent(this, OpenProjectSecondActivity::class.java))
             finish()
             //tryPostAddProject()
@@ -101,7 +120,7 @@ class OpenProjectActivity :
     }
 
     //데이트피커 1
-    //데이트 피커
+//데이트 피커
     private fun initDatePickerDialog() {
         binding.etOpenProjectDateEnd.setOnClickListener {
             val calendar: Calendar = Calendar.getInstance()
@@ -279,25 +298,26 @@ class OpenProjectActivity :
             }
         }
 
-        binding.tvFinish.setOnClickListener {
-            val chipList = ArrayList<String>()
-            for (i: Int in 1..binding.chipGroup.childCount) {
-                val chip: Chip = binding.chipGroup.getChildAt(i - 1) as Chip
-                chipList.add(chip.text.toString())
-            }
-
-            var output = "count: ${chipList.size}\n"
-            for (i in chipList) {
-                val lastList = chipList.get(chipList.size-1)
-                if ("$i" == lastList)
-                    output += "$i"
-                else {
-                    output += "$i,"
-                }
-            }
-            Log.d("test", output)
+//        binding.tvWriteFinish.setOnClickListener {
+//            val chipList = ArrayList<String>()
+//            for (i: Int in 1..binding.chipGroup.childCount) {
+//                val chip: Chip = binding.chipGroup.getChildAt(i - 1) as Chip
+//                chipList.add(chip.text.toString())
+//            }
+//
+//            var output = "count: ${chipList.size}\n"
+//            for (i in chipList) {
+//                val lastList = chipList.get(chipList.size-1)
+//                if ("$i" == lastList)
+//                    output += "$i"
+//                else {
+//                    output += "$i,"
+//                }
+//            }
+//            Log.d("test", output)
+//        }
         }
-    }
+//    }
 
     //온,오프라인 selector
     private fun initOnOff() {
