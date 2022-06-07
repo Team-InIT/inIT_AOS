@@ -14,6 +14,9 @@
         android:theme="@style/Theme.InitAndroid"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".app.presentation.ui.open.todo.WriteToDoActivity"
+            android:exported="false" />
+        <activity
             android:name=".app.presentation.ui.open.project.ProjectDetailActivity"
             android:exported="true" />
         <activity
