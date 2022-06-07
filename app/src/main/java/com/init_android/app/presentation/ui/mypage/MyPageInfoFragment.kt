@@ -18,7 +18,6 @@ import com.playtogether_android.app.presentation.base.BaseFragment
 
 
 class MyPageInfoFragment : BaseFragment<FragmentMyPageInfoBinding>(R.layout.fragment_my_page_info) {
-    private lateinit var stackAdapter: StackAdapter
 
     private val myPageViewModel : MyPageViewModel by viewModels()
 
