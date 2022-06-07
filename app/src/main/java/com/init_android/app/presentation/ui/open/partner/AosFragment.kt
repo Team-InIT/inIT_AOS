@@ -11,8 +11,21 @@ import com.playtogether_android.app.presentation.base.BaseFragment
 
 class AosFragment : BaseFragment<FragmentAosBinding>(R.layout.fragment_aos) {
 
+    //private lateinit var myPageLikeQuestionAdapter: MyPageLikeQuestionAdapter
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+    }
+
+    private fun initPartnerAdapter() {
+        //val userId = intent.getIntExtra("userId", 0)
+//        myPageLikeReviewAdapter = MyPageLikeReviewAdapter(userId)
+//        binding.rvMypageLike.adapter = myPageLikeReviewAdapter
+//
+//        myPageViewModel.likeReview.observe(this) {
+//            initReviewEmpty(it.data.likePostList.size)
+//            myPageLikeReviewAdapter.setReviewListData((it.data.likePostList) as MutableList<MyPageLikeReviewData.Data.LikePost>)
+//        }
     }
 }

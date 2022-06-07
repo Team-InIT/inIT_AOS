@@ -32,30 +32,47 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
 
+
+                <ImageView
+                    android:id="@+id/iv_other_page_back"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginBottom="16dp"
+                    android:padding="10dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/ic_icn_back" />
+
+
+                <TextView
+                    android:id="@+id/tv_my_page_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/noto_sans_kr_medium"
+                    android:text="@{User.mName}"
+                    android:textColor="@color/white"
+                    android:textSize="20sp"
+                    android:layout_marginStart="16dp"
+                    app:layout_constraintBottom_toBottomOf="@+id/iv_other_page_back"
+                    app:layout_constraintStart_toEndOf="@+id/iv_other_page_back"
+                    app:layout_constraintTop_toTopOf="@+id/iv_other_page_back" />
+
+
                 <TextView
                     android:id="@+id/tv_my_page_main_title"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginTop="32dp"
-                    android:layout_marginBottom="16dp"
                     android:fontFamily="@font/noto_sans_kr_medium"
-                    android:text="@string/mypage"
+                    android:text="@string/other_mypage"
                     android:textColor="@color/white"
                     android:textSize="20sp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintBottom_toBottomOf="@+id/iv_other_page_back"
+                    app:layout_constraintStart_toEndOf="@+id/tv_my_page_name"
+                    app:layout_constraintTop_toTopOf="@+id/iv_other_page_back" />
 
-                <ImageView
-                    android:id="@+id/iv_mypage_setting"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="16dp"
-                    android:background="@drawable/ic_settings"
-                    app:layout_constraintBottom_toBottomOf="@+id/tv_my_page_main_title"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="@+id/tv_my_page_main_title" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -69,14 +86,16 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/cl_my_page_main_title" />
 
+
+
             <TextView
-                android:id="@+id/tv_my_page_modify_profile"
+                android:id="@+id/tv_my_page_contact"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@drawable/rectangle_stroke_gray_radius_10"
+                android:background="@drawable/rectangle_stroke_main_radius_10"
                 android:fontFamily="@font/noto_sans_kr_medium"
-                android:text="프로필 수정"
-                android:textColor="@color/gray_5"
+                android:text="컨텍하기"
+                android:textColor="@color/main_default"
                 android:layout_marginTop="8dp"
                 android:paddingTop="2dp"
                 android:paddingBottom="2dp"
@@ -100,6 +119,15 @@
                 app:layout_constraintStart_toEndOf="@+id/iv_my_page_profile"
                 app:layout_constraintTop_toTopOf="@+id/iv_my_page_profile" />
 
+            <ImageView
+                android:id="@+id/iv_my_page_email"
+                android:layout_width="18dp"
+                android:layout_height="18dp"
+                android:src="@drawable/ic_email_main"
+                android:layout_marginStart="6dp"
+                app:layout_constraintBottom_toBottomOf="@+id/tv_my_page_profile_name"
+                app:layout_constraintStart_toEndOf="@+id/tv_my_page_profile_name"
+                app:layout_constraintTop_toTopOf="@+id/tv_my_page_profile_name" />
 
             <ImageView
                 android:id="@+id/iv_my_page_position"

@@ -20,6 +20,7 @@ class MyPageProjectFragment :
         super.onViewCreated(view, savedInstanceState)
 
         initNetwork()
+        initVisibility()
 
     }
 
@@ -33,6 +34,19 @@ class MyPageProjectFragment :
             binding.tvMypageHeartNum.setText(it.zzim)
             binding.tvMyPageUploadNum.setText(it.upload)
             binding.tvMypageApproveNum.setText(it.disapproval)
+        }
+    }
+
+    private fun initVisibility() {
+        //mNum intent로 연결
+        val mNum = 1
+
+        if(mNum != 1) {
+            binding.clMyPageApprove.visibility = View.GONE
+            binding.clMyPageUpload.visibility = View.GONE
+        } else {
+            binding.clMyPageApprove.visibility = View.VISIBLE
+            binding.clMyPageUpload.visibility = View.VISIBLE
         }
     }
 }
