@@ -7,6 +7,9 @@
     <string name="mypage">마이페이지</string>
     <string name="writing">글쓰기</string>
 
+
+    <string name="other_mypage">님의 마이페이지</string>
+
     <string name="id">아이디</string>
     <string name="pw">비밀번호</string>
     <string name="login">로그인</string>

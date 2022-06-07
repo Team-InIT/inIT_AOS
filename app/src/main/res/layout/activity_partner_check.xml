@@ -62,7 +62,7 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <com.google.android.material.tabs.TabLayout
-            android:id="@+id/tl_home_tab"
+            android:id="@+id/tl_partner_tab"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:layout_constraintStart_toStartOf="parent"
@@ -74,10 +74,10 @@
             app:tabTextColor="@color/black" />
 
         <androidx.viewpager2.widget.ViewPager2
-            android:id="@+id/vp_home_tab"
+            android:id="@+id/vp_partner_tab"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@+id/tl_home_tab"
+            app:layout_constraintTop_toBottomOf="@+id/tl_partner_tab"
             tools:layout_editor_absoluteX="0dp" />
 
         <androidx.fragment.app.FragmentContainerView
@@ -86,7 +86,7 @@
             android:layout_height="0dp"
             android:layout_marginBottom="16dp"
             app:layout_constraintBottom_toTopOf="@+id/btn_partner_join"
-            app:layout_constraintTop_toBottomOf="@+id/tl_home_tab"
+            app:layout_constraintTop_toBottomOf="@+id/tl_partner_tab"
             tools:layout_editor_absoluteX="-16dp" />
 
         <Button

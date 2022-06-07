@@ -56,12 +56,12 @@ class PartnerCheckActivity :
         partnerTabAdapter = PartnerTabAdapter(this)
         partnerTabAdapter.fragments.addAll(fragmentList)
 
-        binding.vpHomeTab.adapter = partnerTabAdapter
+        binding.vpPartnerTab.adapter = partnerTabAdapter
     }
 
     private fun initTab() {
         val tabLabel = listOf("기획", "디자인", "웹", "AOS", "IOS", "게임", "서버")
-        TabLayoutMediator(binding.tlHomeTab, binding.vpHomeTab) { tab, position ->
+        TabLayoutMediator(binding.tlPartnerTab, binding.vpPartnerTab) { tab, position ->
             tab.text = tabLabel[position]
         }.attach()
     }

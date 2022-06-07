@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
 import com.init_android.R
 import com.init_android.app.data.request.mypage.RequestMyInfo
@@ -27,6 +28,7 @@ class MyPageInfoFragment : BaseFragment<FragmentMyPageInfoBinding>(R.layout.frag
         linkClickListener()
         basicInfoListener()
         initNetwork()
+        initModifyBtn()
 
     }
 
@@ -77,6 +79,21 @@ class MyPageInfoFragment : BaseFragment<FragmentMyPageInfoBinding>(R.layout.frag
 
 
             startActivity(intentBasicInfo)
+        }
+    }
+
+    private fun initModifyBtn() {
+        //mNum intent로 연결
+        val mNum = 1
+
+        if(mNum != 1) {
+            binding.tvMypageBasicLinkModify.visibility = View.GONE
+            binding.tvMypageBasicStackModify.visibility = View.GONE
+            binding.tvMypageBasicInfoModify.visibility = View.GONE
+        } else {
+            binding.tvMypageBasicLinkModify.visibility = View.VISIBLE
+            binding.tvMypageBasicStackModify.visibility = View.VISIBLE
+            binding.tvMypageBasicInfoModify.visibility = View.VISIBLE
         }
     }
 
