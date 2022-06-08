@@ -37,6 +37,7 @@ class HomeViewModel() : ViewModel() {
         }
     }
 
+    //바텀시트
     fun postFinishProject(requestFinishProject: RequestFinishProject) {
         viewModelScope.launch {
             kotlin.runCatching { ServiceCreator.initService.postFinishProject(requestFinishProject) }

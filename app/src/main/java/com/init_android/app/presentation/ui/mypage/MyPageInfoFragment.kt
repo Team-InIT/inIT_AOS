@@ -2,6 +2,7 @@ package com.init_android.app.presentation.ui.mypage
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -57,8 +58,9 @@ class MyPageInfoFragment : BaseFragment<FragmentMyPageInfoBinding>(R.layout.frag
         myPageViewModel.myInfoData.observe(viewLifecycleOwner) {
             binding.user = it.mInfo
 
-            val myList = arrayOf(it.stacks.toString())
-            for (i in 0 until myList?.size!!) {
+            val myList = it.stacks
+
+            for (i in 0 until myList.size) {
                 val chip = Chip(binding.chipMypage.getContext())
                 val layoutParams = LinearLayout.LayoutParams(
                     LinearLayout.LayoutParams.WRAP_CONTENT,

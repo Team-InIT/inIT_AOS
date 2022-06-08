@@ -10,9 +10,12 @@ import androidx.activity.viewModels
 import com.google.android.material.tabs.TabLayoutMediator
 import com.init_android.R
 import com.init_android.app.data.model.SelectableData
+import com.init_android.app.data.request.RequestFinishProject
 import com.init_android.app.data.request.mypage.RequestQuit
 import com.init_android.app.data.request.project.RequestApplyProject
+import com.init_android.app.data.response.ResponseFinishProject
 import com.init_android.app.presentation.ui.home.signin.SignInActivity
+import com.init_android.app.presentation.ui.home.viewmodel.HomeViewModel
 import com.init_android.app.presentation.ui.home.viewmodel.mainViewModel
 import com.init_android.app.presentation.ui.open.partner.adapter.PartnerTabAdapter
 import com.init_android.app.presentation.ui.open.viewmodel.ProjectViewModel
@@ -28,6 +31,7 @@ class PartnerCheckActivity :
     private lateinit var partnerTabAdapter: PartnerTabAdapter
     private val mainViewModel: mainViewModel by viewModels()
     private val projectViewModel : ProjectViewModel by viewModels()
+    private val homeViewModel : HomeViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -70,6 +74,16 @@ class PartnerCheckActivity :
     }
 
     private fun clickListener() {
+        /*
+        val requestFinishProject = RequestFinishProject(mNum = 1)
+        homeViewModel.postFinishProject(requestFinishProject)
+        homeViewModel.finishProject.observe(this) {
+            partBottomSheetDialog.setDataList(ResponseFinishProject.Project.)
+
+        }
+
+         */
+
         //파트 바텀시트
         var partData = mutableListOf(
             SelectableData(1, "기획", false),
