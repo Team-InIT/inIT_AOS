@@ -11,9 +11,11 @@ import com.google.android.material.tabs.TabLayoutMediator
 import com.init_android.R
 import com.init_android.app.data.model.SelectableData
 import com.init_android.app.data.request.mypage.RequestQuit
+import com.init_android.app.data.request.project.RequestApplyProject
 import com.init_android.app.presentation.ui.home.signin.SignInActivity
 import com.init_android.app.presentation.ui.home.viewmodel.mainViewModel
 import com.init_android.app.presentation.ui.open.partner.adapter.PartnerTabAdapter
+import com.init_android.app.presentation.ui.open.viewmodel.ProjectViewModel
 import com.init_android.app.util.CustomBottomSheetDialog
 import com.init_android.app.util.CustomDialog
 import com.init_android.databinding.ActivityPartnerCheckBinding
@@ -25,6 +27,7 @@ class PartnerCheckActivity :
     val partBottomSheetDialog = CustomBottomSheetDialog("지원할 파트")
     private lateinit var partnerTabAdapter: PartnerTabAdapter
     private val mainViewModel: mainViewModel by viewModels()
+    private val projectViewModel : ProjectViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -86,8 +89,9 @@ class PartnerCheckActivity :
             )
 
             partBottomSheetDialog.setCompleteListener {
-                val firstMajorPeriod = partBottomSheetDialog.getSelectedData()
-                mainViewModel.part.value = firstMajorPeriod?.name
+                val part = partBottomSheetDialog.getSelectedData()
+                mainViewModel.part.value = part?.name
+                mainViewModel.partNum.value = part?.id
                 partBottomSheetDialog.binding.btnBottomsheetCancel
                 initAlert()
                 partBottomSheetDialog.binding.btnBottomsheetComplete.setOnClickListener {
@@ -102,9 +106,16 @@ class PartnerCheckActivity :
         val title = "해당 프로젝트에 지원하시겠습니까?"
         val dialog = CustomDialog(this, title)
         dialog.showChoiceDialog(R.layout.dialog_yes_no)
+
         dialog.setOnClickedListener(object : CustomDialog.ButtonClickListener {
+            val requestApply = RequestApplyProject(
+                mNum = 1,
+                pNum = 1,
+                rPosition = mainViewModel.partNum.value ?: 0
+            )
             override fun onClicked(num: Int) {
                 if (num == 1) {
+                    projectViewModel.postApplyProject(requestApply)
 
                     Toast.makeText(this@PartnerCheckActivity, "신청이 완료되었습니다.", Toast.LENGTH_SHORT)
                         .show()
