@@ -4,7 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
+        <variable
+            name="feedData"
+            type="com.init_android.app.data.model.FeedListData" />
 
     </data>
 
@@ -70,7 +72,7 @@
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/iv_icon"
-                        tools:text="플투" />
+                        android:text="@{feedData.fTitle}" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -126,6 +126,7 @@
         <entry key="app/src/main/res/layout/activity_open_project_second.xml" value="0.13177083333333334" />
         <entry key="app/src/main/res/layout/activity_partner_check.xml" value="0.13177083333333334" />
         <entry key="app/src/main/res/layout/fragment_feed.xml" value="0.2328125" />
+        <entry key="app/src/main/res/layout/fragment_my_page.xml" value="0.24375" />
         <entry key="app/src/main/res/layout/fragment_search_partner.xml" value="0.24375" />
         <entry key="app/src/main/res/layout/fragment_search_recruit_finish.xml" value="0.24375" />
         <entry key="app/src/main/res/layout/fragment_search_recruiting.xml" value="0.24375" />
