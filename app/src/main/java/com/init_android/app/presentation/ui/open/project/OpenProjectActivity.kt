@@ -27,6 +27,7 @@ class OpenProjectActivity :
     BaseActivity<ActivityOpenProjectBinding>(R.layout.activity_open_project) {
 
     var value = 0
+    var onOff = 0
     val formatter = SimpleDateFormat("yyyy-MM-dd")
 
     private val projectViewModel: ProjectViewModel by viewModels()
@@ -62,11 +63,43 @@ class OpenProjectActivity :
                     output += "$i,"
                 }
             }
-            Log.d("test", output)
 
+            //type
+            if(binding.spinnerOpenProjectType.toString()=="웹") {
+                value = 0
+            } else if( binding.spinnerOpenProjectType.toString()=="모바일") {
+                value = 1
+            } else {
+                value = 2
+            }
 
-            Log.d("Test", "isClick")
-            startActivity(Intent(this, OpenProjectSecondActivity::class.java))
+            if(binding.ivWriteOnline.isSelected) {
+                onOff = 0
+            } else {
+                onOff = 1
+            }
+
+            val intent = Intent(this, OpenProjectSecondActivity::class.java)
+
+            intent.putExtra("pTitle", binding.etOpenProjectName.text.toString())
+            intent.putExtra("pType", value)
+            intent.putExtra("pRecruitStart", "2022-06-13")
+            intent.putExtra("pRecruitDue", binding.etOpenProjectDateEnd.text.toString().replace(".", "-")
+            )
+            intent.putExtra("pStart", binding.etOpenProjectDateWhenStart.text.toString().replace(".", "-"))
+            intent.putExtra("pDue", binding.etOpenProjectDateWhenEnd.text.toString().replace(".", "-"))
+            intent.putExtra("pPlan", Integer.parseInt(binding.etOpenProjectPlan.text.toString()))
+            intent.putExtra("pDesign", Integer.parseInt(binding.etOpenProjectDesign.text.toString()))
+            intent.putExtra("pIos", Integer.parseInt(binding.etOpenProjectIos.text.toString()))
+            intent.putExtra("pAos", Integer.parseInt(binding.etOpenProjectAos.text.toString()))
+            intent.putExtra("pGame", Integer.parseInt(binding.etOpenProjectGame.text.toString()))
+            intent.putExtra("pWeb", Integer.parseInt(binding.etOpenProjectWeb.text.toString()))
+            intent.putExtra("pServer", Integer.parseInt(binding.etOpenProjectServer.text.toString()))
+            intent.putExtra("pDescription", binding.etOpenProjectIntroduction.text.toString())
+            intent.putExtra("pOnOff", onOff)
+            intent.putExtra("pStack",output)
+
+            startActivity(intent)
             finish()
             //tryPostAddProject()
         }
@@ -98,6 +131,7 @@ class OpenProjectActivity :
             pServer = Integer.parseInt(binding.etOpenProjectServer.text.toString()),
             pDescription = binding.etOpenProjectIntroduction.text.toString(),
             pOnOff = 1,
+
             pGender = 0,
             pAcademic = 1,
             pPlanf = 1,

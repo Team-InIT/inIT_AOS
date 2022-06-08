@@ -177,6 +177,7 @@
                     app:layout_constraintStart_toStartOf="@+id/tv_enroll"
                     app:layout_constraintTop_toBottomOf="@+id/tv_enroll" />
 
+
                 <TextView
                     android:id="@+id/tv_plan"
                     android:layout_width="wrap_content"
