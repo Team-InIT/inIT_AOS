@@ -355,8 +355,6 @@
                     android:layout_marginTop="16dp"
                     android:background="@drawable/rectangle_white_border_8"
                     android:paddingStart="16dp"
-                    android:paddingTop="16dp"
-                    android:paddingEnd="16dp"
                     app:layout_constraintEnd_toEndOf="@+id/constraintLayout3"
                     app:layout_constraintStart_toStartOf="@+id/constraintLayout3"
                     app:layout_constraintTop_toBottomOf="@+id/tv_detail_stack" />
@@ -538,7 +536,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
-                        isLevelChecked="@{Project.ProjectInfo.pPlanf}"
+                        isLevelChecked="@{Project.ProjectInfo.pPlan}"
                         app:layout_constraintStart_toStartOf="@+id/tv_detail_part_condition"
                         app:layout_constraintTop_toBottomOf="@+id/tv_detail_part_condition">
 
@@ -714,7 +712,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
-                        isLevelChecked="@{Project.ProjectInfo.pWebf}"
+                        isLevelChecked="@{Project.ProjectInfo.pWeb}"
                         app:layout_constraintStart_toStartOf="@+id/tv_detail_part_condition"
                         app:layout_constraintTop_toBottomOf="@+id/cl_detail_design">
 
@@ -802,7 +800,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
-                        isLevelChecked="@{Project.ProjectInfo.pAosf}"
+                        isLevelChecked="@{Project.ProjectInfo.pAos}"
                         app:layout_constraintStart_toStartOf="@+id/tv_detail_part_condition"
                         app:layout_constraintTop_toBottomOf="@+id/cl_detail_web">
 
@@ -890,7 +888,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
-                        isLevelChecked="@{Project.ProjectInfo.pIosf}"
+                        isLevelChecked="@{Project.ProjectInfo.pIos}"
                         app:layout_constraintStart_toStartOf="@+id/tv_detail_part_condition"
                         app:layout_constraintTop_toBottomOf="@+id/cl_detail_aos">
 
@@ -978,7 +976,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
-                        isLevelChecked="@{Project.ProjectInfo.pGamef}"
+                        isLevelChecked="@{Project.ProjectInfo.pGame}"
                         app:layout_constraintStart_toStartOf="@+id/tv_detail_part_condition"
                         app:layout_constraintTop_toBottomOf="@+id/cl_detail_ios">
 
@@ -1067,7 +1065,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
                         android:layout_marginBottom="16dp"
-                        isLevelChecked="@{Project.ProjectInfo.pServerf}"
+                        isLevelChecked="@{Project.ProjectInfo.pServer}"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toStartOf="@+id/tv_detail_part_condition"
                         app:layout_constraintTop_toBottomOf="@+id/cl_detail_game">

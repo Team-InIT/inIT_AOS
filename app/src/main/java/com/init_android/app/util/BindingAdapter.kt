@@ -160,8 +160,8 @@ object BindingAdapter {
 
     @JvmStatic
     @BindingAdapter("isLevelChecked")
-    fun isLevelChecked(layout: ConstraintLayout, isChecked: Any) {
-        if (isChecked == null) {
+    fun isLevelChecked(layout: ConstraintLayout, isChecked: Int) {
+        if (isChecked == 0) {
             layout.visibility = View.GONE
         } else {
             layout.visibility = View.VISIBLE
