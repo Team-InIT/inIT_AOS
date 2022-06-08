@@ -20,7 +20,7 @@ class MyPageProjectFragment :
         super.onViewCreated(view, savedInstanceState)
 
         initNetwork()
-        //initVisibility()
+        initVisibility()
 
     }
 
@@ -31,10 +31,6 @@ class MyPageProjectFragment :
         myPageViewModel.postCountProject(requestCountProject)
         myPageViewModel.countProject.observe(viewLifecycleOwner) {
             binding.info = it
-//            binding.tvMyPageJoinNum.setText(it.join)
-//            binding.tvMypageHeartNum.setText(it.zzim)
-//            binding.tvMyPageUploadNum.setText(it.upload)
-//            binding.tvMypageApproveNum.setText(it.disapproval)
         }
     }
 

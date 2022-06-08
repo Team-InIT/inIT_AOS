@@ -6,10 +6,13 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.LinearLayout
 import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
+import com.google.android.material.chip.Chip
 import com.init_android.R
 import com.init_android.app.data.request.mypage.RequestMyInfo
+import com.init_android.app.data.response.mypage.ResponseMyInfo
 import com.init_android.app.presentation.ui.mypage.adapter.MyPageTabAdapter
 import com.init_android.app.presentation.ui.mypage.adapter.StackAdapter
 import com.init_android.app.presentation.ui.mypage.viewmodel.MyPageViewModel
@@ -53,7 +56,29 @@ class MyPageInfoFragment : BaseFragment<FragmentMyPageInfoBinding>(R.layout.frag
 
         myPageViewModel.myInfoData.observe(viewLifecycleOwner) {
             binding.user = it.mInfo
+
+            val myList = arrayOf(it.stacks.toString())
+            for (i in 0 until myList?.size!!) {
+                val chip = Chip(binding.chipMypage.getContext())
+                val layoutParams = LinearLayout.LayoutParams(
+                    LinearLayout.LayoutParams.WRAP_CONTENT,
+                    LinearLayout.LayoutParams.WRAP_CONTENT
+                )
+                layoutParams.setMargins(5, 0, 5, 0)
+                chip.layoutParams = layoutParams
+                chip.setText(myList.get(i))
+                chip.closeIcon!!.isVisible
+                //chip.isCloseIconEnabled = true
+                chip.chipBackgroundColor = resources.getColorStateList(R.color.main_default)
+                chip.setTextColor(resources.getColorStateList(R.color.white))
+                //chip.closeIconTint = resources.getColorStateList(R.color.white)
+                chip.isClickable = true
+                chip.isCheckable = false
+                binding.chipMypage.addView(chip)
+            }
         }
+
+
     }
 
     //링크 수정 클릭 리스너
