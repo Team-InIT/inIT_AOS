@@ -24,7 +24,7 @@
             android:exported="true" />
         <activity
             android:name=".app.presentation.ui.open.partner.PartnerCheckActivity"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name=".app.presentation.ui.mypage.message.WriteMessageActivity"
             android:exported="true" />

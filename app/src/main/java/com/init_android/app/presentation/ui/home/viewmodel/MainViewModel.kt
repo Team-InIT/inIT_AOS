@@ -7,5 +7,6 @@ import kotlinx.coroutines.CoroutineExceptionHandler
 class mainViewModel : ViewModel() {
     var text = MutableLiveData<String>()
     var part = MutableLiveData<String>()
+    var partNum = MutableLiveData<Int>()
     var project = MutableLiveData<String>()
 }
