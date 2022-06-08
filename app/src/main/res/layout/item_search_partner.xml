@@ -4,8 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
-
+        <variable
+            name="partnerItem"
+            type="com.init_android.app.data.model.PartnerData" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -23,21 +24,21 @@
             android:layout_marginStart="16dp"
             android:src="@drawable/ic_launcher_background"
             app:layout_constraintEnd_toStartOf="@id/tv_partner_name"
-            app:layout_constraintBottom_toBottomOf="@id/tv_partner_include"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@id/iv_partner_position" />
+            app:layout_constraintTop_toTopOf="parent"/>
 
         <TextView
             android:id="@+id/tv_partner_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="이름"
+            android:text="@{partnerItem.name}"
             android:layout_marginStart="16dp"
             android:layout_marginTop="4dp"
             android:textColor="@color/black"
             android:textSize="16sp"
             app:layout_constraintStart_toEndOf="@+id/iv_partner"
-            app:layout_constraintTop_toTopOf="@+id/iv_partner" />
+            app:layout_constraintTop_toTopOf="parent"/>
 
         <ImageView
             android:id="@+id/iv_partner_position"
@@ -63,7 +64,7 @@
             android:id="@+id/tv_partner_email"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="nana@gmail.com"
+            android:text="@{partnerItem.email}"
             android:textColor="@color/tet_gray_2"
             android:textSize="12sp"
             android:includeFontPadding="false"
@@ -89,7 +90,7 @@
             android:textColor="@color/tet_gray_2"
             android:textSize="12sp"
             android:layout_marginStart="4dp"
-            tools:text="학교 및 학과"
+            tools:text="@{partnerItem.include}"
             android:layout_marginBottom="12dp"
             android:layout_marginTop="4dp"
             app:layout_constraintStart_toEndOf="@id/iv_partner_include"
