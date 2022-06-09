@@ -23,6 +23,7 @@ class PartnerPageActivity : BaseActivity<ActivityPartnerPageBinding>(R.layout.ac
         initAdapter()
         initNetwork()
         initTab()
+        backBtnListener()
     }
 
 
@@ -32,7 +33,7 @@ class PartnerPageActivity : BaseActivity<ActivityPartnerPageBinding>(R.layout.ac
 
         val requestMyInfo = RequestMyInfo(
             //인텐트로 넘겨 온 mNum 세팅
-            mNum = 2
+            mNum = intent.getIntExtra("userId", 1)
         )
 
         Log.d("MyPage mNum: " , " " + signViewModel.signIn.value?.mNum)
@@ -65,5 +66,11 @@ class PartnerPageActivity : BaseActivity<ActivityPartnerPageBinding>(R.layout.ac
         TabLayoutMediator(binding.tabHome, binding.vpHome) { tab, position ->
             tab.text = tabLabel[position]
         }.attach()
+    }
+
+    private fun backBtnListener() {
+        binding.ivOtherPageBack.setOnClickListener {
+            finish()
+        }
     }
 }
