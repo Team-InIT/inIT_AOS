@@ -39,7 +39,7 @@ class ProjectDetailActivity :
         //checkMemBtnClickListener()
         heartClickListener()
         initNetwork()
-        clickListener()
+
         initToDoBtnListener()
         initMemListener()
 
@@ -68,12 +68,19 @@ class ProjectDetailActivity :
 
     private fun initNetwork() {
         val requestProjectDetail = RequestProjectDetail(
-            pNum = 2, mNum = 5
+            pNum = 1, mNum = 5
         )
 
         projectViewModel.postProjectDetail(requestProjectDetail)
         projectViewModel.detailProject.observe(this) {
             binding.project = it
+
+            if(it.isApproval == true) {
+                Toast.makeText(this@ProjectDetailActivity, "이미 지원한 프로젝트입니다.", Toast.LENGTH_SHORT).show()
+            } else {
+                clickListener()
+            }
+
 
             if (it.projectInfo?.pGender == 0) {
                 binding.ivDetailMan.isSelected = true
@@ -175,7 +182,9 @@ class ProjectDetailActivity :
 
 
             val myList = it.projectInfo?.pStack
+            Log.d("test", "" + myList)
             //val myList = arrayOf("Chip1", "Chip2", "Chip3", "Chip4")
+
             if (myList?.size != null) {
                 for (i in 0 until myList?.size!!) {
                     // Here I am creating Chip view dynamically using current Context
@@ -246,8 +255,7 @@ class ProjectDetailActivity :
 
         dialog.setOnClickedListener(object : CustomDialog.ButtonClickListener {
             val requestApply = RequestApplyProject(
-                mNum = 1,
-                pNum = 1,
+                pNum = 1, mNum = 5,
                 rPosition = mainViewModel.partNum.value ?: 0
             )
 
