@@ -10,9 +10,13 @@ import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.activity.viewModels
 import androidx.core.content.ContextCompat
+import androidx.fragment.app.viewModels
 import com.bumptech.glide.Glide
 import com.init_android.R
+import com.init_android.app.data.request.RequestAddFeed
+import com.init_android.app.presentation.ui.feed.FeedViewModel
 import com.init_android.app.presentation.ui.open.project.SpinnerAdapter
 import com.init_android.databinding.ActivityFeedWritingBinding
 import com.playtogether_android.app.presentation.base.BaseActivity
@@ -21,6 +25,7 @@ class FeedWritingActivity :
     BaseActivity<ActivityFeedWritingBinding>(R.layout.activity_feed_writing) {
 
     private var getResult: ActivityResultLauncher<Intent>? = null
+    private val feedViewModel : FeedViewModel by viewModels()
 
     // 갤러리 접근 권한 런처
     private val requestPermissionLauncher =
@@ -100,5 +105,21 @@ class FeedWritingActivity :
                     Toast.makeText(this, "선택 취소", Toast.LENGTH_SHORT).show()
                 }
             }
+    }
+
+    // 피드 등록
+    private fun tryPostFeed(){
+        binding.btnPost.setOnClickListener {
+
+            /*val requestAddFeed = RequestAddFeed(
+                binding.tvFeedTitle.text.toString(),
+                0,
+                binding.etvDetail.text.toString(),
+                binding.etvLink.text.toString(),
+
+            )*/
+
+            //feedViewModel.postAddFeed()
+        }
     }
 }
