@@ -68,6 +68,7 @@ class MyPageInfoFragment : BaseFragment<FragmentMyPageInfoBinding>(R.layout.frag
                 )
                 layoutParams.setMargins(5, 0, 5, 0)
                 chip.layoutParams = layoutParams
+
                 chip.setText(myList.get(i))
                 chip.closeIcon!!.isVisible
                 //chip.isCloseIconEnabled = true
@@ -77,6 +78,7 @@ class MyPageInfoFragment : BaseFragment<FragmentMyPageInfoBinding>(R.layout.frag
                 chip.isClickable = true
                 chip.isCheckable = false
                 binding.chipMypage.addView(chip)
+
             }
         }
 
