@@ -88,46 +88,55 @@
                 android:layout_height="match_parent"
                 android:background="#EDEDED">
 
-                <ImageView
-                    android:id="@+id/iv_project_detail_heart"
+                <TextView
+                    android:id="@+id/textView2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:background="@drawable/rectangle_stroke_main_radius_10"
+                    android:paddingStart="19dp"
+                    android:paddingTop="3dp"
+                    android:paddingEnd="19dp"
+                    android:paddingBottom="3dp"
+                    android:layout_marginEnd="10dp"
+                    android:text="TO-DO"
+                    android:textColor="@color/main_default"
+                    android:textSize="14sp"
+                    app:layout_constraintEnd_toStartOf="@+id/tv_detail_member"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/tv_detail_member"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:background="@drawable/rectangle_stroke_main_radius_10"
+                    android:paddingStart="14dp"
+                    android:paddingTop="3dp"
+                    android:paddingEnd="14dp"
+                    android:paddingBottom="3dp"
+                    android:text="팀원정보"
                     android:layout_marginEnd="16dp"
-                    app:layout_constraintBottom_toBottomOf="@+id/tv_partner_num"
+                    android:textColor="@color/main_default"
+                    android:textSize="14sp"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="@+id/tv_partner_num"
-                    app:srcCompat="@drawable/selector_heart" />
+                    app:layout_constraintTop_toTopOf="parent" />
+
 
                 <TextView
                     android:id="@+id/tv_partner_info"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="14dp"
-                    android:layout_marginTop="14dp"
+                    android:layout_marginTop="16dp"
                     android:fontFamily="@font/noto_sans_kr_medium"
                     android:text="@string/project_info_detail"
                     android:textColor="@color/black"
                     android:textSize="16sp"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
-                <TextView
-                    android:id="@+id/tv_partner_num"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="8dp"
-                    android:background="@drawable/rectangle_fill_black_radius_14"
-                    android:fontFamily="@font/noto_sans_kr_bold"
-                    android:paddingStart="18dp"
-                    android:paddingTop="4dp"
-                    android:paddingEnd="18dp"
-                    android:paddingBottom="4dp"
-                    android:text="D-4"
-                    android:textColor="@color/white"
-                    android:textSize="12sp"
-                    app:layout_constraintBottom_toBottomOf="@+id/tv_partner_info"
-                    app:layout_constraintStart_toEndOf="@+id/tv_partner_info"
-                    app:layout_constraintTop_toTopOf="@+id/tv_partner_info" />
+
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:id="@+id/constraintLayout3"
@@ -154,6 +163,34 @@
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
                         tools:text="inIT" />
+
+                    <TextView
+                        android:id="@+id/tv_partner_num"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/rectangle_fill_black_radius_14"
+                        android:fontFamily="@font/noto_sans_kr_bold"
+                        android:paddingStart="18dp"
+                        android:paddingTop="4dp"
+                        android:paddingEnd="18dp"
+                        android:paddingBottom="4dp"
+                        android:layout_marginStart="14dp"
+                        android:text="D-4"
+                        android:textColor="@color/white"
+                        android:textSize="12sp"
+                        app:layout_constraintBottom_toBottomOf="@+id/tv_detial_title"
+                        app:layout_constraintStart_toEndOf="@+id/tv_detial_title"
+                        app:layout_constraintTop_toTopOf="@+id/tv_detial_title" />
+
+                    <ImageView
+                        android:id="@+id/iv_project_detail_heart"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="16dp"
+                        app:layout_constraintBottom_toBottomOf="@+id/tv_partner_num"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/tv_partner_num"
+                        app:srcCompat="@drawable/selector_heart" />
 
                     <ImageView
                         android:id="@+id/imageView2"
@@ -1157,7 +1194,7 @@
                     android:layout_marginTop="32dp"
                     android:layout_marginStart="16dp"
                     android:layout_marginEnd="16dp"
-                    android:text="@string/detail_check_total_mem"
+                    android:text="@string/bottom_sheet_join"
                     android:layout_marginBottom="24dp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
