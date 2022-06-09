@@ -4,10 +4,12 @@ import com.init_android.app.data.request.*
 import com.init_android.app.data.request.mypage.*
 import com.init_android.app.data.request.project.RequestApplyProject
 import com.init_android.app.data.request.project.RequestProjectDetail
+import com.init_android.app.data.request.project.RequestProjectMember
 import com.init_android.app.data.response.*
 import com.init_android.app.data.response.mypage.*
 import com.init_android.app.data.response.project.ResponseApplyProject
 import com.init_android.app.data.response.project.ResponseProjectDetail
+import com.init_android.app.data.response.project.ResponseProjectMember
 import okhttp3.MediaType
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
@@ -110,4 +112,8 @@ interface InitService {
     // 피드 삭제
     @POST("/deleteFeed")
     suspend fun postDeleteFeed(@Body body: RequestDeleteFeed): ResponseBase
+
+    //팀원 조회
+    @POST("/teamMember")
+    suspend fun postProjectMember(@Body body: RequestProjectMember) : ResponseProjectMember
 }

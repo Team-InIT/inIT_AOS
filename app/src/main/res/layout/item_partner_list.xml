@@ -4,6 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+        <variable
+            name="Member"
+            type="com.init_android.app.data.response.project.ResponseProjectMember.ApprovedPlan" />
 
 
     </data>
@@ -32,7 +35,7 @@
             android:id="@+id/tv_partner_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="이름"
+            android:text="@{Member.MName}"
             android:layout_marginStart="16dp"
             android:layout_marginTop="4dp"
             android:textColor="@color/black"
@@ -54,7 +57,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="nana@gmail.com"
+            android:text="@{Member.MEmail}"
             android:textColor="@color/tet_gray_2"
             android:textSize="12sp"
             android:includeFontPadding="false"
