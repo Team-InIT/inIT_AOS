@@ -1,6 +1,7 @@
 package com.init_android.app.presentation.ui.open.partner
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -29,10 +30,12 @@ class PlanFragment : BaseFragment<FragmentPlanBinding>(R.layout.fragment_plan) {
     }
 
     private fun initNetwork() {
+        Log.d("TEst", "TEST")
         val requestProjectMember = RequestProjectMember(pNum = 1)
         projectViewModel.postProjectMember(requestProjectMember)
         partnerAdapter = PartnerAdapter(1)
-        projectViewModel.projectMember.observe(this) {
+        binding.rvPlan.adapter = partnerAdapter
+        projectViewModel.projectMember.observe(viewLifecycleOwner) {
             partnerAdapter.setQuestionPost((it.approvedPlan) as MutableList<ResponseProjectMember.ApprovedPlan>)
         }
     }
