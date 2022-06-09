@@ -7,8 +7,10 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.init_android.app.data.ServiceCreator
 import com.init_android.app.data.request.RequestAddProject
+import com.init_android.app.data.request.project.RequestApplyProject
 import com.init_android.app.data.request.project.RequestProjectDetail
 import com.init_android.app.data.response.ResponseAddProject
+import com.init_android.app.data.response.project.ResponseApplyProject
 import com.init_android.app.data.response.project.ResponseProjectDetail
 import kotlinx.coroutines.launch
 
@@ -21,6 +23,11 @@ class ProjectViewModel() : ViewModel() {
     private val _detailProject = MutableLiveData<ResponseProjectDetail>()
     val detailProject: LiveData<ResponseProjectDetail>
         get() = _detailProject
+
+
+    private val _applyProject = MutableLiveData<ResponseApplyProject>()
+    val applyProject: LiveData<ResponseApplyProject>
+        get() = _applyProject
 
     //프로젝트 작성 서버통신
     fun postOpenProject(requestAddProject: RequestAddProject) {
@@ -49,6 +56,21 @@ class ProjectViewModel() : ViewModel() {
                 .onFailure {
                     it.printStackTrace()
                     Log.d("DetailProject", "서버 통신 실패")
+                }
+        }
+    }
+
+    //프로젝트 지원하기 서버통신
+    fun postApplyProject(requestApplyProject: RequestApplyProject) {
+        viewModelScope.launch {
+            kotlin.runCatching { ServiceCreator.initService.postApplyProject(requestApplyProject) }
+                .onSuccess {
+                    _applyProject.value = it
+                    Log.d("ApplyProject", "서버 통신 성공")
+                }
+                .onFailure {
+                    it.printStackTrace()
+                    Log.d("ApplyProject", "서버 통신 실패")
                 }
         }
     }

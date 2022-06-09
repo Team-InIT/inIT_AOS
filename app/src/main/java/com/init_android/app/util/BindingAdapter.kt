@@ -4,6 +4,7 @@ import android.graphics.Color
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.databinding.BindingAdapter
 import com.bumptech.glide.Glide
 import com.init_android.R
@@ -155,5 +156,17 @@ object BindingAdapter {
             }
         }
     }
+
+
+    @JvmStatic
+    @BindingAdapter("isLevelChecked")
+    fun isLevelChecked(layout: ConstraintLayout, isChecked: Int) {
+        if (isChecked == 0) {
+            layout.visibility = View.GONE
+        } else {
+            layout.visibility = View.VISIBLE
+        }
+    }
+
 }
 

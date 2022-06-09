@@ -155,29 +155,51 @@
                         app:layout_constraintTop_toTopOf="parent"
                         tools:text="inIT" />
 
+                    <ImageView
+                        android:id="@+id/imageView2"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_marginTop="12dp"
+                        android:src="@drawable/ic_launcher_background"
+                        app:layout_constraintStart_toStartOf="@+id/tv_detial_title"
+                        app:layout_constraintTop_toBottomOf="@+id/tv_detial_title" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/noto_sans_kr_medium"
+                        android:text="@{Project.WriterInfo.MName}"
+                        android:textColor="@color/tet_gray_2"
+                        android:textSize="16sp"
+                        android:layout_marginStart="8dp"
+                        app:layout_constraintBottom_toBottomOf="@+id/imageView2"
+                        app:layout_constraintStart_toEndOf="@+id/imageView2"
+                        app:layout_constraintTop_toTopOf="@+id/imageView2"
+                        tools:text="이혜빈" />
+
                     <TextView
                         android:id="@+id/tv_detail_kind"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="16dp"
                         android:fontFamily="@font/noto_sans_kr_medium"
                         android:text="@string/string_kind"
+                        android:layout_marginTop="12dp"
                         android:textColor="@color/black"
                         android:textSize="16sp"
-                        app:layout_constraintStart_toStartOf="@+id/tv_detial_title"
-                        app:layout_constraintTop_toBottomOf="@+id/tv_detial_title" />
+                        app:layout_constraintStart_toStartOf="@+id/imageView2"
+                        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
 
                     <TextView
                         android:id="@+id/tv_detail_kind_answer"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="8dp"
-                        android:layout_marginTop="16dp"
                         android:fontFamily="@font/noto_sans_kr_regular"
                         android:textColor="@color/tet_gray_2"
                         android:textSize="16sp"
+                        app:layout_constraintBottom_toBottomOf="@+id/tv_detail_kind"
                         app:layout_constraintStart_toEndOf="@+id/tv_detail_kind"
-                        app:layout_constraintTop_toBottomOf="@+id/tv_detial_title"
+                        app:layout_constraintTop_toTopOf="@+id/tv_detail_kind"
                         tools:text="@string/string_kind" />
 
                     <TextView
@@ -326,15 +348,13 @@
                     app:layout_constraintStart_toStartOf="@+id/constraintLayout3"
                     app:layout_constraintTop_toBottomOf="@+id/constraintLayout3" />
 
-                <androidx.constraintlayout.widget.ConstraintLayout
+                <com.google.android.material.chip.ChipGroup
                     android:id="@+id/cl_detail_stack"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
                     android:background="@drawable/rectangle_white_border_8"
                     android:paddingStart="16dp"
-                    android:paddingTop="16dp"
-                    android:paddingEnd="16dp"
                     app:layout_constraintEnd_toEndOf="@+id/constraintLayout3"
                     app:layout_constraintStart_toStartOf="@+id/constraintLayout3"
                     app:layout_constraintTop_toBottomOf="@+id/tv_detail_stack" />
@@ -516,6 +536,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
+                        isLevelChecked="@{Project.ProjectInfo.pPlan}"
                         app:layout_constraintStart_toStartOf="@+id/tv_detail_part_condition"
                         app:layout_constraintTop_toBottomOf="@+id/tv_detail_part_condition">
 
@@ -603,6 +624,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
+                        isLevelChecked="@{Project.ProjectInfo.pDesign}"
                         app:layout_constraintStart_toStartOf="@+id/tv_detail_part_condition"
                         app:layout_constraintTop_toBottomOf="@+id/cl_detail_plan">
 
@@ -690,6 +712,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
+                        isLevelChecked="@{Project.ProjectInfo.pWeb}"
                         app:layout_constraintStart_toStartOf="@+id/tv_detail_part_condition"
                         app:layout_constraintTop_toBottomOf="@+id/cl_detail_design">
 
@@ -777,6 +800,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
+                        isLevelChecked="@{Project.ProjectInfo.pAos}"
                         app:layout_constraintStart_toStartOf="@+id/tv_detail_part_condition"
                         app:layout_constraintTop_toBottomOf="@+id/cl_detail_web">
 
@@ -864,6 +888,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
+                        isLevelChecked="@{Project.ProjectInfo.pIos}"
                         app:layout_constraintStart_toStartOf="@+id/tv_detail_part_condition"
                         app:layout_constraintTop_toBottomOf="@+id/cl_detail_aos">
 
@@ -951,6 +976,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
+                        isLevelChecked="@{Project.ProjectInfo.pGame}"
                         app:layout_constraintStart_toStartOf="@+id/tv_detail_part_condition"
                         app:layout_constraintTop_toBottomOf="@+id/cl_detail_ios">
 
@@ -1039,6 +1065,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
                         android:layout_marginBottom="16dp"
+                        isLevelChecked="@{Project.ProjectInfo.pServer}"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toStartOf="@+id/tv_detail_part_condition"
                         app:layout_constraintTop_toBottomOf="@+id/cl_detail_game">
