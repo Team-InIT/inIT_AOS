@@ -14,6 +14,21 @@
         android:theme="@style/Theme.InitAndroid"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".app.presentation.ui.open.todo.ToDoMainActivity"
+            android:exported="false" />
+        <activity
+            android:name=".app.presentation.ui.mypage.MyPageZZimActivity"
+            android:exported="false" />
+        <activity
+            android:name=".app.presentation.ui.mypage.MyPageReadyActivity"
+            android:exported="false" />
+        <activity
+            android:name=".app.presentation.ui.mypage.MyPageUploadActivity"
+            android:exported="false" />
+        <activity
+            android:name=".app.presentation.ui.mypage.MyPageJoinActivity"
+            android:exported="false" />
+        <activity
             android:name=".app.presentation.ui.mypage.PartnerPageActivity"
             android:exported="false" />
         <activity
@@ -48,30 +63,26 @@
             android:exported="false" />
         <activity
             android:name=".app.presentation.ui.open.project.OpenProjectSecondActivity"
-            android:exported="true">
-
-        </activity>
+            android:exported="true" />
         <activity
             android:name=".app.presentation.ui.open.project.OpenProjectActivity"
-            android:exported="true" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+            android:exported="true" />
         <activity
             android:name=".app.presentation.ui.home.signup.SignUpActivity"
-            android:exported="true">
-
-        </activity>
+            android:exported="true" />
         <activity
             android:name=".app.presentation.ui.home.signin.SignInActivity"
             android:exported="true"
             android:theme="@style/Theme.InitAndroid.NoActionBar" />
         <activity
             android:name=".app.presentation.ui.MainActivity"
-            android:exported="true" />
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".app.presentation.ui.home.recommendproject.RecommendProjectActivity"
             android:exported="true" />

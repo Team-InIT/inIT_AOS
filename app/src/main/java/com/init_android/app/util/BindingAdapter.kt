@@ -5,9 +5,11 @@ import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.core.content.ContextCompat
 import androidx.databinding.BindingAdapter
 import com.bumptech.glide.Glide
 import com.init_android.R
+import kotlinx.coroutines.currentCoroutineContext
 
 object BindingAdapter {
     @JvmStatic
@@ -41,7 +43,7 @@ object BindingAdapter {
     fun setPState(textView: TextView, pType: Int) {
         when (pType) {
             0 -> {
-                textView.text = "D-Day"
+                textView.text = "D-DAY"
             }
             1 -> {
                 textView.text = "FIN"
@@ -57,13 +59,14 @@ object BindingAdapter {
     fun setPBgState(view: View, pType: Int) {
         when (pType) {
             0 -> {
-                view.setBackgroundColor(Color.parseColor("#FF4949"))
+                view.background = ContextCompat.getDrawable(view.context,R.drawable.rectangle_fill_red_radius_14)
+
             }
             1 -> {
-                view.setBackgroundColor(Color.parseColor("#A3A3A3"))
+                view.background = ContextCompat.getDrawable(view.context,R.drawable.rectangle_fill_gray_radius_14)
             }
             2 -> {
-                view.setBackgroundColor(Color.parseColor("#000000"))
+                view.background = ContextCompat.getDrawable(view.context,R.drawable.rectangle_fill_black_radius_14)
             }
         }
     }
@@ -167,6 +170,5 @@ object BindingAdapter {
             layout.visibility = View.VISIBLE
         }
     }
-
 }
 
