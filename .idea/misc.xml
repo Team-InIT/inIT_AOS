@@ -40,11 +40,10 @@
         <entry key="..\:/Users/82104/inIT_AOS/app/src/main/res/layout/activity_notification_setting.xml" value="0.2" />
         <entry key="..\:/Users/82104/inIT_AOS/app/src/main/res/layout/activity_open_project.xml" value="0.12" />
         <entry key="..\:/Users/82104/inIT_AOS/app/src/main/res/layout/activity_open_project2.xml" value="0.264" />
-        <entry key="..\:/Users/82104/inIT_AOS/app/src/main/res/layout/activity_open_project_second.xml" value="0.2" />
+        <entry key="..\:/Users/82104/inIT_AOS/app/src/main/res/layout/activity_open_project_second.xml" value="0.1" />
         <entry key="..\:/Users/82104/inIT_AOS/app/src/main/res/layout/activity_partner_check.xml" value="0.2" />
         <entry key="..\:/Users/82104/inIT_AOS/app/src/main/res/layout/activity_partner_page.xml" value="0.2" />
         <entry key="..\:/Users/82104/inIT_AOS/app/src/main/res/layout/activity_project_detail.xml" value="0.2" />
-        <entry key="..\:/Users/82104/inIT_AOS/app/src/main/res/layout/activity_open_project_second.xml" value="0.1" />
         <entry key="..\:/Users/82104/inIT_AOS/app/src/main/res/layout/activity_recommend_project.xml" value="0.19791666666666666" />
         <entry key="..\:/Users/82104/inIT_AOS/app/src/main/res/layout/activity_sign_in.xml" value="0.2536231884057971" />
         <entry key="..\:/Users/82104/inIT_AOS/app/src/main/res/layout/activity_sign_up.xml" value="0.2" />
@@ -130,6 +129,7 @@
         <entry key="app/src/main/res/layout/activity_open_project_second.xml" value="0.13177083333333334" />
         <entry key="app/src/main/res/layout/activity_partner_check.xml" value="0.13177083333333334" />
         <entry key="app/src/main/res/layout/dialog_my_project_list.xml" value="0.134375" />
+        <entry key="app/src/main/res/layout/fragment_alarm.xml" value="0.24375" />
         <entry key="app/src/main/res/layout/fragment_feed.xml" value="0.2328125" />
         <entry key="app/src/main/res/layout/fragment_my_page.xml" value="0.24375" />
         <entry key="app/src/main/res/layout/fragment_search_partner.xml" value="0.24375" />
