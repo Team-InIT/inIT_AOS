@@ -57,6 +57,20 @@ interface InitService {
     @POST("/withdraw")
     suspend fun postQuit(@Body body: RequestQuit): ResponseQuit
 
+
+    //내 정보수정 서버통신
+    @Multipart
+    @POST("/updateProfile")
+    suspend fun postUpdateProfile(
+        @Part file: MultipartBody.Part,
+        @Part("mNum") mNum : RequestBody,
+        @Part("mName") mName : RequestBody,
+        @Part("mPosition") mPosition: RequestBody,
+        @Part("mLevel") mLevel: RequestBody,
+        @Part("mIntroduction") mIntroduction : RequestBody
+    ) : ResponseUpdateProfile
+
+
     //스택 수정 서버통신
 
 
