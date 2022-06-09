@@ -6,6 +6,8 @@
         <entry key="../../Library/Android/sdk/platforms/android-31/data/res/layout/simple_spinner_dropdown_item.xml" value="0.19746376811594202" />
         <entry key="..\:/Users/82104/AppData/Local/Android/Sdk/platforms/android-31/data/res/layout/simple_spinner_dropdown_item.xml" value="0.1" />
         <entry key="..\:/Users/82104/inIT_AOS/app/src/main/res/drawable-v24/ic_icn_back.xml" value="0.1" />
+        <entry key="..\:/Users/82104/inIT_AOS/app/src/main/res/drawable-v24/rectangle_stroke_gray_a3_radius_10.xml" value="0.125" />
+        <entry key="..\:/Users/82104/inIT_AOS/app/src/main/res/drawable-v24/selector_rectangle_border_gray_to_mint.xml" value="0.125" />
         <entry key="..\:/Users/82104/inIT_AOS/app/src/main/res/drawable-v24/selector_rectangle_gray_to_mint.xml" value="0.132" />
         <entry key="..\:/Users/82104/inIT_AOS/app/src/main/res/drawable/custom_progressbar.xml" value="0.1395" />
         <entry key="..\:/Users/82104/inIT_AOS/app/src/main/res/drawable/ic_alarm.xml" value="0.1395" />
@@ -20,6 +22,8 @@
         <entry key="..\:/Users/82104/inIT_AOS/app/src/main/res/drawable/rectangle_fill_white_border_black01_radius10.xml" value="0.1" />
         <entry key="..\:/Users/82104/inIT_AOS/app/src/main/res/drawable/rectangle_green_border_6.xml" value="0.106" />
         <entry key="..\:/Users/82104/inIT_AOS/app/src/main/res/drawable/rectangle_stroke_gray_radius_10.xml" value="0.168" />
+        <entry key="..\:/Users/82104/inIT_AOS/app/src/main/res/drawable/rectangle_stroke_gray_radius_8.xml" value="0.125" />
+        <entry key="..\:/Users/82104/inIT_AOS/app/src/main/res/drawable/rectangle_stroke_main_radius_10.xml" value="0.125" />
         <entry key="..\:/Users/82104/inIT_AOS/app/src/main/res/drawable/rectangle_white_border_8.xml" value="0.106" />
         <entry key="..\:/Users/82104/inIT_AOS/app/src/main/res/drawable/selector_ic_switch.xml" value="0.1" />
         <entry key="..\:/Users/82104/inIT_AOS/app/src/main/res/drawable/selector_login_bg.xml" value="0.1" />
@@ -31,15 +35,18 @@
         <entry key="..\:/Users/82104/inIT_AOS/app/src/main/res/drawable/selector_skill_left_btn.xml" value="0.132" />
         <entry key="..\:/Users/82104/inIT_AOS/app/src/main/res/drawable/selector_skill_right_btn.xml" value="0.132" />
         <entry key="..\:/Users/82104/inIT_AOS/app/src/main/res/drawable/selector_text.xml" value="0.1" />
+        <entry key="..\:/Users/82104/inIT_AOS/app/src/main/res/drawable/selector_text_gray_to_main.xml" value="0.125" />
         <entry key="..\:/Users/82104/inIT_AOS/app/src/main/res/layout/activity_feed_writing.xml" value="0.1" />
         <entry key="..\:/Users/82104/inIT_AOS/app/src/main/res/layout/activity_main.xml" value="0.2" />
-        <entry key="..\:/Users/82104/inIT_AOS/app/src/main/res/layout/activity_my_page_join.xml" value="0.2" />
+        <entry key="..\:/Users/82104/inIT_AOS/app/src/main/res/layout/activity_my_page_join.xml" value="0.176" />
         <entry key="..\:/Users/82104/inIT_AOS/app/src/main/res/layout/activity_my_page_modify_basic_info.xml" value="0.1556420233463035" />
         <entry key="..\:/Users/82104/inIT_AOS/app/src/main/res/layout/activity_my_page_modify_link.xml" value="0.264" />
         <entry key="..\:/Users/82104/inIT_AOS/app/src/main/res/layout/activity_my_page_modify_profile.xml" value="0.2" />
         <entry key="..\:/Users/82104/inIT_AOS/app/src/main/res/layout/activity_my_page_modify_stack.xml" value="0.2" />
         <entry key="..\:/Users/82104/inIT_AOS/app/src/main/res/layout/activity_my_page_ready.xml" value="0.20520833333333333" />
         <entry key="..\:/Users/82104/inIT_AOS/app/src/main/res/layout/activity_my_page_setting.xml" value="0.1" />
+        <entry key="..\:/Users/82104/inIT_AOS/app/src/main/res/layout/activity_my_page_upload.xml" value="0.20520833333333333" />
+        <entry key="..\:/Users/82104/inIT_AOS/app/src/main/res/layout/activity_my_page_zzim.xml" value="0.20520833333333333" />
         <entry key="..\:/Users/82104/inIT_AOS/app/src/main/res/layout/activity_notification_setting.xml" value="0.2" />
         <entry key="..\:/Users/82104/inIT_AOS/app/src/main/res/layout/activity_open_project.xml" value="0.12" />
         <entry key="..\:/Users/82104/inIT_AOS/app/src/main/res/layout/activity_open_project2.xml" value="0.264" />

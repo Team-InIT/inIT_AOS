@@ -45,16 +45,50 @@
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
+        <TextView
+            android:id="@+id/tv_mypage_join_ing"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="24dp"
+            android:background="@drawable/selector_rectangle_border_gray_to_mint"
+            android:paddingStart="24dp"
+            android:paddingTop="4dp"
+            android:paddingEnd="25dp"
+            android:paddingBottom="4dp"
+            android:text="@string/mypage_ing"
+            android:textColor="@drawable/selector_text"
+            android:textSize="14sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cl_mypage_join_top" />
+
+        <TextView
+            android:id="@+id/tv_mypage_join_finish"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:background="@drawable/selector_rectangle_border_gray_to_mint"
+            android:paddingStart="18dp"
+            android:paddingTop="4dp"
+            android:paddingEnd="18dp"
+            android:paddingBottom="4dp"
+            android:layout_marginStart="16dp"
+            android:text="@string/mypage_finish"
+            android:textColor="@drawable/selector_text"
+            android:textSize="14sp"
+            app:layout_constraintStart_toEndOf="@+id/tv_mypage_join_ing"
+            app:layout_constraintTop_toBottomOf="@+id/cl_mypage_join_top" />
+
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_mypage_join"
             android:layout_width="0dp"
-            android:layout_marginTop="24dp"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="16dp"
+            android:layout_marginTop="16dp"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/cl_mypage_join_top"
+            app:layout_constraintTop_toBottomOf="@+id/tv_mypage_join_ing"
             tools:listitem="@layout/item_rv_project" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

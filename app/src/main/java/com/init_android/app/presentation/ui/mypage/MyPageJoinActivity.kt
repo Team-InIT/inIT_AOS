@@ -11,11 +11,26 @@ class MyPageJoinActivity : BaseActivity<ActivityMyPageJoinBinding>(R.layout.acti
         super.onCreate(savedInstanceState)
 
         backBtnListener()
+        initSetting()
     }
 
     private fun backBtnListener() {
         binding.ivMypageJoinBack.setOnClickListener {
             finish()
+        }
+    }
+
+    private fun initSetting() {
+        binding.tvMypageJoinIng.isSelected = true
+
+        binding.tvMypageJoinIng.setOnClickListener {
+            binding.tvMypageJoinIng.isSelected = true
+            binding.tvMypageJoinFinish.isSelected = false
+        }
+
+        binding.tvMypageJoinFinish.setOnClickListener {
+            binding.tvMypageJoinIng.isSelected = false
+            binding.tvMypageJoinFinish.isSelected = true
         }
     }
 }
