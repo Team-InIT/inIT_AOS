@@ -21,11 +21,11 @@ class AlarmFragment : BaseFragment<FragmentAlarmBinding>(R.layout.fragment_alarm
         binding.rvAlarm.adapter = alarmAdapter
         alarmAdapter.submitList(
             listOf(
-                AlarmData(1, "정지연님께서 쪽지를 보내셨습니다.", "2022년 4월 28일 오후 6:01",1),
-                AlarmData(1, "장윤정님께서 내 프로젝트 inIT에 지원하셨습니다.", "2022년 4월 28일 오후 6:01",1),
-                AlarmData(1, "inIT 프로젝트 TODO가 완료되지 않았습니다..", "2022년 4월 28일 오후 6:01",0),
-                AlarmData(1, "정지연님께서 쪽지를 보내셨습니다.", "2022년 4월 28일 오후 6:01",0),
-                AlarmData(1, "정지연님께서 쪽지를 보내셨습니다.", "2022년 4월 28일 오후 6:01",0)
+                AlarmData(R.drawable.ic_alarm_message, "정지연님께서 쪽지를 보내셨습니다.\n 정지연님께서 쪽지를 보냈다구욧", "2022년 4월 28일 오후 6:01",1),
+                AlarmData(R.drawable.ic_alarm_project, "장윤정님께서 내 프로젝트 inIT에 지원하셨습니다.", "2022년 4월 28일 오후 6:01",1),
+                AlarmData(R.drawable.ic_alarm_to_do, "inIT 프로젝트 TODO가 완료되지 않았습니다..", "2022년 4월 28일 오후 6:01",0),
+                AlarmData(R.drawable.ic_alarm_message, "정지연님께서 쪽지를 보내셨습니다.", "2022년 4월 28일 오후 6:01",0),
+                AlarmData(R.drawable.ic_alarm_message, "정지연님께서 쪽지를 보내셨습니다.", "2022년 4월 28일 오후 6:01",0)
             )
         )
     }

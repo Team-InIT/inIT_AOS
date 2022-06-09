@@ -6,6 +6,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.init_android.app.data.model.AlarmData
 import com.init_android.databinding.ItemAlarmListBinding
 
@@ -43,6 +44,7 @@ class AlarmAdapter(val context: Context) :
         fun onBind(data: AlarmData) {
             binding.alarmData = data
             binding.layoutAlarm.isSelected = data.readState != 0
+            Glide.with(binding.root).load(data.img).into(binding.ivAlarmIcon)
         }
     }
 
