@@ -167,6 +167,5 @@ object BindingAdapter {
             layout.visibility = View.VISIBLE
         }
     }
-
 }
 

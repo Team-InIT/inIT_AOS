@@ -10,6 +10,7 @@ import com.init_android.app.data.response.project.ResponseApplyProject
 import com.init_android.app.data.response.project.ResponseProjectDetail
 import retrofit2.Call
 import retrofit2.http.Body
+import retrofit2.http.GET
 import retrofit2.http.POST
 
 interface InitService {
@@ -73,4 +74,16 @@ interface InitService {
     //프로젝트 지원하기
     @POST("/apply")
     suspend fun postApplyProject(@Body body : RequestApplyProject) : ResponseApplyProject
+
+    // 피드 리스트 보기
+    @GET("/getAllFeed")
+    suspend fun getAllFeed():ResponseFeed
+
+    // 피드 등록
+    @POST("/postAddFeed")
+    suspend fun postAddFeed(@Body body:RequestAddFeed):ResponseBase
+
+    // 피드 삭제
+    @POST("/deleteFeed")
+    suspend fun postDeleteFeed(@Body body:RequestDeleteFeed):ResponseBase
 }
