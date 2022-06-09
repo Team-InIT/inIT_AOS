@@ -29,6 +29,11 @@ class MyPageFragment : BaseFragment<FragmentMyPageBinding>(R.layout.fragment_my_
         initTab()
         settingBtnListener()
         editProfileListener()
+        //initNetwork()
+    }
+
+    override fun onResume() {
+        super.onResume()
         initNetwork()
     }
 

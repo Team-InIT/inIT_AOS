@@ -7,8 +7,13 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.init_android.app.data.ServiceCreator
 import com.init_android.app.data.request.mypage.*
+import com.init_android.app.data.response.ResponseUpdateProfile
 import com.init_android.app.data.response.mypage.*
 import kotlinx.coroutines.launch
+import okhttp3.MultipartBody
+import okhttp3.RequestBody
+import retrofit2.http.Multipart
+import retrofit2.http.Part
 
 class MyPageViewModel() : ViewModel() {
 
@@ -33,6 +38,10 @@ class MyPageViewModel() : ViewModel() {
     private val _countProject = MutableLiveData<ResponseCountProject>()
     val countProject: LiveData<ResponseCountProject>
         get() = _countProject
+
+    private val _updateProfile = MutableLiveData<ResponseUpdateProfile>()
+    val updateProfile: LiveData<ResponseUpdateProfile>
+        get() = _updateProfile
 
     // 서버통신
     fun postMyInfo(requestMyInfo: RequestMyInfo) {
@@ -79,6 +88,31 @@ class MyPageViewModel() : ViewModel() {
                 .onFailure {
                     it.printStackTrace()
                     Log.d("ModifyBasicInfo", "서버 통신 실패")
+                }
+        }
+    }
+
+    //기본정보수정 서버통신
+    fun postUpdateProfile(@Part file: MultipartBody.Part,
+                          @Part("mNum") mNum : RequestBody,
+                          @Part("mName") mName : RequestBody,
+                          @Part("mPosition") mPosition: RequestBody,
+                          @Part("mLevel") mLevel: RequestBody,
+                          @Part("mIntroduction") mIntroduction : RequestBody
+    ) {
+        viewModelScope.launch {
+            kotlin.runCatching {
+                ServiceCreator.initService.postUpdateProfile(
+                    file, mNum, mName, mPosition, mLevel, mIntroduction
+                )
+            }
+                .onSuccess {
+                    _updateProfile.value = it
+                    Log.d("updateProfile", "서버 통신 성공")
+                }
+                .onFailure {
+                    it.printStackTrace()
+                    Log.d("updateProfile", "서버 통신 실패")
                 }
         }
     }
