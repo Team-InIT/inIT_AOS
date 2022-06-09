@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="User"
             type="com.init_android.app.data.response.mypage.ResponseMyInfo.MInfo" />
@@ -18,9 +19,9 @@
         android:layout_height="match_parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:background="@color/white"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:background="@color/white">
 
 
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -73,15 +74,15 @@
                 android:id="@+id/tv_my_page_modify_profile"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
                 android:background="@drawable/rectangle_stroke_gray_radius_10"
                 android:fontFamily="@font/noto_sans_kr_medium"
+                android:paddingStart="10dp"
+                android:paddingTop="2dp"
+                android:paddingEnd="10dp"
+                android:paddingBottom="2dp"
                 android:text="프로필 수정"
                 android:textColor="@color/gray_5"
-                android:layout_marginTop="8dp"
-                android:paddingTop="2dp"
-                android:paddingBottom="2dp"
-                android:paddingStart="10dp"
-                android:paddingEnd="10dp"
                 android:textSize="14sp"
                 app:layout_constraintEnd_toEndOf="@+id/iv_my_page_profile"
                 app:layout_constraintStart_toStartOf="@+id/iv_my_page_profile"
@@ -101,50 +102,43 @@
                 app:layout_constraintTop_toTopOf="@+id/iv_my_page_profile" />
 
 
-            <ImageView
-                android:id="@+id/iv_my_page_position"
-                android:layout_width="28dp"
-                android:layout_height="28dp"
-                android:layout_marginTop="4dp"
-                android:src="@drawable/ic_android"
-                app:layout_constraintStart_toStartOf="@+id/tv_my_page_profile_name"
-                app:layout_constraintTop_toBottomOf="@+id/tv_my_page_profile_name" />
 
             <TextView
                 android:id="@+id/tv_my_page_postion"
+                pPostion="@{User.mPosition}"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="6dp"
                 android:fontFamily="@font/noto_sans_kr_medium"
-                pPostion= "@{User.mPosition}"
                 android:textColor="@color/main_default"
                 android:textSize="14sp"
-                app:layout_constraintBottom_toBottomOf="@+id/iv_my_page_position"
-                app:layout_constraintStart_toEndOf="@+id/iv_my_page_position"
-                app:layout_constraintTop_toBottomOf="@+id/tv_my_page_profile_name" />
+                android:layout_marginTop="8dp"
+                app:layout_constraintStart_toStartOf="@+id/tv_my_page_profile_name"
+                app:layout_constraintTop_toBottomOf="@+id/tv_my_page_profile_name"
+                tools:text="안드로이드" />
 
             <TextView
                 android:id="@+id/tv_my_page_position_level"
+                pLevel="@{User.mLevel}"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                pLevel="@{User.mLevel}"
                 android:layout_marginStart="6dp"
                 android:fontFamily="@font/noto_sans_kr_medium"
                 android:textSize="12sp"
                 app:layout_constraintBottom_toBottomOf="@+id/tv_my_page_postion"
                 app:layout_constraintStart_toEndOf="@+id/tv_my_page_postion"
-                app:layout_constraintTop_toTopOf="@+id/tv_my_page_postion" />
+                app:layout_constraintTop_toTopOf="@+id/tv_my_page_postion"
+                tools:text="하" />
 
             <kr.co.prnd.readmore.ReadMoreTextView
                 android:id="@+id/readMoreTextView"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="4dp"
+                android:layout_marginTop="8dp"
                 android:layout_marginEnd="24dp"
                 android:text="@{User.mIntroduction}"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="@+id/iv_my_page_position"
-                app:layout_constraintTop_toBottomOf="@+id/iv_my_page_position"
+                app:layout_constraintStart_toStartOf="@+id/tv_my_page_postion"
+                app:layout_constraintTop_toBottomOf="@+id/tv_my_page_postion"
                 app:readMoreColor="@color/gray_6"
                 app:readMoreMaxLine="4"
                 app:readMoreText="…더보기" />
