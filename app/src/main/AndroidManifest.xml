@@ -14,6 +14,9 @@
         android:theme="@style/Theme.InitAndroid"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".app.presentation.ui.open.todo.ToDoMainActivity"
+            android:exported="false" />
+        <activity
             android:name=".app.presentation.ui.mypage.MyPageZZimActivity"
             android:exported="false" />
         <activity
@@ -63,7 +66,7 @@
             android:exported="true" />
         <activity
             android:name=".app.presentation.ui.open.project.OpenProjectActivity"
-            android:exported="true"/>
+            android:exported="true" />
         <activity
             android:name=".app.presentation.ui.home.signup.SignUpActivity"
             android:exported="true" />
