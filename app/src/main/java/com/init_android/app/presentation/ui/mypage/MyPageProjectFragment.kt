@@ -30,10 +30,7 @@ class MyPageProjectFragment :
         )
         myPageViewModel.postCountProject(requestCountProject)
         myPageViewModel.countProject.observe(viewLifecycleOwner) {
-            binding.tvMyPageJoinNum.setText(it.join)
-            binding.tvMypageHeartNum.setText(it.zzim)
-            binding.tvMyPageUploadNum.setText(it.upload)
-            binding.tvMypageApproveNum.setText(it.disapproval)
+            binding.info = it
         }
     }
 

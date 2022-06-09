@@ -3,7 +3,7 @@ package com.init_android.app.data.response.mypage
 data class ResponseMyInfo(
     val code: Int,
     val mInfo: MInfo,
-    val stacks: List<Stack>
+    val stacks: List<String>
 ) {
     data class MInfo(
         val mAcademic: Int,
@@ -22,9 +22,5 @@ data class ResponseMyInfo(
         val mPW: String,
         val mPhoto: Any,
         val mPosition: Int
-    )
-
-    data class Stack(
-        val sStack: String
     )
 }

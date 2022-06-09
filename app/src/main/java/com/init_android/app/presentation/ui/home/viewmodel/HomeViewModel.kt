@@ -22,6 +22,13 @@ class HomeViewModel() : ViewModel() {
     val finishProject: LiveData<ResponseFinishProject>
         get() = _finishProject
 
+    private val _approveProject = MutableLiveData<ResponseFinishProject.Project>()
+    val approveProject: LiveData<ResponseFinishProject.Project>
+        get() = _approveProject
+
+    val approveItem = MutableLiveData<ResponseFinishProject.Project>()
+
+
     // 서버통신
     fun postHomeData(requestHome: RequestHome) {
         viewModelScope.launch {
@@ -37,6 +44,7 @@ class HomeViewModel() : ViewModel() {
         }
     }
 
+    //바텀시트
     fun postFinishProject(requestFinishProject: RequestFinishProject) {
         viewModelScope.launch {
             kotlin.runCatching { ServiceCreator.initService.postFinishProject(requestFinishProject) }
