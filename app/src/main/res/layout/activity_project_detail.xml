@@ -89,7 +89,7 @@
                 android:background="#EDEDED">
 
                 <TextView
-                    android:id="@+id/textView2"
+                    android:id="@+id/tv_detail_todo"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
@@ -134,7 +134,7 @@
                     android:textColor="@color/black"
                     android:textSize="16sp"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/textView2" />
+                    app:layout_constraintTop_toBottomOf="@+id/tv_detail_todo" />
 
 
 
@@ -1188,7 +1188,7 @@
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
                 <Button
-                    android:id="@+id/btn_detail_check_member"
+                    android:id="@+id/btn_detail_apply"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="32dp"

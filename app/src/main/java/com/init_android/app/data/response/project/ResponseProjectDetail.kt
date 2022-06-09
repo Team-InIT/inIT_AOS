@@ -2,6 +2,7 @@ package com.init_android.app.data.response.project
 
 data class ResponseProjectDetail(
     val code: Int,
+    val isApproval: Boolean,
     val projectInfo: ProjectInfo?,
     val writerInfo: WriterInfo?
 ) {
@@ -39,7 +40,12 @@ data class ResponseProjectDetail(
     data class WriterInfo(
         val mName: String?,
         val mNum: Int?,
-        val mPhoto: Any?,
+        val mPhoto: MPhoto?,
         val mPosition: Int?
-    )
+    ) {
+        data class MPhoto(
+            val data: List<Int>?,
+            val type: String?
+        )
+    }
 }
