@@ -7,6 +7,6 @@ data class ResponseFeed(
     data class Feed(
         val fNum:Int,
         val fTitle:String,
-        val fPhoto:String?
+        val fPhoto:Any?,
     )
 }
