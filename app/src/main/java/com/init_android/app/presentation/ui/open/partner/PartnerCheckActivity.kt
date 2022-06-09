@@ -1,8 +1,5 @@
 package com.init_android.app.presentation.ui.open.partner
 
-import android.content.Intent
-import android.graphics.Color
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
@@ -11,10 +8,7 @@ import com.google.android.material.tabs.TabLayoutMediator
 import com.init_android.R
 import com.init_android.app.data.model.SelectableData
 import com.init_android.app.data.request.RequestFinishProject
-import com.init_android.app.data.request.mypage.RequestQuit
 import com.init_android.app.data.request.project.RequestApplyProject
-import com.init_android.app.data.response.ResponseFinishProject
-import com.init_android.app.presentation.ui.home.signin.SignInActivity
 import com.init_android.app.presentation.ui.home.viewmodel.HomeViewModel
 import com.init_android.app.presentation.ui.home.viewmodel.mainViewModel
 import com.init_android.app.presentation.ui.open.partner.adapter.PartnerTabAdapter
@@ -74,46 +68,70 @@ class PartnerCheckActivity :
     }
 
     private fun clickListener() {
-        /*
+
         val requestFinishProject = RequestFinishProject(mNum = 1)
         homeViewModel.postFinishProject(requestFinishProject)
-        homeViewModel.finishProject.observe(this) {
-            partBottomSheetDialog.setDataList(ResponseFinishProject.Project.)
 
-        }
+        homeViewModel.approveProject.observe(this) {
+           var approveData = mutableListOf(
+               SelectableData(it.pNum, it.pTitle, false)
+           )
 
-         */
+            partBottomSheetDialog.setDataList(approveData)
 
-        //파트 바텀시트
-        var partData = mutableListOf(
-            SelectableData(1, "기획", false),
-            SelectableData(2, "디자인", false),
-            SelectableData(3, "웹", false),
-            SelectableData(4, "안드로이드", false),
-            SelectableData(5, "IOS", false),
-            SelectableData(6, "게임", false),
-            SelectableData(7, "서버", false),
-        )
-        partBottomSheetDialog.setDataList(partData)
+            binding.btnPartnerJoin.setOnClickListener {
+                partBottomSheetDialog.show(
+                    supportFragmentManager,
+                    partBottomSheetDialog.tag
+                )
 
-        binding.btnPartnerJoin.setOnClickListener {
-            partBottomSheetDialog.show(
-                supportFragmentManager,
-                partBottomSheetDialog.tag
-            )
-
-            partBottomSheetDialog.setCompleteListener {
-                val part = partBottomSheetDialog.getSelectedData()
-                mainViewModel.part.value = part?.name
-                mainViewModel.partNum.value = part?.id
-                partBottomSheetDialog.binding.btnBottomsheetCancel
-                initAlert()
-                partBottomSheetDialog.binding.btnBottomsheetComplete.setOnClickListener {
-                    Log.d("클릭", "완료")
+                partBottomSheetDialog.setCompleteListener {
+                    val part = partBottomSheetDialog.getSelectedData()
+                    mainViewModel.part.value = part?.name
+                    mainViewModel.partNum.value = part?.id
+                    partBottomSheetDialog.binding.btnBottomsheetCancel
                     initAlert()
+                    partBottomSheetDialog.binding.btnBottomsheetComplete.setOnClickListener {
+                        Log.d("클릭", "완료")
+                        initAlert()
+                    }
                 }
             }
+
         }
+
+
+//
+//        //파트 바텀시트
+//        var partData = mutableListOf(
+//            SelectableData(1, "기획", false),
+//            SelectableData(2, "디자인", false),
+//            SelectableData(3, "웹", false),
+//            SelectableData(4, "안드로이드", false),
+//            SelectableData(5, "IOS", false),
+//            SelectableData(6, "게임", false),
+//            SelectableData(7, "서버", false),
+//        )
+//        partBottomSheetDialog.setDataList(partData)
+//
+//        binding.btnPartnerJoin.setOnClickListener {
+//            partBottomSheetDialog.show(
+//                supportFragmentManager,
+//                partBottomSheetDialog.tag
+//            )
+//
+//            partBottomSheetDialog.setCompleteListener {
+//                val part = partBottomSheetDialog.getSelectedData()
+//                mainViewModel.part.value = part?.name
+//                mainViewModel.partNum.value = part?.id
+//                partBottomSheetDialog.binding.btnBottomsheetCancel
+//                initAlert()
+//                partBottomSheetDialog.binding.btnBottomsheetComplete.setOnClickListener {
+//                    Log.d("클릭", "완료")
+//                    initAlert()
+//                }
+//            }
+//        }
     }
 
     private fun initAlert() {

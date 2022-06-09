@@ -22,6 +22,11 @@ class HomeViewModel() : ViewModel() {
     val finishProject: LiveData<ResponseFinishProject>
         get() = _finishProject
 
+    private val _approveProject = MutableLiveData<ResponseFinishProject.Project>()
+    val approveProject: LiveData<ResponseFinishProject.Project>
+        get() = _approveProject
+
+
     // 서버통신
     fun postHomeData(requestHome: RequestHome) {
         viewModelScope.launch {
