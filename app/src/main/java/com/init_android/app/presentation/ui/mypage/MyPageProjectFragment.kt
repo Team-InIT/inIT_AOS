@@ -1,5 +1,6 @@
 package com.init_android.app.presentation.ui.mypage
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.viewModels
@@ -21,6 +22,7 @@ class MyPageProjectFragment :
 
         initNetwork()
         initVisibility()
+        initMove()
 
     }
 
@@ -44,6 +46,21 @@ class MyPageProjectFragment :
         } else {
             binding.clMyPageApprove.visibility = View.VISIBLE
             binding.clMyPageUpload.visibility = View.VISIBLE
+        }
+    }
+
+    private fun initMove() {
+        binding.clMyPageUpload.setOnClickListener {
+            startActivity(Intent(requireActivity(), MyPageUploadActivity::class.java))
+        }
+        binding.clMyPageApprove.setOnClickListener {
+            startActivity(Intent(requireActivity(), MyPageReadyActivity::class.java))
+        }
+        binding.clMyPageHeart.setOnClickListener {
+            startActivity(Intent(requireActivity(), MyPageZZimActivity::class.java))
+        }
+        binding.clMyPageJoin.setOnClickListener {
+            startActivity(Intent(requireActivity(), MyPageJoinActivity::class.java))
         }
     }
 }
