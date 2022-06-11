@@ -9,8 +9,7 @@ import com.init_android.app.data.response.*
 import com.init_android.app.data.response.mypage.*
 import com.init_android.app.data.response.project.ResponseApplyProject
 import com.init_android.app.data.response.project.ResponseProjectDetail
-import com.init_android.app.data.response.project.ResponseProjectMember
-import okhttp3.MediaType
+import com.init_android.app.data.response.project.approve.*
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
 import retrofit2.Call
@@ -65,12 +64,12 @@ interface InitService {
     @POST("/updateProfile")
     suspend fun postUpdateProfile(
         @Part file: MultipartBody.Part,
-        @Part("mNum") mNum : RequestBody,
-        @Part("mName") mName : RequestBody,
+        @Part("mNum") mNum: RequestBody,
+        @Part("mName") mName: RequestBody,
         @Part("mPosition") mPosition: RequestBody,
         @Part("mLevel") mLevel: RequestBody,
-        @Part("mIntroduction") mIntroduction : RequestBody
-    ) : ResponseUpdateProfile
+        @Part("mIntroduction") mIntroduction: RequestBody
+    ): ResponseUpdateProfile
 
 
     //스택 수정 서버통신
@@ -101,12 +100,12 @@ interface InitService {
     @POST("/addFeed")
     suspend fun postAddFeed(
         @Part file: MultipartBody.Part,
-        @Part ("fTitle") fTitle: RequestBody,
-        @Part ("fDescription") fDescription: RequestBody,
-        @Part ("fLink") fLink: RequestBody,
-        @Part ("mNum") mNum: RequestBody,
-        @Part ("pNum") pNum: RequestBody,
-        @Part ("fType") fType: RequestBody
+        @Part("fTitle") fTitle: RequestBody,
+        @Part("fDescription") fDescription: RequestBody,
+        @Part("fLink") fLink: RequestBody,
+        @Part("mNum") mNum: RequestBody,
+        @Part("pNum") pNum: RequestBody,
+        @Part("fType") fType: RequestBody
     ): ResponseBase
 
     // 피드 삭제
@@ -115,5 +114,30 @@ interface InitService {
 
     //팀원 조회
     @POST("/teamMember")
-    suspend fun postProjectMember(@Body body: RequestProjectMember) : ResponseProjectMember
+    suspend fun postProjectMember(@Body body: RequestProjectMember): ResponseProjectMember
+
+    //팀원 정보_기획자
+    @POST("/memberPlanner")
+    suspend fun postPlanMember(@Body body: RequestProjectMember): ResponseApprovePlan
+
+    //팀원 정보_디자이너
+    @POST("/memberDesigner")
+    suspend fun postDesignMember(@Body body: RequestProjectMember): ResponseApproveDesign
+
+    //팀원 정보_IOS
+    @POST("/memberIos")
+    suspend fun postIosMember(@Body body: RequestProjectMember): ResponseApproveIos
+
+    //팀원 정보_AOS
+    suspend fun postAosMember(@Body body: RequestProjectMember): ResponseApproveAos
+
+    //팀원 정보_웹
+    suspend fun postWebMember(@Body body: RequestProjectMember): ResponseApproveWeb
+
+    //팀원 정보_게임
+    suspend fun postGameMember(@Body body: RequestProjectMember): ResponseApproveGame
+
+    //팀원 정보_서버
+    suspend fun postServerMember(@Body body: RequestProjectMember): ResponseApproveServer
+
 }

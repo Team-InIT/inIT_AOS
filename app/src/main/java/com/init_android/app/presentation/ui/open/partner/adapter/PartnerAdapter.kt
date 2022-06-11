@@ -5,10 +5,9 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
-import com.init_android.app.data.response.project.ResponseProjectMember
+import com.init_android.app.data.response.project.approve.ResponseProjectMember
 import com.init_android.app.presentation.ui.mypage.PartnerPageActivity
 import com.init_android.databinding.ItemPartnerListBinding
-import java.lang.reflect.Member
 
 class PartnerAdapter(var userId : Int) : RecyclerView.Adapter<PartnerAdapter.PartnerListViewHolder>() {
     var partnerData = mutableListOf<ResponseProjectMember.ApprovedPlan>()

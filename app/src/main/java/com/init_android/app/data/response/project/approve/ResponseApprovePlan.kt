@@ -1,13 +1,7 @@
-package com.init_android.app.data.response.project
+package com.init_android.app.data.response.project.approve
 
-data class ResponseProjectMember(
-    val approvedAos: List<Any>?,
-    val approvedDesign: List<Any>?,
-    val approvedGame: List<Any>?,
-    val approvedIos: List<Any>?,
-    val approvedPlan: List<ApprovedPlan>?,
-    val approvedServer: List<Any>?,
-    val approvedWeb: List<Any>?,
+data class ResponseApprovePlan(
+    val approvedPlan: List<ApprovedPlan>,
     val code: Int
 ) {
     data class ApprovedPlan(

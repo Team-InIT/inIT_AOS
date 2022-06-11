@@ -13,7 +13,7 @@ import com.init_android.app.data.request.project.RequestProjectMember
 import com.init_android.app.data.response.ResponseAddProject
 import com.init_android.app.data.response.project.ResponseApplyProject
 import com.init_android.app.data.response.project.ResponseProjectDetail
-import com.init_android.app.data.response.project.ResponseProjectMember
+import com.init_android.app.data.response.project.approve.ResponseProjectMember
 import kotlinx.coroutines.launch
 
 class ProjectViewModel() : ViewModel() {
