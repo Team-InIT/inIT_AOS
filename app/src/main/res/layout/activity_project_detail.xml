@@ -175,7 +175,7 @@
                         android:paddingEnd="18dp"
                         android:paddingBottom="4dp"
                         android:layout_marginStart="14dp"
-                        android:text="D-4"
+                        android:text="ING"
                         android:textColor="@color/white"
                         android:textSize="12sp"
                         app:layout_constraintBottom_toBottomOf="@+id/tv_detial_title"

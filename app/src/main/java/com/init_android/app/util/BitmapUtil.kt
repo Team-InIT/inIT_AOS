@@ -6,7 +6,7 @@ import android.util.Log
 
 class BitmapUtil {
     fun getImg(input: Map<*, *>): Bitmap? {
-        Log.d("maptest",input.toString())
+        Log.d("maptest", input.toString())
         //var data = input as LinkedTreeMap<*, *>
         var array = input["data"] as ArrayList<Double>
         var bitmap: Bitmap? = convertBitmap(array)
@@ -16,7 +16,9 @@ class BitmapUtil {
     fun convertBitmap(input: ArrayList<Double>): Bitmap {
         val arr = exByte(input)
         try {
+
             return BitmapFactory.decodeByteArray(arr, 0, arr.size)
+
         } catch (e: Exception) {
             throw RuntimeException(e)
         }
