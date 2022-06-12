@@ -4,12 +4,10 @@ import com.init_android.app.data.request.*
 import com.init_android.app.data.request.mypage.*
 import com.init_android.app.data.request.project.RequestApplyProject
 import com.init_android.app.data.request.project.RequestProjectDetail
-import com.init_android.app.data.request.project.RequestProjectMember
 import com.init_android.app.data.response.*
 import com.init_android.app.data.response.mypage.*
 import com.init_android.app.data.response.project.ResponseApplyProject
 import com.init_android.app.data.response.project.ResponseProjectDetail
-import com.init_android.app.data.response.project.ResponseProjectMember
 import okhttp3.MediaType
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
@@ -59,20 +57,6 @@ interface InitService {
     @POST("/withdraw")
     suspend fun postQuit(@Body body: RequestQuit): ResponseQuit
 
-
-    //내 정보수정 서버통신
-    @Multipart
-    @POST("/updateProfile")
-    suspend fun postUpdateProfile(
-        @Part file: MultipartBody.Part,
-        @Part("mNum") mNum : RequestBody,
-        @Part("mName") mName : RequestBody,
-        @Part("mPosition") mPosition: RequestBody,
-        @Part("mLevel") mLevel: RequestBody,
-        @Part("mIntroduction") mIntroduction : RequestBody
-    ) : ResponseUpdateProfile
-
-
     //스택 수정 서버통신
 
 
@@ -113,7 +97,7 @@ interface InitService {
     @POST("/deleteFeed")
     suspend fun postDeleteFeed(@Body body: RequestDeleteFeed): ResponseBase
 
-    //팀원 조회
-    @POST("/teamMember")
-    suspend fun postProjectMember(@Body body: RequestProjectMember) : ResponseProjectMember
+    // 피드 상세보기
+    @POST("/detailFeed")
+    suspend fun postDetailFeed(@Body requestFeedDetail: RequestFeedDetail):ResponseFeedDetail
 }

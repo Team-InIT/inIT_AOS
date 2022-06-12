@@ -3,6 +3,7 @@ package com.init_android.app.presentation.ui.feed.adapter
 import android.app.Activity
 import android.content.Context
 import android.content.Intent
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
@@ -16,6 +17,8 @@ import com.init_android.databinding.ItemFeedListBinding
 
 class SearchFeedAdapter(val context:Context) :
     ListAdapter<FeedListData, SearchFeedAdapter.SearchFeedViewHolder>(projectItemDiffUtil) {
+
+    var itemList = listOf<FeedListData>()
 
     override fun onCreateViewHolder(
         parent: ViewGroup,
@@ -38,14 +41,21 @@ class SearchFeedAdapter(val context:Context) :
         // 프로젝트 정보 보기 화면으로 이동
         holder.binding.root.setOnClickListener {
             val nextIntent = Intent(context, FeedDetailActivity::class.java)
-            // nextIntent.putExtra("fNum",updateFeedList())
-            // readIntent.putExtra("noticeId",itemList[holder.adapterPosition].noticeId)
+            nextIntent.putExtra("fNum", getFeedList()[holder.adapterPosition].fNum)
             (context as Activity).startActivity(nextIntent)
         }
     }
 
     fun updateFeedList(feedList: List<FeedListData>) {
         submitList(feedList)
+    }
+
+    fun setFeedList(feedList: List<FeedListData>){
+        itemList = feedList
+    }
+
+    fun getFeedList(): List<FeedListData> {
+        return itemList
     }
 
     class SearchFeedViewHolder(val binding: ItemFeedListBinding) :

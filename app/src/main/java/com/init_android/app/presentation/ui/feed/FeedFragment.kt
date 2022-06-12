@@ -44,15 +44,16 @@ class FeedFragment : BaseFragment<FragmentFeedBinding>(R.layout.fragment_feed) {
             for (i in 0 until it.feeds.size) {
 
                 Log.d("testing",it.feeds.toString())
-                val img = it.feeds[i].fPhoto?.let { it1 -> BitmapUtil().getImg(it.feeds[i].fPhoto) }
+                // val img = it.feeds[i].fPhoto?.let { it1 -> BitmapUtil().getImg(it.feeds[i].fPhoto) }
                 //val img = it.feeds[i].fPhoto?.let { it1 -> bitmap.copyPixelsToBuffer(it1) }
-                feedList.add(FeedListData(it.feeds[i].fTitle, img, it.feeds[i].fNum))
+                val img_uri = it.feeds[i].fTest
+                feedList.add(FeedListData(it.feeds[i].fTitle, img_uri, it.feeds[i].fNum))
 
             }
             adapter.submitList(feedList)
+            adapter.setFeedList(feedList)
         }
 
-        adapter
     }
 
     private fun initBtn(){
