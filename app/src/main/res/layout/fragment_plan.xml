@@ -4,6 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+        <variable
+            name="info"
+            type="com.init_android.app.data.response.project.approve.ResponseProjectMember.ApprovedPlan.Recruit" />
 
     </data>
 
@@ -88,23 +91,62 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <TextView
-                android:id="@+id/tv_partner_num"
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:background="@drawable/rectangle_fill_black_radius_14"
-                android:fontFamily="@font/noto_sans_kr_bold"
+                android:layout_marginStart="6dp"
                 android:paddingStart="18dp"
                 android:paddingTop="4dp"
                 android:paddingEnd="18dp"
                 android:paddingBottom="4dp"
-                android:text="1/3"
-                android:textColor="@color/white"
-                android:textSize="12sp"
+                android:background="@drawable/rectangle_fill_black_radius_14"
                 app:layout_constraintBottom_toBottomOf="@+id/tv_partner_info"
                 app:layout_constraintStart_toEndOf="@+id/tv_partner_info"
-                app:layout_constraintTop_toTopOf="@+id/tv_partner_info" />
+                app:layout_constraintTop_toTopOf="@+id/tv_partner_info">
+
+                <TextView
+                    android:id="@+id/tv_partner_num"
+                    android:layout_width="0dp"
+                    android:layout_height="12dp"
+                    android:fontFamily="@font/noto_sans_kr_bold"
+                    android:text="@{Integer.toString(info.RApproval)}"
+                    android:textColor="@color/white"
+                    android:textSize="12sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="1" />
+
+                <TextView
+                    android:id="@+id/tv_partner_slash"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/noto_sans_kr_bold"
+                    android:text="/"
+                    android:layout_marginStart="2dp"
+                    android:textColor="@color/white"
+                    android:textSize="12sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/tv_partner_num"
+                    app:layout_constraintStart_toEndOf="@+id/tv_partner_num"
+                    app:layout_constraintTop_toTopOf="@+id/tv_partner_num" />
+
+                <TextView
+                    android:id="@+id/tv_partner_total"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/noto_sans_kr_bold"
+                    android:text="@{Integer.toString(info.RNum)}"
+                    android:textColor="@color/white"
+                    android:textSize="12sp"
+                    android:layout_marginStart="2dp"
+                    app:layout_constraintBottom_toBottomOf="@+id/tv_partner_num"
+                    app:layout_constraintStart_toEndOf="@+id/tv_partner_slash"
+                    app:layout_constraintTop_toTopOf="@+id/tv_partner_num"
+                    tools:text="1" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
 
 
             <androidx.recyclerview.widget.RecyclerView

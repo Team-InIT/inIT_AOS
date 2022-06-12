@@ -25,6 +25,11 @@ class PlanFragment : BaseFragment<FragmentPlanBinding>(R.layout.fragment_plan) {
 
     }
 
+    override fun onResume() {
+        super.onResume()
+        initNetwork()
+    }
+
     private fun initNetwork() {
         Log.d("TEst", "TEST")
         val requestProjectMember = RequestProjectMember(pNum = 1)
