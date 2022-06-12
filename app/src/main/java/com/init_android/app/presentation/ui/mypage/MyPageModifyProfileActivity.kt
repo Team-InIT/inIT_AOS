@@ -14,8 +14,11 @@ import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
 import androidx.core.content.ContextCompat
+import androidx.fragment.app.viewModels
 import com.bumptech.glide.Glide
 import com.init_android.R
+import com.init_android.app.data.request.mypage.RequestMyInfo
+import com.init_android.app.presentation.ui.home.signin.viewmodel.SignViewModel
 import com.init_android.app.presentation.ui.mypage.viewmodel.MyPageViewModel
 import com.init_android.app.util.MultiPartUtil
 import com.init_android.databinding.ActivityMyPageModifyProfileBinding
@@ -29,6 +32,8 @@ class MyPageModifyProfileActivity :
 
     private var getResult: ActivityResultLauncher<Intent>? = null
     var fileUri: Uri? = null
+
+    private val signViewModel : SignViewModel by viewModels()
     private val myPageViewModel: MyPageViewModel by viewModels()
 
     // 갤러리 접근 권한 런처
@@ -115,15 +120,25 @@ class MyPageModifyProfileActivity :
     }
 
     private fun initSetting() {
+
+        val requestMyInfo = RequestMyInfo(
+            mNum = 1
+        )
+
+        Log.d("MyPage mNum: " , " " + signViewModel.signIn.value?.mNum)
+
+        myPageViewModel.postMyInfo(requestMyInfo)
+
+        myPageViewModel.myInfoData.observe(this) {
+            binding.user = it.mInfo
+        }
+
         val name = intent.getStringExtra("name") ?: ""
         val position = intent.getStringExtra("position") ?: ""
         val level = intent.getStringExtra("level") ?: ""
 
-        //추후에 introduction 서버통신으로 받아오기
-        val introduction = intent.getStringExtra("introduction") ?: ""
 
         binding.etMyPageEditProfileName.setText(name)
-        binding.etMyPageIntroduction.setText(introduction)
 
         if (level == "상") {
             binding.btnTop.isSelected = true

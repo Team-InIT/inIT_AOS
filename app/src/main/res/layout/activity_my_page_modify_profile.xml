@@ -3,6 +3,15 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <data>
+
+        <variable
+            name="User"
+            type="com.init_android.app.data.response.mypage.ResponseMyInfo.MInfo" />
+
+
+    </data>
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -63,7 +72,7 @@
                     android:layout_width="88dp"
                     android:layout_height="88dp"
                     android:layout_marginTop="27dp"
-                    android:src="@drawable/ic_launcher_background"
+                    imageBind="@{User.MPhoto}"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -215,6 +224,7 @@
                     android:hint="@string/open_project_write"
                     android:includeFontPadding="false"
                     android:minLines="7"
+                    android:text="@{User.MIntroduction}"
                     android:paddingHorizontal="10dp"
                     android:paddingVertical="20dp"
                     android:textColor="@color/black"
