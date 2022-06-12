@@ -81,11 +81,19 @@ class ProjectDetailActivity :
         projectViewModel.detailProject.observe(this) {
             binding.project = it
 
-            if(it.isApproval == true) {
-                Toast.makeText(this@ProjectDetailActivity, "이미 지원한 프로젝트입니다.", Toast.LENGTH_SHORT).show()
-            } else {
-                clickListener()
+            binding.btnDetailApply.setOnClickListener {
+                projectViewModel.detailProject.observe(this) {
+                    binding.project = it
+
+                    if (it.isApproval == true) {
+                        Toast.makeText(this@ProjectDetailActivity, "이미 지원한 프로젝트입니다.", Toast.LENGTH_SHORT)
+                            .show()
+                    } else {
+                        clickListener()
+                    }
+                }
             }
+
 
 
             if (it.projectInfo?.pGender == 0) {

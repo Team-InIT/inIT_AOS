@@ -9,6 +9,7 @@ import com.init_android.app.data.ServiceCreator
 import com.init_android.app.data.request.mypage.*
 import com.init_android.app.data.response.ResponseUpdateProfile
 import com.init_android.app.data.response.mypage.*
+import com.init_android.app.data.response.project.approve.ResponsemyWaitingApproval
 import kotlinx.coroutines.launch
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
@@ -42,6 +43,11 @@ class MyPageViewModel() : ViewModel() {
     private val _updateProfile = MutableLiveData<ResponseUpdateProfile>()
     val updateProfile: LiveData<ResponseUpdateProfile>
         get() = _updateProfile
+
+
+    private val _waitingApprove = MutableLiveData<ResponsemyWaitingApproval>()
+    val waitingApprove: LiveData<ResponsemyWaitingApproval>
+        get() = _waitingApprove
 
     // 서버통신
     fun postMyInfo(requestMyInfo: RequestMyInfo) {
@@ -93,12 +99,13 @@ class MyPageViewModel() : ViewModel() {
     }
 
     //기본정보수정 서버통신
-    fun postUpdateProfile(@Part file: MultipartBody.Part,
-                          @Part("mNum") mNum : RequestBody,
-                          @Part("mName") mName : RequestBody,
-                          @Part("mPosition") mPosition: RequestBody,
-                          @Part("mLevel") mLevel: RequestBody,
-                          @Part("mIntroduction") mIntroduction : RequestBody
+    fun postUpdateProfile(
+        @Part file: MultipartBody.Part,
+        @Part("mNum") mNum: RequestBody,
+        @Part("mName") mName: RequestBody,
+        @Part("mPosition") mPosition: RequestBody,
+        @Part("mLevel") mLevel: RequestBody,
+        @Part("mIntroduction") mIntroduction: RequestBody
     ) {
         viewModelScope.launch {
             kotlin.runCatching {
@@ -143,6 +150,25 @@ class MyPageViewModel() : ViewModel() {
                 .onFailure {
                     it.printStackTrace()
                     Log.d("CountProject", "서버 통신 실패")
+                }
+        }
+    }
+
+    //승인대기중인 프로젝트 서버통신
+    fun postWaitingApprove(requestWaitingApproval: RequestWaitingApproval) {
+        viewModelScope.launch {
+            kotlin.runCatching {
+                ServiceCreator.initService.postWaitingApproval(
+                    requestWaitingApproval
+                )
+            }
+                .onSuccess {
+                    _waitingApprove.value = it
+                    Log.d("WaitingApprove", "서버 통신 성공")
+                }
+                .onFailure {
+                    it.printStackTrace()
+                    Log.d("WaitingApprove", "서버 통신 실패")
                 }
         }
     }

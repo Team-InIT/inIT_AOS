@@ -58,6 +58,7 @@ interface InitService {
     @POST("/withdraw")
     suspend fun postQuit(@Body body: RequestQuit): ResponseQuit
 
+
     //내 정보수정 서버통신
     @Multipart
     @POST("/updateProfile")
@@ -111,6 +112,7 @@ interface InitService {
     @POST("/deleteFeed")
     suspend fun postDeleteFeed(@Body body: RequestDeleteFeed): ResponseBase
 
+
     //팀원 조회
     @POST("/teamMember")
     suspend fun postProjectMember(@Body body: RequestProjectMember): ResponseProjectMember
@@ -139,7 +141,13 @@ interface InitService {
     //팀원 정보_서버
     suspend fun postServerMember(@Body body: RequestProjectMember): ResponseApproveServer
 
+
     // 피드 상세보기
     @POST("/detailFeed")
     suspend fun postDetailFeed(@Body requestFeedDetail: RequestFeedDetail):ResponseFeedDetail
+
+
+    //승인대기
+    @POST("/myWaitingApproval")
+    suspend fun postWaitingApproval(@Body requestWaitingApproval: RequestWaitingApproval) : ResponsemyWaitingApproval
 }
