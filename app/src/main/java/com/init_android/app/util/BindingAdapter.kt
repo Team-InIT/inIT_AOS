@@ -179,8 +179,6 @@ object BindingAdapter {
         }
     }
 
-<<<<<<< HEAD
-=======
     @JvmStatic
     @BindingAdapter("timeStampToDate")
     fun timeStampToDate(textView: TextView, timeStampString:String?) {
@@ -196,7 +194,5 @@ object BindingAdapter {
             textView.visibility = View.VISIBLE
         }
     }
->>>>>>> df0e3d18262dfe6a25f755167ab3cb5b8dcab851
-
 }
 

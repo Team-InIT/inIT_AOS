@@ -56,23 +56,13 @@
         <entry key="..\:/Users/82104/inIT_AOS/app/src/main/res/layout/fragment_feed.xml" value="0.19791666666666666" />
         <entry key="..\:/Users/82104/inIT_AOS/app/src/main/res/layout/fragment_first.xml" value="0.1" />
         <entry key="..\:/Users/82104/inIT_AOS/app/src/main/res/layout/fragment_home.xml" value="0.23802083333333332" />
-<<<<<<< HEAD
-        <entry key="..\:/Users/82104/inIT_AOS/app/src/main/res/layout/fragment_ios.xml" value="0.2222222222222222" />
-        <entry key="..\:/Users/82104/inIT_AOS/app/src/main/res/layout/fragment_my_page.xml" value="0.4" />
-=======
         <entry key="..\:/Users/82104/inIT_AOS/app/src/main/res/layout/fragment_my_page.xml" value="0.1" />
->>>>>>> df0e3d18262dfe6a25f755167ab3cb5b8dcab851
         <entry key="..\:/Users/82104/inIT_AOS/app/src/main/res/layout/fragment_my_page_feed.xml" value="0.23802083333333332" />
-        <entry key="..\:/Users/82104/inIT_AOS/app/src/main/res/layout/fragment_my_page_info.xml" value="0.264" />
+        <entry key="..\:/Users/82104/inIT_AOS/app/src/main/res/layout/fragment_my_page_info.xml" value="0.2" />
         <entry key="..\:/Users/82104/inIT_AOS/app/src/main/res/layout/fragment_my_page_project.xml" value="0.2" />
         <entry key="..\:/Users/82104/inIT_AOS/app/src/main/res/layout/fragment_my_page_rate.xml" value="0.23802083333333332" />
         <entry key="..\:/Users/82104/inIT_AOS/app/src/main/res/layout/fragment_personal_info.xml" value="0.23802083333333332" />
-<<<<<<< HEAD
-        <entry key="..\:/Users/82104/inIT_AOS/app/src/main/res/layout/fragment_plan.xml" value="0.19748858447488585" />
-=======
->>>>>>> df0e3d18262dfe6a25f755167ab3cb5b8dcab851
         <entry key="..\:/Users/82104/inIT_AOS/app/src/main/res/layout/fragment_search.xml" value="0.18854166666666666" />
-        <entry key="..\:/Users/82104/inIT_AOS/app/src/main/res/layout/fragment_search_partner.xml" value="0.2" />
         <entry key="..\:/Users/82104/inIT_AOS/app/src/main/res/layout/fragment_search_recruiting.xml" value="0.1" />
         <entry key="..\:/Users/82104/inIT_AOS/app/src/main/res/layout/item_feed.xml" value="0.2" />
         <entry key="..\:/Users/82104/inIT_AOS/app/src/main/res/layout/item_feed_list.xml" value="0.264" />
@@ -81,12 +71,7 @@
         <entry key="..\:/Users/82104/inIT_AOS/app/src/main/res/layout/item_project.xml" value="0.264" />
         <entry key="..\:/Users/82104/inIT_AOS/app/src/main/res/layout/item_rating_list.xml" value="0.2" />
         <entry key="..\:/Users/82104/inIT_AOS/app/src/main/res/layout/item_rv_position.xml" value="0.1408514492753623" />
-<<<<<<< HEAD
-        <entry key="..\:/Users/82104/inIT_AOS/app/src/main/res/layout/item_rv_project.xml" value="0.5269461077844312" />
-        <entry key="..\:/Users/82104/inIT_AOS/app/src/main/res/layout/item_search_partner.xml" value="0.22135416666666666" />
-=======
         <entry key="..\:/Users/82104/inIT_AOS/app/src/main/res/layout/item_rv_project.xml" value="0.536" />
->>>>>>> df0e3d18262dfe6a25f755167ab3cb5b8dcab851
         <entry key="..\:/Users/82104/inIT_AOS/app/src/main/res/layout/item_stack.xml" value="0.19739583333333333" />
         <entry key="..\:/Users/82104/inIT_AOS/app/src/main/res/layout/item_vp_project.xml" value="0.2" />
         <entry key="..\:/Users/82104/inIT_AOS/app/src/main/res/layout/spinner_item.xml" value="0.536" />
@@ -156,6 +141,7 @@
         <entry key="app/src/main/res/layout/activity_feed_writing.xml" value="0.34210526315789475" />
         <entry key="app/src/main/res/layout/activity_open_project_second.xml" value="0.13177083333333334" />
         <entry key="app/src/main/res/layout/activity_partner_check.xml" value="0.13177083333333334" />
+        <entry key="app/src/main/res/layout/activity_project_detail.xml" value="0.24375" />
         <entry key="app/src/main/res/layout/dialog_my_project_list.xml" value="0.134375" />
         <entry key="app/src/main/res/layout/fragment_alarm.xml" value="0.24375" />
         <entry key="app/src/main/res/layout/fragment_aos.xml" value="0.13541666666666666" />
@@ -172,6 +158,7 @@
         <entry key="app/src/main/res/layout/item_feed_list.xml" value="0.165625" />
         <entry key="app/src/main/res/layout/item_partner.xml" value="0.55" />
         <entry key="app/src/main/res/layout/item_partner_list.xml" value="0.335" />
+        <entry key="app/src/main/res/layout/item_rv_position.xml" value="0.24375" />
         <entry key="app/src/main/res/layout/item_rv_project.xml" value="0.19270833333333334" />
         <entry key="app/src/main/res/layout/item_search_partner.xml" value="0.335" />
         <entry key="app/src/main/res/layout/item_to_do_partner_list.xml" value="0.14114583333333333" />

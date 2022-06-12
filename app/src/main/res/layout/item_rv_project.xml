@@ -13,7 +13,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="12dp"
-        android:background="@drawable/rectangle_stroke_gray_radius_8">
+        android:background="@drawable/rectangle_stroke_main_radius_8">
 
         <TextView
             android:id="@+id/tv_position"

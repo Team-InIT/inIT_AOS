@@ -10,7 +10,6 @@ import com.init_android.R
 import com.init_android.app.data.model.FeedListData
 import com.init_android.app.presentation.ui.feed.adapter.SearchFeedAdapter
 import com.init_android.app.presentation.ui.feed.write.FeedWritingActivity
-import com.init_android.app.util.BitmapUtil
 import com.init_android.databinding.FragmentFeedBinding
 import com.playtogether_android.app.presentation.base.BaseFragment
 import java.nio.Buffer

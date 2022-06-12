@@ -24,7 +24,7 @@ class SearchRecruitingFragment:BaseFragment<FragmentSearchRecruitingBinding>(R.l
         adapter.submitList(
             listOf(
                 ProjectItemData(0,"졸업프로젝트 같이 할 사람",0,3,"2021.03.05","2021.04.05",
-                "이혜빈",0)
+                "이혜빈",0,-1,-1)
             )
         )
     }
