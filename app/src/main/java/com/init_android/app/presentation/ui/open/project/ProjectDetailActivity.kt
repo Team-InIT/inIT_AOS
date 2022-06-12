@@ -67,9 +67,15 @@ class ProjectDetailActivity :
     }
 
     private fun initNetwork() {
+        val pNum = intent.getIntExtra("pNum", 1)
+        val mNum = intent.getIntExtra("mNum", 5)
+
         val requestProjectDetail = RequestProjectDetail(
-            pNum = 1, mNum = 5
+            pNum = pNum, mNum = mNum
         )
+
+        Log.d("pNum", " " + pNum)
+        Log.d("mNum", " " + mNum)
 
         projectViewModel.postProjectDetail(requestProjectDetail)
         projectViewModel.detailProject.observe(this) {
