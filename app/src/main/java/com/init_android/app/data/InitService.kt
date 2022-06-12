@@ -4,15 +4,12 @@ import com.init_android.app.data.request.*
 import com.init_android.app.data.request.mypage.*
 import com.init_android.app.data.request.project.RequestApplyProject
 import com.init_android.app.data.request.project.RequestProjectDetail
+import com.init_android.app.data.request.project.RequestProjectMember
 import com.init_android.app.data.response.*
 import com.init_android.app.data.response.mypage.*
 import com.init_android.app.data.response.project.ResponseApplyProject
 import com.init_android.app.data.response.project.ResponseProjectDetail
-<<<<<<< HEAD
 import com.init_android.app.data.response.project.approve.*
-=======
-import okhttp3.MediaType
->>>>>>> df0e3d18262dfe6a25f755167ab3cb5b8dcab851
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
 import retrofit2.Call
@@ -61,7 +58,6 @@ interface InitService {
     @POST("/withdraw")
     suspend fun postQuit(@Body body: RequestQuit): ResponseQuit
 
-<<<<<<< HEAD
 
     //내 정보수정 서버통신
     @Multipart
@@ -76,8 +72,6 @@ interface InitService {
     ): ResponseUpdateProfile
 
 
-=======
->>>>>>> df0e3d18262dfe6a25f755167ab3cb5b8dcab851
     //스택 수정 서버통신
 
 
@@ -118,7 +112,7 @@ interface InitService {
     @POST("/deleteFeed")
     suspend fun postDeleteFeed(@Body body: RequestDeleteFeed): ResponseBase
 
-<<<<<<< HEAD
+
     //팀원 조회
     @POST("/teamMember")
     suspend fun postProjectMember(@Body body: RequestProjectMember): ResponseProjectMember
@@ -147,9 +141,13 @@ interface InitService {
     //팀원 정보_서버
     suspend fun postServerMember(@Body body: RequestProjectMember): ResponseApproveServer
 
-=======
+
     // 피드 상세보기
     @POST("/detailFeed")
     suspend fun postDetailFeed(@Body requestFeedDetail: RequestFeedDetail):ResponseFeedDetail
->>>>>>> df0e3d18262dfe6a25f755167ab3cb5b8dcab851
+
+
+    //승인대기
+    @POST("/myWaitingApproval")
+    suspend fun postWaitingApproval(@Body requestWaitingApproval: RequestWaitingApproval) : ResponsemyWaitingApproval
 }
