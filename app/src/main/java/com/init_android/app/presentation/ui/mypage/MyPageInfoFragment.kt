@@ -23,7 +23,7 @@ import com.playtogether_android.app.presentation.base.BaseFragment
 
 class MyPageInfoFragment : BaseFragment<FragmentMyPageInfoBinding>(R.layout.fragment_my_page_info) {
 
-    private val myPageViewModel : MyPageViewModel by viewModels()
+    private val myPageViewModel: MyPageViewModel by viewModels()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -37,7 +37,7 @@ class MyPageInfoFragment : BaseFragment<FragmentMyPageInfoBinding>(R.layout.frag
 
     override fun onResume() {
         super.onResume()
-        initNetwork()
+        //initNetwork()
 
     }
 
@@ -58,27 +58,31 @@ class MyPageInfoFragment : BaseFragment<FragmentMyPageInfoBinding>(R.layout.frag
         myPageViewModel.myInfoData.observe(viewLifecycleOwner) {
             binding.user = it.mInfo
 
-            val myList = it.stacks
+            val list = it.mInfo.mStacks
 
-            for (i in 0 until myList.size) {
-                val chip = Chip(binding.chipMypage.getContext())
-                val layoutParams = LinearLayout.LayoutParams(
-                    LinearLayout.LayoutParams.WRAP_CONTENT,
-                    LinearLayout.LayoutParams.WRAP_CONTENT
-                )
-                layoutParams.setMargins(5, 0, 5, 0)
-                chip.layoutParams = layoutParams
+            Log.d("Test", "" + list?.size!!)
 
-                chip.setText(myList.get(i))
-                chip.closeIcon!!.isVisible
-                //chip.isCloseIconEnabled = true
-                chip.chipBackgroundColor = resources.getColorStateList(R.color.main_default)
-                chip.setTextColor(resources.getColorStateList(R.color.white))
-                //chip.closeIconTint = resources.getColorStateList(R.color.white)
-                chip.isClickable = true
-                chip.isCheckable = false
-                binding.chipMypage.addView(chip)
+            if (list?.size != null) {
+                for (i in 0 until list?.size!!) {
+                    val chip = Chip(binding.chipMypage.getContext())
+                    val layoutParams = LinearLayout.LayoutParams(
+                        LinearLayout.LayoutParams.WRAP_CONTENT,
+                        LinearLayout.LayoutParams.WRAP_CONTENT
+                    )
+                    layoutParams.setMargins(5, 0, 5, 0)
+                    chip.layoutParams = layoutParams
 
+                    chip.setText(list.get(i))
+                    chip.closeIcon!!.isVisible
+                    //chip.isCloseIconEnabled = true
+                    chip.chipBackgroundColor = resources.getColorStateList(R.color.main_default)
+                    chip.setTextColor(resources.getColorStateList(R.color.white))
+                    //chip.closeIconTint = resources.getColorStateList(R.color.white)
+                    chip.isClickable = true
+                    chip.isCheckable = false
+                    binding.chipMypage.addView(chip)
+
+                }
             }
         }
 
@@ -99,11 +103,21 @@ class MyPageInfoFragment : BaseFragment<FragmentMyPageInfoBinding>(R.layout.frag
     //기본 정보 수정 클릭 리스너
     private fun basicInfoListener() {
         binding.tvMypageBasicInfoModify.setOnClickListener {
-            val intentBasicInfo = Intent(requireActivity(), MyPageModifyBasicInfoActivity::class.java)
+            val intentBasicInfo =
+                Intent(requireActivity(), MyPageModifyBasicInfoActivity::class.java)
             intentBasicInfo.putExtra("email", binding.tvMypageBasicInfoEmailAnswer.text.toString())
-            intentBasicInfo.putExtra("belong", binding.tvMypageBasicInfoBelongAnswer.text.toString())
-            intentBasicInfo.putExtra("academic", binding.tvMypageBasicInfoAcademicAnswer.text.toString())
-            intentBasicInfo.putExtra("gender", binding.tvMypageBasicInfoGenderAnswer.text.toString())
+            intentBasicInfo.putExtra(
+                "belong",
+                binding.tvMypageBasicInfoBelongAnswer.text.toString()
+            )
+            intentBasicInfo.putExtra(
+                "academic",
+                binding.tvMypageBasicInfoAcademicAnswer.text.toString()
+            )
+            intentBasicInfo.putExtra(
+                "gender",
+                binding.tvMypageBasicInfoGenderAnswer.text.toString()
+            )
 
 
             startActivity(intentBasicInfo)
@@ -114,7 +128,7 @@ class MyPageInfoFragment : BaseFragment<FragmentMyPageInfoBinding>(R.layout.frag
         //mNum intent로 연결
         val mNum = 1
 
-        if(mNum != 1) {
+        if (mNum != 1) {
             binding.tvMypageBasicLinkModify.visibility = View.GONE
             binding.tvMypageBasicStackModify.visibility = View.GONE
             binding.tvMypageBasicInfoModify.visibility = View.GONE

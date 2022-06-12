@@ -144,6 +144,8 @@
     <string name="detail_school_status">학적 상태</string>
     <string name="detail_part_condition">파트별 조건</string>
     <string name="string_at"> ~ </string>
+    <string name="mypage_ing">참여중</string>
+    <string name="mypage_finish">참여완료</string>
 
     <!--Message-->
     <string name="message_write">님께 메시지 작성</string>
@@ -169,4 +171,5 @@
     <string name="feed_writing_link">링크 추가</string>
     <string name="feed_writing_project_type">프로젝트 유형</string>
     <string name="feed_detail_go_to_project">프로젝트 보러가기</string>
+
 </resources>
