@@ -1,13 +1,17 @@
 package com.init_android.app.presentation.ui.feed.adapter
 
+import android.app.Activity
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.init_android.app.data.model.FeedListData
 import com.init_android.app.data.response.ResponseFeedData
+import com.init_android.app.presentation.ui.feed.detail.FeedDetailActivity
 import com.init_android.databinding.ItemFeedListBinding
 
 class SearchFeedAdapter(val context:Context) :
@@ -32,11 +36,12 @@ class SearchFeedAdapter(val context:Context) :
         holder.onBind(getItem(position))
 
         // 프로젝트 정보 보기 화면으로 이동
-        /*holder.binding.root.setOnClickListener {
-            val nextIntent = Intent(context, IncludedProjectActivity::class.java)
+        holder.binding.root.setOnClickListener {
+            val nextIntent = Intent(context, FeedDetailActivity::class.java)
+            // nextIntent.putExtra("fNum",updateFeedList())
             // readIntent.putExtra("noticeId",itemList[holder.adapterPosition].noticeId)
             (context as Activity).startActivity(nextIntent)
-        }*/
+        }
     }
 
     fun updateFeedList(feedList: List<FeedListData>) {
@@ -47,6 +52,7 @@ class SearchFeedAdapter(val context:Context) :
         RecyclerView.ViewHolder(binding.root) {
         fun onBind(data: FeedListData) {
             binding.feedData = data
+            Glide.with(binding.root).load(data.fImage).into(binding.ivIcon)
         }
     }
 

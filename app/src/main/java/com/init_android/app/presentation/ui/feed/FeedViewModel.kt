@@ -44,6 +44,8 @@ class FeedViewModel : ViewModel() {
                 }
                 .onFailure {
                     it.printStackTrace()
+                    Log.d("feedList", it.printStackTrace().toString())
+                    Log.d("feedList", it.message.toString())
                     Log.d("feedList", "서버 통신 실패")
                 }
         }
