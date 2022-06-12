@@ -67,14 +67,14 @@ class ProjectDetailActivity :
     }
 
     private fun initNetwork() {
-        val pNum = intent.getIntExtra("pNum", 0)
-        val mNum = intent.getIntExtra("mNum", 0)
+        val pNum = intent.getIntExtra("pNum", 1)
+        val mNum = intent.getIntExtra("mNum", 1)
 
         Log.d("pNum", " " + pNum)
         Log.d("mNum", " " + mNum)
 
         val requestProjectDetail = RequestProjectDetail(
-            pNum = pNum, mNum = mNum
+            pNum = 1, mNum = 5
         )
 
 

@@ -34,7 +34,7 @@ class PartnerAdapter(var userId : Int) : RecyclerView.Adapter<PartnerAdapter.Par
             val context = holder.itemView.context
 
             val intent = Intent(context, PartnerPageActivity::class.java)
-            val postId = partnerData[position]
+            val userId = partnerData[position].mNum
             intent.putExtra("userId", userId)
             ContextCompat.startActivity(holder.itemView.context,intent, null)
 

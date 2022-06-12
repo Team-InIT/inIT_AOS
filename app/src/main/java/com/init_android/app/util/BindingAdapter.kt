@@ -14,7 +14,7 @@ import kotlinx.coroutines.currentCoroutineContext
 object BindingAdapter {
     @JvmStatic
     @BindingAdapter("imageBind")
-    fun setImage(imageView: ImageView, imageUrl: Int) {
+    fun setImage(imageView: ImageView, imageUrl: String?) {
         Glide.with(imageView.context)
             .load(imageUrl)
             .circleCrop()
@@ -170,5 +170,7 @@ object BindingAdapter {
             layout.visibility = View.VISIBLE
         }
     }
+
+
 }
 

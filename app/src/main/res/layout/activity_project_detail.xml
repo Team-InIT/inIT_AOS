@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="Project"
             type="com.init_android.app.data.response.project.ResponseProjectDetail" />
@@ -67,8 +68,8 @@
                 android:id="@+id/iv_detail_point"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/ic_vertical_point"
                 android:layout_marginEnd="16dp"
+                android:src="@drawable/ic_vertical_point"
                 app:layout_constraintBottom_toBottomOf="@+id/iv_project_detail_back"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/iv_project_detail_back" />
@@ -93,12 +94,12 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
+                    android:layout_marginEnd="10dp"
                     android:background="@drawable/rectangle_stroke_main_radius_10"
                     android:paddingStart="19dp"
                     android:paddingTop="3dp"
                     android:paddingEnd="19dp"
                     android:paddingBottom="3dp"
-                    android:layout_marginEnd="10dp"
                     android:text="TO-DO"
                     android:textColor="@color/main_default"
                     android:textSize="14sp"
@@ -110,13 +111,13 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
+                    android:layout_marginEnd="16dp"
                     android:background="@drawable/rectangle_stroke_main_radius_10"
                     android:paddingStart="14dp"
                     android:paddingTop="3dp"
                     android:paddingEnd="14dp"
                     android:paddingBottom="3dp"
                     android:text="팀원정보"
-                    android:layout_marginEnd="16dp"
                     android:textColor="@color/main_default"
                     android:textSize="14sp"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -135,7 +136,6 @@
                     android:textSize="16sp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/tv_detail_todo" />
-
 
 
                 <androidx.constraintlayout.widget.ConstraintLayout
@@ -157,9 +157,9 @@
                         android:layout_marginStart="16dp"
                         android:layout_marginTop="16dp"
                         android:fontFamily="@font/noto_sans_kr_medium"
+                        android:text="@{Project.ProjectInfo.PTitle}"
                         android:textColor="@color/black"
                         android:textSize="20sp"
-                        android:text="@{Project.ProjectInfo.PTitle}"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
                         tools:text="inIT" />
@@ -168,13 +168,13 @@
                         android:id="@+id/tv_partner_num"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginStart="14dp"
                         android:background="@drawable/rectangle_fill_black_radius_14"
                         android:fontFamily="@font/noto_sans_kr_bold"
                         android:paddingStart="18dp"
                         android:paddingTop="4dp"
                         android:paddingEnd="18dp"
                         android:paddingBottom="4dp"
-                        android:layout_marginStart="14dp"
                         android:text="ING"
                         android:textColor="@color/white"
                         android:textSize="12sp"
@@ -194,21 +194,22 @@
 
                     <ImageView
                         android:id="@+id/imageView2"
+                        imageBind="@{Project.WriterInfo.MPhoto}"
                         android:layout_width="24dp"
                         android:layout_height="24dp"
                         android:layout_marginTop="12dp"
-                        android:src="@drawable/ic_launcher_background"
                         app:layout_constraintStart_toStartOf="@+id/tv_detial_title"
-                        app:layout_constraintTop_toBottomOf="@+id/tv_detial_title" />
+                        app:layout_constraintTop_toBottomOf="@+id/tv_detial_title"
+                        tools:src="@drawable/ic_launcher_background" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
                         android:fontFamily="@font/noto_sans_kr_medium"
                         android:text="@{Project.WriterInfo.MName}"
                         android:textColor="@color/tet_gray_2"
                         android:textSize="16sp"
-                        android:layout_marginStart="8dp"
                         app:layout_constraintBottom_toBottomOf="@+id/imageView2"
                         app:layout_constraintStart_toEndOf="@+id/imageView2"
                         app:layout_constraintTop_toTopOf="@+id/imageView2"
@@ -218,9 +219,9 @@
                         android:id="@+id/tv_detail_kind"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
                         android:fontFamily="@font/noto_sans_kr_medium"
                         android:text="@string/string_kind"
-                        android:layout_marginTop="12dp"
                         android:textColor="@color/black"
                         android:textSize="16sp"
                         app:layout_constraintStart_toStartOf="@+id/imageView2"
@@ -257,8 +258,8 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="8dp"
                         android:layout_marginTop="8dp"
-                        android:text="@{Project.ProjectInfo.pRecruitStart}"
                         android:fontFamily="@font/noto_sans_kr_regular"
+                        android:text="@{Project.ProjectInfo.pRecruitStart}"
                         android:textColor="@color/tet_gray_2"
                         android:textSize="16sp"
                         app:layout_constraintStart_toEndOf="@+id/tv_detail_gather"
@@ -296,9 +297,9 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="8dp"
                         android:fontFamily="@font/noto_sans_kr_regular"
+                        android:text="@{Project.ProjectInfo.pStart}"
                         android:textColor="@color/tet_gray_2"
                         android:textSize="16sp"
-                        android:text="@{Project.ProjectInfo.pStart}"
                         app:layout_constraintBottom_toBottomOf="@+id/tv_detail_going"
                         app:layout_constraintStart_toEndOf="@+id/tv_detail_going"
                         app:layout_constraintTop_toTopOf="@+id/tv_detail_going"
@@ -309,9 +310,9 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/noto_sans_kr_regular"
+                        android:text="@{@string/string_at + Project.ProjectInfo.pDue}"
                         android:textColor="@color/tet_gray_2"
                         android:textSize="16sp"
-                        android:text="@{@string/string_at + Project.ProjectInfo.pDue}"
                         app:layout_constraintBottom_toBottomOf="@+id/tv_detail_going_answer"
                         app:layout_constraintStart_toEndOf="@+id/tv_detail_going_answer"
                         app:layout_constraintTop_toTopOf="@+id/tv_detail_going_answer"
@@ -331,13 +332,13 @@
 
                     <TextView
                         android:id="@+id/tv_detail_going_kind_answer"
+                        pOnOffBind="@{Project.ProjectInfo.pOnOff}"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="8dp"
                         android:fontFamily="@font/noto_sans_kr_regular"
                         android:textColor="@color/tet_gray_2"
                         android:textSize="16sp"
-                        pOnOffBind="@{Project.ProjectInfo.pOnOff}"
                         app:layout_constraintBottom_toBottomOf="@+id/tv_detail_going_kind"
                         app:layout_constraintStart_toEndOf="@+id/tv_detail_going_kind"
                         app:layout_constraintTop_toTopOf="@+id/tv_detail_going_kind"
@@ -570,10 +571,10 @@
 
                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:id="@+id/cl_detail_plan"
+                        isLevelChecked="@{Project.ProjectInfo.pPlan}"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
-                        isLevelChecked="@{Project.ProjectInfo.pPlan}"
                         app:layout_constraintStart_toStartOf="@+id/tv_detail_part_condition"
                         app:layout_constraintTop_toBottomOf="@+id/tv_detail_part_condition">
 
@@ -658,10 +659,10 @@
 
                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:id="@+id/cl_detail_design"
+                        isLevelChecked="@{Project.ProjectInfo.pDesign}"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
-                        isLevelChecked="@{Project.ProjectInfo.pDesign}"
                         app:layout_constraintStart_toStartOf="@+id/tv_detail_part_condition"
                         app:layout_constraintTop_toBottomOf="@+id/cl_detail_plan">
 
@@ -746,10 +747,10 @@
 
                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:id="@+id/cl_detail_web"
+                        isLevelChecked="@{Project.ProjectInfo.pWeb}"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
-                        isLevelChecked="@{Project.ProjectInfo.pWeb}"
                         app:layout_constraintStart_toStartOf="@+id/tv_detail_part_condition"
                         app:layout_constraintTop_toBottomOf="@+id/cl_detail_design">
 
@@ -834,10 +835,10 @@
 
                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:id="@+id/cl_detail_aos"
+                        isLevelChecked="@{Project.ProjectInfo.pAos}"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
-                        isLevelChecked="@{Project.ProjectInfo.pAos}"
                         app:layout_constraintStart_toStartOf="@+id/tv_detail_part_condition"
                         app:layout_constraintTop_toBottomOf="@+id/cl_detail_web">
 
@@ -922,10 +923,10 @@
 
                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:id="@+id/cl_detail_ios"
+                        isLevelChecked="@{Project.ProjectInfo.pIos}"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
-                        isLevelChecked="@{Project.ProjectInfo.pIos}"
                         app:layout_constraintStart_toStartOf="@+id/tv_detail_part_condition"
                         app:layout_constraintTop_toBottomOf="@+id/cl_detail_aos">
 
@@ -1010,10 +1011,10 @@
 
                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:id="@+id/cl_detail_game"
+                        isLevelChecked="@{Project.ProjectInfo.pGame}"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
-                        isLevelChecked="@{Project.ProjectInfo.pGame}"
                         app:layout_constraintStart_toStartOf="@+id/tv_detail_part_condition"
                         app:layout_constraintTop_toBottomOf="@+id/cl_detail_ios">
 
@@ -1098,11 +1099,11 @@
 
                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:id="@+id/cl_detail_server"
+                        isLevelChecked="@{Project.ProjectInfo.pServer}"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
                         android:layout_marginBottom="16dp"
-                        isLevelChecked="@{Project.ProjectInfo.pServer}"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toStartOf="@+id/tv_detail_part_condition"
                         app:layout_constraintTop_toBottomOf="@+id/cl_detail_game">
@@ -1191,11 +1192,11 @@
                     android:id="@+id/btn_detail_apply"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="32dp"
                     android:layout_marginStart="16dp"
+                    android:layout_marginTop="32dp"
                     android:layout_marginEnd="16dp"
-                    android:text="@string/bottom_sheet_join"
                     android:layout_marginBottom="24dp"
+                    android:text="@string/bottom_sheet_join"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
