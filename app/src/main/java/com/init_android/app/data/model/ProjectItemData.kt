@@ -1,7 +1,5 @@
 package com.init_android.app.data.model
 
-import java.util.*
-
 data class ProjectItemData (
     val pType:Int, // 타입
     val pTitle:String, // 제목
@@ -10,5 +8,8 @@ data class ProjectItemData (
     val pStartDate:String, // 프로젝트 시작일
     val pEndDate: String, // 프로젝트 종료일
     val pWriter:String, // 작성자
-    val pState:Int // 디데이 상태
+    val pState:Int, // 디데이 상태
+
+    val pNum:Int,
+    val mNum:Int,
 )

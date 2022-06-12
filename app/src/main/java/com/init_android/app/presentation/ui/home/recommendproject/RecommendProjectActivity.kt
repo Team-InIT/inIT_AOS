@@ -52,7 +52,9 @@ class RecommendProjectActivity :
                             DateUtil().dateToString(recommend_data[i].pStart!!).replace("-","."),
                             DateUtil().dateToString(recommend_data[i].pDue!!).replace("-","."),
                             recommendList_writer?.get(i)?.get(0)!!.mName!!,
-                            recommend_data[i].pState!!
+                            recommend_data[i].pState!!,
+                            recommend_data[i].pNum!!,
+                            recommend_data[i].mNum!!
                         )
                     )
                 }

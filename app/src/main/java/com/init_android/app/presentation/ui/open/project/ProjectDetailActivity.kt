@@ -74,10 +74,8 @@ class ProjectDetailActivity :
         Log.d("mNum", " " + mNum)
 
         val requestProjectDetail = RequestProjectDetail(
-            pNum = 1, mNum = 5
+            pNum = pNum, mNum = mNum
         )
-
-
 
         projectViewModel.postProjectDetail(requestProjectDetail)
         projectViewModel.detailProject.observe(this) {

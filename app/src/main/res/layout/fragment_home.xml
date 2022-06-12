@@ -6,7 +6,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/gray_4"
+        android:background="@color/white"
         tools:context=".app.presentation.ui.home.HomeFragment">
 
         <androidx.core.widget.NestedScrollView
