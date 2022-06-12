@@ -10,7 +10,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/gray_3">
+        android:background="@color/white">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/layout_top"
@@ -47,7 +47,7 @@
             android:id="@+id/layout_feed_search_area"
             android:layout_width="match_parent"
             android:layout_height="36dp"
-            android:background="@drawable/rectangle_fill_white_radius_40"
+            android:background="@drawable/rectangle_fill_gray_radius_40"
             android:layout_marginTop="16dp"
             android:layout_marginHorizontal="16dp"
             android:orientation="horizontal"
@@ -66,6 +66,7 @@
                 android:background="@null" />
             <ImageView
                 android:id="@+id/iv_search_icon"
+                android:layout_marginEnd="8dp"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:src="@drawable/ic_search"/>
