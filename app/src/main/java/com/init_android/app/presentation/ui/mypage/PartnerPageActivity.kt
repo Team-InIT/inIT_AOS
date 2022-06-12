@@ -33,7 +33,7 @@ class PartnerPageActivity : BaseActivity<ActivityPartnerPageBinding>(R.layout.ac
 
         val requestMyInfo = RequestMyInfo(
             //인텐트로 넘겨 온 mNum 세팅
-            mNum = intent.getIntExtra("userId", 1)
+            mNum = intent.getIntExtra("userId", 2)
         )
 
         Log.d("MyPage mNum: " , " " + signViewModel.signIn.value?.mNum)

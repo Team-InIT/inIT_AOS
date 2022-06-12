@@ -73,6 +73,8 @@ interface InitService {
 
 
     //스택 수정 서버통신
+    @POST("/updateStack")
+    suspend fun postModifyStack(@Body body: RequestModifyStack) : ResponseModifyStack
 
 
     //마이페이지 프로젝트 갯수 서버통신

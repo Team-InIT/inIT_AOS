@@ -50,9 +50,15 @@ class MyPageViewModel() : ViewModel() {
     val waitingApprove: LiveData<ResponsemyWaitingApproval>
         get() = _waitingApprove
 
+
+    private val _modifyStack = MutableLiveData<ResponseModifyStack>()
+    val modifyStack: LiveData<ResponseModifyStack>
+        get() = _modifyStack
+
     private val _feedList = MutableLiveData<ResponseMyFeed>()
     val feedList: LiveData<ResponseMyFeed>
         get() = _feedList
+
 
     // 서버통신
     fun postMyInfo(requestMyInfo: RequestMyInfo) {
@@ -178,6 +184,22 @@ class MyPageViewModel() : ViewModel() {
         }
     }
 
+
+    //스택 수정
+    fun postModifyStack(requestModifyStack: RequestModifyStack) {
+        viewModelScope.launch {
+            kotlin.runCatching {
+                ServiceCreator.initService.postModifyStack(requestModifyStack)
+            }
+                .onSuccess {
+                    _modifyStack.value = it
+                    Log.d("ModifyStack", "서버 통신 성공")
+                }
+                .onFailure {
+                    it.printStackTrace()
+                    Log.d("ModifyStack", "서버 통신 실패")
+
+                    
     // 내 피드 리스트 서버통신
     fun postMyFeeds(requestMyFeed: RequestMyFeed){
         viewModelScope.launch {
@@ -190,6 +212,7 @@ class MyPageViewModel() : ViewModel() {
                 .onFailure {
                     it.printStackTrace()
                     Log.d("myFeedList", "서버 통신 실패")
+
                 }
         }
     }
