@@ -51,6 +51,10 @@ class MyPageViewModel() : ViewModel() {
         get() = _waitingApprove
 
 
+    private val _endApprove = MutableLiveData<ResponsemyWaitingApproval>()
+    val endApprove: LiveData<ResponsemyWaitingApproval>
+        get() = _endApprove
+
     private val _modifyStack = MutableLiveData<ResponseModifyStack>()
     val modifyStack: LiveData<ResponseModifyStack>
         get() = _modifyStack
@@ -58,6 +62,10 @@ class MyPageViewModel() : ViewModel() {
     private val _feedList = MutableLiveData<ResponseMyFeed>()
     val feedList: LiveData<ResponseMyFeed>
         get() = _feedList
+
+    private val _zzimList = MutableLiveData<ResponsemyWaitingApproval>()
+    val zzimList: LiveData<ResponsemyWaitingApproval>
+        get() = _zzimList
 
 
     // 서버통신
@@ -199,9 +207,13 @@ class MyPageViewModel() : ViewModel() {
                     it.printStackTrace()
                     Log.d("ModifyStack", "서버 통신 실패")
 
-                    
+
+                }
+        }
+    }
+
     // 내 피드 리스트 서버통신
-    fun postMyFeeds(requestMyFeed: RequestMyFeed){
+    fun postMyFeeds(requestMyFeed: RequestMyFeed) {
         viewModelScope.launch {
             kotlin.runCatching {
                 ServiceCreator.initService.postMyFeeds(requestMyFeed)
@@ -217,4 +229,53 @@ class MyPageViewModel() : ViewModel() {
         }
     }
 
+    //참여중인 프로젝트 조회
+    fun postIngProject(requestWaitingApproval: RequestWaitingApproval) {
+        viewModelScope.launch {
+            kotlin.runCatching {
+                ServiceCreator.initService.postIngProject(requestWaitingApproval)
+            }
+                .onSuccess {
+                    _waitingApprove.value = it
+                    Log.d("IngProject", "서버 통신 성공")
+                }
+                .onFailure {
+                    it.printStackTrace()
+                    Log.d("IngProject", "서버 통신 실패")
+                }
+        }
+    }
+
+    //끝난 프로젝트 조회
+    fun postEndProject(requestWaitingApproval: RequestWaitingApproval) {
+        viewModelScope.launch {
+            kotlin.runCatching {
+                ServiceCreator.initService.postEndProject(requestWaitingApproval)
+            }
+                .onSuccess {
+                    _endApprove.value = it
+                    Log.d("EndProject", "서버 통신 성공")
+                }
+                .onFailure {
+                    it.printStackTrace()
+                    Log.d("EndProject", "서버 통신 실패")
+                }
+        }
+    }
+
+    fun postZzimProject(requestWaitingApproval: RequestWaitingApproval) {
+        viewModelScope.launch {
+            kotlin.runCatching {
+                ServiceCreator.initService.postZzimProject(requestWaitingApproval)
+            }
+                .onSuccess {
+                    _zzimList.value = it
+                    Log.d("ZzimProject", "서버 통신 성공")
+                }
+                .onFailure {
+                    it.printStackTrace()
+                    Log.d("ZzimProject", "서버 통신 실패")
+                }
+        }
+    }
 }

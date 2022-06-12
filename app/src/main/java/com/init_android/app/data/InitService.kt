@@ -156,4 +156,18 @@ interface InitService {
     // 내 피드 보기
     @POST("/myFeeds")
     suspend fun postMyFeeds(@Body requestMyFeed: RequestMyFeed) : ResponseMyFeed
+
+    //승인여부 조회
+    @POST("/myIngProject")
+    suspend fun postIngProject(@Body requestWaitingApproval: RequestWaitingApproval) : ResponsemyWaitingApproval
+
+    //끝난 프로젝트
+    @POST("/myEndProject")
+    suspend fun postEndProject(@Body requestWaitingApproval: RequestWaitingApproval) : ResponsemyWaitingApproval
+
+
+    //찜 리스트
+    @POST("/myZzimList")
+    suspend fun postZzimProject(@Body requestWaitingApproval: RequestWaitingApproval) : ResponsemyWaitingApproval
+
 }
