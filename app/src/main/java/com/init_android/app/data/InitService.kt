@@ -150,4 +150,8 @@ interface InitService {
     //승인대기
     @POST("/myWaitingApproval")
     suspend fun postWaitingApproval(@Body requestWaitingApproval: RequestWaitingApproval) : ResponsemyWaitingApproval
+
+    // 내 피드 보기
+    @POST("/myFeeds")
+    suspend fun postMyFeeds(@Body requestMyFeed: RequestMyFeed) : ResponseMyFeed
 }
