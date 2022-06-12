@@ -10,7 +10,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/gray_3">
+        android:background="@color/white">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/layout_search_tab"
@@ -50,7 +50,7 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_marginStart="10dp"
-                android:background="@drawable/rectangle_fill_white_radius_40"
+                android:background="@drawable/rectangle_fill_gray_radius_40"
                 app:layout_constraintStart_toEndOf="@id/layout_search_list"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
