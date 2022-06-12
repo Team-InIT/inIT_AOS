@@ -14,7 +14,8 @@ data class ResponseProjectMember(
         val Recruits: List<Recruit>,
         val mEmail: String,
         val mName: String,
-        val mNum: Int
+        val mNum: Int,
+        val mPhoto: String
     ) {
         data class Recruit(
             val mNum: Int,
