@@ -6,7 +6,7 @@
     <data>
         <variable
             name="Member"
-            type="com.init_android.app.data.response.project.ResponseProjectMember.ApprovedPlan" />
+            type="com.init_android.app.data.response.project.approve.ResponseProjectMember.ApprovedPlan" />
 
 
     </data>
@@ -26,6 +26,7 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="14dp"
             android:layout_marginBottom="14dp"
+            imageBind="@{Member.MPhoto}"
             android:src="@drawable/ic_launcher_background"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"

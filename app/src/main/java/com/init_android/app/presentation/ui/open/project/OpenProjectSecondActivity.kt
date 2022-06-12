@@ -272,7 +272,8 @@ class OpenProjectSecondActivity :
                 pAosf = pAosf,
                 pGamef = pGamef,
                 pWebf = pWebf,
-                pServerf = pServerf
+                pServerf = pServerf,
+                mPosition = 1
             )
 
             projectViewModel.postOpenProject(requestAddProject)

@@ -13,7 +13,8 @@ import com.init_android.app.data.request.project.RequestProjectMember
 import com.init_android.app.data.response.ResponseAddProject
 import com.init_android.app.data.response.project.ResponseApplyProject
 import com.init_android.app.data.response.project.ResponseProjectDetail
-import com.init_android.app.data.response.project.ResponseProjectMember
+import com.init_android.app.data.response.project.approve.ResponseApprovePlan
+import com.init_android.app.data.response.project.approve.ResponseProjectMember
 import kotlinx.coroutines.launch
 
 class ProjectViewModel() : ViewModel() {
@@ -35,6 +36,10 @@ class ProjectViewModel() : ViewModel() {
     private val _projectMember = MutableLiveData<ResponseProjectMember>()
     val projectMember: LiveData<ResponseProjectMember>
         get() = _projectMember
+
+    private val _approvePlan = MutableLiveData<ResponseApprovePlan>()
+    val approvePlan: LiveData<ResponseApprovePlan>
+        get() = _approvePlan
 
 
     //프로젝트 작성 서버통신

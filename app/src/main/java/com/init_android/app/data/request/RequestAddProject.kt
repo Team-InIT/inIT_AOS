@@ -30,5 +30,6 @@ data class RequestAddProject(
     val pServerf: Int?,
     val mNum: Int,
     val pStack: String?,
+    val mPosition: Int?
 
 )

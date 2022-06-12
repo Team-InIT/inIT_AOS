@@ -19,13 +19,8 @@ data class ResponseMyInfo(
         val mNotion: String?,
         val mNum: Int?,
         val mPW: String?,
-        val mPhoto: MPhoto?,
+        val mPhoto: String?,
         val mPosition: Int?,
         val mStacks: List<String>?
-    ) {
-        data class MPhoto(
-            val data: List<Int>?,
-            val type: String?
-        )
-    }
+    )
 }

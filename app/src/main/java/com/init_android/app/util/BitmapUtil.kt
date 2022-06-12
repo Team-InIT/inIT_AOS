@@ -6,8 +6,13 @@ import android.util.Log
 import java.nio.ByteBuffer
 
 class BitmapUtil {
+<<<<<<< HEAD
+    fun getImg(input: Map<*, *>): Bitmap? {
+        Log.d("maptest", input.toString())
+=======
     /*fun getImg(input: Map<*, *>): Bitmap? {
         Log.d("maptest",input.toString())
+>>>>>>> df0e3d18262dfe6a25f755167ab3cb5b8dcab851
         //var data = input as LinkedTreeMap<*, *>
         var array = input["data"] as ArrayList<Double>
         Log.d("plz","array"+array.toString())
@@ -18,6 +23,11 @@ class BitmapUtil {
     /*fun convertBitmap(input: ArrayList<Double>): Bitmap {
         val arr = exByte(input)
         try {
+<<<<<<< HEAD
+
+            return BitmapFactory.decodeByteArray(arr, 0, arr.size)
+
+=======
             Log.d("plz",input.toString())
             Log.d("plz",arr.toString())
             return BitmapFactory.decodeByteArray(arr,0,arr.size)
@@ -26,6 +36,7 @@ class BitmapUtil {
             //Log.d("hell","please")
             // var bis: BufferedInputStream = BufferedInputStream(inputStream, inputStream.)
             //return BitmapFactory.decodeByteArray(arr, 0, arr.size)
+>>>>>>> df0e3d18262dfe6a25f755167ab3cb5b8dcab851
         } catch (e: Exception) {
             Log.d("hell",e.message.toString())
             throw RuntimeException(e)
