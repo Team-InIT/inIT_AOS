@@ -9,9 +9,11 @@ import com.init_android.app.data.ServiceCreator
 import com.init_android.app.data.request.RequestAddProject
 import com.init_android.app.data.request.project.RequestApplyProject
 import com.init_android.app.data.request.project.RequestProjectDetail
+import com.init_android.app.data.request.project.RequestProjectMember
 import com.init_android.app.data.response.ResponseAddProject
 import com.init_android.app.data.response.project.ResponseApplyProject
 import com.init_android.app.data.response.project.ResponseProjectDetail
+import com.init_android.app.data.response.project.ResponseProjectMember
 import kotlinx.coroutines.launch
 
 class ProjectViewModel() : ViewModel() {
@@ -28,6 +30,12 @@ class ProjectViewModel() : ViewModel() {
     private val _applyProject = MutableLiveData<ResponseApplyProject>()
     val applyProject: LiveData<ResponseApplyProject>
         get() = _applyProject
+
+
+    private val _projectMember = MutableLiveData<ResponseProjectMember>()
+    val projectMember: LiveData<ResponseProjectMember>
+        get() = _projectMember
+
 
     //프로젝트 작성 서버통신
     fun postOpenProject(requestAddProject: RequestAddProject) {
@@ -71,6 +79,21 @@ class ProjectViewModel() : ViewModel() {
                 .onFailure {
                     it.printStackTrace()
                     Log.d("ApplyProject", "서버 통신 실패")
+                }
+        }
+    }
+
+    //팀원 조회 서버통신
+    fun postProjectMember(requestProjectMember: RequestProjectMember) {
+        viewModelScope.launch {
+            kotlin.runCatching { ServiceCreator.initService.postProjectMember(requestProjectMember) }
+                .onSuccess {
+                    _projectMember.value = it
+                    Log.d("projectMember", "서버 통신 성공")
+                }
+                .onFailure {
+                    it.printStackTrace()
+                    Log.d("ProjectMember", "서버 통신 실패")
                 }
         }
     }
