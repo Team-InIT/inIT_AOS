@@ -52,8 +52,6 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
             val recommend_data = it.list_recommend
             val recommendList_writer = it.writerInfo_recommend
 
-            Log.d("helpme",it.code.toString())
-
             // 소속 프로젝트
             if (include_data != null) {
                 for (i in 0 until include_data.size) {
@@ -68,7 +66,9 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
                             DateUtil().dateToString(include_data[i].pStart!!).replace("-","."),
                             DateUtil().dateToString(include_data[i].pDue!!).replace("-","."),
                             includeList_writer?.get(i)?.get(0)!!.mName!!,
-                            include_data[i].pState!!
+                            include_data[i].pState!!,
+                            include_data[i].pNum!!,
+                            include_data[i].mNum!!
                         )
                     )
                 }
@@ -88,7 +88,9 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
                             DateUtil().dateToString(recommend_data[i].pStart!!).replace("-","."),
                             DateUtil().dateToString(recommend_data[i].pDue!!).replace("-","."),
                             recommendList_writer?.get(i)?.get(0)!!.mName!!,
-                            recommend_data[i].pState!!
+                            recommend_data[i].pState!!,
+                            recommend_data[i].pNum!!,
+                            recommend_data[i].mNum!!
                         )
                     )
                 }
@@ -142,7 +144,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
     }
 
     private fun initViewPager() {
-        val vpAdapter = ProjectItemVPAdapter(includeList)
+        val vpAdapter = ProjectItemVPAdapter(includeList,requireContext())
         binding.vpIncludeProject.adapter = vpAdapter
         binding.indicatorInclude.attachTo(binding.vpIncludeProject)
     }
@@ -150,6 +152,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
     private fun initRecyclerView() {
         val rvAdapter = ProjectItemRVAdapter(requireContext())
         rvAdapter.updateProjectList(recoList)
+        rvAdapter.setProjectList(recoList)
         binding.rvRecommendProject.adapter = rvAdapter
     }
 

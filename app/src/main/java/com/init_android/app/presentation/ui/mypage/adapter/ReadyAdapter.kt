@@ -38,7 +38,8 @@ class ReadyAdapter(var userId : Int) : RecyclerView.Adapter<ReadyAdapter.ReadyAp
 
             val intent = Intent(context, ProjectDetailActivity::class.java)
             val userId = partnerData[position].mNum
-            intent.putExtra("userId", userId)
+            intent.putExtra("pNum", partnerData[position].pNum)
+            intent.putExtra("mNum", partnerData[position].mNum)
             ContextCompat.startActivity(holder.itemView.context,intent, null)
 
         }
