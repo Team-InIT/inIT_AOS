@@ -1,6 +1,5 @@
 package com.init_android.app.util
 
-import android.graphics.Color
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
@@ -9,15 +8,24 @@ import androidx.core.content.ContextCompat
 import androidx.databinding.BindingAdapter
 import com.bumptech.glide.Glide
 import com.init_android.R
-import kotlinx.coroutines.currentCoroutineContext
 
 object BindingAdapter {
     @JvmStatic
     @BindingAdapter("imageBind")
-    fun setImage(imageView: ImageView, imageUrl: Int) {
+    fun setImage(imageView: ImageView, imageUrl: String?) {
         Glide.with(imageView.context)
             .load(imageUrl)
             .circleCrop()
+            .into(imageView)
+
+    }
+
+    @JvmStatic
+    @BindingAdapter("imageBindFitXY")
+    fun setImageFit(imageView: ImageView, imageUrl: String?) {
+        Glide.with(imageView.context)
+            .load(imageUrl)
+            .fitCenter()
             .into(imageView)
 
     }
@@ -170,5 +178,22 @@ object BindingAdapter {
             layout.visibility = View.VISIBLE
         }
     }
+
+    @JvmStatic
+    @BindingAdapter("timeStampToDate")
+    fun timeStampToDate(textView: TextView, timeStampString:String?) {
+        textView.text = timeStampString?.substring(0,10)?.replace("-",".")
+    }
+
+    @JvmStatic
+    @BindingAdapter("isUriExist")
+    fun isUriExist(textView: TextView,linkString:String?) {
+        if (linkString == null) {
+            textView.visibility = View.GONE
+        } else {
+            textView.visibility = View.VISIBLE
+        }
+    }
+
 }
 

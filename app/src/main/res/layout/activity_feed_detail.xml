@@ -4,6 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+        <variable
+            name="feedDetailData"
+            type="com.init_android.app.data.response.ResponseFeedDetail" />
 
     </data>
 
@@ -42,13 +45,14 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toEndOf="@id/iv_back"
                 app:layout_constraintTop_toTopOf="parent"
-                tools:text="플투" />
+                android:text="@{feedDetailData.feedInfo.fTitle}" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/layout_feed_detail"
             android:layout_width="match_parent"
             android:layout_height="0dp"
+            android:layout_marginTop="16dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -65,10 +69,9 @@
 
                 <ImageView
                     android:id="@+id/iv_project_img"
+                    imageBindFitXY="@{feedDetailData.feedInfo.fTest}"
                     android:layout_width="110dp"
-                    android:layout_height="110dp"
-                    android:background="@color/black"
-                    android:scaleType="fitXY" />
+                    android:layout_height="110dp"/>
             </androidx.cardview.widget.CardView>
 
             <LinearLayout
@@ -88,14 +91,14 @@
                     android:textColor="@color/black"
                     android:textSize="18sp"
                     android:textStyle="bold"
-                    tools:text="플투(Play together)" />
+                    android:text="@{feedDetailData.feedInfo.fTitle}" />
 
                 <TextView
                     android:id="@+id/tv_project_type"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="3dp"
-                    tools:text="모바일" />
+                    pTypeBind="@{feedDetailData.feedInfo.fType}"/>
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -107,7 +110,7 @@
                         android:id="@+id/iv_user_profile_img"
                         android:layout_width="25dp"
                         android:layout_height="25dp"
-                        android:background="@color/black" />
+                        imageBind="@{feedDetailData.feedInfo.Member.mPhoto}"/>
 
                     <TextView
                         android:id="@+id/tv_project_user_name"
@@ -115,7 +118,7 @@
                         android:layout_height="match_parent"
                         android:layout_marginStart="2dp"
                         android:gravity="center"
-                        tools:text="나재민" />
+                        android:text="@{feedDetailData.feedInfo.Member.mName}"/>
                 </LinearLayout>
 
                 <TextView
@@ -123,15 +126,17 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="3dp"
-                    tools:text="2022.05.23"/>
+                    timeStampToDate="@{feedDetailData.feedInfo.fTimeStamp}" />
             </LinearLayout>
             <TextView
                 android:id="@+id/tv_detail"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="200dp"
                 android:layout_marginHorizontal="16dp"
                 android:elevation="2dp"
+                android:text="@{feedDetailData.feedInfo.fDescription}"
                 android:textColor="@color/black"
+                android:padding="15dp"
                 android:layout_marginTop="16dp"
                 android:background="@drawable/rectangle_stroke_gray_radius_8"
                 app:layout_constraintStart_toStartOf="parent"
@@ -142,9 +147,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="16dp"
+                android:text="@{feedDetailData.feedInfo.fLink}"
+                isUriExist = "@{feedDetailData.feedInfo.fLink}"
                 android:elevation="2dp"
                 android:layout_marginTop="16dp"
-                android:textColor="@color/gray_3"
+                android:padding="9dp"
+                android:textSize="12sp"
+                android:textColor="@color/tet_gray_2"
                 android:background="@drawable/rectangle_stroke_gray_radius_8"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"

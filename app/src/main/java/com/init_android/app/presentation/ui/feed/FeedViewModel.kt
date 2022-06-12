@@ -8,9 +8,11 @@ import androidx.lifecycle.viewModelScope
 import com.init_android.app.data.ServiceCreator
 import com.init_android.app.data.request.RequestAddFeed
 import com.init_android.app.data.request.RequestDeleteFeed
+import com.init_android.app.data.request.RequestFeedDetail
 import com.init_android.app.data.request.RequestFinishProject
 import com.init_android.app.data.response.ResponseBase
 import com.init_android.app.data.response.ResponseFeed
+import com.init_android.app.data.response.ResponseFeedDetail
 import com.init_android.app.data.response.ResponseFinishProject
 import kotlinx.coroutines.launch
 import okhttp3.MultipartBody
@@ -34,6 +36,27 @@ class FeedViewModel : ViewModel() {
     val finishProject: LiveData<ResponseFinishProject>
         get() = _finishProjectList
 
+    // 피드 상세 보기
+    private val _feedDetail = MutableLiveData<ResponseFeedDetail>()
+    val feedDetail:LiveData<ResponseFeedDetail>
+        get() = _feedDetail
+
+
+    // 피드 상세 보기
+    fun postDetailFeed(requestDetailFeed:RequestFeedDetail){
+        viewModelScope.launch {
+            kotlin.runCatching { ServiceCreator.initService.postDetailFeed(requestDetailFeed) }
+                .onSuccess {
+                    _feedDetail.value = it
+                    Log.d("feedDetail","서버 통신 성공")
+                }.onFailure {
+                    it.printStackTrace()
+                    Log.d("feedDetail","서버 통신 실패")
+                    Log.d("feedDetail",it.printStackTrace().toString())
+                }
+        }
+    }
+
     // 서버 통신(불러오기)
     fun getAllFeedList() {
         viewModelScope.launch {
@@ -45,8 +68,6 @@ class FeedViewModel : ViewModel() {
                 .onFailure {
                     it.printStackTrace()
                     Log.d("feedList", it.printStackTrace().toString())
-                    Log.d("feedList", it.message.toString())
-                    Log.d("feedList", "서버 통신 실패")
                 }
         }
     }

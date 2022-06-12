@@ -96,4 +96,8 @@ interface InitService {
     // 피드 삭제
     @POST("/deleteFeed")
     suspend fun postDeleteFeed(@Body body: RequestDeleteFeed): ResponseBase
+
+    // 피드 상세보기
+    @POST("/detailFeed")
+    suspend fun postDetailFeed(@Body requestFeedDetail: RequestFeedDetail):ResponseFeedDetail
 }

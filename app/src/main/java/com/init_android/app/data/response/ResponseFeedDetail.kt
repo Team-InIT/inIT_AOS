@@ -13,18 +13,21 @@ data class ResponseFeedDetail (
                 val fLink:String?,
                 val mNum:Int,
                 val pNum:Int,
-                val member: Member,
-                val img:Int
+                val Member: FMember,
+                val img:Int,
+
+                val fTest:String?,
+                val fTimeStamp:String
         ){
                 data class Photo(
                         val type:String,
                         val data: List<Int>
                 )
 
-                data class Member(
+                data class FMember(
                         val mNum: Int,
-                        val mName: Int,
-                        val mPhoto: Photo?
+                        val mName: String,
+                        val mPhoto: String?
                 )
         }
 
