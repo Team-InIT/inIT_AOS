@@ -30,14 +30,14 @@ class MyPageInfoFragment : BaseFragment<FragmentMyPageInfoBinding>(R.layout.frag
         btnClickListener()
         linkClickListener()
         basicInfoListener()
-        initNetwork()
+        //initNetwork()
         initModifyBtn()
 
     }
 
     override fun onResume() {
         super.onResume()
-        //initNetwork()
+        initNetwork()
 
     }
 

@@ -49,6 +49,11 @@ class MyPageViewModel() : ViewModel() {
     val waitingApprove: LiveData<ResponsemyWaitingApproval>
         get() = _waitingApprove
 
+
+    private val _modifyStack = MutableLiveData<ResponseModifyStack>()
+    val modifyStack: LiveData<ResponseModifyStack>
+        get() = _modifyStack
+
     // 서버통신
     fun postMyInfo(requestMyInfo: RequestMyInfo) {
         viewModelScope.launch {
@@ -169,6 +174,23 @@ class MyPageViewModel() : ViewModel() {
                 .onFailure {
                     it.printStackTrace()
                     Log.d("WaitingApprove", "서버 통신 실패")
+                }
+        }
+    }
+
+    //스택 수정
+    fun postModifyStack(requestModifyStack: RequestModifyStack) {
+        viewModelScope.launch {
+            kotlin.runCatching {
+                ServiceCreator.initService.postModifyStack(requestModifyStack)
+            }
+                .onSuccess {
+                    _modifyStack.value = it
+                    Log.d("ModifyStack", "서버 통신 성공")
+                }
+                .onFailure {
+                    it.printStackTrace()
+                    Log.d("ModifyStack", "서버 통신 실패")
                 }
         }
     }
