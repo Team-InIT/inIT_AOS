@@ -6,14 +6,15 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.init_android.app.data.ServiceCreator
+import com.init_android.app.data.request.RequestMyFeed
 import com.init_android.app.data.request.mypage.*
+import com.init_android.app.data.response.ResponseMyFeed
 import com.init_android.app.data.response.ResponseUpdateProfile
 import com.init_android.app.data.response.mypage.*
 import com.init_android.app.data.response.project.approve.ResponsemyWaitingApproval
 import kotlinx.coroutines.launch
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
-import retrofit2.http.Multipart
 import retrofit2.http.Part
 
 class MyPageViewModel() : ViewModel() {
@@ -48,6 +49,10 @@ class MyPageViewModel() : ViewModel() {
     private val _waitingApprove = MutableLiveData<ResponsemyWaitingApproval>()
     val waitingApprove: LiveData<ResponsemyWaitingApproval>
         get() = _waitingApprove
+
+    private val _feedList = MutableLiveData<ResponseMyFeed>()
+    val feedList: LiveData<ResponseMyFeed>
+        get() = _feedList
 
     // 서버통신
     fun postMyInfo(requestMyInfo: RequestMyInfo) {
@@ -169,6 +174,22 @@ class MyPageViewModel() : ViewModel() {
                 .onFailure {
                     it.printStackTrace()
                     Log.d("WaitingApprove", "서버 통신 실패")
+                }
+        }
+    }
+
+    // 내 피드 리스트 서버통신
+    fun postMyFeeds(requestMyFeed: RequestMyFeed){
+        viewModelScope.launch {
+            kotlin.runCatching {
+                ServiceCreator.initService.postMyFeeds(requestMyFeed)
+            }.onSuccess {
+                _feedList.value = it
+                Log.d("myFeedList", "서버 통신 성공")
+            }
+                .onFailure {
+                    it.printStackTrace()
+                    Log.d("myFeedList", "서버 통신 실패")
                 }
         }
     }
