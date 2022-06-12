@@ -63,6 +63,10 @@ class MyPageViewModel() : ViewModel() {
     val feedList: LiveData<ResponseMyFeed>
         get() = _feedList
 
+    private val _zzimList = MutableLiveData<ResponsemyWaitingApproval>()
+    val zzimList: LiveData<ResponsemyWaitingApproval>
+        get() = _zzimList
+
 
     // 서버통신
     fun postMyInfo(requestMyInfo: RequestMyInfo) {
@@ -255,6 +259,22 @@ class MyPageViewModel() : ViewModel() {
                 .onFailure {
                     it.printStackTrace()
                     Log.d("EndProject", "서버 통신 실패")
+                }
+        }
+    }
+
+    fun postZzimProject(requestWaitingApproval: RequestWaitingApproval) {
+        viewModelScope.launch {
+            kotlin.runCatching {
+                ServiceCreator.initService.postZzimProject(requestWaitingApproval)
+            }
+                .onSuccess {
+                    _zzimList.value = it
+                    Log.d("ZzimProject", "서버 통신 성공")
+                }
+                .onFailure {
+                    it.printStackTrace()
+                    Log.d("ZzimProject", "서버 통신 실패")
                 }
         }
     }

@@ -162,6 +162,12 @@ interface InitService {
     suspend fun postIngProject(@Body requestWaitingApproval: RequestWaitingApproval) : ResponsemyWaitingApproval
 
     //끝난 프로젝트
-    @POST("myEndProject")
+    @POST("/myEndProject")
     suspend fun postEndProject(@Body requestWaitingApproval: RequestWaitingApproval) : ResponsemyWaitingApproval
+
+
+    //찜 리스트
+    @POST("/myZzimList")
+    suspend fun postZzimProject(@Body requestWaitingApproval: RequestWaitingApproval) : ResponsemyWaitingApproval
+
 }
