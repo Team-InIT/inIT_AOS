@@ -4,6 +4,6 @@ import android.graphics.Bitmap
 
 data class FeedListData(
     val fTitle:String,
-    val fImage:Bitmap?,
+    val fImage:String?,
     val fNum:Int
 )
