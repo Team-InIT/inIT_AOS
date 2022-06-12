@@ -70,6 +70,7 @@ class RecommendProjectActivity :
         val rvAdapter = ProjectItemRVAdapter(this)
         rvAdapter.updateProjectList(recoList)
         binding.rvRecommendProject.adapter = rvAdapter
+        rvAdapter.setProjectList(recoList)
     }
 
     private fun initBackBtn() {
