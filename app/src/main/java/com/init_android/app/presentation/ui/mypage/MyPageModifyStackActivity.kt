@@ -40,6 +40,7 @@ class MyPageModifyStackActivity : BaseActivity<ActivityMyPageModifyStackBinding>
                     text = string
 
                     isCloseIconVisible = true
+                    binding.etMyPageStack.setText("")
                     setOnCloseIconClickListener { binding.chipGroup.removeView(this) }
                 })
             }
