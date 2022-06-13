@@ -3,19 +3,14 @@ package com.init_android.app.presentation.ui.mypage
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import android.widget.LinearLayout
-import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
 import com.google.android.material.chip.Chip
+import com.google.android.material.chip.ChipGroup
 import com.init_android.R
 import com.init_android.app.data.request.mypage.RequestMyInfo
-import com.init_android.app.data.response.mypage.ResponseMyInfo
-import com.init_android.app.presentation.ui.mypage.adapter.MyPageTabAdapter
-import com.init_android.app.presentation.ui.mypage.adapter.StackAdapter
+import com.init_android.app.presentation.ui.main.MainViewModel
 import com.init_android.app.presentation.ui.mypage.viewmodel.MyPageViewModel
 import com.init_android.databinding.FragmentMyPageInfoBinding
 import com.playtogether_android.app.presentation.base.BaseFragment
@@ -24,6 +19,7 @@ import com.playtogether_android.app.presentation.base.BaseFragment
 class MyPageInfoFragment : BaseFragment<FragmentMyPageInfoBinding>(R.layout.fragment_my_page_info) {
 
     private val myPageViewModel: MyPageViewModel by viewModels()
+    private val mainViewModel : MainViewModel by viewModels()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -49,8 +45,10 @@ class MyPageInfoFragment : BaseFragment<FragmentMyPageInfoBinding>(R.layout.frag
     }
 
     private fun initNetwork() {
+
+
         val requestMyInfo = RequestMyInfo(
-            mNum = 1
+            mNum = mainViewModel.signData.value?.mNum ?: 1
         )
 
         myPageViewModel.postMyInfo(requestMyInfo)
@@ -60,18 +58,17 @@ class MyPageInfoFragment : BaseFragment<FragmentMyPageInfoBinding>(R.layout.frag
 
             val list = it.mInfo.mStacks
 
-            Log.d("Test", "" + list?.size!!)
 
             if (list?.size != null) {
                 for (i in 0 until list?.size!!) {
                     val chip = Chip(binding.chipMypage.getContext())
+
                     val layoutParams = LinearLayout.LayoutParams(
                         LinearLayout.LayoutParams.WRAP_CONTENT,
                         LinearLayout.LayoutParams.WRAP_CONTENT
                     )
                     layoutParams.setMargins(5, 0, 5, 0)
                     chip.layoutParams = layoutParams
-
                     chip.setText(list.get(i))
                     chip.closeIcon!!.isVisible
                     //chip.isCloseIconEnabled = true

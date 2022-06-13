@@ -94,7 +94,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
-                    android:layout_marginEnd="10dp"
+                    android:layout_marginStart="16dp"
                     android:background="@drawable/rectangle_stroke_main_radius_10"
                     android:paddingStart="19dp"
                     android:paddingTop="3dp"
@@ -103,7 +103,7 @@
                     android:text="TO-DO"
                     android:textColor="@color/main_default"
                     android:textSize="14sp"
-                    app:layout_constraintEnd_toStartOf="@+id/tv_detail_member"
+                    app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
@@ -111,16 +111,16 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
-                    android:layout_marginEnd="16dp"
                     android:background="@drawable/rectangle_stroke_main_radius_10"
                     android:paddingStart="14dp"
                     android:paddingTop="3dp"
                     android:paddingEnd="14dp"
                     android:paddingBottom="3dp"
                     android:text="팀원정보"
+                    android:layout_marginStart="16dp"
                     android:textColor="@color/main_default"
                     android:textSize="14sp"
-                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/tv_detail_todo"
                     app:layout_constraintTop_toTopOf="parent" />
 
 
@@ -181,16 +181,6 @@
                         app:layout_constraintBottom_toBottomOf="@+id/tv_detial_title"
                         app:layout_constraintStart_toEndOf="@+id/tv_detial_title"
                         app:layout_constraintTop_toTopOf="@+id/tv_detial_title" />
-
-                    <ImageView
-                        android:id="@+id/iv_project_detail_heart"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginEnd="16dp"
-                        app:layout_constraintBottom_toBottomOf="@+id/tv_partner_num"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toTopOf="@+id/tv_partner_num"
-                        app:srcCompat="@drawable/selector_heart" />
 
                     <ImageView
                         android:id="@+id/imageView2"
@@ -1201,6 +1191,16 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/cl_detail_partner" />
+
+                <ImageView
+                    android:id="@+id/iv_project_detail_heart"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="16dp"
+                    app:layout_constraintBottom_toBottomOf="@+id/tv_detail_member"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/tv_detail_member"
+                    app:srcCompat="@drawable/selector_heart" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
         </ScrollView>

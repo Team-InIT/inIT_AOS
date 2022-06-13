@@ -1,13 +1,12 @@
 package com.init_android.app.presentation.ui.open.project
 
-import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.View
 import androidx.activity.viewModels
 import com.init_android.R
 import com.init_android.app.data.request.RequestAddProject
-import com.init_android.app.presentation.ui.MainActivity
+import com.init_android.app.presentation.ui.main.MainViewModel
 import com.init_android.app.presentation.ui.open.viewmodel.ProjectViewModel
 import com.init_android.databinding.ActivityOpenProjectSecondBinding
 import com.playtogether_android.app.presentation.base.BaseActivity
@@ -17,6 +16,7 @@ class OpenProjectSecondActivity :
     BaseActivity<ActivityOpenProjectSecondBinding>(R.layout.activity_open_project_second) {
 
     private val projectViewModel: ProjectViewModel by viewModels()
+    private val mainViewModel : MainViewModel by viewModels()
 
     val formatter = SimpleDateFormat("yyyy-MM-dd")
     var pGender: Int? = 0
@@ -37,12 +37,17 @@ class OpenProjectSecondActivity :
         initNextBtn()
         initBackBtn()
         initNetwork()
+        backBtnListener()
 
         with(binding) {
             makeRadioButton2(tvMale, tvFemale)
             makeRadioButton3(tvEnroll, tvLeave, tvGraduate)
             makeRadioButton3(tvPlanHigh, tvPlanMid, tvPlanLow)
             makeRadioButton3(tvDesignHigh, tvDesignMid, tvDesignLow)
+            makeRadioButton3(tvWebHigh,tvWebMid,tvWebLow)
+            makeRadioButton3(tvIosHigh,tvIosMid,tvIosLow)
+            makeRadioButton3(tvAosHigh, tvAosMid, tvAosLow)
+            makeRadioButton3(tvGameHigh, tvGameMid, tvGameLow)
             makeRadioButton3(tvServerHigh, tvServerMid, tvServerLow)
         }
 
@@ -263,7 +268,7 @@ class OpenProjectSecondActivity :
                 pDescription = intent.getStringExtra("pDescription").toString(),
                 pOnOff = intent.getIntExtra("pOnOff", 0),
                 pStack = intent.getStringExtra("pStack").toString(),
-                mNum = 1,
+                mNum = mainViewModel.signData.value?.mNum ?: 1,
                 pGender = pGender,
                 pAcademic = pAcademic,
                 pPlanf = pPlanf,
@@ -325,6 +330,12 @@ class OpenProjectSecondActivity :
                 view1.isSelected = false
                 view2.isSelected = true
             }
+        }
+    }
+
+    private fun backBtnListener() {
+        binding.ivOpenProjectBack.setOnClickListener {
+            finish()
         }
     }
 }

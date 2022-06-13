@@ -33,7 +33,7 @@ class MyPageModifyProfileActivity :
     private var getResult: ActivityResultLauncher<Intent>? = null
     var fileUri: Uri? = null
 
-    private val signViewModel : SignViewModel by viewModels()
+    private val signViewModel: SignViewModel by viewModels()
     private val myPageViewModel: MyPageViewModel by viewModels()
 
     // 갤러리 접근 권한 런처
@@ -121,11 +121,13 @@ class MyPageModifyProfileActivity :
 
     private fun initSetting() {
 
+        val mNum = intent.getIntExtra("mNum", 1)
         val requestMyInfo = RequestMyInfo(
-            mNum = 1
+            //mNum = 1
+            mNum = mNum
         )
 
-        Log.d("MyPage mNum: " , " " + signViewModel.signIn.value?.mNum)
+        Log.d("MyPage mNum: ", " " + signViewModel.signIn.value?.mNum)
 
         myPageViewModel.postMyInfo(requestMyInfo)
 
@@ -179,16 +181,18 @@ class MyPageModifyProfileActivity :
         binding.tvFinish.setOnClickListener {
             val file = MultiPartUtil(this).uriToFilePath(fileUri)
             val mNum = 1.toString().toRequestBody("text/plain".toMediaTypeOrNull())
-            val mName = binding.etMyPageEditProfileName.text.toString().toRequestBody("text/plain".toMediaTypeOrNull())
+            val mName = binding.etMyPageEditProfileName.text.toString()
+                .toRequestBody("text/plain".toMediaTypeOrNull())
             val mPosition = 1.toString().toRequestBody("text/plain".toMediaTypeOrNull())
             val mLevel = 1.toString().toRequestBody("text/plain".toMediaTypeOrNull())
-            val mIntroduction = binding.etMyPageIntroduction.text.toString().toRequestBody("text/plain".toMediaTypeOrNull())
+            val mIntroduction = binding.etMyPageIntroduction.text.toString()
+                .toRequestBody("text/plain".toMediaTypeOrNull())
 
 
             myPageViewModel.postUpdateProfile(file, mNum, mName, mPosition, mLevel, mIntroduction)
 
             myPageViewModel.updateProfile.observe(this) {
-                if(it.code == 201) {
+                if (it.code == 201) {
                     finish()
                 }
             }

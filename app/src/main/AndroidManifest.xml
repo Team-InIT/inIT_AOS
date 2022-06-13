@@ -75,7 +75,7 @@
             android:exported="true"
             android:theme="@style/Theme.InitAndroid.NoActionBar" />
         <activity
-            android:name=".app.presentation.ui.MainActivity"
+            android:name=".app.presentation.ui.main.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
