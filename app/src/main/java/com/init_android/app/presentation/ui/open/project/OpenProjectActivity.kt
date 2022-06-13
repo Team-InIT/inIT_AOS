@@ -115,7 +115,6 @@ class OpenProjectActivity :
 
             startActivity(intent)
             finish()
-            //tryPostAddProject()
         }
     }
 

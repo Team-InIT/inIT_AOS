@@ -10,6 +10,7 @@ import com.google.android.material.chip.Chip
 import com.google.android.material.chip.ChipGroup
 import com.init_android.R
 import com.init_android.app.data.request.mypage.RequestMyInfo
+import com.init_android.app.presentation.ui.main.MainViewModel
 import com.init_android.app.presentation.ui.mypage.viewmodel.MyPageViewModel
 import com.init_android.databinding.FragmentMyPageInfoBinding
 import com.playtogether_android.app.presentation.base.BaseFragment
@@ -18,6 +19,7 @@ import com.playtogether_android.app.presentation.base.BaseFragment
 class MyPageInfoFragment : BaseFragment<FragmentMyPageInfoBinding>(R.layout.fragment_my_page_info) {
 
     private val myPageViewModel: MyPageViewModel by viewModels()
+    private val mainViewModel : MainViewModel by viewModels()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -46,7 +48,7 @@ class MyPageInfoFragment : BaseFragment<FragmentMyPageInfoBinding>(R.layout.frag
 
 
         val requestMyInfo = RequestMyInfo(
-            mNum = 1
+            mNum = mainViewModel.signData.value?.mNum ?: 1
         )
 
         myPageViewModel.postMyInfo(requestMyInfo)
@@ -57,10 +59,10 @@ class MyPageInfoFragment : BaseFragment<FragmentMyPageInfoBinding>(R.layout.frag
             val list = it.mInfo.mStacks
 
 
-
             if (list?.size != null) {
                 for (i in 0 until list?.size!!) {
                     val chip = Chip(binding.chipMypage.getContext())
+
                     val layoutParams = LinearLayout.LayoutParams(
                         LinearLayout.LayoutParams.WRAP_CONTENT,
                         LinearLayout.LayoutParams.WRAP_CONTENT

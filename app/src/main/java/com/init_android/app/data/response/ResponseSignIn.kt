@@ -8,7 +8,7 @@ data class ResponseSignIn(
 )
 
 data class Member(
-    val mNum:Int,
+    var mNum:Int,
     val mType:Int,
     val mID:String,
     val mPW:String,

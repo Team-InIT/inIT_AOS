@@ -12,7 +12,7 @@ import com.init_android.R
 import com.init_android.app.data.ServiceCreator
 import com.init_android.app.data.request.RequestSignIn
 import com.init_android.app.data.response.ResponseSignIn
-import com.init_android.app.presentation.ui.MainActivity
+import com.init_android.app.presentation.ui.main.MainActivity
 import com.init_android.app.presentation.ui.home.signin.viewmodel.SignViewModel
 import com.init_android.app.presentation.ui.home.signup.SignUpActivity
 import com.init_android.databinding.ActivitySignInBinding
@@ -99,7 +99,8 @@ class SignInActivity : BaseActivity<ActivitySignInBinding>(R.layout.activity_sig
                 response: Response<ResponseSignIn>
             ) {
                 if(response.body()?.code == 205){ // 로그인 성공
-                    val userId = signViewModel.signIn.value?.mNum ?: 0
+
+                    val userId = signViewModel.signIn.value?.mNum ?: 1
                     val intent = Intent(this@SignInActivity, MainActivity::class.java)
                     intent.putExtra("userId", userId)
                     startActivity(intent)

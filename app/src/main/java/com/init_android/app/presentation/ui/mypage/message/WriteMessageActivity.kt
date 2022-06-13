@@ -1,18 +1,16 @@
 package com.init_android.app.presentation.ui.mypage.message
 
-import android.graphics.Color
 import android.os.Bundle
 import androidx.activity.viewModels
 import com.init_android.R
-import com.init_android.app.data.model.SelectableData
+import com.init_android.app.presentation.ui.main.MainViewModel
 import com.init_android.app.util.CustomBottomSheetDialog
-import com.init_android.app.presentation.ui.home.viewmodel.mainViewModel
 import com.init_android.databinding.ActivityWriteMessageBinding
 import com.playtogether_android.app.presentation.base.BaseActivity
 
 class WriteMessageActivity :
     BaseActivity<ActivityWriteMessageBinding>(R.layout.activity_write_message) {
-    private val mainViewModel: mainViewModel by viewModels()
+    private val mainViewModel: MainViewModel by viewModels()
 
     val partBottomSheetDialog = CustomBottomSheetDialog("지원할 파트")
 

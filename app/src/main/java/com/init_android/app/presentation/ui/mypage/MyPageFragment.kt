@@ -9,6 +9,7 @@ import com.google.android.material.tabs.TabLayoutMediator
 import com.init_android.R
 import com.init_android.app.data.request.mypage.RequestMyInfo
 import com.init_android.app.presentation.ui.home.signin.viewmodel.SignViewModel
+import com.init_android.app.presentation.ui.main.MainViewModel
 import com.init_android.app.presentation.ui.mypage.adapter.MyPageTabAdapter
 import com.init_android.app.presentation.ui.mypage.viewmodel.MyPageViewModel
 import com.init_android.databinding.FragmentMyPageBinding
@@ -17,6 +18,7 @@ import com.playtogether_android.app.presentation.base.BaseFragment
 
 class MyPageFragment : BaseFragment<FragmentMyPageBinding>(R.layout.fragment_my_page) {
 
+    private val mainViewModel : MainViewModel by viewModels()
     private val myPageViewModel : MyPageViewModel by viewModels()
     private val signViewModel : SignViewModel by viewModels()
 
@@ -40,7 +42,8 @@ class MyPageFragment : BaseFragment<FragmentMyPageBinding>(R.layout.fragment_my_
     private fun initNetwork() {
 
         val requestMyInfo = RequestMyInfo(
-            mNum = 1
+            //mNum = 1
+            mNum = mainViewModel.signData.value?.mNum ?: 1
         )
 
         Log.d("MyPage mNum: " , " " + signViewModel.signIn.value?.mNum)
@@ -91,6 +94,7 @@ class MyPageFragment : BaseFragment<FragmentMyPageBinding>(R.layout.fragment_my_
             intentModifyProfile.putExtra("position", binding.tvMyPagePostion.text.toString())
             intentModifyProfile.putExtra("level", binding.tvMyPagePositionLevel.text.toString())
             intentModifyProfile.putExtra("introduction", binding.readMoreTextView.text.toString())
+            intentModifyProfile.putExtra("mNum", mainViewModel.signData.value?.mNum ?: 1)
             startActivity(intentModifyProfile)
         }
     }

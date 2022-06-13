@@ -12,8 +12,7 @@ import com.init_android.R
 import com.init_android.app.data.model.SelectableData
 import com.init_android.app.data.request.project.RequestApplyProject
 import com.init_android.app.data.request.project.RequestProjectDetail
-import com.init_android.app.presentation.ui.home.viewmodel.mainViewModel
-import com.init_android.app.presentation.ui.mypage.MyPageSettingActivity
+import com.init_android.app.presentation.ui.main.MainViewModel
 import com.init_android.app.presentation.ui.open.partner.PartnerCheckActivity
 import com.init_android.app.presentation.ui.open.partner.adapter.PartnerTabAdapter
 import com.init_android.app.presentation.ui.open.todo.ToDoMainActivity
@@ -30,7 +29,8 @@ class ProjectDetailActivity :
     private val projectViewModel: ProjectViewModel by viewModels()
     val partBottomSheetDialog = CustomBottomSheetDialog("지원할 파트")
     private lateinit var partnerTabAdapter: PartnerTabAdapter
-    private val mainViewModel: mainViewModel by viewModels()
+    private val mainViewModel: MainViewModel by viewModels()
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -62,8 +62,8 @@ class ProjectDetailActivity :
 
     private fun initNetwork() {
         val pNum = intent.getIntExtra("pNum", 1)
-        //val mNum = intent.getIntExtra("mNum", 1)
-        val mNum = 1
+        val mNum = mainViewModel.signData.value?.mNum ?: 1
+        //val mNum = 1
 
         Log.d("pNum", " " + pNum)
         Log.d("mNum", " " + mNum)

@@ -1,6 +1,7 @@
-package com.init_android.app.presentation.ui
+package com.init_android.app.presentation.ui.main
 
 import android.os.Bundle
+import androidx.activity.viewModels
 import com.init_android.R
 import com.init_android.app.presentation.ui.alarm.AlarmFragment
 import com.init_android.app.presentation.ui.feed.FeedFragment
@@ -12,10 +13,12 @@ import com.playtogether_android.app.presentation.base.BaseActivity
 
 class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
 
+    private val mainViewModel : MainViewModel by viewModels()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         initBottomNavi()
-        //settingId()
+        settingId()
     }
 
     private fun initBottomNavi() {
@@ -33,7 +36,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
                 }
                 R.id.menu_feed -> {
                     supportFragmentManager.beginTransaction()
-                        .replace(R.id.fragment_main,FeedFragment()).commit()
+                        .replace(R.id.fragment_main, FeedFragment()).commit()
                 }
                 R.id.menu_alarm -> {
                     supportFragmentManager.beginTransaction()
@@ -49,12 +52,15 @@ class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
     }
 
     //userId저장
-  /*  private fun settingId() {
-        val userId = intent.getIntExtra("userId", 0)
-        binding.fabWriting.setOnClickListener {
-            val intent = Intent(this@MainActivity, OpenProjectActivity::class.java)
-            intent.putExtra("userId", userId)
-            startActivity(intent)
+    private fun settingId() {
+        val userId = intent.getIntExtra("userId", 1)
+//        binding.fabWriting.setOnClickListener {
+//            val intent = Intent(this@MainActivity, OpenProjectActivity::class.java)
+//            intent.putExtra("userId", userId)
+//            startActivity(intent)
+//        }
+        mainViewModel.signData.observe(this) {
+            it.mNum = userId
         }
-    }*/
+    }
 }
