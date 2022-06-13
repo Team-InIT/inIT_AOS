@@ -52,12 +52,6 @@ class ProjectDetailActivity :
         }
     }
 
-    //지원하기 클릭 리스너
-    private fun checkMemBtnClickListener() {
-        binding.btnDetailApply.setOnClickListener {
-            startActivity(Intent(this, PartnerCheckActivity::class.java))
-        }
-    }
 
     //하트 클릭 리스너
     private fun heartClickListener() {
@@ -233,6 +227,8 @@ class ProjectDetailActivity :
                     chip.isCheckable = false
                     binding.clDetailStack.addView(chip)
                 }
+            } else {
+                binding.tvDetailStack.visibility = View.GONE
             }
         }
     }
