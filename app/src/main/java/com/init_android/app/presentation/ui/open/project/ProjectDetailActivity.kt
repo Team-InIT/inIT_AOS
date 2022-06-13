@@ -68,7 +68,8 @@ class ProjectDetailActivity :
 
     private fun initNetwork() {
         val pNum = intent.getIntExtra("pNum", 1)
-        val mNum = intent.getIntExtra("mNum", 1)
+        //val mNum = intent.getIntExtra("mNum", 1)
+        val mNum = 1
 
         Log.d("pNum", " " + pNum)
         Log.d("mNum", " " + mNum)
@@ -81,14 +82,27 @@ class ProjectDetailActivity :
         projectViewModel.detailProject.observe(this) {
             binding.project = it
 
-            binding.btnDetailApply.setOnClickListener {
+            //click listenr 2번 변경경
+           binding.btnDetailApply.setOnClickListener {
                 projectViewModel.detailProject.observe(this) {
                     binding.project = it
 
-                    if (it.isApproval == true) {
-                        Toast.makeText(this@ProjectDetailActivity, "이미 지원한 프로젝트입니다.", Toast.LENGTH_SHORT)
-                            .show()
-                    } else {
+                    if (it.code == 201) {
+//                        Toast.makeText(
+//                            this@ProjectDetailActivity,
+//                            "이미 지원한 프로젝트입니다.",
+//                            Toast.LENGTH_SHORT
+//                        )
+//                            .show()
+                        clickListener()
+
+                    } else if(it.writerInfo?.mNum == mNum) {
+                        Toast.makeText(this@ProjectDetailActivity, "내 프로젝트 입니다", Toast.LENGTH_SHORT).show()
+                        Log.d("Test", "내 프로젝트")
+
+                    }
+
+                    else {
                         clickListener()
                     }
                 }
@@ -267,9 +281,16 @@ class ProjectDetailActivity :
         val dialog = CustomDialog(this, title)
         dialog.showChoiceDialog(R.layout.dialog_yes_no)
 
+        val pNum = intent.getIntExtra("pNum", 1)
+        val mNum = 1
+        //val mNum = intent.getIntExtra("mNum", 1)
+
+        Log.d("ApplypNum", " " + pNum)
+        Log.d("ApplymNum", " " + mNum)
+
         dialog.setOnClickedListener(object : CustomDialog.ButtonClickListener {
             val requestApply = RequestApplyProject(
-                pNum = 1, mNum = 5,
+                pNum = pNum, mNum = mNum,
                 rPosition = mainViewModel.partNum.value ?: 0
             )
 

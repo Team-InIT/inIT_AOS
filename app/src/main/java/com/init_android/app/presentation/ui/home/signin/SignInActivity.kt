@@ -77,6 +77,8 @@ class SignInActivity : BaseActivity<ActivitySignInBinding>(R.layout.activity_sig
     // 홈화면 이동
     private fun initLoginBtn(){
         binding.btnLogin.setOnClickListener {
+            startActivity(Intent(this, MainActivity::class.java))
+            finish()
             tryPostLogin()// 로그인 서버 통신 시도
         }
     }
