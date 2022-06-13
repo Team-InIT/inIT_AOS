@@ -37,12 +37,17 @@ class OpenProjectSecondActivity :
         initNextBtn()
         initBackBtn()
         initNetwork()
+        backBtnListener()
 
         with(binding) {
             makeRadioButton2(tvMale, tvFemale)
             makeRadioButton3(tvEnroll, tvLeave, tvGraduate)
             makeRadioButton3(tvPlanHigh, tvPlanMid, tvPlanLow)
             makeRadioButton3(tvDesignHigh, tvDesignMid, tvDesignLow)
+            makeRadioButton3(tvWebHigh,tvWebMid,tvWebLow)
+            makeRadioButton3(tvIosHigh,tvIosMid,tvIosLow)
+            makeRadioButton3(tvAosHigh, tvAosMid, tvAosLow)
+            makeRadioButton3(tvGameHigh, tvGameMid, tvGameLow)
             makeRadioButton3(tvServerHigh, tvServerMid, tvServerLow)
         }
 
@@ -325,6 +330,12 @@ class OpenProjectSecondActivity :
                 view1.isSelected = false
                 view2.isSelected = true
             }
+        }
+    }
+
+    private fun backBtnListener() {
+        binding.ivOpenProjectBack.setOnClickListener {
+            finish()
         }
     }
 }

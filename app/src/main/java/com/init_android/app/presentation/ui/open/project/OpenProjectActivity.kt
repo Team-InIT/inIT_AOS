@@ -119,57 +119,8 @@ class OpenProjectActivity :
         }
     }
 
-    // 서버통신 함수
-    private fun tryPostAddProject() {
-        val userId = intent.getIntExtra("userId", 0)
 
-        val requestAddProject = RequestAddProject(
-            pTitle = binding.etOpenProjectName.text.toString(),
-            pType = value,
-            pRecruitStart = formatter.parse("2022-06-05"),
-            pRecruitDue = formatter.parse(
-                binding.etOpenProjectDateEnd.text.toString().replace(".", "-")
-            ),
-            pStart = formatter.parse(
-                binding.etOpenProjectDateWhenStart.text.toString().replace(".", "-")
-            ),
-            pDue = formatter.parse(
-                binding.etOpenProjectDateWhenEnd.text.toString().replace(".", "-")
-            ),
-            pPlan = Integer.parseInt(binding.etOpenProjectPlan.text.toString()),
-            pDesign = Integer.parseInt(binding.etOpenProjectDesign.text.toString()),
-            pIos = Integer.parseInt(binding.etOpenProjectIos.text.toString()),
-            pAos = Integer.parseInt(binding.etOpenProjectAos.text.toString()),
-            pGame = Integer.parseInt(binding.etOpenProjectGame.text.toString()),
-            pWeb = Integer.parseInt(binding.etOpenProjectWeb.text.toString()),
-            pServer = Integer.parseInt(binding.etOpenProjectServer.text.toString()),
-            pDescription = binding.etOpenProjectIntroduction.text.toString(),
-            pOnOff = 1,
-
-            pGender = 0,
-            pAcademic = 1,
-            pPlanf = 1,
-            pDesignf = 1,
-            pIosf = null,
-            pAosf = null,
-            pGamef = null,
-            pWebf = null,
-            pServerf = null,
-            mNum = 1,
-            pStack = "java,kotlin",
-            mPosition = 1
-        )
-
-        Log.d("pType", "" + value)
-        Log.d("userId", "" + userId)
-
-
-        projectViewModel.postOpenProject(requestAddProject)
-
-    }
-
-    //데이트피커 1
-//데이트 피커
+    //데이트피커
     private fun initDatePickerDialog() {
         binding.etOpenProjectDateEnd.setOnClickListener {
             val calendar: Calendar = Calendar.getInstance()
