@@ -24,6 +24,7 @@ class MyPageSettingActivity :
 
         movePage()
         networkQuit()
+        backBtnListener()
 
     }
 
@@ -32,6 +33,13 @@ class MyPageSettingActivity :
         binding.ivMypageAlarm.setOnClickListener {
             val intent = Intent(this, NotificationSettingActivity::class.java)
             startActivity(intent)
+        }
+    }
+
+
+    private fun backBtnListener() {
+        binding.imgMypageSettingMovePage.setOnClickListener {
+            finish()
         }
     }
 
