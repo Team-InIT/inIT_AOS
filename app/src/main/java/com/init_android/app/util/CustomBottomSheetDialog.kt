@@ -19,7 +19,7 @@ import com.init_android.app.presentation.ui.main.MainViewModel
 import com.init_android.databinding.FragmentCustomBottomSheetDialogBinding
 
 
-class CustomBottomSheetDialog(private val title: String) : BottomSheetDialogFragment() {
+class CustomBottomSheetDialog(private val title: String, private val btn:String) : BottomSheetDialogFragment() {
 
     private val mainViewModel: MainViewModel by activityViewModels {
         object : ViewModelProvider.Factory {
@@ -33,6 +33,10 @@ class CustomBottomSheetDialog(private val title: String) : BottomSheetDialogFrag
     private var _titleData = MutableLiveData<String>()
     val titleData: LiveData<String>
         get() = _titleData
+
+    private var _btnData = MutableLiveData<String>()
+    val btnData: LiveData<String>
+        get() = _btnData
 
     var completeOperation: () -> Unit = { }
 
@@ -58,6 +62,7 @@ class CustomBottomSheetDialog(private val title: String) : BottomSheetDialogFrag
 
         initBottomSheetSetting()
         initTitle()
+        initBtn()
         initAdapter()
         setClickListener()
         observeSelectedData()
@@ -99,6 +104,12 @@ class CustomBottomSheetDialog(private val title: String) : BottomSheetDialogFrag
         _titleData.value = title
     }
 
+    private fun initBtn() {
+        btnData.observe(viewLifecycleOwner) {
+            binding.btnBottomsheetComplete.text = btnData.value
+        }
+        _btnData.value = btn
+    }
 
     private fun initAdapter() {
         // Recycler view 구분선 추가

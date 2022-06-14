@@ -27,7 +27,7 @@ class ProjectDetailActivity :
     BaseActivity<ActivityProjectDetailBinding>(R.layout.activity_project_detail) {
 
     private val projectViewModel: ProjectViewModel by viewModels()
-    val partBottomSheetDialog = CustomBottomSheetDialog("지원할 파트")
+    val partBottomSheetDialog = CustomBottomSheetDialog("지원할 파트", "지원하기")
     private lateinit var partnerTabAdapter: PartnerTabAdapter
     private val mainViewModel: MainViewModel by viewModels()
 

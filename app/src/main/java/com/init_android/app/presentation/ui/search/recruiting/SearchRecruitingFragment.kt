@@ -15,7 +15,7 @@ import com.playtogether_android.app.presentation.base.BaseFragment
 class SearchRecruitingFragment:BaseFragment<FragmentSearchRecruitingBinding>(R.layout.fragment_search_recruiting) {
 
 
-    private val partBottomSheetDialog = CustomBottomSheetDialog("프로젝트 타입")
+    private val partBottomSheetDialog = CustomBottomSheetDialog("프로젝트 타입","완료")
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -49,13 +49,9 @@ class SearchRecruitingFragment:BaseFragment<FragmentSearchRecruitingBinding>(R.l
     private fun clickListener() {
         //더미 데이터 넣는 부분
         var partData = mutableListOf(
-            SelectableData(1, "기획", false),
-            SelectableData(2, "디자인", false),
-            SelectableData(3, "웹", false),
-            SelectableData(4, "안드로이드", false),
-            SelectableData(5, "IOS", false),
-            SelectableData(6, "게임", false),
-            SelectableData(7, "서버", false),
+            SelectableData(1, "웹", false),
+            SelectableData(2, "모바일", false),
+            SelectableData(3, "게임", false),
         )
         partBottomSheetDialog.setDataList(partData)
 
