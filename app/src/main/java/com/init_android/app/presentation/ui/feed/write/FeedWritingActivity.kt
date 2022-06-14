@@ -9,6 +9,7 @@ import android.graphics.BitmapFactory
 import android.net.Uri
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.activity.result.ActivityResultLauncher
@@ -59,10 +60,11 @@ class FeedWritingActivity :
         getPhotoUri()
         initSpinner()
         tryPostFeed()
+        initBottomSheet()
     }
 
     private fun initSpinner() {
-        val list = listOf("선택해주세요.", "웹", "모바일", "게임")
+        val list = listOf("웹", "모바일", "게임")
         val spinnerAdapter = SpinnerAdapter(this, R.layout.spinner_item, list)
         binding.spinnerProjectType.adapter = spinnerAdapter
         binding.spinnerProjectType.dropDownVerticalOffset = binding.spinnerProjectType.bottom
@@ -134,15 +136,36 @@ class FeedWritingActivity :
         // 원래 여기서 서버통신 받아옴
 
         var partData = mutableListOf(
-            SelectableData(1, "기획", false),
-            SelectableData(2, "디자인", false),
-            SelectableData(3, "웹", false),
-            SelectableData(4, "안드로이드", false),
-            SelectableData(5, "IOS", false),
-            SelectableData(6, "게임", false),
-            SelectableData(7, "서버", false),
+            SelectableData(1, "인잇", false),
+            SelectableData(2, "플투", false),
+            SelectableData(3, "알바집", false),
+            SelectableData(4, "나도선배", false),
         )
         projectListBottomSheetDialog.setDataList(partData)
+
+        //버튼 클릭해서 바텀시트 생성되는 부분
+        binding.tvSelectProjectList.setOnClickListener {
+            projectListBottomSheetDialog.show(
+                supportFragmentManager,
+                projectListBottomSheetDialog.tag
+            )
+
+            //클릭 완료되었을때 일어나는 리스너
+            projectListBottomSheetDialog.setCompleteListener {
+                val part = projectListBottomSheetDialog.getSelectedData()
+                //뷰모델에 넣어주는 코드
+                // mainViewModel.part.value = part?.name
+                // mainViewModel.partNum.value = part?.id
+                projectListBottomSheetDialog.binding.btnBottomsheetCancel
+                //알럿
+                // initAlert()
+                binding.tvSelectProjectList.text = "인잇"
+                projectListBottomSheetDialog.binding.btnBottomsheetComplete.setOnClickListener {
+                    Log.d("클릭", "완료")
+                    // initAlert()
+                }
+            }
+        }
     }
 
     // 피드 등록
@@ -162,9 +185,9 @@ class FeedWritingActivity :
 
             feedViewModel.addFeed.observe(this){
                 if(it.code == 201) {
-                    Log.d("hehe","유후~")
+                    Log.d("글쓰기","성공")
                 }else{
-                    Log.d("hehe",it.message)
+                    Log.d("글쓰기",it.message)
                 }
 
             }
