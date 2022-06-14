@@ -38,7 +38,7 @@ class FeedWritingActivity :
 
     private var getResult: ActivityResultLauncher<Intent>? = null
     private val feedViewModel: FeedViewModel by viewModels()
-    val projectListBottomSheetDialog = CustomBottomSheetDialog("프로젝트 리스트")
+    val projectListBottomSheetDialog = CustomBottomSheetDialog("프로젝트 리스트", "완료")
     var fileUri: Uri? = null
 
     // 갤러리 접근 권한 런처
