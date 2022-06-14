@@ -164,6 +164,9 @@
         <entry key="app/src/main/res/layout/fragment_custom_bottom_sheet_dialog.xml" value="0.24375" />
         <entry key="app/src/main/res/layout/fragment_feed.xml" value="0.2328125" />
         <entry key="app/src/main/res/layout/fragment_my_page.xml" value="0.24375" />
+        <entry key="app/src/main/res/layout/fragment_review_done.xml" value="0.24270833333333333" />
+        <entry key="app/src/main/res/layout/fragment_review_undone.xml" value="0.24270833333333333" />
+        <entry key="app/src/main/res/layout/fragment_search.xml" value="0.1322463768115942" />
         <entry key="app/src/main/res/layout/fragment_search_partner.xml" value="0.24375" />
         <entry key="app/src/main/res/layout/fragment_search_recruit_finish.xml" value="0.24375" />
         <entry key="app/src/main/res/layout/fragment_search_recruiting.xml" value="0.24375" />

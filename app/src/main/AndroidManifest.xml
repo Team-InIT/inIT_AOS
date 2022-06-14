@@ -92,6 +92,8 @@
         <activity
             android:name=".app.presentation.ui.feed.detail.FeedDetailActivity"
             android:exported="true" />
+        <activity android:name=".app.presentation.ui.open.team.TeamReviewActivity"
+            android:exported="true"/>
     </application>
 
 </manifest>
