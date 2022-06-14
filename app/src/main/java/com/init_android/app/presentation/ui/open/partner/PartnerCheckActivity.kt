@@ -16,6 +16,9 @@ class PartnerCheckActivity :
     private lateinit var partnerTabAdapter: PartnerTabAdapter
     private val projectViewModel: ProjectViewModel by viewModels()
 
+    val pNum = intent.getIntExtra("pNum", 1)
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 

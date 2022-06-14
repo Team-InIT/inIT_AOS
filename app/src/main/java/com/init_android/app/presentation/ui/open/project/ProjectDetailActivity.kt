@@ -32,6 +32,9 @@ class ProjectDetailActivity :
     private val mainViewModel: MainViewModel by viewModels()
 
 
+    val pNum = intent.getIntExtra("pNum", 1)
+    val mNum = mainViewModel.signData.value?.mNum ?: 1
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -61,8 +64,7 @@ class ProjectDetailActivity :
     }
 
     private fun initNetwork() {
-        val pNum = intent.getIntExtra("pNum", 1)
-        val mNum = mainViewModel.signData.value?.mNum ?: 1
+
         //val mNum = 1
 
         Log.d("pNum", " " + pNum)
@@ -317,6 +319,7 @@ class ProjectDetailActivity :
     private fun initToDoBtnListener() {
         binding.tvDetailTodo.setOnClickListener {
             val intentToDo = Intent(this, ToDoMainActivity::class.java)
+            intentToDo.putExtra("pNum", pNum)
             startActivity(intentToDo)
         }
     }
@@ -325,6 +328,7 @@ class ProjectDetailActivity :
     private fun initMemListener() {
         binding.tvDetailMember.setOnClickListener {
             val intentMem = Intent(this, PartnerCheckActivity::class.java)
+            intentMem.putExtra("pNum", pNum)
             startActivity(intentMem)
         }
     }
