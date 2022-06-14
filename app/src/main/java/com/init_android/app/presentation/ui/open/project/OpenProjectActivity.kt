@@ -43,6 +43,7 @@ class OpenProjectActivity :
         initChipGroup()
         initOnOff()
         initNextBtn()
+        initBackBtnListener()
 
     }
 
@@ -312,6 +313,12 @@ class OpenProjectActivity :
         binding.ivWriteOffline.setOnClickListener {
             binding.ivWriteOnline.isSelected = false
             binding.ivWriteOffline.isSelected = true
+        }
+    }
+
+    private fun initBackBtnListener() {
+        binding.ivOpenProjectBack.setOnClickListener {
+            finish()
         }
     }
 }

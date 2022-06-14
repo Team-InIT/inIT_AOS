@@ -14,9 +14,6 @@ import okhttp3.Response
 
 class SignViewModel(): ViewModel() {
 
-    //유저 아이디
-    var mId = MutableLiveData<Int>()
-
     private val _logIn = MutableLiveData<ResponseSignIn>()
     val logIn : LiveData<ResponseSignIn>
     get() = _logIn

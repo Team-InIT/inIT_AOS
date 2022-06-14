@@ -1,6 +1,7 @@
 package com.init_android.app.presentation.ui.main
 
 import android.os.Bundle
+import android.util.Log
 import androidx.activity.viewModels
 import com.init_android.R
 import com.init_android.app.presentation.ui.alarm.AlarmFragment
@@ -13,7 +14,7 @@ import com.playtogether_android.app.presentation.base.BaseActivity
 
 class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
 
-    private val mainViewModel : MainViewModel by viewModels()
+    private val mainViewModel: MainViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -54,13 +55,12 @@ class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
     //userId저장
     private fun settingId() {
         val userId = intent.getIntExtra("userId", 1)
+        Log.d("MainHome", userId.toString())
+        mainViewModel.mId.value = userId
 //        binding.fabWriting.setOnClickListener {
 //            val intent = Intent(this@MainActivity, OpenProjectActivity::class.java)
 //            intent.putExtra("userId", userId)
 //            startActivity(intent)
 //        }
-        mainViewModel.signData.observe(this) {
-            it.mNum = userId
-        }
     }
 }

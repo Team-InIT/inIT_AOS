@@ -12,6 +12,7 @@ import com.init_android.app.data.request.RequestHome
 import com.init_android.app.presentation.ui.home.adapter.ProjectItemRVAdapter
 import com.init_android.app.presentation.ui.home.adapter.ProjectItemVPAdapter
 import com.init_android.app.presentation.ui.home.recommendproject.RecommendProjectActivity
+import com.init_android.app.presentation.ui.home.signin.viewmodel.SignViewModel
 import com.init_android.app.presentation.ui.home.viewmodel.HomeViewModel
 import com.init_android.app.presentation.ui.main.MainViewModel
 import com.init_android.app.presentation.ui.open.project.OpenProjectActivity
@@ -28,6 +29,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
 
     private val mainViewModel : MainViewModel by viewModels()
     private val homeViewModel: HomeViewModel by viewModels()
+    private val signViewModel : SignViewModel by viewModels()
     override fun onResume() {
         super.onResume()
     }
@@ -175,6 +177,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
     private fun writeBtnClick() {
         binding.fabWriting.setOnClickListener {
             val intent = Intent(requireActivity(), OpenProjectActivity::class.java)
+            intent.putExtra("userId", mainViewModel.mId.value)
             startActivity(intent)
         }
     }

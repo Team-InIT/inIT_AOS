@@ -13,6 +13,8 @@ class MainViewModel() : ViewModel() {
     val signData: LiveData<Member>
         get() = _signData
 
+    //유저 아이디
+    var mId = MutableLiveData<Int>()
 
     var text = MutableLiveData<String>()
     var part = MutableLiveData<String>()
