@@ -113,6 +113,11 @@
     <!-- SearchFragment -->
     <string name="search_area_recruit">프로젝트 이름을 검색해주세요</string>
     <string name="search_area_partner">파트원 이름을 검색해주세요</string>
+    <string name="string_project_type">프로젝트 타입</string>
+    <string name="string_filtering">필터링 항목</string>
+    <string name="string_key_word_search">키워드를 검색해주세요</string>표
+    <string name="string_represent_position">대표 표지션</string>
+    <string name="string_my_level">숙련도</string>
 
     <!--MyPage-->
     <string name="string_modify">수정</string>
@@ -171,5 +176,8 @@
     <string name="feed_writing_link">링크 추가</string>
     <string name="feed_writing_project_type">프로젝트 유형</string>
     <string name="feed_detail_go_to_project">프로젝트 보러가기</string>
+    <string name="string_all">전체</string>
+    <string name="string_mobile">모바일</string>
+    <string name="string_game">게임</string>
 
 </resources>

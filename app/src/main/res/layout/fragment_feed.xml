@@ -61,7 +61,7 @@
                 android:layout_height="match_parent"
                 android:textSize="12sp"
                 android:layout_marginHorizontal="16dp"
-                android:hint="@string/feed_search_hint"
+                android:hint="@string/string_key_word_search"
                 android:textColor="@color/black"
                 android:background="@null" />
             <ImageView
@@ -72,16 +72,54 @@
                 android:src="@drawable/ic_search"/>
         </LinearLayout>
 
+
+        <LinearLayout
+            android:id="@+id/layout_search_chip"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="@+id/layout_feed_search_area"
+            app:layout_constraintStart_toStartOf="@+id/layout_feed_search_area"
+            app:layout_constraintTop_toBottomOf="@id/layout_feed_search_area">
+
+            <com.google.android.material.chip.ChipGroup
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <com.google.android.material.chip.Chip
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checkable="true"
+                    android:text="@string/web"/>
+
+                <com.google.android.material.chip.Chip
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checkable="true"
+                    android:text="@string/string_mobile"/>
+
+                <com.google.android.material.chip.Chip
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checkable="true"
+                    android:text="@string/game"/>
+
+            </com.google.android.material.chip.ChipGroup>
+
+        </LinearLayout>
+
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_feed"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_marginHorizontal="16dp"
-            android:layout_marginVertical="16dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="40dp"
             app:spanCount="2"
             app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/layout_feed_search_area"
+            app:layout_constraintTop_toBottomOf="@id/layout_search_chip"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
             tools:listitem="@layout/item_feed_list"/>
