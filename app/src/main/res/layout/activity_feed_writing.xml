@@ -74,12 +74,14 @@
                 android:text="@string/feed_writing_select_project"/>
 
 
-            <androidx.appcompat.widget.AppCompatSpinner
-                android:id="@+id/spinner_select_project"
+            <TextView
+                android:id="@+id/tv_select_project_list"
                 android:layout_marginTop="8dp"
                 android:background="@drawable/rectangle_stroke_gray_radius_8"
-                android:text="@string/feed_writing_select_project"
+                android:orientation="horizontal"
                 android:layout_width="match_parent"
+                android:gravity="center"
+                android:text="@string/feed_writing_select_project"
                 android:layout_height="32dp"/>
 
             <TextView
@@ -94,13 +96,13 @@
                 android:id="@+id/etv_project_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="14sp"
-                android:gravity="center"
-                android:paddingVertical="4dp"
-                android:background="@drawable/rectangle_stroke_gray_radius_8"
-                android:hint="@string/feed_writing_project_name_hint"
                 android:layout_marginTop="8dp"
-                android:textColor="@color/black"/>
+                android:background="@drawable/rectangle_stroke_gray_radius_8"
+                android:gravity="center"
+                android:hint="@string/feed_writing_project_name_hint"
+                android:paddingVertical="4dp"
+                android:textColor="@color/black"
+                android:textSize="14sp" />
 
             <TextView
                 android:id="@+id/tv_project_type"
