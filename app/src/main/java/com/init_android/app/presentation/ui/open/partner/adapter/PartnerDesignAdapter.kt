@@ -7,16 +7,17 @@ import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.init_android.app.data.response.project.approve.ResponseProjectMember
 import com.init_android.app.presentation.ui.mypage.PartnerPageActivity
+import com.init_android.databinding.ItemPartnerDesignListBinding
 import com.init_android.databinding.ItemPartnerListBinding
 
-class PartnerAdapter(var userId : Int) : RecyclerView.Adapter<PartnerAdapter.PartnerListViewHolder>() {
-    var partnerData = mutableListOf<ResponseProjectMember.ApprovedPlan>()
+class PartnerDesignAdapter(var userId : Int) : RecyclerView.Adapter<PartnerDesignAdapter.PartnerListViewHolder>() {
+    var partnerData = mutableListOf<ResponseProjectMember.ApprovedDesign>()
 
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
     ): PartnerListViewHolder {
-        val binding = ItemPartnerListBinding.inflate(
+        val binding = ItemPartnerDesignListBinding.inflate(
             LayoutInflater.from(parent.context),
             parent,
             false
@@ -44,9 +45,9 @@ class PartnerAdapter(var userId : Int) : RecyclerView.Adapter<PartnerAdapter.Par
     override fun getItemCount(): Int = partnerData.size
 
     inner class PartnerListViewHolder(
-        val binding: ItemPartnerListBinding
+        val binding: ItemPartnerDesignListBinding
     ) : RecyclerView.ViewHolder(binding.root) {
-        fun onBind(partnerData: ResponseProjectMember.ApprovedPlan) {
+        fun onBind(partnerData: ResponseProjectMember.ApprovedDesign) {
             binding.apply {
                 member = partnerData
                 executePendingBindings()
@@ -54,7 +55,7 @@ class PartnerAdapter(var userId : Int) : RecyclerView.Adapter<PartnerAdapter.Par
         }
     }
 
-    fun setQuestionPost(partnerData: MutableList<ResponseProjectMember.ApprovedPlan>) {
+    fun setQuestionPost(partnerData: MutableList<ResponseProjectMember.ApprovedDesign>) {
         this.partnerData = partnerData
         notifyDataSetChanged()
 

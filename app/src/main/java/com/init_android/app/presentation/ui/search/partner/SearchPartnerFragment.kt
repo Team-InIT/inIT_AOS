@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.view.View
 import com.init_android.R
 import com.init_android.app.data.model.PartnerData
-import com.init_android.app.presentation.ui.open.partner.adapter.PartnerAdapter
 import com.init_android.app.presentation.ui.search.adapter.SearchPartnerAdapter
 import com.init_android.databinding.FragmentSearchPartnerBinding
 import com.playtogether_android.app.presentation.base.BaseFragment
