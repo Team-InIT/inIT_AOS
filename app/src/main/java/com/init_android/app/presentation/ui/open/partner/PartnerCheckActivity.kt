@@ -1,21 +1,12 @@
 package com.init_android.app.presentation.ui.open.partner
 
 import android.os.Bundle
-import android.util.Log
 import android.view.View
-import android.widget.Toast
 import androidx.activity.viewModels
 import com.google.android.material.tabs.TabLayoutMediator
 import com.init_android.R
-import com.init_android.app.data.model.SelectableData
-import com.init_android.app.data.request.RequestFinishProject
-import com.init_android.app.data.request.project.RequestApplyProject
-import com.init_android.app.presentation.ui.home.viewmodel.HomeViewModel
-import com.init_android.app.presentation.ui.home.viewmodel.mainViewModel
 import com.init_android.app.presentation.ui.open.partner.adapter.PartnerTabAdapter
 import com.init_android.app.presentation.ui.open.viewmodel.ProjectViewModel
-import com.init_android.app.util.CustomBottomSheetDialog
-import com.init_android.app.util.CustomDialog
 import com.init_android.databinding.ActivityPartnerCheckBinding
 import com.playtogether_android.app.presentation.base.BaseActivity
 

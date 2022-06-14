@@ -77,8 +77,6 @@ class SignInActivity : BaseActivity<ActivitySignInBinding>(R.layout.activity_sig
     // 홈화면 이동
     private fun initLoginBtn(){
         binding.btnLogin.setOnClickListener {
-            startActivity(Intent(this, MainActivity::class.java))
-            finish()
             tryPostLogin()// 로그인 서버 통신 시도
         }
     }
@@ -91,32 +89,47 @@ class SignInActivity : BaseActivity<ActivitySignInBinding>(R.layout.activity_sig
         )
 
 
-        val call: Call<ResponseSignIn> = ServiceCreator.initService.postLogin(requestSignIn)
-
-        call.enqueue(object:Callback<ResponseSignIn>{
-            override fun onResponse(
-                call: Call<ResponseSignIn>,
-                response: Response<ResponseSignIn>
-            ) {
-                if(response.body()?.code == 205){ // 로그인 성공
-
+        signViewModel.postSignIn(requestSignIn)
+        signViewModel.logIn.observe(this) {
+            if(it.code == 204) {
                     val userId = signViewModel.signIn.value?.mNum ?: 1
+                    Log.d("signId", userId.toString())
                     val intent = Intent(this@SignInActivity, MainActivity::class.java)
                     intent.putExtra("userId", userId)
                     startActivity(intent)
                     finish()
-                    Toast.makeText(this@SignInActivity, response.body()?.message, Toast.LENGTH_SHORT).show()
-                }else{ // 201~204 -> 로그인 실패
-                    binding.tvWarning.text = response.body()?.message
-                    binding.tvWarning.visibility = View.VISIBLE
-                }
+                    Toast.makeText(this@SignInActivity, it.message, Toast.LENGTH_SHORT).show()
+            } else {
+                Toast.makeText(this@SignInActivity, "존재하지 않습니다.", Toast.LENGTH_SHORT).show()
             }
-
-            override fun onFailure(call: Call<ResponseSignIn>, t: Throwable) { // 서버 통신에러
-                Log.e("NetworkTest", "error:$t")
-            }
-
-        })
+        }
+//        val call: Call<ResponseSignIn> = ServiceCreator.initService.postLogin(requestSignIn)
+//
+//        call.enqueue(object:Callback<ResponseSignIn>{
+//            override fun onResponse(
+//                call: Call<ResponseSignIn>,
+//                response: Response<ResponseSignIn>
+//            ) {
+//                if(response.body()?.code == 205){ // 로그인 성공
+//
+//                    val userId = signViewModel.signIn.value?.mNum ?: 1
+//                    Log.d("signId", userId.toString())
+//                    val intent = Intent(this@SignInActivity, MainActivity::class.java)
+//                    intent.putExtra("userId", userId)
+//                    startActivity(intent)
+//                    finish()
+//                    Toast.makeText(this@SignInActivity, response.body()?.message, Toast.LENGTH_SHORT).show()
+//                }else{ // 201~204 -> 로그인 실패
+//                    binding.tvWarning.text = response.body()?.message
+//                    binding.tvWarning.visibility = View.VISIBLE
+//                }
+//            }
+//
+//            override fun onFailure(call: Call<ResponseSignIn>, t: Throwable) { // 서버 통신에러
+//                Log.e("NetworkTest", "error:$t")
+//            }
+//
+//        })
 
     }
 
