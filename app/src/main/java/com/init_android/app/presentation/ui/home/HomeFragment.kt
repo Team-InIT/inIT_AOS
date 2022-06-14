@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import androidx.activity.viewModels
 import androidx.fragment.app.viewModels
 import com.init_android.R
 import com.init_android.app.data.model.ProjectItemData
@@ -11,7 +12,9 @@ import com.init_android.app.data.request.RequestHome
 import com.init_android.app.presentation.ui.home.adapter.ProjectItemRVAdapter
 import com.init_android.app.presentation.ui.home.adapter.ProjectItemVPAdapter
 import com.init_android.app.presentation.ui.home.recommendproject.RecommendProjectActivity
+import com.init_android.app.presentation.ui.home.signin.viewmodel.SignViewModel
 import com.init_android.app.presentation.ui.home.viewmodel.HomeViewModel
+import com.init_android.app.presentation.ui.main.MainViewModel
 import com.init_android.app.presentation.ui.open.project.OpenProjectActivity
 import com.init_android.app.util.DateUtil
 
@@ -24,7 +27,9 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
     val includeList = mutableListOf<ProjectItemData>()
     val recoList = mutableListOf<ProjectItemData>()
 
+    private val mainViewModel : MainViewModel by viewModels()
     private val homeViewModel: HomeViewModel by viewModels()
+    private val signViewModel : SignViewModel by viewModels()
     override fun onResume() {
         super.onResume()
     }
@@ -39,6 +44,8 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
 
     // 서버 통신 - 데이터 존재 여부 검사
     private fun tryGetHomeProject() {
+
+        Log.d("userCode", mainViewModel.signData.value?.mID.toString())
 
         val requestHome = RequestHome(
             mNum = 1,
@@ -170,6 +177,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
     private fun writeBtnClick() {
         binding.fabWriting.setOnClickListener {
             val intent = Intent(requireActivity(), OpenProjectActivity::class.java)
+            intent.putExtra("userId", mainViewModel.mId.value)
             startActivity(intent)
         }
     }

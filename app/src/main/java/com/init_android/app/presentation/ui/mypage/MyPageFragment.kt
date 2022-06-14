@@ -41,12 +41,14 @@ class MyPageFragment : BaseFragment<FragmentMyPageBinding>(R.layout.fragment_my_
 
     private fun initNetwork() {
 
+
         val requestMyInfo = RequestMyInfo(
             //mNum = 1
-            mNum = mainViewModel.signData.value?.mNum ?: 1
+
+            mNum = mainViewModel.mId.value ?: 1
         )
 
-        Log.d("MyPage mNum: " , " " + signViewModel.signIn.value?.mNum)
+        Log.d("MyPage mNum: " , " " + mainViewModel.mId.value)
 
         myPageViewModel.postMyInfo(requestMyInfo)
 

@@ -393,7 +393,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
                     android:fontFamily="@font/noto_sans_kr_medium"
-                    android:text="@string/project_partner_info"
+                    android:text="모집조건"
                     android:textColor="@color/black"
                     android:textSize="16sp"
                     app:layout_constraintStart_toStartOf="@+id/tv_detail_stack"
