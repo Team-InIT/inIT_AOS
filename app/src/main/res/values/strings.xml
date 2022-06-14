@@ -180,4 +180,7 @@
     <string name="string_mobile">모바일</string>
     <string name="string_game">게임</string>
 
+    <!-- Team Review Activity -->
+    <string name="string_team_review">팀원 평가</string>
+
 </resources>
