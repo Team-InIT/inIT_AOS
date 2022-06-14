@@ -81,7 +81,7 @@
         <entry key="..\:/Users/82104/inIT_AOS/app/src/main/res/layout/fragment_plan.xml" value="0.35294117647058826" />
         <entry key="..\:/Users/82104/inIT_AOS/app/src/main/res/layout/fragment_search.xml" value="0.18854166666666666" />
         <entry key="..\:/Users/82104/inIT_AOS/app/src/main/res/layout/fragment_search_partner.xml" value="0.2" />
-        <entry key="..\:/Users/82104/inIT_AOS/app/src/main/res/layout/fragment_search_recruiting.xml" value="0.1" />
+        <entry key="..\:/Users/82104/inIT_AOS/app/src/main/res/layout/fragment_search_recruiting.xml" value="0.2" />
         <entry key="..\:/Users/82104/inIT_AOS/app/src/main/res/layout/fragment_server.xml" value="0.2222222222222222" />
         <entry key="..\:/Users/82104/inIT_AOS/app/src/main/res/layout/fragment_web.xml" value="0.2222222222222222" />
         <entry key="..\:/Users/82104/inIT_AOS/app/src/main/res/layout/item_feed.xml" value="0.2" />
@@ -143,9 +143,13 @@
         <entry key="app/src/main/res/drawable/ic_parnter_include.xml" value="0.182" />
         <entry key="app/src/main/res/drawable/ic_search.xml" value="0.2185" />
         <entry key="app/src/main/res/drawable/rectagnle_stroke_gray_radius_16.xml" value="0.221" />
+        <entry key="app/src/main/res/drawable/rectangle_fill_main_radius_10.xml" value="0.166" />
+        <entry key="app/src/main/res/drawable/rectangle_fill_main_radius_16.xml" value="0.166" />
         <entry key="app/src/main/res/drawable/rectangle_stroke_gray_3_radius_10.xml" value="0.194" />
         <entry key="app/src/main/res/drawable/rectangle_stroke_gray_radius_10.xml" value="0.194" />
         <entry key="app/src/main/res/drawable/rectangle_stroke_gray_radius_8.xml" value="0.221" />
+        <entry key="app/src/main/res/drawable/rectangle_stroke_main_radius_16.xml" value="0.166" />
+        <entry key="app/src/main/res/drawable/rectangle_stroke_main_radius_8.xml" value="0.166" />
         <entry key="app/src/main/res/drawable/selector_gray_to_mint_radius.xml" value="0.194" />
         <entry key="app/src/main/res/drawable/selector_sex_btn.xml" value="0.194" />
         <entry key="app/src/main/res/drawable/selector_signup_position.xml" value="0.194" />
@@ -154,6 +158,7 @@
         <entry key="app/src/main/res/layout/activity_open_project_second.xml" value="0.13177083333333334" />
         <entry key="app/src/main/res/layout/activity_partner_check.xml" value="0.13177083333333334" />
         <entry key="app/src/main/res/layout/dialog_my_project_list.xml" value="0.134375" />
+        <entry key="app/src/main/res/layout/fragment_custom_bottom_sheet_dialog.xml" value="0.24375" />
         <entry key="app/src/main/res/layout/fragment_feed.xml" value="0.2328125" />
         <entry key="app/src/main/res/layout/fragment_my_page.xml" value="0.24375" />
         <entry key="app/src/main/res/layout/fragment_search_partner.xml" value="0.24375" />

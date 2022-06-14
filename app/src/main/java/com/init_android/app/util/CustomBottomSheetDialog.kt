@@ -15,17 +15,16 @@ import androidx.lifecycle.ViewModelProvider
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.init_android.R
 import com.init_android.app.data.model.SelectableData
-import com.init_android.app.data.response.ResponseFinishProject
-import com.init_android.app.presentation.ui.home.viewmodel.mainViewModel
+import com.init_android.app.presentation.ui.main.MainViewModel
 import com.init_android.databinding.FragmentCustomBottomSheetDialogBinding
 
 
 class CustomBottomSheetDialog(private val title: String) : BottomSheetDialogFragment() {
 
-    private val mainViewModel: mainViewModel by activityViewModels {
+    private val mainViewModel: MainViewModel by activityViewModels {
         object : ViewModelProvider.Factory {
             override fun <T : ViewModel> create(modelClass: Class<T>): T {
-                return mainViewModel() as T
+                return MainViewModel() as T
             }
         }
     }

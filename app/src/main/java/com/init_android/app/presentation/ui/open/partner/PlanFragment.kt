@@ -18,6 +18,7 @@ class PlanFragment : BaseFragment<FragmentPlanBinding>(R.layout.fragment_plan) {
     private val projectViewModel: ProjectViewModel by viewModels()
     private lateinit var partnerAdapter: PartnerAdapter
 
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 

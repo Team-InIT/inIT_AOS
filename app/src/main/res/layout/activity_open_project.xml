@@ -165,7 +165,7 @@
                     android:layout_marginTop="13dp"
                     android:fontFamily="@font/noto_sans_kr_medium"
                     android:includeFontPadding="false"
-                    android:text="2022.05.17"
+                    android:text="2022.06.14"
                     android:textColor="@color/black"
                     android:textSize="16sp"
                     app:layout_constraintEnd_toEndOf="@+id/et_open_project_date_when_start"
