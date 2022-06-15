@@ -7,16 +7,16 @@ import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.init_android.app.data.response.project.approve.ResponseProjectMember
 import com.init_android.app.presentation.ui.mypage.PartnerPageActivity
-import com.init_android.databinding.ItemPartnerDesignListBinding
+import com.init_android.databinding.ItemPartnerWebListBinding
 
-class PartnerDesignAdapter(var userId : Int) : RecyclerView.Adapter<PartnerDesignAdapter.PartnerListViewHolder>() {
-    var partnerData = mutableListOf<ResponseProjectMember.ApprovedDesign>()
+class PartnerWebAdapter(var userId : Int) : RecyclerView.Adapter<PartnerWebAdapter.PartnerListViewHolder>() {
+    var partnerData = mutableListOf<ResponseProjectMember.ApprovedWeb>()
 
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
     ): PartnerListViewHolder {
-        val binding = ItemPartnerDesignListBinding.inflate(
+        val binding = ItemPartnerWebListBinding.inflate(
             LayoutInflater.from(parent.context),
             parent,
             false
@@ -44,9 +44,9 @@ class PartnerDesignAdapter(var userId : Int) : RecyclerView.Adapter<PartnerDesig
     override fun getItemCount(): Int = partnerData.size
 
     inner class PartnerListViewHolder(
-        val binding: ItemPartnerDesignListBinding
+        val binding: ItemPartnerWebListBinding
     ) : RecyclerView.ViewHolder(binding.root) {
-        fun onBind(partnerData: ResponseProjectMember.ApprovedDesign) {
+        fun onBind(partnerData: ResponseProjectMember.ApprovedWeb) {
             binding.apply {
                 member = partnerData
                 executePendingBindings()
@@ -54,7 +54,7 @@ class PartnerDesignAdapter(var userId : Int) : RecyclerView.Adapter<PartnerDesig
         }
     }
 
-    fun setQuestionPost(partnerData: MutableList<ResponseProjectMember.ApprovedDesign>) {
+    fun setQuestionPost(partnerData: MutableList<ResponseProjectMember.ApprovedWeb>) {
         this.partnerData = partnerData
         notifyDataSetChanged()
 

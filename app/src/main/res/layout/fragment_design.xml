@@ -4,6 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+        <variable
+            name="Member"
+            type="com.init_android.app.data.response.project.approve.ResponseProjectMember.ApprovedDesign.Recruit" />
 
     </data>
 
@@ -110,7 +113,8 @@
                         android:paddingTop="4dp"
                         android:paddingEnd="18dp"
                         android:paddingBottom="4dp"
-                        android:text="1/3"
+                        tools:text="1/3"
+                        android:text="@{Integer.toString(Member.RApproval)}"
                         android:textColor="@color/white"
                         android:textSize="12sp"
                         app:layout_constraintBottom_toBottomOf="@+id/tv_partner_info"
