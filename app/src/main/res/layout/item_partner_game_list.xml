@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="Member"
+            type="com.init_android.app.data.response.project.approve.ResponseProjectMember.ApprovedGame" />
+
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/rectangle_stroke_main_radius_10">
+
+        <ImageView
+            android:id="@+id/iv_partner"
+            android:layout_width="52dp"
+            android:layout_height="52dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="14dp"
+            android:layout_marginBottom="14dp"
+            imageBind="@{Member.MPhoto}"
+            android:src="@drawable/ic_launcher_background"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_partner_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{Member.MName}"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="4dp"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            app:layout_constraintStart_toEndOf="@+id/iv_partner"
+            app:layout_constraintTop_toTopOf="@+id/iv_partner" />
+
+
+        <ImageView
+            android:id="@+id/iv_partner_email"
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            android:layout_marginTop="4dp"
+            android:src="@drawable/ic_email_main"
+            app:layout_constraintBottom_toBottomOf="@+id/iv_partner"
+            app:layout_constraintStart_toStartOf="@+id/tv_partner_name"
+            app:layout_constraintTop_toBottomOf="@+id/tv_partner_name" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{Member.MEmail}"
+            android:textColor="@color/tet_gray_2"
+            android:textSize="12sp"
+            android:includeFontPadding="false"
+            android:layout_marginStart="4dp"
+            app:layout_constraintBottom_toBottomOf="@+id/iv_partner_email"
+            app:layout_constraintStart_toEndOf="@+id/iv_partner_email"
+            app:layout_constraintTop_toTopOf="@+id/iv_partner_email" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
