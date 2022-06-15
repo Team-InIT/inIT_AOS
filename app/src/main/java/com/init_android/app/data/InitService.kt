@@ -170,4 +170,8 @@ interface InitService {
     @POST("/myZzimList")
     suspend fun postZzimProject(@Body requestWaitingApproval: RequestWaitingApproval) : ResponsemyWaitingApproval
 
+    //업로드 리스트
+    @POST("/myUploadProject")
+    suspend fun postUploadProject(@Body requestWaitingApproval: RequestWaitingApproval) : ResponseUpload
+
 }

@@ -15,6 +15,7 @@ import com.init_android.app.data.response.project.approve.ResponsemyWaitingAppro
 import kotlinx.coroutines.launch
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
+import okhttp3.Response
 import retrofit2.http.Part
 
 class MyPageViewModel() : ViewModel() {
@@ -66,6 +67,10 @@ class MyPageViewModel() : ViewModel() {
     private val _zzimList = MutableLiveData<ResponsemyWaitingApproval>()
     val zzimList: LiveData<ResponsemyWaitingApproval>
         get() = _zzimList
+
+    private val _uploadList = MutableLiveData<ResponseUpload>()
+    val uploadList: LiveData<ResponseUpload>
+        get() = _uploadList
 
 
     // 서버통신
@@ -275,6 +280,22 @@ class MyPageViewModel() : ViewModel() {
                 .onFailure {
                     it.printStackTrace()
                     Log.d("ZzimProject", "서버 통신 실패")
+                }
+        }
+    }
+
+    fun postUploadProject(requestWaitingApproval: RequestWaitingApproval) {
+        viewModelScope.launch {
+            kotlin.runCatching {
+                ServiceCreator.initService.postUploadProject(requestWaitingApproval)
+            }
+                .onSuccess {
+                    _uploadList.value = it
+                    Log.d("UploadList", "서버 통신 성공")
+                }
+                .onFailure {
+                    it.printStackTrace()
+                    Log.d("UploadList", "서버 통신 실패")
                 }
         }
     }
