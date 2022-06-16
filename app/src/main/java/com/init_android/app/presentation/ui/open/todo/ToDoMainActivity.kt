@@ -1,9 +1,11 @@
 package com.init_android.app.presentation.ui.open.todo
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.google.android.material.tabs.TabLayoutMediator
 import com.init_android.R
+import com.init_android.app.presentation.ui.mypage.MyPageSettingActivity
 import com.init_android.app.presentation.ui.open.partner.*
 import com.init_android.app.presentation.ui.open.partner.adapter.PartnerTabAdapter
 import com.init_android.app.presentation.ui.open.todo.adapter.TodoTabAdapter
@@ -19,12 +21,20 @@ class ToDoMainActivity : BaseActivity<ActivityToDoMainBinding>(R.layout.activity
 
         initAdapter()
         backBtnClickListener()
+        writeBtnListener()
     }
 
     //뒤로가기 버튼 클릭 리스너
     private fun backBtnClickListener() {
         binding.ivOpenProjectBack.setOnClickListener {
             finish()
+        }
+    }
+
+    private fun writeBtnListener() {
+        binding.btnTodoAdd.setOnClickListener {
+            val intent = Intent(this, WriteToDoActivity::class.java)
+            startActivity(intent)
         }
     }
 
