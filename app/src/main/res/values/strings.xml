@@ -191,6 +191,7 @@
     <string name="review_confirm">평가 확인</string>
     <string name="you_liked_this_person">해당 팀원을 추천했어요!</string>
     <string name="string_delete">삭제</string>
+    <string name="string_todo">TO-DO</string>
 
 
 </resources>
