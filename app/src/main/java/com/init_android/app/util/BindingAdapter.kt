@@ -1,5 +1,6 @@
 package com.init_android.app.util
 
+import android.content.Context
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
@@ -195,6 +196,18 @@ object BindingAdapter {
             textView.visibility = View.VISIBLE
         }
     }
+
+    @JvmStatic
+    @BindingAdapter("isTeamChecked")
+    fun isTeamChecked(view: View, isChecked: Int?) {
+        when (isChecked) {
+            0 -> view.background = ContextCompat.getDrawable(view.context,R.drawable.rectangle_fill_gray_radius_10)
+            1 -> view.background = ContextCompat.getDrawable(view.context,R.drawable.rectangle_stroke_main_radius_10)
+            else -> view.background = ContextCompat.getDrawable(view.context,R.drawable.rectangle_stroke_main_radius_10)
+        }
+    }
+
+
 
 
 }
