@@ -151,8 +151,11 @@
         <entry key="app/src/main/res/drawable/rectangle_stroke_main_radius_16.xml" value="0.166" />
         <entry key="app/src/main/res/drawable/rectangle_stroke_main_radius_8.xml" value="0.166" />
         <entry key="app/src/main/res/drawable/selector_gray_to_mint_radius.xml" value="0.194" />
+        <entry key="app/src/main/res/drawable/selector_like.xml" value="0.152" />
         <entry key="app/src/main/res/drawable/selector_sex_btn.xml" value="0.194" />
         <entry key="app/src/main/res/drawable/selector_signup_position.xml" value="0.194" />
+        <entry key="app/src/main/res/drawable/selector_skill_btn.xml" value="0.151" />
+        <entry key="app/src/main/res/drawable/selector_team_background.xml" value="0.15" />
         <entry key="app/src/main/res/layout/activity_feed_detail.xml" value="0.55" />
         <entry key="app/src/main/res/layout/activity_feed_writing.xml" value="0.34210526315789475" />
         <entry key="app/src/main/res/layout/activity_open_project_second.xml" value="0.13177083333333334" />
@@ -160,7 +163,9 @@
         <entry key="app/src/main/res/layout/activity_team_review.xml" value="0.17916666666666667" />
         <entry key="app/src/main/res/layout/activity_to_do_main.xml" value="0.18020833333333333" />
         <entry key="app/src/main/res/layout/activity_write_to_do.xml" value="0.18020833333333333" />
+        <entry key="app/src/main/res/layout/dialog_done.xml" value="0.1421875" />
         <entry key="app/src/main/res/layout/dialog_my_project_list.xml" value="0.134375" />
+        <entry key="app/src/main/res/layout/dialog_yes_no.xml" value="0.14322916666666666" />
         <entry key="app/src/main/res/layout/fragment_custom_bottom_sheet_dialog.xml" value="0.24375" />
         <entry key="app/src/main/res/layout/fragment_feed.xml" value="0.2328125" />
         <entry key="app/src/main/res/layout/fragment_my_page.xml" value="0.24375" />
@@ -172,9 +177,14 @@
         <entry key="app/src/main/res/layout/fragment_search_recruiting.xml" value="0.24375" />
         <entry key="app/src/main/res/layout/item_feed_list.xml" value="0.165625" />
         <entry key="app/src/main/res/layout/item_partner.xml" value="0.55" />
+        <entry key="app/src/main/res/layout/item_partner_approve_list.xml" value="0.24375" />
+        <entry key="app/src/main/res/layout/item_partner_design_list.xml" value="0.24375" />
         <entry key="app/src/main/res/layout/item_partner_list.xml" value="0.335" />
+        <entry key="app/src/main/res/layout/item_rv_position.xml" value="0.14114583333333333" />
         <entry key="app/src/main/res/layout/item_search_partner.xml" value="0.335" />
+        <entry key="app/src/main/res/layout/item_team_list.xml" value="0.24270833333333333" />
         <entry key="app/src/main/res/layout/item_to_do_partner_list.xml" value="0.14114583333333333" />
+        <entry key="app/src/main/res/layout/item_vp_project.xml" value="0.159375" />
         <entry key="app/src/main/res/layout/spinner_item.xml" value="0.19746376811594202" />
       </map>
     </option>

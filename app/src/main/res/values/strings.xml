@@ -182,7 +182,7 @@
 
     <!-- Team Review Activity -->
     <string name="string_team_review">팀원 평가</string>
-    <string name="edit_team_hint">팀원에 대한 자세한 평가를 남겨주세요!\n 상세한 평가는 팀원 모집 시 많은 도움이 됩니다:)</string>
+    <string name="edit_team_hint">팀원에 대한 자세한 평가를 남겨주세요!\n상세한 평가는 팀원 모집 시 많은 도움이 됩니다:)</string>
     <string name="do_you_like_this_person">이 사람을 추천하나요?</string>
     <string name="i_like_this_person">추천합니다!</string>
     <string name="string_register">등록하기</string>
@@ -191,6 +191,8 @@
     <string name="review_confirm">평가 확인</string>
     <string name="you_liked_this_person">해당 팀원을 추천했어요!</string>
     <string name="string_delete">삭제</string>
-
+    <string name="string_done">완료</string>
+    <string name="string_confirm">확인</string>
+    <string name="string_review_done">평가가 완료되었어요!</string>
 
 </resources>
