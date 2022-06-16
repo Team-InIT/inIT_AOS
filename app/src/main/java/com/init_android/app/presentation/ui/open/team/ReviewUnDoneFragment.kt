@@ -7,6 +7,7 @@ import android.view.View
 import android.view.Window
 import android.view.WindowManager
 import android.widget.TextView
+import android.widget.Toast
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.fragment.app.viewModels
 import com.init_android.R
@@ -18,7 +19,7 @@ class ReviewUnDoneFragment :
     BaseFragment<FragmentReviewUndoneBinding>(R.layout.fragment_review_undone) {
 
     private val teamReviewViewModel: TeamReviewViewModel by viewModels()
-    val itemList = mutableListOf<TeamData>()
+    private val itemList = mutableListOf<TeamData>()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -117,4 +118,9 @@ class ReviewUnDoneFragment :
     }
 
     // OnResume에서 리스트 다시 받아오기
+    override fun onResume() {
+        super.onResume()
+
+        Toast.makeText(requireContext(), "미완료 화면 resume 테스뚜 헤헤", Toast.LENGTH_SHORT).show()
+    }
 }

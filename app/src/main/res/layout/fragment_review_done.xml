@@ -88,7 +88,7 @@
                     android:layout_marginVertical="8dp"
                     android:textSize="12sp"
                     android:gravity="top"
-                    android:padding="8dp"
+                    android:padding="16dp"
                     android:layout_marginHorizontal="16dp"
                     android:background="@drawable/rectangle_stroke_gray_radius_16"
                     app:layout_constraintStart_toStartOf="parent"
