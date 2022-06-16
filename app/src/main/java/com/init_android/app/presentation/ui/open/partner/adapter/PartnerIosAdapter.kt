@@ -7,16 +7,19 @@ import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.init_android.app.data.response.project.approve.ResponseProjectMember
 import com.init_android.app.presentation.ui.mypage.PartnerPageActivity
+import com.init_android.databinding.ItemPartnerAosListBinding
 import com.init_android.databinding.ItemPartnerDesignListBinding
+import com.init_android.databinding.ItemPartnerIosListBinding
+import com.init_android.databinding.ItemPartnerListBinding
 
-class PartnerDesignAdapter(var userId : Int) : RecyclerView.Adapter<PartnerDesignAdapter.PartnerListViewHolder>() {
-    var partnerData = mutableListOf<ResponseProjectMember.ApprovedDesign>()
+class PartnerIosAdapter(var userId : Int) : RecyclerView.Adapter<PartnerIosAdapter.PartnerListViewHolder>() {
+    var partnerData = mutableListOf<ResponseProjectMember.ApprovedIos>()
 
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
     ): PartnerListViewHolder {
-        val binding = ItemPartnerDesignListBinding.inflate(
+        val binding = ItemPartnerIosListBinding.inflate(
             LayoutInflater.from(parent.context),
             parent,
             false
@@ -44,9 +47,9 @@ class PartnerDesignAdapter(var userId : Int) : RecyclerView.Adapter<PartnerDesig
     override fun getItemCount(): Int = partnerData.size
 
     inner class PartnerListViewHolder(
-        val binding: ItemPartnerDesignListBinding
+        val binding: ItemPartnerIosListBinding
     ) : RecyclerView.ViewHolder(binding.root) {
-        fun onBind(partnerData: ResponseProjectMember.ApprovedDesign) {
+        fun onBind(partnerData: ResponseProjectMember.ApprovedIos) {
             binding.apply {
                 member = partnerData
                 executePendingBindings()
@@ -54,7 +57,7 @@ class PartnerDesignAdapter(var userId : Int) : RecyclerView.Adapter<PartnerDesig
         }
     }
 
-    fun setQuestionPost(partnerData: MutableList<ResponseProjectMember.ApprovedDesign>) {
+    fun setQuestionPost(partnerData: MutableList<ResponseProjectMember.ApprovedIos>) {
         this.partnerData = partnerData
         notifyDataSetChanged()
 
