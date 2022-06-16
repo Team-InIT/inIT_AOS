@@ -19,9 +19,12 @@ class ToDoMainActivity : BaseActivity<ActivityToDoMainBinding>(R.layout.activity
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+
         initAdapter()
+        initTab()
         backBtnClickListener()
         writeBtnListener()
+
     }
 
     //뒤로가기 버튼 클릭 리스너
@@ -40,13 +43,13 @@ class ToDoMainActivity : BaseActivity<ActivityToDoMainBinding>(R.layout.activity
 
     private fun initAdapter() {
         val fragmentList = listOf(
-            PlanFragment(),
-            DesignFragment(),
-            WebFragment(),
-            AosFragment(),
-            IosFragment(),
-            GameFragment(),
-            ServerFragment()
+            PlanToDoFragment(),
+            DesignTodoFragment(),
+            WebTodoFragment(),
+            AosToDoFragment(),
+            IosTodoFragment(),
+            GameTodoFragment(),
+            ServerTodoFragment()
         )
         todoTabAdapter = TodoTabAdapter(this)
         todoTabAdapter.fragments.addAll(fragmentList)
@@ -56,7 +59,7 @@ class ToDoMainActivity : BaseActivity<ActivityToDoMainBinding>(R.layout.activity
 
     private fun initTab() {
         val tabLabel = listOf("기획", "디자인", "웹", "AOS", "IOS", "게임", "서버")
-        TabLayoutMediator(binding.tlPartnerTab, binding.vpTodoTab) { tab, position ->
+        TabLayoutMediator(binding.tlTodoTab, binding.vpTodoTab) { tab, position ->
             tab.text = tabLabel[position]
         }.attach()
     }

@@ -7,7 +7,7 @@ import com.init_android.databinding.FragmentGameToDoBinding
 import com.playtogether_android.app.presentation.base.BaseFragment
 
 
-class GameTodoFragment : BaseFragment<FragmentGameToDoBinding>(R.layout.fragment_design_to_do) {
+class GameTodoFragment : BaseFragment<FragmentGameToDoBinding>(R.layout.fragment_game_to_do) {
 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
