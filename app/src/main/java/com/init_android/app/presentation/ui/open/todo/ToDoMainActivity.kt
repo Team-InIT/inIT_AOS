@@ -53,7 +53,7 @@ class ToDoMainActivity : BaseActivity<ActivityToDoMainBinding>(R.layout.activity
         )
         todoTabAdapter = TodoTabAdapter(this)
         todoTabAdapter.fragments.addAll(fragmentList)
-
+        binding.vpTodoTab.offscreenPageLimit = todoTabAdapter.itemCount
         binding.vpTodoTab.adapter = todoTabAdapter
     }
 
