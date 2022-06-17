@@ -6,10 +6,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.init_android.app.data.ServiceCreator
-import com.init_android.app.data.request.RequestAddEvaluate
-import com.init_android.app.data.request.RequestAlreadyEvaluate
-import com.init_android.app.data.request.RequestCheckEvaluation
-import com.init_android.app.data.request.RequestNotEveluate
+import com.init_android.app.data.request.*
 import com.init_android.app.data.response.ResponseAlreadyEvaluate
 import com.init_android.app.data.response.ResponseBase
 import com.init_android.app.data.response.ResponseCheckEvaluation
@@ -39,6 +36,11 @@ class TeamReviewViewModel : ViewModel() {
     private val _checkEvaluateData = MutableLiveData<ResponseCheckEvaluation>()
     val checkEvaluateData: LiveData<ResponseCheckEvaluation>
         get() = _checkEvaluateData
+
+    // 평가 요소 삭제
+    private val _deleteEvaluateData = MutableLiveData<ResponseBase>()
+    val deleteEvaluateData: LiveData<ResponseBase>
+        get() = _deleteEvaluateData
 
     // 미평가 리스트 조회 서버통신
     fun postNotEveluate(requestNotEveluate: RequestNotEveluate) {
@@ -102,6 +104,23 @@ class TeamReviewViewModel : ViewModel() {
                 .onFailure {
                     it.printStackTrace()
                     Log.d("checkEvaluateData", it.printStackTrace().toString())
+                }
+        }
+    }
+
+    // 팀원 삭제하기
+    fun postDeleteEvaluate(requestDeleteEvaluation: RequestDeleteEvaluation){
+        viewModelScope.launch {
+            kotlin.runCatching {
+                ServiceCreator.initService.postDeleteEvaluation(requestDeleteEvaluation)
+            }
+                .onSuccess {
+                    _deleteEvaluateData.value = it
+                    Log.d("deleteEvaluateData", "서버 통신 성공")
+                }
+                .onFailure {
+                    it.printStackTrace()
+                    Log.d("deleteEvaluateData", it.printStackTrace().toString())
                 }
         }
     }

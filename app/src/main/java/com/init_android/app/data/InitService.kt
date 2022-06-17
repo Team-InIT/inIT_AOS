@@ -209,4 +209,8 @@ interface InitService {
     // 평가된 팀원 개별요소 조회
     @POST("/checkEvaluation")
     suspend fun postCheckEvaluation(@Body requestCheckEvaluation: RequestCheckEvaluation):ResponseCheckEvaluation
+
+    // 팀원 평가 삭제
+    @POST("/deleteEvaluation")
+    suspend fun postDeleteEvaluation(@Body requestDeleteEvaluation: RequestDeleteEvaluation):ResponseBase
 }

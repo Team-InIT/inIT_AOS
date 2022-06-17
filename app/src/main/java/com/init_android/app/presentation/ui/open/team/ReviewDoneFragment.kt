@@ -11,6 +11,7 @@ import androidx.fragment.app.viewModels
 import com.init_android.R
 import com.init_android.app.data.request.RequestAlreadyEvaluate
 import com.init_android.app.data.request.RequestCheckEvaluation
+import com.init_android.app.data.request.RequestDeleteEvaluation
 import com.init_android.app.data.request.RequestNotEveluate
 import com.init_android.app.presentation.ui.open.team.adapter.TeamReviewAdapter
 import com.init_android.databinding.FragmentReviewDoneBinding
@@ -123,7 +124,9 @@ class ReviewDoneFragment:BaseFragment<FragmentReviewDoneBinding>(R.layout.fragme
         )
         doneDialog.findViewById<TextView>(R.id.tv_dialog_title).text = "정말 삭제하시겠습니까?"
         doneDialog.findViewById<TextView>(R.id.tv_dialog_yes).setOnClickListener {
-            // 삭제 yes ~~~ 서버통신 고고링 ~
+            // 삭제 yes ~~ 여기서 서버통신
+            val requestDeleteEvaluation = RequestDeleteEvaluation(eNum = teamReviewViewModel.selectedPersonNum.value!!.toInt())
+            teamReviewViewModel.postDeleteEvaluate(requestDeleteEvaluation)
             doneDialog.dismiss()
         }
         doneDialog.findViewById<TextView>(R.id.tv_dialog_no).setOnClickListener {
@@ -150,7 +153,7 @@ class ReviewDoneFragment:BaseFragment<FragmentReviewDoneBinding>(R.layout.fragme
         )
         teamReviewViewModel.postCheckEvaluation(requestCheckEvaluation)
 
-        teamReviewViewModel.checkEvaluateData.observe(this){
+        teamReviewViewModel.checkEvaluateData.observe(viewLifecycleOwner){
             binding.tvTeamReview.text = it.evaluation.eComment
             if (it.evaluation.eRecommend == 0){
                 binding.tvRecommend.text = ""
