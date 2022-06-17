@@ -4,8 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
-
+        <variable
+            name="todo"
+            type="com.init_android.app.data.response.todo.ResponseAllToDo.Todo" />
+        <variable
+            name="mem"
+            type="com.init_android.app.data.response.todo.ResponseAllToDo.Todo.Member" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -33,6 +37,7 @@
             android:layout_marginStart="8dp"
             android:textColor="@color/main_default"
             android:textSize="12sp"
+            timeStampToDate="@{todo.TodoInfo.TDday}"
             app:layout_constraintBottom_toBottomOf="@+id/iv_check_box"
             app:layout_constraintStart_toEndOf="@+id/iv_check_box"
             app:layout_constraintTop_toTopOf="@+id/iv_check_box"
@@ -43,6 +48,7 @@
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:layout_marginTop="4dp"
+            imageBind="@{mem.MPhoto}"
             android:background="@drawable/ic_launcher_background"
             app:layout_constraintStart_toStartOf="@+id/tv_end_date"
             app:layout_constraintTop_toBottomOf="@+id/tv_end_date" />
@@ -52,7 +58,8 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
-            android:text="프래그먼트 수정"
+            android:text="@{todo.TodoInfo.TTodo}"
+            tools:text="프래그먼트 수정"
             android:textColor="@color/black"
             android:textSize="16sp"
             android:layout_marginEnd="32dp"
@@ -65,7 +72,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
-            android:text="2022-06-16"
+            android:text="@{todo.TodoInfo.TWritedate}"
+            tools:text="2022-06-16"
             android:textColor="@color/tet_gray_2"
             android:textSize="12sp"
             android:layout_marginBottom="8dp"
