@@ -24,8 +24,7 @@ class ReviewDoneFragment:BaseFragment<FragmentReviewDoneBinding>(R.layout.fragme
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        initAdapter()
+        // initAdapter()
         initBtnEvent()
     }
 
@@ -40,6 +39,7 @@ class ReviewDoneFragment:BaseFragment<FragmentReviewDoneBinding>(R.layout.fragme
         teamReviewViewModel.postAlreadyEveluate(requestAlreadyEvaluate)
 
         teamReviewViewModel.evaluate.observe(viewLifecycleOwner){
+            itemList.clear()
             val data = it.members?.toMutableList()
             for (i in data!!.indices) {
                 if (i == 0) {
@@ -127,6 +127,7 @@ class ReviewDoneFragment:BaseFragment<FragmentReviewDoneBinding>(R.layout.fragme
             // 삭제 yes ~~ 여기서 서버통신
             val requestDeleteEvaluation = RequestDeleteEvaluation(eNum = teamReviewViewModel.selectedPersonNum.value!!.toInt())
             teamReviewViewModel.postDeleteEvaluate(requestDeleteEvaluation)
+            initAdapter()
             doneDialog.dismiss()
         }
         doneDialog.findViewById<TextView>(R.id.tv_dialog_no).setOnClickListener {
@@ -140,8 +141,7 @@ class ReviewDoneFragment:BaseFragment<FragmentReviewDoneBinding>(R.layout.fragme
     // resume 말고 완료했을 때 리스트 부르는 함수를 호출해야 겠다.
     override fun onResume() {
         super.onResume()
-
-        Toast.makeText(requireContext(), "완료 화면 resume 테스뚜 헤헤", Toast.LENGTH_SHORT).show()
+        initAdapter()
     }
 
     // 평가된 팀원 개별 요소 조회

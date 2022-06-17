@@ -26,7 +26,6 @@ class ReviewUnDoneFragment :
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        initAdapter()
         initBtnEvent()
         initLikeEvent()
     }
@@ -42,6 +41,7 @@ class ReviewUnDoneFragment :
         teamReviewViewModel.postNotEveluate(requestNotEveluate)
 
         teamReviewViewModel.notEveluate.observe(viewLifecycleOwner) {
+            itemList.clear()
             val data = it.memberToEvaluate?.toMutableList()
             for (i in data!!.indices) {
                 if (i == 0) {
@@ -164,6 +164,7 @@ class ReviewUnDoneFragment :
         )
         doneDialog.findViewById<ConstraintLayout>(R.id.constraintLayout2_done).setOnClickListener {
             doneDialog.dismiss()
+            initAdapter()
         }
         doneDialog.show()
     }
@@ -171,6 +172,8 @@ class ReviewUnDoneFragment :
     // OnResume에서 리스트 다시 받아오기
     override fun onResume() {
         super.onResume()
-        Toast.makeText(requireContext(), "미완료 화면 resume 테스뚜 헤헤", Toast.LENGTH_SHORT).show()
+        initAdapter()
     }
+
+
 }
