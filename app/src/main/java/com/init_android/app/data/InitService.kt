@@ -186,4 +186,11 @@ interface InitService {
     @GET("/userAll")
     suspend fun getUserAll(): ResponseGetUserAll
 
+    // 모집중 프로젝트 리스트 검색
+    @POST("/searchIng")
+    suspend fun postSearchIng(@Body requestSearchIng: RequestSearchIng) : ResponseSearchResult
+
+    // 모집완료 프로젝트 리스트 검색
+    @POST("/searchEd")
+    suspend fun postSearchEd(@Body requestSearchEd: RequestSearchEd) : ResponseSearchResult
 }
