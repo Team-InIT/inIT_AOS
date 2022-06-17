@@ -30,17 +30,16 @@ class SearchRecruitFinishFragment:BaseFragment<FragmentSearchRecruitFinishBindin
         searchViewModel.getNotRecruitingProject()
 
         searchViewModel.notRecruitingProject.observe(viewLifecycleOwner){
-            val projectItemDataList = it.notRecruitingProject?.toMutableList()
-            val writerList = it.writer!!.toMutableList()
+            val projectItemDataList = it.projectInfo?.toMutableList()
             for (i in projectItemDataList!!.indices){
                 val data = projectItemDataList[i]
 
-                val totalNum = data.pPlan + data.pDesign + data.pAos + data.pIos + data.pWeb + data.pGame + data.pServer
-                val pStartDate =  DateUtil().dateToString(data.pStart).replace("-",".")
-                val pEndDate = DateUtil().dateToString(data.pDue).replace("-",".")
+                val totalNum = data.notRecruitingProject.pPlan + data.notRecruitingProject.pDesign + data.notRecruitingProject.pAos + data.notRecruitingProject.pIos + data.notRecruitingProject.pWeb + data.notRecruitingProject.pGame + data.notRecruitingProject.pServer
+                val pStartDate =  DateUtil().dateToString(data.notRecruitingProject.pStart!!).replace("-",".")
+                val pEndDate = DateUtil().dateToString(data.notRecruitingProject.pDue).replace("-",".")
 
-                myProjectItemDataList.add(ProjectItemData(data.pType,data.pDescription,data.pOnOff,totalNum,pStartDate,pEndDate,writerList[i].mName,
-                    data.pState!!,data.pNum,data.mNum,""))
+                myProjectItemDataList.add(ProjectItemData(data.notRecruitingProject.pType!!,data.notRecruitingProject.pDescription!!,data.notRecruitingProject.pOnOff!!,totalNum,pStartDate,pEndDate,data.notRecruitingProject.Member.mName,
+                    data.notRecruitingProject.pState!!,data.notRecruitingProject.pNum!!,data.notRecruitingProject.mNum!!,data.projectState))
             }
 
             adapter.setProjectList(myProjectItemDataList)

@@ -1,6 +1,7 @@
 package com.init_android.app.presentation.ui.home.recommendproject
 
 import android.os.Bundle
+import android.util.Log
 import androidx.activity.viewModels
 import com.init_android.R
 import com.init_android.app.data.model.ProjectItemData
@@ -27,7 +28,7 @@ class RecommendProjectActivity :
 
     private fun tryGetRecommendProject() {
         val requestRecoProject = RequestRecoProject(
-            mPosition = 3,
+            mPosition = 6,
             mLevel = 0
         )
 
@@ -35,27 +36,26 @@ class RecommendProjectActivity :
 
         recoProjectViewModel.recoProjectData.observe(this) {
 
-            val recommend_data = it.pInfo
-            val recommendList_writer = it.writerInfo
+            val recommend_data = it.list_recommend
 
             // 추천 프로젝트
             if (recommend_data != null) {
-                for (i in 0 until recommend_data.size) {
+                for (i in recommend_data.indices) {
                     val totalNum =
-                        recommend_data[i].pPlan!! + recommend_data[i].pDesign!! + recommend_data[i].pAos!! + recommend_data[i].pIos!! + recommend_data[i].pWeb!! + recommend_data[i].pGame!! + recommend_data[i].pServer!!
+                        recommend_data[i].pInfo.pPlan + recommend_data[i].pInfo.pDesign + recommend_data[i].pInfo.pAos + recommend_data[i].pInfo.pIos + recommend_data[i].pInfo.pWeb + recommend_data[i].pInfo.pGame + recommend_data[i].pInfo.pServer
                     recoList.add(
                         ProjectItemData(
-                            recommend_data[i].pType!!,
-                            recommend_data[i].pTitle!!,
-                            recommend_data[i].pOnOff!!,
+                            recommend_data[i].pInfo.pType!!,
+                            recommend_data[i].pInfo.pTitle!!,
+                            recommend_data[i].pInfo.pOnOff!!,
                             totalNum,
-                            DateUtil().dateToString(recommend_data[i].pStart!!).replace("-","."),
-                            DateUtil().dateToString(recommend_data[i].pDue!!).replace("-","."),
-                            recommendList_writer?.get(i)?.get(0)!!.mName!!,
-                            recommend_data[i].pState!!,
-                            recommend_data[i].pNum!!,
-                            recommend_data[i].mNum!!,
-                            ""
+                            DateUtil().dateToString(recommend_data[i].pInfo.pStart!!).replace("-","."),
+                            DateUtil().dateToString(recommend_data[i].pInfo.pDue!!).replace("-","."),
+                            recommend_data[i].pInfo.Member.mName,
+                            recommend_data[i].pInfo.pState!!,
+                            recommend_data[i].pInfo.pNum!!,
+                            recommend_data[i].pInfo.mNum!!,
+                            recommend_data[i].projectState
                         )
                     )
                 }
