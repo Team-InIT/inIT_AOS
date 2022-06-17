@@ -23,7 +23,7 @@ class AosFragment : BaseFragment<FragmentAosBinding>(R.layout.fragment_aos) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
+        Log.d("testing","aos")
     }
 
     override fun onResume() {

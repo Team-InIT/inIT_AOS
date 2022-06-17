@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
 
@@ -36,7 +37,9 @@
             android:layout_marginHorizontal="16dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tv_team_info"
-            app:layout_constraintEnd_toEndOf="parent" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            tools:listitem="@layout/item_team_list"/>
 
         <TextView
             android:id="@+id/tv_input_review"
@@ -81,7 +84,7 @@
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 android:padding="10dp"
-                android:background="@drawable/rectangle_stroke_main_radius_8"
+                android:background="@drawable/selector_like_btn"
                 android:layout_marginEnd="16dp"
                 android:layout_marginTop="16dp">
 
@@ -94,6 +97,7 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/iv_like"
                     android:text="@string/i_like_this_person"/>
 
                 <ImageView
@@ -101,8 +105,9 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:src="@drawable/ic_like"
-                    android:layout_marginEnd="8dp"
+                    android:layout_marginHorizontal="8dp"
                     app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toStartOf="@id/tv_reco"/>
             </androidx.constraintlayout.widget.ConstraintLayout>
@@ -115,7 +120,7 @@
                 android:layout_marginVertical="8dp"
                 android:textSize="12sp"
                 android:gravity="top"
-                android:padding="8dp"
+                android:padding="16dp"
                 android:background="@drawable/rectangle_stroke_gray_radius_16"
                 app:layout_constraintStart_toStartOf="@id/tv_recommend"
                 app:layout_constraintEnd_toEndOf="@id/layout_recommend"

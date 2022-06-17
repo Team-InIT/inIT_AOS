@@ -1,8 +1,10 @@
 package com.init_android.app.presentation.ui.open.partner
 
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import androidx.activity.viewModels
+import androidx.viewpager2.widget.ViewPager2
 import com.google.android.material.tabs.TabLayoutMediator
 import com.init_android.R
 import com.init_android.app.presentation.ui.open.partner.adapter.PartnerTabAdapter
@@ -18,6 +20,7 @@ class PartnerCheckActivity :
 
     //val pNum = intent.getIntExtra("pNum", 1)
     val pNum = 1
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -57,6 +60,7 @@ class PartnerCheckActivity :
             GameFragment(),
             ServerFragment()
         )
+
         partnerTabAdapter = PartnerTabAdapter(this)
         partnerTabAdapter.fragments.addAll(fragmentList)
 
@@ -69,6 +73,9 @@ class PartnerCheckActivity :
         TabLayoutMediator(binding.tlPartnerTab, binding.vpPartnerTab) { tab, position ->
             tab.text = tabLabel[position]
         }.attach()
+
+        Log.d("hello",tabLabel.toString())
+        Log.d("hello",tabLabel.size.toString())
     }
 
 

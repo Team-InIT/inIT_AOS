@@ -174,4 +174,23 @@ interface InitService {
     @POST("/myUploadProject")
     suspend fun postUploadProject(@Body requestWaitingApproval: RequestWaitingApproval) : ResponseUpload
 
+    // 검색 모집중 프로젝트 리스트
+    @GET("/recrutingProject")
+    suspend fun getRecrutingProject(): ResponseGetRecruitingProject
+
+    // 검색 모집완료 프로젝트 리스트
+    @GET("/notRecruitingProject")
+    suspend fun getNotRecruitingProject(): ResponseGetNotRecruitingProject
+
+    // 검색 파트원 리스트
+    @GET("/userAll")
+    suspend fun getUserAll(): ResponseGetUserAll
+
+    // 모집중 프로젝트 리스트 검색
+    @POST("/searchIng")
+    suspend fun postSearchIng(@Body requestSearchIng: RequestSearchIng) : ResponseSearchResult
+
+    // 모집완료 프로젝트 리스트 검색
+    @POST("/searchEd")
+    suspend fun postSearchEd(@Body requestSearchEd: RequestSearchEd) : ResponseSearchResult
 }
