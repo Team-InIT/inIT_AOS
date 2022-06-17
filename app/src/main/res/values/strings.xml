@@ -17,6 +17,9 @@
     <string name="login_info">아직 회원이 아니신가요?</string>
     <string name="next">다음</string>
 
+    <string name="input_pw">비밀번호를 입력해주세요</string>
+    <string name="input_id">아이디를 입력해주세요</string>
+
     <string name="signup_info_one">아이디와 비밀번호를\n 입력해주세요.</string>
     <string name="signup_info_two">기본 정보를 입력해주세요.</string>
     <string name="confirm_already_exist">중복확인</string>
