@@ -66,7 +66,6 @@ class ReviewUnDoneFragment :
                     )
                 }
 
-                Log.d("haha", data[i].mPhoto ?: "")
 
             }
 

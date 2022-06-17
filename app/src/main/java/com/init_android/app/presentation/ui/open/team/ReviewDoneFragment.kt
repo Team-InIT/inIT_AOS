@@ -9,6 +9,8 @@ import android.widget.Toast
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.fragment.app.viewModels
 import com.init_android.R
+import com.init_android.app.data.request.RequestAlreadyEvaluate
+import com.init_android.app.data.request.RequestNotEveluate
 import com.init_android.app.presentation.ui.open.team.adapter.TeamReviewAdapter
 import com.init_android.databinding.FragmentReviewDoneBinding
 import com.playtogether_android.app.presentation.base.BaseFragment
@@ -27,17 +29,44 @@ class ReviewDoneFragment:BaseFragment<FragmentReviewDoneBinding>(R.layout.fragme
 
     private fun initAdapter() {
         val undoneAdapter = TeamReviewAdapter(requireContext())
-        itemList.addAll(
-            listOf(
-                TeamData(0,"정지연", 0, "", true),
-                TeamData(0,"이혜빈", 0, "", false),
-                TeamData(0,"장윤정", 1, "", false)
-            )
-        )
-        undoneAdapter.submitList(itemList)
-        binding.rvTeamList.adapter = undoneAdapter
-        teamReviewViewModel.selectedPersonNum.value = undoneAdapter.currentList[0].personNum
 
+        val requestAlreadyEvaluate = RequestAlreadyEvaluate(
+            mNum = 1,
+            pNum = 1
+        )
+
+        teamReviewViewModel.postAlreadyEveluate(requestAlreadyEvaluate)
+
+        teamReviewViewModel.evaluate.observe(viewLifecycleOwner){
+            val data = it.members?.toMutableList()
+            for (i in data!!.indices) {
+                if (i == 0) {
+                    itemList.add(
+                        TeamData(
+                            data[i].mNum,
+                            data[i].mName,
+                            data[i].mPosition,
+                            data[i].mPhoto ?: "",
+                            true
+                        )
+                    )
+                } else {
+                    itemList.add(
+                        TeamData(
+                            data[i].mNum,
+                            data[i].mName,
+                            data[i].mPosition,
+                            data[i].mPhoto ?: "",
+                            false
+                        )
+                    )
+                }
+            }
+
+                undoneAdapter.submitList(itemList)
+                binding.rvTeamList.adapter = undoneAdapter
+                teamReviewViewModel.selectedPersonNum.value = undoneAdapter.currentList[0].personNum
+            }
         // 팀원 선택 클릭 이벤트
         undoneAdapter.setItemClickListener(object : TeamReviewAdapter.OnItemClickListener {
             override fun onClick(v: View, position: Int) {
