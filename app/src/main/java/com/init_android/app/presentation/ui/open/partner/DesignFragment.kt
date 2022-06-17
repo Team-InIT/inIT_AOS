@@ -25,11 +25,12 @@ class DesignFragment : BaseFragment<FragmentDesignBinding>(R.layout.fragment_des
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        Log.d("testing","디자인")
     }
 
     override fun onResume() {
         super.onResume()
-        initNetwork()
+       // initNetwork()
     }
 
     private fun initNetwork() {

@@ -7,6 +7,7 @@ import androidx.fragment.app.viewModels
 import com.init_android.R
 import com.init_android.app.data.model.ProjectItemData
 import com.init_android.app.data.model.SelectableData
+import com.init_android.app.data.response.ResponseGetRecruitingProject
 import com.init_android.app.presentation.ui.home.adapter.ProjectItemRVAdapter
 import com.init_android.app.presentation.ui.search.SearchViewModel
 import com.init_android.app.util.CustomBottomSheetDialog
@@ -19,6 +20,7 @@ class SearchRecruitingFragment:BaseFragment<FragmentSearchRecruitingBinding>(R.l
     private val searchViewModel : SearchViewModel by viewModels()
     private val partBottomSheetDialog = CustomBottomSheetDialog("프로젝트 타입","완료")
     private val myProjectItemDataList = mutableListOf<ProjectItemData>()
+    private val searchResultList = mutableListOf<ProjectItemData>()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -26,6 +28,7 @@ class SearchRecruitingFragment:BaseFragment<FragmentSearchRecruitingBinding>(R.l
         initAdapter()
         clickListener()
         initRefreshEvent()
+        initSearchEvent()
 
     }
 
@@ -49,8 +52,12 @@ class SearchRecruitingFragment:BaseFragment<FragmentSearchRecruitingBinding>(R.l
                 data.pState!!,data.pNum,data.mNum))
             }
 
-            adapter.setProjectList(myProjectItemDataList)
-            adapter.submitList(myProjectItemDataList)
+            if (searchViewModel.searchFlags.value == true){
+                adapter.submitList(null)
+            }else{
+                adapter.setProjectList(myProjectItemDataList)
+                adapter.submitList(myProjectItemDataList)
+            }
         }
 
     }
@@ -60,6 +67,38 @@ class SearchRecruitingFragment:BaseFragment<FragmentSearchRecruitingBinding>(R.l
             binding.ivRefresh.visibility = View.GONE // 초기화 버튼 활성화
             binding.layoutProjectType.background =
                 resources.getDrawable(R.drawable.rectangle_stroke_gray_radius_16, null)
+        }
+    }
+
+    // 키워드로 검색하기
+    private fun initSearchEvent(){
+        binding.btnSearch.setOnClickListener {
+
+            val adapter = ProjectItemRVAdapter(requireContext())
+            binding.rvProject.adapter = adapter
+
+            searchViewModel.recruitingData.removeObservers(this)
+            // 서버통신
+            searchViewModel.postSearchIng(binding.etvSearch.text.toString())
+
+            // 데이터 받아오기
+            searchViewModel.searchResultData.observe(viewLifecycleOwner){
+                val projectItemDataList = it.projectInfo?.toMutableList()
+                for (i in projectItemDataList!!.indices){
+                    val data = projectItemDataList[i]
+
+                    val totalNum = data.pPlan + data.pDesign + data.pAos + data.pIos + data.pWeb + data.pGame + data.pServer
+                    val pStartDate =  DateUtil().dateToString(data.pStart).replace("-",".")
+                    val pEndDate = DateUtil().dateToString(data.pDue).replace("-",".")
+
+                    searchResultList.add(ProjectItemData(data.pType,data.pDescription,data.pOnOff,totalNum,pStartDate,pEndDate,data.Member.mName,
+                        data.pState!!,data.pNum,data.mNum))
+                }
+
+                adapter.setProjectList(searchResultList)
+                adapter.submitList(searchResultList)
+            }
+
         }
     }
 
