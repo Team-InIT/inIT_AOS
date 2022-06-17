@@ -11,6 +11,7 @@ import android.widget.Toast
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.fragment.app.viewModels
 import com.init_android.R
+import com.init_android.app.data.request.RequestNotEveluate
 import com.init_android.app.presentation.ui.open.team.adapter.TeamReviewAdapter
 import com.init_android.databinding.FragmentReviewUndoneBinding
 import com.playtogether_android.app.presentation.base.BaseFragment
@@ -31,16 +32,34 @@ class ReviewUnDoneFragment :
 
     private fun initAdapter() {
         val undoneAdapter = TeamReviewAdapter(requireContext())
-        itemList.addAll(
-            listOf(
-                TeamData("정지연", "안드로이드", true),
-                TeamData("이혜빈", "안드로이드", false),
-                TeamData("장윤정", "서버", false)
-            )
+
+        val requestNotEveluate = RequestNotEveluate(
+            mNum = 1,
+            pNum = 1
         )
-        undoneAdapter.submitList(itemList)
-        binding.rvTeamList.adapter = undoneAdapter
-        teamReviewViewModel.selectedName.value = undoneAdapter.currentList[0].name
+
+        teamReviewViewModel.postNotEveluate(requestNotEveluate)
+
+        teamReviewViewModel.notEveluate.observe(viewLifecycleOwner){
+            val data = it.memberToEvaluate?.toMutableList()
+            for (i in data!!.indices){
+                if (i == 0){
+                    itemList.add(TeamData(data[i].mName,data[i].mPosition, data[i].mPhoto ?: "",true))
+                }else{
+                    itemList.add(TeamData(data[i].mName,data[i].mPosition, data[i].mPhoto ?: "",false))
+                }
+
+                Log.d("haha",data[i].mPhoto ?: "")
+
+            }
+
+
+            undoneAdapter.submitList(itemList)
+            binding.rvTeamList.adapter = undoneAdapter
+            teamReviewViewModel.selectedName.value = undoneAdapter.currentList[0].name
+
+        }
+
 
         // 팀원 선택 클릭 이벤트
         undoneAdapter.setItemClickListener(object : TeamReviewAdapter.OnItemClickListener {

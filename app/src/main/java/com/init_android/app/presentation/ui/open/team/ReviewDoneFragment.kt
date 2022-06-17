@@ -29,9 +29,9 @@ class ReviewDoneFragment:BaseFragment<FragmentReviewDoneBinding>(R.layout.fragme
         val undoneAdapter = TeamReviewAdapter(requireContext())
         itemList.addAll(
             listOf(
-                TeamData("정지연", "안드로이드", true),
-                TeamData("이혜빈", "안드로이드", false),
-                TeamData("장윤정", "서버", false)
+                TeamData("정지연", 0, "", true),
+                TeamData("이혜빈", 0, "", false),
+                TeamData("장윤정", 1, "", false)
             )
         )
         undoneAdapter.submitList(itemList)

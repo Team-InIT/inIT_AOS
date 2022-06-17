@@ -1,5 +1,6 @@
 package com.init_android.app.presentation.ui.open.partner
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.View
@@ -8,6 +9,7 @@ import androidx.viewpager2.widget.ViewPager2
 import com.google.android.material.tabs.TabLayoutMediator
 import com.init_android.R
 import com.init_android.app.presentation.ui.open.partner.adapter.PartnerTabAdapter
+import com.init_android.app.presentation.ui.open.team.TeamReviewActivity
 import com.init_android.app.presentation.ui.open.viewmodel.ProjectViewModel
 import com.init_android.databinding.ActivityPartnerCheckBinding
 import com.playtogether_android.app.presentation.base.BaseActivity
@@ -30,6 +32,14 @@ class PartnerCheckActivity :
         backBtnClickListener()
         initSetting()
 
+        initReviewEvent()
+
+    }
+
+    private fun initReviewEvent(){
+        binding.btnPartnerJoin.setOnClickListener {
+            startActivity(Intent(this,TeamReviewActivity::class.java))
+        }
     }
 
     private fun initSetting() {
@@ -64,8 +74,6 @@ class PartnerCheckActivity :
         partnerTabAdapter = PartnerTabAdapter(this)
         partnerTabAdapter.fragments.addAll(fragmentList)
 
-        Log.d("hello",fragmentList.toString())
-        Log.d("hello",fragmentList.size.toString())
         binding.vpPartnerTab.offscreenPageLimit = partnerTabAdapter.itemCount
         binding.vpPartnerTab.adapter = partnerTabAdapter
     }
