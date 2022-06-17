@@ -36,7 +36,7 @@ class GameFragment : BaseFragment<FragmentGameBinding>(R.layout.fragment_game) {
         partnerGameAdapter = PartnerGameAdapter(1)
         binding.rvAos.adapter = partnerGameAdapter
         projectViewModel.projectMember.observe(viewLifecycleOwner) {
-            partnerGameAdapter.setQuestionPost((it.approvedIos) as MutableList<ResponseProjectMember.ApprovedGame>)
+            partnerGameAdapter.setQuestionPost((it.approvedGame) as MutableList<ResponseProjectMember.ApprovedGame>)
         }
     }
 }

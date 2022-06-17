@@ -38,7 +38,7 @@ class IosFragment : BaseFragment<FragmentIosBinding>(R.layout.fragment_ios){
         partnerIosAdapter = PartnerIosAdapter(1)
         binding.rvAos.adapter = partnerIosAdapter
         projectViewModel.projectMember.observe(viewLifecycleOwner) {
-            partnerIosAdapter.setQuestionPost((it.approvedIos) as MutableList<ResponseProjectMember.ApprovedIos>)
+            partnerIosAdapter.setQuestionPost((it.approvedIos) as MutableList<ResponseProjectMember.ApprovedIo>)
         }
     }
 }

@@ -32,8 +32,10 @@ class ProjectDetailActivity :
     private val mainViewModel: MainViewModel by viewModels()
 
 
-    val pNum = intent.getIntExtra("pNum", 1)
-    val mNum = mainViewModel.signData.value?.mNum ?: 1
+    //val pNum = intent.getIntExtra("pNum", 1)
+    val pNum = 1
+    val mNum = 1
+    //val mNum = mainViewModel.signData.value?.mNum ?: 1
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

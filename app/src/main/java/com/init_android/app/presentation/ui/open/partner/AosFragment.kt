@@ -38,7 +38,7 @@ class AosFragment : BaseFragment<FragmentAosBinding>(R.layout.fragment_aos) {
         partnerAosAdapter = PartnerAosAdapter(1)
         binding.rvAos.adapter = partnerAosAdapter
         projectViewModel.projectMember.observe(viewLifecycleOwner) {
-            partnerAosAdapter.setQuestionPost((it.approvedAos) as MutableList<ResponseProjectMember.ApprovedAos>)
+            partnerAosAdapter.setQuestionPost((it.approvedAos) as MutableList<ResponseProjectMember.ApprovedAo>)
         }
     }
 }

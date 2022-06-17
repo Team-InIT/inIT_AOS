@@ -40,7 +40,7 @@
         <entry key="..\:/Users/82104/inIT_AOS/app/src/main/res/drawable/selector_text.xml" value="0.1" />
         <entry key="..\:/Users/82104/inIT_AOS/app/src/main/res/drawable/selector_text_gray_to_main.xml" value="0.125" />
         <entry key="..\:/Users/82104/inIT_AOS/app/src/main/res/layout/activity_feed_writing.xml" value="0.1" />
-        <entry key="..\:/Users/82104/inIT_AOS/app/src/main/res/layout/activity_main.xml" value="0.2" />
+        <entry key="..\:/Users/82104/inIT_AOS/app/src/main/res/layout/activity_main.xml" value="0.136" />
         <entry key="..\:/Users/82104/inIT_AOS/app/src/main/res/layout/activity_my_page_join.xml" value="0.176" />
         <entry key="..\:/Users/82104/inIT_AOS/app/src/main/res/layout/activity_my_page_modify_basic_info.xml" value="0.1556420233463035" />
         <entry key="..\:/Users/82104/inIT_AOS/app/src/main/res/layout/activity_my_page_modify_link.xml" value="0.264" />
@@ -104,6 +104,7 @@
         <entry key="..\:/Users/82104/inIT_AOS/app/src/main/res/layout/item_partner_design_ios.xml" value="0.22552083333333334" />
         <entry key="..\:/Users/82104/inIT_AOS/app/src/main/res/layout/item_partner_design_list.xml" value="0.19166666666666668" />
         <entry key="..\:/Users/82104/inIT_AOS/app/src/main/res/layout/item_partner_game_list.xml" value="0.22552083333333334" />
+        <entry key="..\:/Users/82104/inIT_AOS/app/src/main/res/layout/item_partner_ios_list.xml" value="0.1" />
         <entry key="..\:/Users/82104/inIT_AOS/app/src/main/res/layout/item_partner_list.xml" value="0.2" />
         <entry key="..\:/Users/82104/inIT_AOS/app/src/main/res/layout/item_partner_server_list.xml" value="0.22552083333333334" />
         <entry key="..\:/Users/82104/inIT_AOS/app/src/main/res/layout/item_partner_web_list.xml" value="0.22552083333333334" />

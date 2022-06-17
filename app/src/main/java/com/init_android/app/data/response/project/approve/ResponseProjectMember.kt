@@ -1,10 +1,10 @@
 package com.init_android.app.data.response.project.approve
 
 data class ResponseProjectMember(
-    val approvedAos: List<ApprovedAos>?,
+    val approvedAos: List<ApprovedAo>?,
     val approvedDesign: List<ApprovedDesign>?,
     val approvedGame: List<ApprovedGame>?,
-    val approvedIos: List<ApprovedIos>?,
+    val approvedIos: List<ApprovedIo>?,
     val approvedPlan: List<ApprovedPlan>?,
     val approvedServer: List<ApprovedServer>?,
     val approvedWeb: List<ApprovedWeb>?,
@@ -42,7 +42,7 @@ data class ResponseProjectMember(
         )
     }
 
-    data class ApprovedAos(
+    data class ApprovedAo(
         val Recruits: List<Recruit>,
         val mEmail: String,
         val mName: String,
@@ -58,7 +58,7 @@ data class ResponseProjectMember(
         )
     }
 
-    data class ApprovedIos(
+    data class ApprovedIo(
         val Recruits: List<Recruit>,
         val mEmail: String,
         val mName: String,
@@ -79,7 +79,7 @@ data class ResponseProjectMember(
         val mEmail: String,
         val mName: String,
         val mNum: Int,
-        val mPhoto: String
+        val mPhoto: String?
     ) {
         data class Recruit(
             val mNum: Int,
@@ -121,8 +121,4 @@ data class ResponseProjectMember(
             val rPosition: Int
         )
     }
-
-
-
-
 }
