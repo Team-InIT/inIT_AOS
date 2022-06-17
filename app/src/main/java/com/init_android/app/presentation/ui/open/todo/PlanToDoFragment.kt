@@ -26,33 +26,25 @@ class PlanToDoFragment : BaseFragment<FragmentPlanToDoBinding>(R.layout.fragment
         super.onViewCreated(view, savedInstanceState)
 
         initNetwork()
-        initImage()
+
     }
 
     override fun onResume() {
         super.onResume()
         initNetwork()
-        initImage()
     }
 
     private fun initNetwork() {
         val requestProjectMember = RequestProjectMember(pNum = 1)
         todoViewModel.postReadPlanToDo(requestProjectMember)
         toDoPlanAdapter = ToDoPlanAdapter()
-        binding.rvPlan.adapter = toDoPlanAdapter
-        todoViewModel.readAllToDo.observe(viewLifecycleOwner) {
-            toDoPlanAdapter.setQuestionPost((it.todoList) as MutableList<ResponseAllToDo.Todo>)
-        }
-    }
-
-    private fun initImage() {
-        val requestProjectMember = RequestProjectMember(pNum = 1)
-        todoViewModel.postReadPlanToDo(requestProjectMember)
         toDoPlanImageAdapter = ToDoPlanImageAdapter()
         binding.rvPlan.adapter = toDoPlanAdapter
         todoViewModel.readAllToDo.observe(viewLifecycleOwner) {
+            toDoPlanAdapter.setQuestionPost((it.todoList) as MutableList<ResponseAllToDo.Todo>)
             toDoPlanImageAdapter.setQuestionPost((it.todoList) as MutableList<ResponseAllToDo.Todo.Member>)
         }
     }
+
 
 }
