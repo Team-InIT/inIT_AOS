@@ -27,7 +27,8 @@ data class ResponseGetNotRecruitingProject(
         val pWebf: Int?,
         val pServerf: Int?,
         val pState: Int?,
-        // val mNum:Int,
+        val pOnOff: Int,
+        val mNum:Int,
         // val pStack:String
     )
 

@@ -13,7 +13,6 @@ import com.playtogether_android.app.presentation.base.BaseFragment
 class SearchPartnerFragment:BaseFragment<FragmentSearchPartnerBinding>(R.layout.fragment_search_partner) {
 
     private val searchViewModel : SearchViewModel by viewModels()
-    private val userList = mutableListOf<UserList>()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -31,10 +30,10 @@ class SearchPartnerFragment:BaseFragment<FragmentSearchPartnerBinding>(R.layout.
         // 리스트 불러오기
         searchViewModel.partnerData.observe(viewLifecycleOwner){
             val data = it.userList
-            for (i in data.indices){
-                userList.add(UserList(data[i].mNum,data[i].mName,data[i].mPosition,data[i].mIntroduction,data[i].mPhoto))
-            }
-            adapter.submitList(userList)
+            //for (i in data.indices){
+            //    userList.add(UserList(data[i].mNum,data[i].mName,data[i].mPosition,data[i].mIntroduction,data[i].mPhoto))
+            //}
+            adapter.submitList(data.toMutableList())
         }
     }
 }
