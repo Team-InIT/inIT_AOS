@@ -10,6 +10,7 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.fragment.app.viewModels
 import com.init_android.R
 import com.init_android.app.data.request.RequestAlreadyEvaluate
+import com.init_android.app.data.request.RequestCheckEvaluation
 import com.init_android.app.data.request.RequestNotEveluate
 import com.init_android.app.presentation.ui.open.team.adapter.TeamReviewAdapter
 import com.init_android.databinding.FragmentReviewDoneBinding
@@ -66,6 +67,7 @@ class ReviewDoneFragment:BaseFragment<FragmentReviewDoneBinding>(R.layout.fragme
                 undoneAdapter.submitList(itemList)
                 binding.rvTeamList.adapter = undoneAdapter
                 teamReviewViewModel.selectedPersonNum.value = undoneAdapter.currentList[0].personNum
+                getTeamReview()
             }
         // 팀원 선택 클릭 이벤트
         undoneAdapter.setItemClickListener(object : TeamReviewAdapter.OnItemClickListener {
@@ -81,6 +83,7 @@ class ReviewDoneFragment:BaseFragment<FragmentReviewDoneBinding>(R.layout.fragme
                         if (i == position) {
                             // 선택한 팀원의 이름 데이터 넘겨주기
                             teamReviewViewModel.selectedPersonNum.value = teamList[position].personNum
+                            getTeamReview()
                             continue
                         }
 
@@ -96,6 +99,7 @@ class ReviewDoneFragment:BaseFragment<FragmentReviewDoneBinding>(R.layout.fragme
 
                     // 선택한 팀원의 이름 데이터 넘겨주기
                     teamReviewViewModel.selectedPersonNum.value = teamList[position].personNum
+                    getTeamReview()
                 }
             }
 
@@ -135,6 +139,25 @@ class ReviewDoneFragment:BaseFragment<FragmentReviewDoneBinding>(R.layout.fragme
         super.onResume()
 
         Toast.makeText(requireContext(), "완료 화면 resume 테스뚜 헤헤", Toast.LENGTH_SHORT).show()
+    }
+
+    // 평가된 팀원 개별 요소 조회
+    private fun getTeamReview(){
+        val requestCheckEvaluation = RequestCheckEvaluation(
+            mNum = 1,
+            pNum = 1,
+            ePerson = teamReviewViewModel.selectedPersonNum.value!!.toInt()
+        )
+        teamReviewViewModel.postCheckEvaluation(requestCheckEvaluation)
+
+        teamReviewViewModel.checkEvaluateData.observe(this){
+            binding.tvTeamReview.text = it.evaluation.eComment
+            if (it.evaluation.eRecommend == 0){
+                binding.tvRecommend.text = ""
+            }else{
+                binding.tvRecommend.text = "해당 팀원을 추천했어요!"
+            }
+        }
     }
 
 }

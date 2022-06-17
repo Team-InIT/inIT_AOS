@@ -205,4 +205,8 @@ interface InitService {
     // 팀평가 평가 팀원 리스트 조회
     @POST("/alreadyEvaluate")
     suspend fun postAlreadyEvaluate(@Body requestAlreadyEvaluate: RequestAlreadyEvaluate):ResponseAlreadyEvaluate
+
+    // 평가된 팀원 개별요소 조회
+    @POST("/checkEvaluation")
+    suspend fun postCheckEvaluation(@Body requestCheckEvaluation: RequestCheckEvaluation):ResponseCheckEvaluation
 }
