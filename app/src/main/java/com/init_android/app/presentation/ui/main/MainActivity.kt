@@ -3,6 +3,7 @@ package com.init_android.app.presentation.ui.main
 import android.os.Bundle
 import android.util.Log
 import androidx.activity.viewModels
+import androidx.lifecycle.ViewModelProvider
 import com.init_android.R
 import com.init_android.app.presentation.ui.alarm.AlarmFragment
 import com.init_android.app.presentation.ui.feed.FeedFragment
@@ -55,12 +56,11 @@ class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
     //userId저장
     private fun settingId() {
         val userId = intent.getIntExtra("userId", 1)
-        Log.d("MainHome", userId.toString())
-        mainViewModel.mId.value = userId
-//        binding.fabWriting.setOnClickListener {
-//            val intent = Intent(this@MainActivity, OpenProjectActivity::class.java)
-//            intent.putExtra("userId", userId)
-//            startActivity(intent)
-//        }
+        val position = intent.getIntExtra("position",1)
+        val level = intent.getIntExtra("level", 1)
+
+        mainViewModel.mNum.value = userId
+        mainViewModel.mPosition.value = position
+        mainViewModel.mLevel.value = level
     }
 }

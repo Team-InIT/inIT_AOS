@@ -5,10 +5,14 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import androidx.activity.viewModels
+import androidx.fragment.app.FragmentActivity
+import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.ViewModelProvider
 import com.init_android.R
 import com.init_android.app.data.model.ProjectItemData
 import com.init_android.app.data.request.RequestHome
+import com.init_android.app.data.response.ResponseSignIn
 import com.init_android.app.presentation.ui.home.adapter.ProjectItemRVAdapter
 import com.init_android.app.presentation.ui.home.adapter.ProjectItemVPAdapter
 import com.init_android.app.presentation.ui.home.recommendproject.RecommendProjectActivity
@@ -20,6 +24,7 @@ import com.init_android.app.util.DateUtil
 
 import com.init_android.databinding.FragmentHomeBinding
 import com.playtogether_android.app.presentation.base.BaseFragment
+import kotlin.math.sign
 
 
 class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
@@ -27,9 +32,10 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
     val includeList = mutableListOf<ProjectItemData>()
     val recoList = mutableListOf<ProjectItemData>()
 
-    private val mainViewModel : MainViewModel by viewModels()
+    private val mainViewModel : MainViewModel by activityViewModels()
     private val homeViewModel: HomeViewModel by viewModels()
-    private val signViewModel : SignViewModel by viewModels()
+
+
     override fun onResume() {
         super.onResume()
     }
@@ -44,16 +50,24 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
 
     // 서버 통신 - 데이터 존재 여부 검사
     private fun tryGetHomeProject() {
+        mainViewModel.mNum.observe(viewLifecycleOwner) {
+            val mNum = it
 
-        Log.d("userCode", mainViewModel.signData.value?.mID.toString())
+            mainViewModel.mPosition.observe(viewLifecycleOwner) {
+                val mPosition = it
 
-        val requestHome = RequestHome(
-            mNum = 1,
-            mPosition = 3,
-            mLevel = 0
-        )
+                mainViewModel.mLevel.observe(viewLifecycleOwner) {
+                    val mLevel = it
 
-        homeViewModel.postHomeData(requestHome)
+                    val requestHome = RequestHome(
+                        mNum = mNum,
+                        mPosition = mPosition,
+                        mLevel = mLevel
+                    )
+                    homeViewModel.postHomeData(requestHome)
+                }
+            }
+        }
 
 
         homeViewModel.homeData.observe(viewLifecycleOwner) {
@@ -177,7 +191,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
     private fun writeBtnClick() {
         binding.fabWriting.setOnClickListener {
             val intent = Intent(requireActivity(), OpenProjectActivity::class.java)
-            intent.putExtra("userId", mainViewModel.mId.value)
+            intent.putExtra("userId", mainViewModel.mNum.value)
             startActivity(intent)
         }
     }
