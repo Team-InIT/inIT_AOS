@@ -36,7 +36,6 @@ class SearchRecruitingFragment:BaseFragment<FragmentSearchRecruitingBinding>(R.l
         searchViewModel.getRecruitingProject()
 
         searchViewModel.recruitingData.observe(viewLifecycleOwner){
-            Log.d("help",it.recruitingProject?.toMutableList().toString())
             val projectItemDataList = it.recruitingProject?.toMutableList()
             val writerList = it.writer!!.toMutableList()
             for (i in projectItemDataList!!.indices){
@@ -50,6 +49,7 @@ class SearchRecruitingFragment:BaseFragment<FragmentSearchRecruitingBinding>(R.l
                 data.pState!!,data.pNum,data.mNum))
             }
 
+            adapter.setProjectList(myProjectItemDataList)
             adapter.submitList(myProjectItemDataList)
         }
 
