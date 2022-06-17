@@ -30,9 +30,6 @@ class SearchPartnerFragment:BaseFragment<FragmentSearchPartnerBinding>(R.layout.
         // 리스트 불러오기
         searchViewModel.partnerData.observe(viewLifecycleOwner){
             val data = it.userList
-            //for (i in data.indices){
-            //    userList.add(UserList(data[i].mNum,data[i].mName,data[i].mPosition,data[i].mIntroduction,data[i].mPhoto))
-            //}
             adapter.submitList(data.toMutableList())
         }
     }

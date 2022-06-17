@@ -3,6 +3,7 @@ package com.init_android.app.presentation.ui.search.recruiting
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.widget.Toast
 import androidx.fragment.app.viewModels
 import com.init_android.R
 import com.init_android.app.data.model.ProjectItemData
@@ -25,7 +26,7 @@ class SearchRecruitingFragment:BaseFragment<FragmentSearchRecruitingBinding>(R.l
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        initAdapter()
+        // initAdapter()
         clickListener()
         initRefreshEvent()
         initSearchEvent()
@@ -39,6 +40,8 @@ class SearchRecruitingFragment:BaseFragment<FragmentSearchRecruitingBinding>(R.l
         searchViewModel.getRecruitingProject()
 
         searchViewModel.recruitingData.observe(viewLifecycleOwner){
+            myProjectItemDataList.clear()
+
             val projectItemDataList = it.recruitingProject?.toMutableList()
             val writerList = it.writer!!.toMutableList()
             for (i in projectItemDataList!!.indices){
@@ -52,14 +55,23 @@ class SearchRecruitingFragment:BaseFragment<FragmentSearchRecruitingBinding>(R.l
                 data.pState!!,data.pNum,data.mNum))
             }
 
-            if (searchViewModel.searchFlags.value == true){
+
+            myProjectItemDataList.distinct()
+            /*if (searchViewModel.searchFlags.value == true){
                 adapter.submitList(null)
             }else{
                 adapter.setProjectList(myProjectItemDataList)
                 adapter.submitList(myProjectItemDataList)
-            }
+            }*/
+            adapter.setProjectList(myProjectItemDataList)
+            adapter.submitList(myProjectItemDataList)
         }
 
+    }
+
+    override fun onResume() {
+        super.onResume()
+        initAdapter()
     }
 
     private fun initRefreshEvent(){
@@ -74,6 +86,9 @@ class SearchRecruitingFragment:BaseFragment<FragmentSearchRecruitingBinding>(R.l
     private fun initSearchEvent(){
         binding.btnSearch.setOnClickListener {
 
+            searchViewModel.searchResultData.removeObservers(this)
+            searchViewModel.recruitingData.removeObservers(this)
+
             val adapter = ProjectItemRVAdapter(requireContext())
             binding.rvProject.adapter = adapter
 
@@ -83,6 +98,7 @@ class SearchRecruitingFragment:BaseFragment<FragmentSearchRecruitingBinding>(R.l
 
             // 데이터 받아오기
             searchViewModel.searchResultData.observe(viewLifecycleOwner){
+                searchResultList.clear()
                 val projectItemDataList = it.projectInfo?.toMutableList()
                 for (i in projectItemDataList!!.indices){
                     val data = projectItemDataList[i]
@@ -95,6 +111,8 @@ class SearchRecruitingFragment:BaseFragment<FragmentSearchRecruitingBinding>(R.l
                         data.pState!!,data.pNum,data.mNum))
                 }
 
+                Log.d("plz",searchResultList.toString())
+                searchResultList.distinct()
                 adapter.setProjectList(searchResultList)
                 adapter.submitList(searchResultList)
             }
