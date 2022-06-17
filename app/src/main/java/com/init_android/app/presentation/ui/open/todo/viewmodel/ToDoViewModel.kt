@@ -8,6 +8,7 @@ import androidx.lifecycle.viewModelScope
 import com.init_android.app.data.ServiceCreator
 import com.init_android.app.data.request.project.RequestProjectMember
 import com.init_android.app.data.request.todo.RequestToDoMember
+import com.init_android.app.data.request.todo.RequestWriteToDo
 import com.init_android.app.data.response.todo.ResponseAllToDo
 import com.init_android.app.data.response.todo.ResponseToDoMember
 import kotlinx.coroutines.launch
@@ -144,6 +145,7 @@ class ToDoViewModel() : ViewModel() {
         }
     }
 
+    //투두 멤버 조회
     fun postToDoMember(requestToDoMember: RequestToDoMember) {
         viewModelScope.launch {
             kotlin.runCatching { ServiceCreator.initService.postToDoMember(requestToDoMember) }
@@ -154,6 +156,20 @@ class ToDoViewModel() : ViewModel() {
                 .onFailure {
                     it.printStackTrace()
                     Log.d("todoMember", "서버 통신 실패")
+                }
+        }
+    }
+
+    //투두 작성
+    fun postWriteToDo(requestWriteToDo: RequestWriteToDo) {
+        viewModelScope.launch {
+            kotlin.runCatching { ServiceCreator.initService.postWriteTodo(requestWriteToDo) }
+                .onSuccess {
+                    Log.d("writeToDo", "서버 통신 성공")
+                }
+                .onFailure {
+                    it.printStackTrace()
+                    Log.d("writeToDo", "서버 통신 실패")
                 }
         }
     }
