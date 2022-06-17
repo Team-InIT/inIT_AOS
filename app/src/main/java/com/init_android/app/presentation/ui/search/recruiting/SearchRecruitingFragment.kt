@@ -102,12 +102,12 @@ class SearchRecruitingFragment:BaseFragment<FragmentSearchRecruitingBinding>(R.l
                 for (i in projectItemDataList!!.indices){
                     val data = projectItemDataList[i]
 
-                    val totalNum = data.pPlan + data.pDesign + data.pAos + data.pIos + data.pWeb + data.pGame + data.pServer
-                    val pStartDate =  DateUtil().dateToString(data.pStart).replace("-",".")
-                    val pEndDate = DateUtil().dateToString(data.pDue).replace("-",".")
+                    val totalNum = data.recruitingProject.pPlan + data.recruitingProject.pDesign + data.recruitingProject.pAos + data.recruitingProject.pIos + data.recruitingProject.pWeb + data.recruitingProject.pGame + data.recruitingProject.pServer
+                    val pStartDate =  DateUtil().dateToString(data.recruitingProject.pStart!!).replace("-",".")
+                    val pEndDate = DateUtil().dateToString(data.recruitingProject.pDue).replace("-",".")
 
-                    searchResultList.add(ProjectItemData(data.pType,data.pDescription,data.pOnOff,totalNum,pStartDate,pEndDate,data.Member.mName,
-                        data.pState!!,data.pNum,data.mNum,""))
+                    searchResultList.add(ProjectItemData(data.recruitingProject.pType!!,data.recruitingProject.pDescription!!,data.recruitingProject.pOnOff!!,totalNum,pStartDate,pEndDate,data.recruitingProject.Member.mName,
+                        data.recruitingProject.pState!!,data.recruitingProject.pNum!!,data.recruitingProject.mNum!!,data.projectState))
                 }
 
                 searchResultList.distinct()
