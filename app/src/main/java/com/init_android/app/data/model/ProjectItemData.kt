@@ -12,4 +12,6 @@ data class ProjectItemData (
 
     val pNum:Int,
     val mNum:Int,
+
+    val projectState:String // 디데이 문자열
 )

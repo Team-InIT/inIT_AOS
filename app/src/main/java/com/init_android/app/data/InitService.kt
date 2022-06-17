@@ -38,7 +38,7 @@ interface InitService {
     ): ResponseAddProject
 
     @POST("/home")
-    suspend fun postHome(@Body body: RequestHome): ResponseHome
+    suspend fun postHome(@Body body: RequestHome): ResponseNewHome
 
 
     @POST("/myPage")

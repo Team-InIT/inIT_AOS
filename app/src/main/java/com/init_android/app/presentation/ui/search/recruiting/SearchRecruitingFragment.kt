@@ -52,7 +52,7 @@ class SearchRecruitingFragment:BaseFragment<FragmentSearchRecruitingBinding>(R.l
                 val pEndDate = DateUtil().dateToString(data.pDue).replace("-",".")
 
                 myProjectItemDataList.add(ProjectItemData(data.pType,data.pDescription,data.pOnOff,totalNum,pStartDate,pEndDate,writerList[i].mName,
-                data.pState!!,data.pNum,data.mNum))
+                data.pState!!,data.pNum,data.mNum,""))
             }
 
 
@@ -108,7 +108,7 @@ class SearchRecruitingFragment:BaseFragment<FragmentSearchRecruitingBinding>(R.l
                     val pEndDate = DateUtil().dateToString(data.pDue).replace("-",".")
 
                     searchResultList.add(ProjectItemData(data.pType,data.pDescription,data.pOnOff,totalNum,pStartDate,pEndDate,data.Member.mName,
-                        data.pState!!,data.pNum,data.mNum))
+                        data.pState!!,data.pNum,data.mNum,""))
                 }
 
                 Log.d("plz",searchResultList.toString())
