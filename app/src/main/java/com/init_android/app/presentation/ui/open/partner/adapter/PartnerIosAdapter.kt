@@ -13,7 +13,7 @@ import com.init_android.databinding.ItemPartnerIosListBinding
 import com.init_android.databinding.ItemPartnerListBinding
 
 class PartnerIosAdapter(var userId : Int) : RecyclerView.Adapter<PartnerIosAdapter.PartnerListViewHolder>() {
-    var partnerData = mutableListOf<ResponseProjectMember.ApprovedIos>()
+    var partnerData = mutableListOf<ResponseProjectMember.ApprovedIo>()
 
     override fun onCreateViewHolder(
         parent: ViewGroup,
@@ -49,7 +49,7 @@ class PartnerIosAdapter(var userId : Int) : RecyclerView.Adapter<PartnerIosAdapt
     inner class PartnerListViewHolder(
         val binding: ItemPartnerIosListBinding
     ) : RecyclerView.ViewHolder(binding.root) {
-        fun onBind(partnerData: ResponseProjectMember.ApprovedIos) {
+        fun onBind(partnerData: ResponseProjectMember.ApprovedIo) {
             binding.apply {
                 member = partnerData
                 executePendingBindings()
@@ -57,7 +57,7 @@ class PartnerIosAdapter(var userId : Int) : RecyclerView.Adapter<PartnerIosAdapt
         }
     }
 
-    fun setQuestionPost(partnerData: MutableList<ResponseProjectMember.ApprovedIos>) {
+    fun setQuestionPost(partnerData: MutableList<ResponseProjectMember.ApprovedIo>) {
         this.partnerData = partnerData
         notifyDataSetChanged()
 

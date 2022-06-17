@@ -64,8 +64,6 @@ class PartnerCheckActivity :
         partnerTabAdapter = PartnerTabAdapter(this)
         partnerTabAdapter.fragments.addAll(fragmentList)
 
-        Log.d("hello",fragmentList.toString())
-        Log.d("hello",fragmentList.size.toString())
         binding.vpPartnerTab.offscreenPageLimit = partnerTabAdapter.itemCount
         binding.vpPartnerTab.adapter = partnerTabAdapter
     }

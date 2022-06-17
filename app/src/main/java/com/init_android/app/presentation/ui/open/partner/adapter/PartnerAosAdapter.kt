@@ -10,7 +10,7 @@ import com.init_android.app.presentation.ui.mypage.PartnerPageActivity
 import com.init_android.databinding.ItemPartnerAosListBinding
 
 class PartnerAosAdapter(var userId : Int) : RecyclerView.Adapter<PartnerAosAdapter.PartnerListViewHolder>() {
-    var partnerData = mutableListOf<ResponseProjectMember.ApprovedAos>()
+    var partnerData = mutableListOf<ResponseProjectMember.ApprovedAo>()
 
     override fun onCreateViewHolder(
         parent: ViewGroup,
@@ -46,7 +46,7 @@ class PartnerAosAdapter(var userId : Int) : RecyclerView.Adapter<PartnerAosAdapt
     inner class PartnerListViewHolder(
         val binding: ItemPartnerAosListBinding
     ) : RecyclerView.ViewHolder(binding.root) {
-        fun onBind(partnerData: ResponseProjectMember.ApprovedAos) {
+        fun onBind(partnerData: ResponseProjectMember.ApprovedAo) {
             binding.apply {
                 member = partnerData
                 executePendingBindings()
@@ -54,7 +54,7 @@ class PartnerAosAdapter(var userId : Int) : RecyclerView.Adapter<PartnerAosAdapt
         }
     }
 
-    fun setQuestionPost(partnerData: MutableList<ResponseProjectMember.ApprovedAos>) {
+    fun setQuestionPost(partnerData: MutableList<ResponseProjectMember.ApprovedAo>) {
         this.partnerData = partnerData
         notifyDataSetChanged()
 
