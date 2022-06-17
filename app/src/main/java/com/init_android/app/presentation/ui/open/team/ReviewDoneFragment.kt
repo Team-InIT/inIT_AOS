@@ -2,6 +2,7 @@ package com.init_android.app.presentation.ui.open.team
 
 import android.app.Dialog
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.view.WindowManager
 import android.widget.TextView
@@ -9,35 +10,73 @@ import android.widget.Toast
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.fragment.app.viewModels
 import com.init_android.R
+import com.init_android.app.data.request.RequestAlreadyEvaluate
+import com.init_android.app.data.request.RequestCheckEvaluation
+import com.init_android.app.data.request.RequestDeleteEvaluation
+import com.init_android.app.data.request.RequestNotEveluate
 import com.init_android.app.presentation.ui.open.team.adapter.TeamReviewAdapter
 import com.init_android.databinding.FragmentReviewDoneBinding
 import com.playtogether_android.app.presentation.base.BaseFragment
 
-class ReviewDoneFragment:BaseFragment<FragmentReviewDoneBinding>(R.layout.fragment_review_done) {
+class ReviewDoneFragment : BaseFragment<FragmentReviewDoneBinding>(R.layout.fragment_review_done) {
 
     private val teamReviewViewModel: TeamReviewViewModel by viewModels()
     private val itemList = mutableListOf<TeamData>()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        initAdapter()
+        // initAdapter()
         initBtnEvent()
     }
 
     private fun initAdapter() {
         val undoneAdapter = TeamReviewAdapter(requireContext())
-        itemList.addAll(
-            listOf(
-                TeamData(0,"정지연", 0, "", true),
-                TeamData(0,"이혜빈", 0, "", false),
-                TeamData(0,"장윤정", 1, "", false)
-            )
-        )
-        undoneAdapter.submitList(itemList)
-        binding.rvTeamList.adapter = undoneAdapter
-        teamReviewViewModel.selectedPersonNum.value = undoneAdapter.currentList[0].personNum
 
+        Log.d("test", "initAdapter")
+
+        val requestAlreadyEvaluate = RequestAlreadyEvaluate(
+            mNum = 1,
+            pNum = 1
+        )
+
+        teamReviewViewModel.postAlreadyEveluate(requestAlreadyEvaluate)
+
+        teamReviewViewModel.evaluate.observe(viewLifecycleOwner) {
+            itemList.clear()
+            val data = it.members?.toMutableList()
+            for (i in data!!.indices) {
+                if (i == 0) {
+                    itemList.add(
+                        TeamData(
+                            data[i].mNum,
+                            data[i].mName,
+                            data[i].mPosition,
+                            data[i].mPhoto ?: "",
+                            true
+                        )
+                    )
+                } else {
+                    itemList.add(
+                        TeamData(
+                            data[i].mNum,
+                            data[i].mName,
+                            data[i].mPosition,
+                            data[i].mPhoto ?: "",
+                            false
+                        )
+                    )
+                }
+            }
+
+
+            Log.d("test", "viewModel1")
+            undoneAdapter.submitList(itemList)
+            binding.rvTeamList.adapter = undoneAdapter
+            teamReviewViewModel.selectedPersonNum.value = undoneAdapter.currentList[0].personNum
+            getTeamReview()
+
+
+        }
         // 팀원 선택 클릭 이벤트
         undoneAdapter.setItemClickListener(object : TeamReviewAdapter.OnItemClickListener {
             override fun onClick(v: View, position: Int) {
@@ -51,7 +90,9 @@ class ReviewDoneFragment:BaseFragment<FragmentReviewDoneBinding>(R.layout.fragme
 
                         if (i == position) {
                             // 선택한 팀원의 이름 데이터 넘겨주기
-                            teamReviewViewModel.selectedPersonNum.value = teamList[position].personNum
+                            teamReviewViewModel.selectedPersonNum.value =
+                                teamList[position].personNum
+                            getTeamReview()
                             continue
                         }
 
@@ -67,6 +108,7 @@ class ReviewDoneFragment:BaseFragment<FragmentReviewDoneBinding>(R.layout.fragme
 
                     // 선택한 팀원의 이름 데이터 넘겨주기
                     teamReviewViewModel.selectedPersonNum.value = teamList[position].personNum
+                    getTeamReview()
                 }
             }
 
@@ -74,14 +116,15 @@ class ReviewDoneFragment:BaseFragment<FragmentReviewDoneBinding>(R.layout.fragme
     }
 
     // 삭제 이벤트
-    private fun initBtnEvent(){
+    private fun initBtnEvent() {
         binding.btnDelete.setOnClickListener {
+            Log.d("test", "initBtnEvent")
             showDeleteDialog()
         }
     }
 
     // 알럿 창 생성
-    private fun showDeleteDialog(){
+    private fun showDeleteDialog() {
         val doneDialog = Dialog(requireContext())
         doneDialog.setContentView(R.layout.dialog_yes_no)
         doneDialog.window?.setLayout(
@@ -90,22 +133,49 @@ class ReviewDoneFragment:BaseFragment<FragmentReviewDoneBinding>(R.layout.fragme
         )
         doneDialog.findViewById<TextView>(R.id.tv_dialog_title).text = "정말 삭제하시겠습니까?"
         doneDialog.findViewById<TextView>(R.id.tv_dialog_yes).setOnClickListener {
-            // 삭제 yes ~~~ 서버통신 고고링 ~
             doneDialog.dismiss()
+            // 삭제 yes ~~ 여기서 서버통신
+            val requestDeleteEvaluation =
+                RequestDeleteEvaluation(eNum = teamReviewViewModel.selectedENum.value!!.toInt())
+            teamReviewViewModel.postDeleteEvaluate(requestDeleteEvaluation)
+            Log.d("test", "viewModel3")
+            initAdapter()
         }
         doneDialog.findViewById<TextView>(R.id.tv_dialog_no).setOnClickListener {
             // 삭제 no
             doneDialog.dismiss()
         }
-
         doneDialog.show()
     }
 
     // resume 말고 완료했을 때 리스트 부르는 함수를 호출해야 겠다.
     override fun onResume() {
         super.onResume()
+        Log.d("test", "onResume")
+        initAdapter()
 
-        Toast.makeText(requireContext(), "완료 화면 resume 테스뚜 헤헤", Toast.LENGTH_SHORT).show()
+    }
+
+    // 평가된 팀원 개별 요소 조회
+    private fun getTeamReview() {
+        val requestCheckEvaluation = RequestCheckEvaluation(
+            mNum = 1,
+            pNum = 1,
+            ePerson = teamReviewViewModel.selectedPersonNum.value!!.toInt()
+        )
+        teamReviewViewModel.postCheckEvaluation(requestCheckEvaluation)
+
+        teamReviewViewModel.checkEvaluateData.observe(viewLifecycleOwner) {
+            teamReviewViewModel.selectedENum.value = it.evaluation.eNum
+            binding.tvTeamReview.text = it.evaluation.eComment
+            if (it.evaluation.eRecommend == 0) {
+                binding.tvRecommend.text = ""
+            } else {
+                binding.tvRecommend.text = "해당 팀원을 추천했어요!"
+            }
+
+            Log.d("test", "viewModel2")
+        }
     }
 
 }
