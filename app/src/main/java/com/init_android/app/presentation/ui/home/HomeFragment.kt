@@ -50,7 +50,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
 
     // 서버 통신 - 데이터 존재 여부 검사
     private fun tryGetHomeProject() {
-        mainViewModel.mId.observe(viewLifecycleOwner) {
+        mainViewModel.mNum.observe(viewLifecycleOwner) {
             val mNum = it
 
             mainViewModel.mPosition.observe(viewLifecycleOwner) {
@@ -191,7 +191,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
     private fun writeBtnClick() {
         binding.fabWriting.setOnClickListener {
             val intent = Intent(requireActivity(), OpenProjectActivity::class.java)
-            intent.putExtra("userId", mainViewModel.mId.value)
+            intent.putExtra("userId", mainViewModel.mNum.value)
             startActivity(intent)
         }
     }

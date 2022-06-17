@@ -59,7 +59,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
         val position = intent.getIntExtra("position",1)
         val level = intent.getIntExtra("level", 1)
 
-        mainViewModel.mId.value = userId
+        mainViewModel.mNum.value = userId
         mainViewModel.mPosition.value = position
         mainViewModel.mLevel.value = level
     }

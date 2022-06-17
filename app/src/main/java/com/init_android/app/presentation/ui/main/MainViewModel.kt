@@ -12,7 +12,7 @@ class MainViewModel() : ViewModel() {
     var signData = MutableLiveData<Member>()
 
     //유저 아이디
-    var mId = MutableLiveData<Int>()
+    var mNum = MutableLiveData<Int>()
     var mPosition = MutableLiveData<Int>()
     var mLevel = MutableLiveData<Int>()
 

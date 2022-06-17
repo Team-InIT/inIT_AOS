@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import com.google.android.material.tabs.TabLayoutMediator
 import com.init_android.R
@@ -18,9 +19,8 @@ import com.playtogether_android.app.presentation.base.BaseFragment
 
 class MyPageFragment : BaseFragment<FragmentMyPageBinding>(R.layout.fragment_my_page) {
 
-    private val mainViewModel : MainViewModel by viewModels()
-    private val myPageViewModel : MyPageViewModel by viewModels()
-    private val signViewModel : SignViewModel by viewModels()
+    private val mainViewModel: MainViewModel by activityViewModels()
+    private val myPageViewModel: MyPageViewModel by viewModels()
 
     private lateinit var myPageTabAdapter: MyPageTabAdapter
 
@@ -42,15 +42,14 @@ class MyPageFragment : BaseFragment<FragmentMyPageBinding>(R.layout.fragment_my_
     private fun initNetwork() {
 
 
-        val requestMyInfo = RequestMyInfo(
-            //mNum = 1
+        mainViewModel.mNum.observe(viewLifecycleOwner) {
+            val mNum = it
+            val requestMyInfo = RequestMyInfo(
+                mNum = mNum
+            )
+            myPageViewModel.postMyInfo(requestMyInfo)
+        }
 
-            mNum = mainViewModel.mId.value ?: 1
-        )
-
-        Log.d("MyPage mNum: " , " " + mainViewModel.mId.value)
-
-        myPageViewModel.postMyInfo(requestMyInfo)
 
         myPageViewModel.myInfoData.observe(viewLifecycleOwner) {
             binding.user = it.mInfo
@@ -91,7 +90,8 @@ class MyPageFragment : BaseFragment<FragmentMyPageBinding>(R.layout.fragment_my_
     //프로필 편집 클릭 리스너
     private fun editProfileListener() {
         binding.tvMyPageModifyProfile.setOnClickListener {
-            val intentModifyProfile = Intent(requireActivity(), MyPageModifyProfileActivity::class.java)
+            val intentModifyProfile =
+                Intent(requireActivity(), MyPageModifyProfileActivity::class.java)
             intentModifyProfile.putExtra("name", binding.tvMyPageProfileName.text.toString())
             intentModifyProfile.putExtra("position", binding.tvMyPagePostion.text.toString())
             intentModifyProfile.putExtra("level", binding.tvMyPagePositionLevel.text.toString())

@@ -5,6 +5,7 @@ import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.fragment.app.viewModels
 import com.init_android.R
+import com.init_android.app.data.request.mypage.RequestMyInfo
 import com.init_android.app.data.request.mypage.RequestWaitingApproval
 import com.init_android.app.data.response.project.approve.ResponsemyWaitingApproval
 import com.init_android.app.presentation.ui.main.MainViewModel
@@ -16,7 +17,7 @@ import com.playtogether_android.app.presentation.base.BaseActivity
 class MyPageJoinActivity : BaseActivity<ActivityMyPageJoinBinding>(R.layout.activity_my_page_join) {
 
     private val myPageViewModel: MyPageViewModel by viewModels()
-    private val mainViewModel : MainViewModel by viewModels()
+    private val mainViewModel: MainViewModel by viewModels()
     private lateinit var readyAdapter: ReadyAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -50,22 +51,35 @@ class MyPageJoinActivity : BaseActivity<ActivityMyPageJoinBinding>(R.layout.acti
     }
 
     private fun initIngNetwork() {
-        val requestWaitingApproval = RequestWaitingApproval(mNum = mainViewModel.signData.value?.mNum ?: 1)
-        myPageViewModel.postIngProject(requestWaitingApproval)
-        readyAdapter = ReadyAdapter(1)
-        binding.rvMypageJoin.adapter = readyAdapter
-        myPageViewModel.waitingApprove.observe(this) {
-            readyAdapter.setQuestionPost((it.projectInfoList) as MutableList<ResponsemyWaitingApproval.ProjectInfo>)
+
+
+        mainViewModel.mNum.observe(this) {
+            val mNum = it
+
+
+            val requestWaitingApproval = RequestWaitingApproval(mNum = mNum)
+            myPageViewModel.postIngProject(requestWaitingApproval)
+            readyAdapter = ReadyAdapter(1)
+            binding.rvMypageJoin.adapter = readyAdapter
+            myPageViewModel.waitingApprove.observe(this) {
+                readyAdapter.setQuestionPost((it.projectInfoList) as MutableList<ResponsemyWaitingApproval.ProjectInfo>)
+            }
         }
+
+
     }
 
     private fun initEndNetwork() {
-        val requestWaitingApproval = RequestWaitingApproval(mNum = mainViewModel.signData.value?.mNum ?: 1)
-        myPageViewModel.postEndProject(requestWaitingApproval)
-        readyAdapter = ReadyAdapter(1)
-        binding.rvMypageJoin.adapter = readyAdapter
-        myPageViewModel.endApprove.observe(this) {
-            readyAdapter.setQuestionPost((it.projectInfoList) as MutableList<ResponsemyWaitingApproval.ProjectInfo>)
+        mainViewModel.mNum.observe(this) {
+            val mNum = it
+            val requestWaitingApproval =
+                RequestWaitingApproval(mNum = mNum)
+            myPageViewModel.postEndProject(requestWaitingApproval)
+            readyAdapter = ReadyAdapter(1)
+            binding.rvMypageJoin.adapter = readyAdapter
+            myPageViewModel.endApprove.observe(this) {
+                readyAdapter.setQuestionPost((it.projectInfoList) as MutableList<ResponsemyWaitingApproval.ProjectInfo>)
+            }
         }
     }
 
