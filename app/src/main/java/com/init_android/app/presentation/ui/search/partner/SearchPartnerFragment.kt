@@ -2,13 +2,18 @@ package com.init_android.app.presentation.ui.search.partner
 
 import android.os.Bundle
 import android.view.View
+import androidx.fragment.app.viewModels
 import com.init_android.R
-import com.init_android.app.data.model.PartnerData
+import com.init_android.app.data.response.UserList
+import com.init_android.app.presentation.ui.search.SearchViewModel
 import com.init_android.app.presentation.ui.search.adapter.SearchPartnerAdapter
 import com.init_android.databinding.FragmentSearchPartnerBinding
 import com.playtogether_android.app.presentation.base.BaseFragment
 
 class SearchPartnerFragment:BaseFragment<FragmentSearchPartnerBinding>(R.layout.fragment_search_partner) {
+
+    private val searchViewModel : SearchViewModel by viewModels()
+    private val userList = mutableListOf<UserList>()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -19,8 +24,17 @@ class SearchPartnerFragment:BaseFragment<FragmentSearchPartnerBinding>(R.layout.
     private fun initAdapter(){
         val adapter = SearchPartnerAdapter(requireContext())
         binding.rvPartner.adapter = adapter
-        adapter.submitList(
-            listOf(PartnerData("장윤정","어쩌궁",0,"yoon@gmail.com","서울여자대학교",))
-        )
+
+        // 서버 통신
+        searchViewModel.getUserAll()
+
+        // 리스트 불러오기
+        searchViewModel.partnerData.observe(viewLifecycleOwner){
+            val data = it.userList
+            for (i in data.indices){
+                userList.add(UserList(data[i].mNum,data[i].mName,data[i].mPosition,data[i].mIntroduction,data[i].mPhoto))
+            }
+            adapter.submitList(userList)
+        }
     }
 }

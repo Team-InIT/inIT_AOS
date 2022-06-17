@@ -7,10 +7,11 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.init_android.app.data.model.PartnerData
+import com.init_android.app.data.response.UserList
 import com.init_android.databinding.ItemSearchPartnerBinding
 
 class SearchPartnerAdapter(val context:Context) :
-    ListAdapter<PartnerData, SearchPartnerAdapter.SearchPartnerViewHolder>(projectItemDiffUtil) {
+    ListAdapter<UserList, SearchPartnerAdapter.SearchPartnerViewHolder>(projectItemDiffUtil) {
 
     override fun onCreateViewHolder(
         parent: ViewGroup,
@@ -38,28 +39,28 @@ class SearchPartnerAdapter(val context:Context) :
         }*/
     }
 
-    fun updatePartnerList(project: List<PartnerData>) {
+    fun updatePartnerList(project: List<UserList>) {
         submitList(project)
     }
 
     class SearchPartnerViewHolder(val binding: ItemSearchPartnerBinding) :
         RecyclerView.ViewHolder(binding.root) {
-        fun onBind(data: PartnerData) {
+        fun onBind(data: UserList) {
             binding.partnerItem = data
         }
     }
 
     companion object {
-        private val projectItemDiffUtil = object : DiffUtil.ItemCallback<PartnerData>() {
+        private val projectItemDiffUtil = object : DiffUtil.ItemCallback<UserList>() {
             override fun areItemsTheSame(
-                oldItem: PartnerData,
-                newItem: PartnerData
+                oldItem: UserList,
+                newItem: UserList
             ): Boolean =
-                oldItem.email == newItem.email
+                oldItem.mName == newItem.mName
 
             override fun areContentsTheSame(
-                oldItem: PartnerData,
-                newItem: PartnerData
+                oldItem: UserList,
+                newItem: UserList
             ): Boolean =
                 oldItem == newItem
         }
