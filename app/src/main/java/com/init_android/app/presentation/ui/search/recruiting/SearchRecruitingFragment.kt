@@ -111,7 +111,6 @@ class SearchRecruitingFragment:BaseFragment<FragmentSearchRecruitingBinding>(R.l
                         data.pState!!,data.pNum,data.mNum,""))
                 }
 
-                Log.d("plz",searchResultList.toString())
                 searchResultList.distinct()
                 adapter.setProjectList(searchResultList)
                 adapter.submitList(searchResultList)
