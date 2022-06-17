@@ -2,6 +2,7 @@ package com.init_android.app.presentation.ui.open.team
 
 import android.app.Dialog
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.view.WindowManager
 import android.widget.TextView
@@ -17,7 +18,7 @@ import com.init_android.app.presentation.ui.open.team.adapter.TeamReviewAdapter
 import com.init_android.databinding.FragmentReviewDoneBinding
 import com.playtogether_android.app.presentation.base.BaseFragment
 
-class ReviewDoneFragment:BaseFragment<FragmentReviewDoneBinding>(R.layout.fragment_review_done) {
+class ReviewDoneFragment : BaseFragment<FragmentReviewDoneBinding>(R.layout.fragment_review_done) {
 
     private val teamReviewViewModel: TeamReviewViewModel by viewModels()
     private val itemList = mutableListOf<TeamData>()
@@ -31,6 +32,8 @@ class ReviewDoneFragment:BaseFragment<FragmentReviewDoneBinding>(R.layout.fragme
     private fun initAdapter() {
         val undoneAdapter = TeamReviewAdapter(requireContext())
 
+        Log.d("test", "initAdapter")
+
         val requestAlreadyEvaluate = RequestAlreadyEvaluate(
             mNum = 1,
             pNum = 1
@@ -38,7 +41,7 @@ class ReviewDoneFragment:BaseFragment<FragmentReviewDoneBinding>(R.layout.fragme
 
         teamReviewViewModel.postAlreadyEveluate(requestAlreadyEvaluate)
 
-        teamReviewViewModel.evaluate.observe(viewLifecycleOwner){
+        teamReviewViewModel.evaluate.observe(viewLifecycleOwner) {
             itemList.clear()
             val data = it.members?.toMutableList()
             for (i in data!!.indices) {
@@ -65,11 +68,15 @@ class ReviewDoneFragment:BaseFragment<FragmentReviewDoneBinding>(R.layout.fragme
                 }
             }
 
-                undoneAdapter.submitList(itemList)
-                binding.rvTeamList.adapter = undoneAdapter
-                teamReviewViewModel.selectedPersonNum.value = undoneAdapter.currentList[0].personNum
-                getTeamReview()
-            }
+
+            Log.d("test", "viewModel1")
+            undoneAdapter.submitList(itemList)
+            binding.rvTeamList.adapter = undoneAdapter
+            teamReviewViewModel.selectedPersonNum.value = undoneAdapter.currentList[0].personNum
+            getTeamReview()
+
+
+        }
         // 팀원 선택 클릭 이벤트
         undoneAdapter.setItemClickListener(object : TeamReviewAdapter.OnItemClickListener {
             override fun onClick(v: View, position: Int) {
@@ -83,7 +90,8 @@ class ReviewDoneFragment:BaseFragment<FragmentReviewDoneBinding>(R.layout.fragme
 
                         if (i == position) {
                             // 선택한 팀원의 이름 데이터 넘겨주기
-                            teamReviewViewModel.selectedPersonNum.value = teamList[position].personNum
+                            teamReviewViewModel.selectedPersonNum.value =
+                                teamList[position].personNum
                             getTeamReview()
                             continue
                         }
@@ -108,14 +116,15 @@ class ReviewDoneFragment:BaseFragment<FragmentReviewDoneBinding>(R.layout.fragme
     }
 
     // 삭제 이벤트
-    private fun initBtnEvent(){
+    private fun initBtnEvent() {
         binding.btnDelete.setOnClickListener {
+            Log.d("test", "initBtnEvent")
             showDeleteDialog()
         }
     }
 
     // 알럿 창 생성
-    private fun showDeleteDialog(){
+    private fun showDeleteDialog() {
         val doneDialog = Dialog(requireContext())
         doneDialog.setContentView(R.layout.dialog_yes_no)
         doneDialog.window?.setLayout(
@@ -124,28 +133,31 @@ class ReviewDoneFragment:BaseFragment<FragmentReviewDoneBinding>(R.layout.fragme
         )
         doneDialog.findViewById<TextView>(R.id.tv_dialog_title).text = "정말 삭제하시겠습니까?"
         doneDialog.findViewById<TextView>(R.id.tv_dialog_yes).setOnClickListener {
-            // 삭제 yes ~~ 여기서 서버통신
-            val requestDeleteEvaluation = RequestDeleteEvaluation(eNum = teamReviewViewModel.selectedPersonNum.value!!.toInt())
-            teamReviewViewModel.postDeleteEvaluate(requestDeleteEvaluation)
-            initAdapter()
             doneDialog.dismiss()
+            // 삭제 yes ~~ 여기서 서버통신
+            val requestDeleteEvaluation =
+                RequestDeleteEvaluation(eNum = teamReviewViewModel.selectedENum.value!!.toInt())
+            teamReviewViewModel.postDeleteEvaluate(requestDeleteEvaluation)
+            Log.d("test", "viewModel3")
+            initAdapter()
         }
         doneDialog.findViewById<TextView>(R.id.tv_dialog_no).setOnClickListener {
             // 삭제 no
             doneDialog.dismiss()
         }
-
         doneDialog.show()
     }
 
     // resume 말고 완료했을 때 리스트 부르는 함수를 호출해야 겠다.
     override fun onResume() {
         super.onResume()
+        Log.d("test", "onResume")
         initAdapter()
+
     }
 
     // 평가된 팀원 개별 요소 조회
-    private fun getTeamReview(){
+    private fun getTeamReview() {
         val requestCheckEvaluation = RequestCheckEvaluation(
             mNum = 1,
             pNum = 1,
@@ -153,13 +165,16 @@ class ReviewDoneFragment:BaseFragment<FragmentReviewDoneBinding>(R.layout.fragme
         )
         teamReviewViewModel.postCheckEvaluation(requestCheckEvaluation)
 
-        teamReviewViewModel.checkEvaluateData.observe(viewLifecycleOwner){
+        teamReviewViewModel.checkEvaluateData.observe(viewLifecycleOwner) {
+            teamReviewViewModel.selectedENum.value = it.evaluation.eNum
             binding.tvTeamReview.text = it.evaluation.eComment
-            if (it.evaluation.eRecommend == 0){
+            if (it.evaluation.eRecommend == 0) {
                 binding.tvRecommend.text = ""
-            }else{
+            } else {
                 binding.tvRecommend.text = "해당 팀원을 추천했어요!"
             }
+
+            Log.d("test", "viewModel2")
         }
     }
 

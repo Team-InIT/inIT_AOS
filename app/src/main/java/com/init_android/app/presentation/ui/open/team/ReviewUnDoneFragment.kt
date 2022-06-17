@@ -164,6 +164,7 @@ class ReviewUnDoneFragment :
         )
         doneDialog.findViewById<ConstraintLayout>(R.id.constraintLayout2_done).setOnClickListener {
             doneDialog.dismiss()
+            resetReview()
             initAdapter()
         }
         doneDialog.show()
@@ -174,6 +175,5 @@ class ReviewUnDoneFragment :
         super.onResume()
         initAdapter()
     }
-
 
 }

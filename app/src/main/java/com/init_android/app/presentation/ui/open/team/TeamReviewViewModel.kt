@@ -16,6 +16,7 @@ import kotlinx.coroutines.launch
 class TeamReviewViewModel : ViewModel() {
     // 평가할/평가된 팀원 Num
     var selectedPersonNum = MutableLiveData<Int>()
+    var selectedENum = MutableLiveData<Int>()
 
     // 미평가 팀원 리스트 조회 데이터
     private val _notEveluate = MutableLiveData<ResponseNotEveluate>()
