@@ -5,7 +5,10 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import androidx.activity.viewModels
+import androidx.fragment.app.FragmentActivity
+import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.ViewModelProvider
 import com.init_android.R
 import com.init_android.app.data.model.ProjectItemData
 import com.init_android.app.data.request.RequestHome
@@ -20,6 +23,7 @@ import com.init_android.app.util.DateUtil
 
 import com.init_android.databinding.FragmentHomeBinding
 import com.playtogether_android.app.presentation.base.BaseFragment
+import kotlin.math.sign
 
 
 class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
@@ -27,7 +31,10 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
     val includeList = mutableListOf<ProjectItemData>()
     val recoList = mutableListOf<ProjectItemData>()
 
-    private val mainViewModel : MainViewModel by viewModels()
+    //private val mainViewModel : MainViewModel by viewModels()
+    private val mainViewModel : MainViewModel by activityViewModels()
+
+
     private val homeViewModel: HomeViewModel by viewModels()
     private val signViewModel : SignViewModel by viewModels()
     override fun onResume() {
@@ -45,15 +52,25 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
     // 서버 통신 - 데이터 존재 여부 검사
     private fun tryGetHomeProject() {
 
-        Log.d("userCode", mainViewModel.signData.value?.mID.toString())
+        mainViewModel.mId.observe(viewLifecycleOwner) {
+            Log.d("TestCode", "" + it)
 
-        val requestHome = RequestHome(
-            mNum = 1,
-            mPosition = 3,
-            mLevel = 0
-        )
+            val requestHome = RequestHome(
+                mNum = it,
+                mPosition = 3,
+                mLevel = 0
+            )
+            homeViewModel.postHomeData(requestHome)
+        }
 
-        homeViewModel.postHomeData(requestHome)
+
+//        val requestHome = RequestHome(
+//            mNum = 1,
+//            mPosition = 3,
+//            mLevel = 0
+//        )
+
+//        homeViewModel.postHomeData(requestHome)
 
 
         homeViewModel.homeData.observe(viewLifecycleOwner) {
