@@ -5,6 +5,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.init_android.app.data.ResponseNewHome
 import com.init_android.app.data.ServiceCreator
 import com.init_android.app.data.request.RequestFinishProject
 import com.init_android.app.data.request.RequestHome
@@ -14,8 +15,8 @@ import kotlinx.coroutines.launch
 
 class HomeViewModel() : ViewModel() {
 
-    private val _homeData = MutableLiveData<ResponseHome>()
-    val homeData: LiveData<ResponseHome>
+    private val _homeData = MutableLiveData<ResponseNewHome>()
+    val homeData: LiveData<ResponseNewHome>
         get() = _homeData
 
     private val _finishProject = MutableLiveData<ResponseFinishProject>()

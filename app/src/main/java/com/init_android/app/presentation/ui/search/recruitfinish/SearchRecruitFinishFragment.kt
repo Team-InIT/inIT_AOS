@@ -40,7 +40,7 @@ class SearchRecruitFinishFragment:BaseFragment<FragmentSearchRecruitFinishBindin
                 val pEndDate = DateUtil().dateToString(data.pDue).replace("-",".")
 
                 myProjectItemDataList.add(ProjectItemData(data.pType,data.pDescription,data.pOnOff,totalNum,pStartDate,pEndDate,writerList[i].mName,
-                    data.pState!!,data.pNum,data.mNum))
+                    data.pState!!,data.pNum,data.mNum,""))
             }
 
             adapter.setProjectList(myProjectItemDataList)

@@ -71,28 +71,28 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
 
 
         homeViewModel.homeData.observe(viewLifecycleOwner) {
-            val include_data = it.list_belong
-            val includeList_writer = it.writerInfo_belong
+            val include_data = it.list_join
             val recommend_data = it.list_recommend
-            val recommendList_writer = it.writerInfo_recommend
+            // val recommendList_writer = it.writerInfo_recommend
 
             // 소속 프로젝트
             if (include_data != null) {
                 for (i in 0 until include_data.size) {
                     val totalNum =
-                        include_data[i].pPlan!! + include_data[i].pDesign!! + include_data[i].pAos!! + include_data[i].pIos!! + include_data[i].pWeb!! + include_data[i].pGame!! + include_data[i].pServer!!
+                        include_data[i].list_belong.pPlan + include_data[i].list_belong.pDesign + include_data[i].list_belong.pAos + include_data[i].list_belong.pIos + include_data[i].list_belong.pWeb + include_data[i].list_belong.pGame + include_data[i].list_belong.pServer
                     includeList.add(
                         ProjectItemData(
-                            include_data[i].pType!!,
-                            include_data[i].pTitle!!,
-                            include_data[i].pOnOff!!,
+                            include_data[i].list_belong.pType!!,
+                            include_data[i].list_belong.pTitle!!,
+                            include_data[i].list_belong.pOnOff!!,
                             totalNum,
-                            DateUtil().dateToString(include_data[i].pStart!!).replace("-","."),
-                            DateUtil().dateToString(include_data[i].pDue!!).replace("-","."),
-                            includeList_writer?.get(i)?.get(0)!!.mName!!,
-                            include_data[i].pState!!,
-                            include_data[i].pNum!!,
-                            include_data[i].mNum!!
+                            DateUtil().dateToString(include_data[i].list_belong.pStart!!).replace("-","."),
+                            DateUtil().dateToString(include_data[i].list_belong.pDue!!).replace("-","."),
+                            include_data[i].list_belong.Member.mName,
+                            include_data[i].list_belong.pState!!,
+                            include_data[i].list_belong.pNum!!,
+                            include_data[i].list_belong.mNum!!,
+                            include_data[i].projectState
                         )
                     )
                 }
@@ -100,21 +100,22 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
 
             // 추천 프로젝트
             if (recommend_data != null) {
-                for (i in 0 until recommend_data.size) {
+                for (i in recommend_data.indices) {
                     val totalNum =
-                        recommend_data[i].pPlan!! + recommend_data[i].pDesign!! + recommend_data[i].pAos!! + recommend_data[i].pIos!! + recommend_data[i].pWeb!! + recommend_data[i].pGame!! + recommend_data[i].pServer!!
+                        recommend_data[i].listRecommend.pPlan + recommend_data[i].listRecommend.pDesign + recommend_data[i].listRecommend.pAos + recommend_data[i].listRecommend.pIos + recommend_data[i].listRecommend.pWeb + recommend_data[i].listRecommend.pGame + recommend_data[i].listRecommend.pServer
                     recoList.add(
                         ProjectItemData(
-                            recommend_data[i].pType!!,
-                            recommend_data[i].pTitle!!,
-                            recommend_data[i].pOnOff!!,
+                            recommend_data[i].listRecommend.pType!!,
+                            recommend_data[i].listRecommend.pTitle!!,
+                            recommend_data[i].listRecommend.pOnOff!!,
                             totalNum,
-                            DateUtil().dateToString(recommend_data[i].pStart!!).replace("-","."),
-                            DateUtil().dateToString(recommend_data[i].pDue!!).replace("-","."),
-                            recommendList_writer?.get(i)?.get(0)!!.mName!!,
-                            recommend_data[i].pState!!,
-                            recommend_data[i].pNum!!,
-                            recommend_data[i].mNum!!
+                            DateUtil().dateToString(recommend_data[i].listRecommend.pStart!!).replace("-","."),
+                            DateUtil().dateToString(recommend_data[i].listRecommend.pDue).replace("-","."),
+                            recommend_data[i].listRecommend.Member.mName,
+                            recommend_data[i].listRecommend.pState!!,
+                            recommend_data[i].listRecommend.pNum!!,
+                            recommend_data[i].listRecommend.mNum!!,
+                            recommend_data[i].projectState2
                         )
                     )
                 }
