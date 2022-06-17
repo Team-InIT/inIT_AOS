@@ -33,8 +33,12 @@ class FeedViewModel : ViewModel() {
 
     // 완료 프로젝트 목록 가져오기
     private val _finishProjectList = MutableLiveData<ResponseFinishProject>()
-    val finishProject: LiveData<ResponseFinishProject>
+    val finishProjectList: LiveData<ResponseFinishProject>
         get() = _finishProjectList
+
+    private val _finishProject = MutableLiveData<ResponseFinishProject.Project>()
+    val finishProject : LiveData<ResponseFinishProject.Project>
+    get() = _finishProject
 
     // 피드 상세 보기
     private val _feedDetail = MutableLiveData<ResponseFeedDetail>()

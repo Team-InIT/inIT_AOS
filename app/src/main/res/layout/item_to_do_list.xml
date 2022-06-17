@@ -5,7 +5,13 @@
 
     <data>
 
+        <variable
+            name="todo"
+            type="com.init_android.app.data.response.todo.ResponseAllToDo.Todo" />
 
+        <variable
+            name="mem"
+            type="com.init_android.app.data.response.todo.ResponseAllToDo.Todo.Member" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -28,6 +34,7 @@
 
         <TextView
             android:id="@+id/tv_end_date"
+            timeStampToDate="@{todo.TodoInfo.TDday}"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
@@ -40,38 +47,41 @@
 
         <ImageView
             android:id="@+id/iv_profile"
+            imageBind="@{mem.MPhoto}"
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:layout_marginTop="4dp"
-            android:background="@drawable/ic_launcher_background"
             app:layout_constraintStart_toStartOf="@+id/tv_end_date"
-            app:layout_constraintTop_toBottomOf="@+id/tv_end_date" />
+            app:layout_constraintTop_toBottomOf="@+id/tv_end_date"
+            tools:background="@drawable/ic_launcher_background" />
 
         <TextView
             android:id="@+id/tv_subject"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
-            android:text="프래그먼트 수정"
+            android:layout_marginEnd="32dp"
+            android:text="@{todo.TodoInfo.TTodo}"
             android:textColor="@color/black"
             android:textSize="16sp"
-            android:layout_marginEnd="32dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@+id/iv_profile"
-            app:layout_constraintTop_toBottomOf="@+id/iv_profile" />
+            app:layout_constraintTop_toBottomOf="@+id/iv_profile"
+            tools:text="프래그먼트 수정" />
 
         <TextView
             android:id="@+id/tv_start_date"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
-            android:text="2022-06-16"
+            android:layout_marginBottom="8dp"
+            timeStampToDate="@{todo.TodoInfo.TWritedate}"
             android:textColor="@color/tet_gray_2"
             android:textSize="12sp"
-            android:layout_marginBottom="8dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@+id/iv_delete"
-            app:layout_constraintTop_toBottomOf="@+id/tv_subject" />
+            app:layout_constraintTop_toBottomOf="@+id/tv_subject"
+            tools:text="2022-06-16" />
 
         <ImageView
             android:id="@+id/iv_delete"
@@ -82,8 +92,6 @@
             app:layout_constraintBottom_toBottomOf="@+id/tv_end_date"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@+id/tv_end_date" />
-
-
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
