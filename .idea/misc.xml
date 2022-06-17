@@ -10,6 +10,7 @@
         <entry key="..\:/Users/82104/inIT_AOS/app/src/main/res/drawable-v24/rectangle_stroke_gray_a3_radius_10.xml" value="0.125" />
         <entry key="..\:/Users/82104/inIT_AOS/app/src/main/res/drawable-v24/selector_rectangle_border_gray_to_mint.xml" value="0.125" />
         <entry key="..\:/Users/82104/inIT_AOS/app/src/main/res/drawable-v24/selector_rectangle_gray_to_mint.xml" value="0.132" />
+        <entry key="..\:/Users/82104/inIT_AOS/app/src/main/res/drawable/circle_main.xml" value="0.1305" />
         <entry key="..\:/Users/82104/inIT_AOS/app/src/main/res/drawable/custom_progressbar.xml" value="0.1395" />
         <entry key="..\:/Users/82104/inIT_AOS/app/src/main/res/drawable/ic_alarm.xml" value="0.1395" />
         <entry key="..\:/Users/82104/inIT_AOS/app/src/main/res/drawable/ic_back.xml" value="0.1355" />
@@ -57,7 +58,7 @@
         <entry key="..\:/Users/82104/inIT_AOS/app/src/main/res/layout/activity_partner_page.xml" value="0.2839335180055402" />
         <entry key="..\:/Users/82104/inIT_AOS/app/src/main/res/layout/activity_project_detail.xml" value="0.2" />
         <entry key="..\:/Users/82104/inIT_AOS/app/src/main/res/layout/activity_recommend_project.xml" value="0.19791666666666666" />
-        <entry key="..\:/Users/82104/inIT_AOS/app/src/main/res/layout/activity_sign_in.xml" value="0.176" />
+        <entry key="..\:/Users/82104/inIT_AOS/app/src/main/res/layout/activity_sign_in.xml" value="0.2638888888888889" />
         <entry key="..\:/Users/82104/inIT_AOS/app/src/main/res/layout/activity_sign_up.xml" value="0.2" />
         <entry key="..\:/Users/82104/inIT_AOS/app/src/main/res/layout/activity_splash.xml" value="0.152" />
         <entry key="..\:/Users/82104/inIT_AOS/app/src/main/res/layout/activity_to_do_main.xml" value="0.225" />

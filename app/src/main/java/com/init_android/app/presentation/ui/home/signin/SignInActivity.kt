@@ -48,12 +48,12 @@ class SignInActivity : BaseActivity<ActivitySignInBinding>(R.layout.activity_sig
             // 로그인 버튼 활성화
             binding.btnLogin.isEnabled = (binding.etvPw.text.isNotEmpty() && binding.etvId.text.isNotEmpty())
 
-            // 'x' 버튼 활성화
-            if (binding.etvId.text.isNotEmpty()) binding.ibtnIdClose.visibility = View.VISIBLE
-            else binding.ibtnIdClose.visibility = View.GONE // id
-
-            if (binding.etvPw.text.isNotEmpty()) binding.ibtnPwClose.visibility = View.VISIBLE
-            else binding.ibtnPwClose.visibility = View.GONE // pw
+//            // 'x' 버튼 활성화
+//            if (binding.etvId.text.isNotEmpty()) binding.ibtnIdClose.visibility = View.VISIBLE
+//            else binding.ibtnIdClose.visibility = View.GONE // id
+//
+//            if (binding.etvPw.text.isNotEmpty()) binding.ibtnPwClose.visibility = View.VISIBLE
+//            else binding.ibtnPwClose.visibility = View.GONE // pw
         }
 
         override fun afterTextChanged(s: Editable) {}
@@ -62,8 +62,8 @@ class SignInActivity : BaseActivity<ActivitySignInBinding>(R.layout.activity_sig
     // x버튼 클릭이벤트
     private fun textClearEvent(){
         binding.apply {
-            ibtnIdClose.setOnClickListener { binding.etvId.text.clear() }
-            ibtnPwClose.setOnClickListener { binding.etvPw.text.clear() }
+//            ibtnIdClose.setOnClickListener { binding.etvId.text.clear() }
+//            ibtnPwClose.setOnClickListener { binding.etvPw.text.clear() }
         }
     }
 

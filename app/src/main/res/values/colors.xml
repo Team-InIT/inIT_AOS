@@ -9,7 +9,7 @@
     <color name="white">#FFFFFFFF</color>
 
     <!--main color-->
-    <color name="main_default">#275286</color>
+    <color name="main_default">#285287</color>
     <color name="main_light">#E2ECF2</color>
     <color name="main_dark">#3E4152</color>
     <color name="gray_0">#F8F8F8</color>

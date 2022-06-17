@@ -9,129 +9,104 @@
         tools:context=".app.presentation.ui.home.signin.SignInActivity">
 
         <ImageView
+            android:id="@+id/imageView4"
+            android:layout_width="1000dp"
+            android:layout_height="500dp"
+            android:layout_marginBottom="380dp"
+            android:src="@drawable/circle_main"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.505"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <ImageView
             android:id="@+id/iv_logo"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:background="@color/gray_5"
-            app:layout_constraintBottom_toTopOf="@id/ll_id"
+            android:layout_width="140dp"
+            android:layout_height="140dp"
+            android:background="@drawable/logo"
+            app:layout_constraintBottom_toBottomOf="@+id/imageView4"
             app:layout_constraintDimensionRatio="1:1"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_chainStyle="packed" />
 
-        <LinearLayout
-            android:id="@+id/ll_id"
+        <EditText
+            android:id="@+id/etv_id"
             android:layout_width="0dp"
-            android:layout_height="48dp"
-            android:layout_marginHorizontal="24dp"
-            android:layout_marginTop="20dp"
-            android:background="@drawable/selector_login_bg"
-            android:orientation="horizontal"
-            app:layout_constraintBottom_toTopOf="@id/ll_pw"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/noto_sans_kr_regular"
+            android:hint="@string/input_id"
+            android:lines="1"
+            android:maxLines="1"
+            android:paddingStart="19dp"
+            android:paddingTop="20dp"
+            android:paddingBottom="20dp"
+            android:singleLine="true"
+            android:textColorHint="@color/text_gray_1"
+            android:layout_marginStart="24dp"
+            android:layout_marginEnd="24dp"
+            android:layout_marginTop="24dp"
+            android:textSize="14sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/iv_logo">
+            app:layout_constraintTop_toBottomOf="@+id/imageView4" />
 
-            <FrameLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
-                <EditText
-                    android:id="@+id/etv_id"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:background="@drawable/selector_login_bg"
-                    android:hint="@string/id"
-                    android:inputType="text"
-                    android:maxLines="1"
-                    android:paddingHorizontal="16dp"
-                    android:textColor="@color/black" />
-
-                <ImageButton
-                    android:id="@+id/ibtn_id_close"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_gravity="center|end"
-                    android:layout_marginEnd="16dp"
-                    android:background="@null"
-                    android:visibility="gone"
-                    android:src="@drawable/ic_close" />
-            </FrameLayout>
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/ll_pw"
+        <EditText
+            android:id="@+id/etv_pw"
             android:layout_width="0dp"
-            android:layout_height="48dp"
-            android:layout_marginHorizontal="24dp"
-            android:layout_marginTop="10dp"
-            android:orientation="horizontal"
-            app:layout_constraintBottom_toTopOf="@id/tv_warning"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginEnd="24dp"
+            android:fontFamily="@font/noto_sans_kr_regular"
+            android:hint="@string/input_pw"
+            android:lines="1"
+            android:maxLines="1"
+            android:paddingStart="19dp"
+            android:paddingTop="20dp"
+            android:paddingBottom="20dp"
+            android:singleLine="true"
+            android:layout_marginTop="16dp"
+            android:textColorHint="@color/text_gray_1"
+            android:textSize="14sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/ll_id">
+            app:layout_constraintTop_toBottomOf="@+id/etv_id" />
 
-            <FrameLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
-                <EditText
-                    android:id="@+id/etv_pw"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:background="@drawable/selector_login_bg"
-                    android:hint="@string/pw"
-                    android:inputType="textPassword"
-                    android:maxLines="1"
-                    android:paddingHorizontal="16dp"
-                    android:textColor="@color/black" />
-
-                <ImageButton
-                    android:id="@+id/ibtn_pw_close"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_gravity="center|end"
-                    android:layout_marginEnd="16dp"
-                    android:background="@null"
-                    android:visibility="gone"
-                    android:src="@drawable/ic_close" />
-            </FrameLayout>
-        </LinearLayout>
 
         <TextView
             android:id="@+id/tv_warning"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginVertical="8dp"
             android:text="아이디 또는 비밀번호가 잘못되었어요."
             android:textColor="@color/red"
             android:textSize="12sp"
             android:visibility="invisible"
-            android:layout_marginVertical="8dp"
-            app:layout_constraintBottom_toTopOf="@id/btn_login"
-            app:layout_constraintEnd_toEndOf="@id/ll_pw"
-            app:layout_constraintTop_toBottomOf="@id/ll_pw" />
+            app:layout_constraintStart_toStartOf="@+id/etv_pw"
+            app:layout_constraintTop_toBottomOf="@+id/etv_pw" />
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btn_login"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:background="@drawable/selector_login_btn"
-            android:text="@string/login"
             android:enabled="false"
+            android:text="@string/login"
             android:textColor="@color/white"
-            app:layout_constraintBottom_toTopOf="@+id/ll_login_info"
-            app:layout_constraintEnd_toEndOf="@id/ll_pw"
-            app:layout_constraintStart_toStartOf="@id/ll_pw"
-            app:layout_constraintTop_toBottomOf="@id/tv_warning" />
+            android:layout_marginBottom="32dp"
+            app:layout_constraintBottom_toTopOf="@+id/textView2"
+            app:layout_constraintEnd_toEndOf="@+id/etv_pw"
+            app:layout_constraintStart_toStartOf="@+id/etv_pw" />
 
         <LinearLayout
             android:id="@+id/ll_login_info"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="20dp"
             android:orientation="horizontal"
-            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginBottom="16dp"
+            app:layout_constraintBottom_toTopOf="@+id/btn_login"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent">
 
@@ -143,13 +118,23 @@
 
             <TextView
                 android:id="@+id/tv_signup"
-                android:layout_marginStart="14dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="14dp"
                 android:text="@string/register"
                 android:textColor="@color/black" />
 
         </LinearLayout>
 
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="36dp"
+            android:text="아이디 찾기 | 비밀번호 변경"
+            android:textColor="@color/text_gray_1"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
