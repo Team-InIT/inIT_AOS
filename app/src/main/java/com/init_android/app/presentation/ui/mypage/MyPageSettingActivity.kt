@@ -25,6 +25,7 @@ class MyPageSettingActivity :
         movePage()
         networkQuit()
         backBtnListener()
+        initLogOut()
 
     }
 
@@ -64,6 +65,27 @@ class MyPageSettingActivity :
                         Toast.makeText(this@MyPageSettingActivity, "탈퇴가 취소되었습니다", Toast.LENGTH_SHORT).show()
                     }
                 }
+            })
+        }
+    }
+
+    private fun initLogOut() {
+        binding.tvMypageLogout.setOnClickListener {
+            val title = "로그아웃 하시겠습니까?"
+            val dialog = CustomDialog(this, title)
+            dialog.showChoiceDialog(R.layout.dialog_yes_no)
+            dialog.setOnClickedListener(object : CustomDialog.ButtonClickListener{
+                override fun onClicked(num: Int) {
+                    if(num == 1) {
+                        val intent = Intent(this@MyPageSettingActivity, SignInActivity::class.java)
+                        startActivity(intent)
+                        finish()
+                    } else {
+                        Log.d("로그아웃", "안 함")
+                        Toast.makeText(this@MyPageSettingActivity, "로그아웃이 취소되었습니다", Toast.LENGTH_SHORT).show()
+                    }
+                }
+
             })
         }
     }
