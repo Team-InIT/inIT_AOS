@@ -5,12 +5,14 @@ import com.init_android.app.data.request.mypage.*
 import com.init_android.app.data.request.project.RequestApplyProject
 import com.init_android.app.data.request.project.RequestProjectDetail
 import com.init_android.app.data.request.project.RequestProjectMember
+import com.init_android.app.data.request.todo.RequestToDoMember
 import com.init_android.app.data.response.*
 import com.init_android.app.data.response.mypage.*
 import com.init_android.app.data.response.project.ResponseApplyProject
 import com.init_android.app.data.response.project.ResponseProjectDetail
 import com.init_android.app.data.response.project.approve.*
 import com.init_android.app.data.response.todo.ResponseAllToDo
+import com.init_android.app.data.response.todo.ResponseToDoMember
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
 import retrofit2.Call
@@ -244,5 +246,9 @@ interface InitService {
     // 팀원 평가 삭제
     @POST("/deleteEvaluation")
     suspend fun postDeleteEvaluation(@Body requestDeleteEvaluation: RequestDeleteEvaluation):ResponseBase
+
+    // 투두 태그할 멤버 보기
+    @POST("/todoMember")
+    suspend fun postToDoMember(@Body requestToDoMember: RequestToDoMember) : ResponseToDoMember
 
 }

@@ -187,7 +187,7 @@
             android:includeFontPadding="false"
             android:inputType="textPersonName"
             android:paddingVertical="13dp"
-            android:textColor="@color/gray_2"
+            android:textColor="@color/black"
             android:textColorHint="@color/gray_6"
             android:textSize="14sp"
             android:maxLines="2"

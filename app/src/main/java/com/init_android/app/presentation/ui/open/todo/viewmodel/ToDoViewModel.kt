@@ -7,7 +7,9 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.init_android.app.data.ServiceCreator
 import com.init_android.app.data.request.project.RequestProjectMember
+import com.init_android.app.data.request.todo.RequestToDoMember
 import com.init_android.app.data.response.todo.ResponseAllToDo
+import com.init_android.app.data.response.todo.ResponseToDoMember
 import kotlinx.coroutines.launch
 
 class ToDoViewModel() : ViewModel() {
@@ -15,6 +17,10 @@ class ToDoViewModel() : ViewModel() {
     private val _readAllToDo = MutableLiveData<ResponseAllToDo>()
     val readAllToDo: LiveData<ResponseAllToDo>
         get() = _readAllToDo
+
+    private val _todoMember = MutableLiveData<ResponseToDoMember>()
+    val todoMember: LiveData<ResponseToDoMember>
+        get() = _todoMember
 
     //todo 기획 조회
     fun postReadPlanToDo(requestProjectMember: RequestProjectMember) {
@@ -35,7 +41,11 @@ class ToDoViewModel() : ViewModel() {
     //todo 디자인 조회
     fun postReadDesignToDo(requestProjectMember: RequestProjectMember) {
         viewModelScope.launch {
-            kotlin.runCatching { ServiceCreator.initService.postLookUpDesignTodo(requestProjectMember) }
+            kotlin.runCatching {
+                ServiceCreator.initService.postLookUpDesignTodo(
+                    requestProjectMember
+                )
+            }
                 .onSuccess {
                     _readAllToDo.value = it
                     Log.d("ReadDesignToDo", "서버 통신 성공")
@@ -117,7 +127,11 @@ class ToDoViewModel() : ViewModel() {
     //todo server 조회
     fun postReadServerToDo(requestProjectMember: RequestProjectMember) {
         viewModelScope.launch {
-            kotlin.runCatching { ServiceCreator.initService.postLookUpServerTodo(requestProjectMember) }
+            kotlin.runCatching {
+                ServiceCreator.initService.postLookUpServerTodo(
+                    requestProjectMember
+                )
+            }
                 .onSuccess {
                     _readAllToDo.value = it
                     Log.d("ReadServerToDo", "서버 통신 성공")
@@ -126,6 +140,20 @@ class ToDoViewModel() : ViewModel() {
                 .onFailure {
                     it.printStackTrace()
                     Log.d("ReadServerToDo", "서버 통신 실패")
+                }
+        }
+    }
+
+    fun postToDoMember(requestToDoMember: RequestToDoMember) {
+        viewModelScope.launch {
+            kotlin.runCatching { ServiceCreator.initService.postToDoMember(requestToDoMember) }
+                .onSuccess {
+                    _todoMember.value = it
+                    Log.d("todoMember", "서버 통신 성공")
+                }
+                .onFailure {
+                    it.printStackTrace()
+                    Log.d("todoMember", "서버 통신 실패")
                 }
         }
     }
