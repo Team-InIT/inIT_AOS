@@ -12,6 +12,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.init_android.R
 import com.init_android.app.data.model.ProjectItemData
 import com.init_android.app.data.request.RequestHome
+import com.init_android.app.data.response.ResponseSignIn
 import com.init_android.app.presentation.ui.home.adapter.ProjectItemRVAdapter
 import com.init_android.app.presentation.ui.home.adapter.ProjectItemVPAdapter
 import com.init_android.app.presentation.ui.home.recommendproject.RecommendProjectActivity
@@ -33,10 +34,9 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
 
     //private val mainViewModel : MainViewModel by viewModels()
     private val mainViewModel : MainViewModel by activityViewModels()
-
-
     private val homeViewModel: HomeViewModel by viewModels()
-    private val signViewModel : SignViewModel by viewModels()
+
+
     override fun onResume() {
         super.onResume()
     }
@@ -54,14 +54,28 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
 
         mainViewModel.mId.observe(viewLifecycleOwner) {
             Log.d("TestCode", "" + it)
+            val mNum = it
 
-            val requestHome = RequestHome(
-                mNum = it,
-                mPosition = 3,
-                mLevel = 0
-            )
-            homeViewModel.postHomeData(requestHome)
+            mainViewModel.mPosition.observe(viewLifecycleOwner) {
+                val mPosition = it
+
+                mainViewModel.mLevel.observe(viewLifecycleOwner) {
+                    val mLevel = it
+
+                    val requestHome = RequestHome(
+                        mNum = mNum,
+                        mPosition = mPosition,
+                        mLevel = mLevel
+                    )
+                    homeViewModel.postHomeData(requestHome)
+                    Log.d("test1", "" + mNum)
+                    Log.d("test2", "" + mPosition)
+                    Log.d("test3", "" + mLevel)
+
+                }
+            }
         }
+
 
 
 //        val requestHome = RequestHome(
