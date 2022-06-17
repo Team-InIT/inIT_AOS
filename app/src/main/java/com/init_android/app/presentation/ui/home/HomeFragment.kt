@@ -32,7 +32,6 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
     val includeList = mutableListOf<ProjectItemData>()
     val recoList = mutableListOf<ProjectItemData>()
 
-    //private val mainViewModel : MainViewModel by viewModels()
     private val mainViewModel : MainViewModel by activityViewModels()
     private val homeViewModel: HomeViewModel by viewModels()
 
@@ -51,9 +50,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
 
     // 서버 통신 - 데이터 존재 여부 검사
     private fun tryGetHomeProject() {
-
         mainViewModel.mId.observe(viewLifecycleOwner) {
-            Log.d("TestCode", "" + it)
             val mNum = it
 
             mainViewModel.mPosition.observe(viewLifecycleOwner) {
@@ -68,23 +65,9 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
                         mLevel = mLevel
                     )
                     homeViewModel.postHomeData(requestHome)
-                    Log.d("test1", "" + mNum)
-                    Log.d("test2", "" + mPosition)
-                    Log.d("test3", "" + mLevel)
-
                 }
             }
         }
-
-
-
-//        val requestHome = RequestHome(
-//            mNum = 1,
-//            mPosition = 3,
-//            mLevel = 0
-//        )
-
-//        homeViewModel.postHomeData(requestHome)
 
 
         homeViewModel.homeData.observe(viewLifecycleOwner) {

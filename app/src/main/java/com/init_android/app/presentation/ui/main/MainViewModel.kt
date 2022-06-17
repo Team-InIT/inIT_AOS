@@ -9,13 +9,6 @@ import com.init_android.app.data.response.ResponseSignIn
 class MainViewModel() : ViewModel() {
 
     // 로그인 response 데이터
-    /*
-    private val _signData = MutableLiveData<Member>()
-    val signData: LiveData<Member>
-        get() = _signData
-
-     */
-
     var signData = MutableLiveData<Member>()
 
     //유저 아이디

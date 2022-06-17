@@ -59,18 +59,8 @@ class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
         val position = intent.getIntExtra("position",1)
         val level = intent.getIntExtra("level", 1)
 
-        Log.d("MainHome", userId.toString())
         mainViewModel.mId.value = userId
         mainViewModel.mPosition.value = position
         mainViewModel.mLevel.value = level
-
-
-        Log.d("Test", "" + mainViewModel.signData.value)
-
-//        binding.fabWriting.setOnClickListener {
-//            val intent = Intent(this@MainActivity, OpenProjectActivity::class.java)
-//            intent.putExtra("userId", userId)
-//            startActivity(intent)
-//        }
     }
 }
