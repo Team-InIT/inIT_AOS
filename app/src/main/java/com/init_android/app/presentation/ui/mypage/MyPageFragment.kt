@@ -48,6 +48,7 @@ class MyPageFragment : BaseFragment<FragmentMyPageBinding>(R.layout.fragment_my_
                 mNum = mNum
             )
             myPageViewModel.postMyInfo(requestMyInfo)
+            Log.d("Test", mainViewModel.mNum.toString())
         }
 
 
@@ -90,14 +91,21 @@ class MyPageFragment : BaseFragment<FragmentMyPageBinding>(R.layout.fragment_my_
     //프로필 편집 클릭 리스너
     private fun editProfileListener() {
         binding.tvMyPageModifyProfile.setOnClickListener {
-            val intentModifyProfile =
-                Intent(requireActivity(), MyPageModifyProfileActivity::class.java)
-            intentModifyProfile.putExtra("name", binding.tvMyPageProfileName.text.toString())
-            intentModifyProfile.putExtra("position", binding.tvMyPagePostion.text.toString())
-            intentModifyProfile.putExtra("level", binding.tvMyPagePositionLevel.text.toString())
-            intentModifyProfile.putExtra("introduction", binding.readMoreTextView.text.toString())
-            intentModifyProfile.putExtra("mNum", mainViewModel.signData.value?.mNum ?: 1)
-            startActivity(intentModifyProfile)
+            mainViewModel.mNum.observe(viewLifecycleOwner) {
+                val mNum = it
+                Log.d("TestFramgnet", "" + mNum)
+                val intentModifyProfile =
+                    Intent(requireActivity(), MyPageModifyProfileActivity::class.java)
+                intentModifyProfile.putExtra("name", binding.tvMyPageProfileName.text.toString())
+                intentModifyProfile.putExtra("position", binding.tvMyPagePostion.text.toString())
+                intentModifyProfile.putExtra("level", binding.tvMyPagePositionLevel.text.toString())
+                intentModifyProfile.putExtra(
+                    "introduction",
+                    binding.readMoreTextView.text.toString()
+                )
+                intentModifyProfile.putExtra("mNum", mNum)
+                startActivity(intentModifyProfile)
+            }
         }
     }
 }
