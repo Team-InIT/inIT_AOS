@@ -134,7 +134,6 @@ class FeedWritingActivity :
     private fun initBottomSheet() {
         //더미 데이터 넣는 부분
         // 원래 여기서 서버통신 받아옴
-
         var partData = mutableListOf(
             SelectableData(1, "인잇", false),
             SelectableData(2, "플투", false),

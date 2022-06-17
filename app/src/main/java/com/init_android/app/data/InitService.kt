@@ -10,6 +10,7 @@ import com.init_android.app.data.response.mypage.*
 import com.init_android.app.data.response.project.ResponseApplyProject
 import com.init_android.app.data.response.project.ResponseProjectDetail
 import com.init_android.app.data.response.project.approve.*
+import com.init_android.app.data.response.todo.ResponseAllToDo
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
 import retrofit2.Call
@@ -173,5 +174,34 @@ interface InitService {
     //업로드 리스트
     @POST("/myUploadProject")
     suspend fun postUploadProject(@Body requestWaitingApproval: RequestWaitingApproval) : ResponseUpload
+
+    //기획파트 TODO 조회
+    @POST("/allTodoPlan")
+    suspend fun postLookUpPlanTodo(@Body requestProjectMember : RequestProjectMember) : ResponseAllToDo
+
+    //디자인파트 TODO 조회
+    @POST("/allTodoDesign")
+    suspend fun postLookUpDesignTodo(@Body requestProjectMember : RequestProjectMember) : ResponseAllToDo
+
+    //Ios파트 TODO 조회
+    @POST("/allTodoIos")
+    suspend fun postLookUpIosTodo(@Body requestProjectMember : RequestProjectMember) : ResponseAllToDo
+
+    //Aos파트 TODO 조회
+    @POST("/allTodoAos")
+    suspend fun postLookUpAosTodo(@Body requestProjectMember : RequestProjectMember) : ResponseAllToDo
+
+    //웹파트 TODO 조회
+    @POST("/allTodoWeb")
+    suspend fun postLookUpWebTodo(@Body requestProjectMember : RequestProjectMember) : ResponseAllToDo
+
+    //게임파트 TODO 조회
+    @POST("/allTodoGame")
+    suspend fun postLookUpGameTodo(@Body requestProjectMember : RequestProjectMember) : ResponseAllToDo
+
+    //서버 파트 TODO 조회
+    @POST("/allTodoServer")
+    suspend fun postLookUpServerTodo(@Body requestProjectMember : RequestProjectMember) : ResponseAllToDo
+
 
 }
