@@ -193,4 +193,12 @@ interface InitService {
     // 모집완료 프로젝트 리스트 검색
     @POST("/searchEd")
     suspend fun postSearchEd(@Body requestSearchEd: RequestSearchEd) : ResponseSearchResult
+
+    // 팀평가 미평가 팀원 리스트 조회
+    @POST("/notEveluate")
+    suspend fun postNotEveluate(@Body requestNotEveluate: RequestNotEveluate):ResponseNotEveluate
+
+    // 평가 입력
+    @POST("/addEvaluate")
+    suspend fun postAddEveluate(@Body requestAddEvaluate: RequestAddEvaluate):ResponseBase
 }

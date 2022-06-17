@@ -9,6 +9,7 @@ import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.init_android.R
 import com.init_android.app.data.model.FeedListData
 import com.init_android.app.presentation.ui.home.adapter.PositionAdapter
@@ -73,10 +74,13 @@ class TeamReviewAdapter(context: Context) :
         RecyclerView.ViewHolder(binding.root) {
 
         fun onBind(data: TeamData) {
+            binding.data = data
             binding.tvTeamName.text = data.name
-            binding.tvTeamPosition.text = data.position
+            binding.tvTeamPosition.text = data.position.toString()
 
             binding.root.isSelected = data.checkState != false
+
+            // Glide.with(binding.root).load(data.mPhoto).circleCrop().into(binding.ivPartner)
             /*if (data.isChecked) {
                 binding.root.background = ContextCompat.getDrawable(context, R.drawable.rectangle_fill_gray_radius_10)
             }else{
