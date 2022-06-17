@@ -54,7 +54,8 @@ class RecommendProjectActivity :
                             recommendList_writer?.get(i)?.get(0)!!.mName!!,
                             recommend_data[i].pState!!,
                             recommend_data[i].pNum!!,
-                            recommend_data[i].mNum!!
+                            recommend_data[i].mNum!!,
+                            ""
                         )
                     )
                 }

@@ -153,6 +153,7 @@
                 android:layout_marginVertical="1dp"
                 android:layout_marginHorizontal="4dp"
                 pStateBind="@{projectItem.pState}"
+                android:text="@{projectItem.projectState}"
                 android:textColor="@color/white"
                 android:textSize="12sp"
                 android:textStyle="bold"
