@@ -22,7 +22,7 @@ class ToDoViewModel() : ViewModel() {
             kotlin.runCatching { ServiceCreator.initService.postLookUpPlanTodo(requestProjectMember) }
                 .onSuccess {
                     _readAllToDo.value = it
-                    Log.d("ReadPlanToDo", "서버 통신 실패")
+                    Log.d("ReadPlanToDo", "서버 통신 성공")
                 }
 
                 .onFailure {
@@ -38,7 +38,7 @@ class ToDoViewModel() : ViewModel() {
             kotlin.runCatching { ServiceCreator.initService.postLookUpDesignTodo(requestProjectMember) }
                 .onSuccess {
                     _readAllToDo.value = it
-                    Log.d("ReadDesignToDo", "서버 통신 실패")
+                    Log.d("ReadDesignToDo", "서버 통신 성공")
                 }
 
                 .onFailure {
@@ -54,7 +54,7 @@ class ToDoViewModel() : ViewModel() {
             kotlin.runCatching { ServiceCreator.initService.postLookUpIosTodo(requestProjectMember) }
                 .onSuccess {
                     _readAllToDo.value = it
-                    Log.d("ReadIosToDo", "서버 통신 실패")
+                    Log.d("ReadIosToDo", "서버 통신 성공")
                 }
 
                 .onFailure {
@@ -71,7 +71,7 @@ class ToDoViewModel() : ViewModel() {
             kotlin.runCatching { ServiceCreator.initService.postLookUpAosTodo(requestProjectMember) }
                 .onSuccess {
                     _readAllToDo.value = it
-                    Log.d("ReadAosToDo", "서버 통신 실패")
+                    Log.d("ReadAosToDo", "서버 통신 성공")
                 }
 
                 .onFailure {
@@ -88,7 +88,7 @@ class ToDoViewModel() : ViewModel() {
             kotlin.runCatching { ServiceCreator.initService.postLookUpWebTodo(requestProjectMember) }
                 .onSuccess {
                     _readAllToDo.value = it
-                    Log.d("ReadWebToDo", "서버 통신 실패")
+                    Log.d("ReadWebToDo", "서버 통신 성공")
                 }
 
                 .onFailure {
@@ -104,7 +104,7 @@ class ToDoViewModel() : ViewModel() {
             kotlin.runCatching { ServiceCreator.initService.postLookUpGameTodo(requestProjectMember) }
                 .onSuccess {
                     _readAllToDo.value = it
-                    Log.d("ReadGameToDo", "서버 통신 실패")
+                    Log.d("ReadGameToDo", "서버 통신 성공")
                 }
 
                 .onFailure {
@@ -120,7 +120,7 @@ class ToDoViewModel() : ViewModel() {
             kotlin.runCatching { ServiceCreator.initService.postLookUpServerTodo(requestProjectMember) }
                 .onSuccess {
                     _readAllToDo.value = it
-                    Log.d("ReadServerToDo", "서버 통신 실패")
+                    Log.d("ReadServerToDo", "서버 통신 성공")
                 }
 
                 .onFailure {
