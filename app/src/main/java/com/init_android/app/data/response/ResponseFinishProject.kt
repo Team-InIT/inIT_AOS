@@ -2,7 +2,7 @@ package com.init_android.app.data.response
 
 data class ResponseFinishProject(
     val code: Int,
-    val project: List<Project>
+    var project: List<Project>
 ) {
     data class Project(
         val Recruits: List<Recruit>,

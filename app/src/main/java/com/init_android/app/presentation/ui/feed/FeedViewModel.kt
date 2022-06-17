@@ -36,8 +36,8 @@ class FeedViewModel : ViewModel() {
     val finishProjectList: LiveData<ResponseFinishProject>
         get() = _finishProjectList
 
-    private val _finishProject = MutableLiveData<ResponseFinishProject.Project>()
-    val finishProject : LiveData<ResponseFinishProject.Project>
+    private val _finishProject = MutableLiveData<ResponseFinishProject>()
+    val finishProject : LiveData<ResponseFinishProject>
     get() = _finishProject
 
     // 피드 상세 보기
@@ -125,7 +125,7 @@ class FeedViewModel : ViewModel() {
         viewModelScope.launch {
             kotlin.runCatching { ServiceCreator.initService.postFinishProject(requestFinishProject) }
                 .onSuccess {
-                    _finishProjectList.value = it
+                    _finishProject.value = it
                     Log.d("finishProjectList", "서버 통신 성공")
                 }
                 .onFailure {

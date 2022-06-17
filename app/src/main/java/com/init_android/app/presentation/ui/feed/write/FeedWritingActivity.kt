@@ -21,7 +21,11 @@ import com.bumptech.glide.Glide
 import com.init_android.R
 import com.init_android.app.data.model.SelectableData
 import com.init_android.app.data.request.RequestAddFeed
+import com.init_android.app.data.request.RequestFinishProject
+import com.init_android.app.data.response.ResponseFinishProject
 import com.init_android.app.presentation.ui.feed.FeedViewModel
+import com.init_android.app.presentation.ui.home.signin.viewmodel.SignViewModel
+import com.init_android.app.presentation.ui.home.viewmodel.HomeViewModel
 import com.init_android.app.presentation.ui.open.project.SpinnerAdapter
 import com.init_android.app.util.CustomBottomSheetDialog
 import com.init_android.app.util.MultiPartUtil
@@ -39,6 +43,7 @@ class FeedWritingActivity :
 
     private var getResult: ActivityResultLauncher<Intent>? = null
     private val feedViewModel: FeedViewModel by viewModels()
+    private val homeViewModel : HomeViewModel by viewModels()
     val projectListBottomSheetDialog = CustomBottomSheetDialog("프로젝트 리스트", "완료")
     var fileUri: Uri? = null
 
@@ -130,17 +135,24 @@ class FeedWritingActivity :
 
     }
 
+
     // 바텀 시트에서 정보 받아오기
     private fun initBottomSheet() {
         //더미 데이터 넣는 부분
         // 원래 여기서 서버통신 받아옴
-        var partData = mutableListOf(
-            SelectableData(1, "인잇", false),
-            SelectableData(2, "플투", false),
-            SelectableData(3, "알바집", false),
-            SelectableData(4, "나도선배", false),
-        )
-        projectListBottomSheetDialog.setDataList(partData)
+        val requestFinishProject = RequestFinishProject(1)
+        feedViewModel.postFinishProject(requestFinishProject)
+        feedViewModel.finishProject.observe(this) {
+            Log.d("Test", "bottomSheet")
+            val data = it.project.toMutableList()
+            val dataList = mutableListOf<SelectableData>()
+            for (i in data.indices){
+                dataList.add(SelectableData(data[i].pNum,data[i].pTitle,false))
+            }
+            projectListBottomSheetDialog.setDataList(dataList)
+            //projectListBottomSheetDialog.setDataList(SelectableData(it.pNum ?: 1, it.pTitle ?: "test", false) as MutableList<SelectableData>)
+        }
+
 
         //버튼 클릭해서 바텀시트 생성되는 부분
         binding.tvSelectProjectList.setOnClickListener {
