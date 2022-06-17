@@ -29,14 +29,14 @@ class ReviewDoneFragment:BaseFragment<FragmentReviewDoneBinding>(R.layout.fragme
         val undoneAdapter = TeamReviewAdapter(requireContext())
         itemList.addAll(
             listOf(
-                TeamData("정지연", 0, "", true),
-                TeamData("이혜빈", 0, "", false),
-                TeamData("장윤정", 1, "", false)
+                TeamData(0,"정지연", 0, "", true),
+                TeamData(0,"이혜빈", 0, "", false),
+                TeamData(0,"장윤정", 1, "", false)
             )
         )
         undoneAdapter.submitList(itemList)
         binding.rvTeamList.adapter = undoneAdapter
-        teamReviewViewModel.selectedName.value = undoneAdapter.currentList[0].name
+        teamReviewViewModel.selectedPersonNum.value = undoneAdapter.currentList[0].personNum
 
         // 팀원 선택 클릭 이벤트
         undoneAdapter.setItemClickListener(object : TeamReviewAdapter.OnItemClickListener {
@@ -51,7 +51,7 @@ class ReviewDoneFragment:BaseFragment<FragmentReviewDoneBinding>(R.layout.fragme
 
                         if (i == position) {
                             // 선택한 팀원의 이름 데이터 넘겨주기
-                            teamReviewViewModel.selectedName.value = teamList[position].name
+                            teamReviewViewModel.selectedPersonNum.value = teamList[position].personNum
                             continue
                         }
 
@@ -66,7 +66,7 @@ class ReviewDoneFragment:BaseFragment<FragmentReviewDoneBinding>(R.layout.fragme
                     teamList[position].checkState = true // 클릭 요소만  선택 on
 
                     // 선택한 팀원의 이름 데이터 넘겨주기
-                    teamReviewViewModel.selectedName.value = teamList[position].name
+                    teamReviewViewModel.selectedPersonNum.value = teamList[position].personNum
                 }
             }
 

@@ -11,6 +11,7 @@ import android.widget.Toast
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.fragment.app.viewModels
 import com.init_android.R
+import com.init_android.app.data.request.RequestAddEvaluate
 import com.init_android.app.data.request.RequestNotEveluate
 import com.init_android.app.presentation.ui.open.team.adapter.TeamReviewAdapter
 import com.init_android.databinding.FragmentReviewUndoneBinding
@@ -40,23 +41,39 @@ class ReviewUnDoneFragment :
 
         teamReviewViewModel.postNotEveluate(requestNotEveluate)
 
-        teamReviewViewModel.notEveluate.observe(viewLifecycleOwner){
+        teamReviewViewModel.notEveluate.observe(viewLifecycleOwner) {
             val data = it.memberToEvaluate?.toMutableList()
-            for (i in data!!.indices){
-                if (i == 0){
-                    itemList.add(TeamData(data[i].mName,data[i].mPosition, data[i].mPhoto ?: "",true))
-                }else{
-                    itemList.add(TeamData(data[i].mName,data[i].mPosition, data[i].mPhoto ?: "",false))
+            for (i in data!!.indices) {
+                if (i == 0) {
+                    itemList.add(
+                        TeamData(
+                            data[i].mNum,
+                            data[i].mName,
+                            data[i].mPosition,
+                            data[i].mPhoto ?: "",
+                            true
+                        )
+                    )
+                } else {
+                    itemList.add(
+                        TeamData(
+                            data[i].mNum,
+                            data[i].mName,
+                            data[i].mPosition,
+                            data[i].mPhoto ?: "",
+                            false
+                        )
+                    )
                 }
 
-                Log.d("haha",data[i].mPhoto ?: "")
+                Log.d("haha", data[i].mPhoto ?: "")
 
             }
 
 
             undoneAdapter.submitList(itemList)
             binding.rvTeamList.adapter = undoneAdapter
-            teamReviewViewModel.selectedName.value = undoneAdapter.currentList[0].name
+            teamReviewViewModel.selectedPersonNum.value = undoneAdapter.currentList[0].personNum
 
         }
 
@@ -74,7 +91,8 @@ class ReviewUnDoneFragment :
 
                         if (i == position) {
                             // 선택한 팀원의 이름 데이터 넘겨주기
-                            teamReviewViewModel.selectedName.value = teamList[position].name
+                            teamReviewViewModel.selectedPersonNum.value =
+                                teamList[position].personNum
                             continue
                         }
 
@@ -88,8 +106,8 @@ class ReviewUnDoneFragment :
                     }
                     teamList[position].checkState = true // 클릭 요소만  선택 on
 
-                    // 선택한 팀원의 이름 데이터 넘겨주기
-                    teamReviewViewModel.selectedName.value = teamList[position].name
+                    // 선택한 팀원의 고유번호 데이터 넘겨주기
+                    teamReviewViewModel.selectedPersonNum.value = teamList[position].personNum
                 }
 
                 resetReview() // 평가 여부 초기화
@@ -102,8 +120,23 @@ class ReviewUnDoneFragment :
     private fun initBtnEvent() {
         binding.registerBtn.setOnClickListener {
             // 여기서 서버에 데이터 넘겨주기
-            Log.d("data",binding.etvTeamReview.text.toString())
-            Log.d("data",binding.layoutRecommend.isSelected.toString())
+            var recoBoolean = binding.layoutRecommend.isSelected
+            var recoState = if (recoBoolean) {
+                1
+            } else {
+                0
+            }
+
+            val requestAddEvaluate = RequestAddEvaluate(
+                mNum = 1,
+                pNum = 1,
+                ePerson = teamReviewViewModel.selectedPersonNum.value!!.toInt(),
+                eRecommend = recoState,
+                eComment =  binding.etvTeamReview.text.toString()
+            )
+
+            teamReviewViewModel.postAddEvaluate(requestAddEvaluate)
+
             showAddDialog() // 완료 다이얼로그
         }
     }
@@ -123,7 +156,7 @@ class ReviewUnDoneFragment :
     }
 
     // 완료 알럿 띄우기
-    private fun showAddDialog(){
+    private fun showAddDialog() {
         val doneDialog = Dialog(requireContext())
         doneDialog.setContentView(R.layout.dialog_done)
         doneDialog.window?.setLayout(
@@ -139,7 +172,6 @@ class ReviewUnDoneFragment :
     // OnResume에서 리스트 다시 받아오기
     override fun onResume() {
         super.onResume()
-
         Toast.makeText(requireContext(), "미완료 화면 resume 테스뚜 헤헤", Toast.LENGTH_SHORT).show()
     }
 }
