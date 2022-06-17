@@ -20,12 +20,13 @@ class ServerFragment : BaseFragment<FragmentServerBinding>(R.layout.fragment_ser
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
+        Log.d("testing","서버")
+        initNetwork()
     }
 
     override fun onResume() {
         super.onResume()
-        initNetwork()
+        // initNetwork()
     }
 
     private fun initNetwork() {

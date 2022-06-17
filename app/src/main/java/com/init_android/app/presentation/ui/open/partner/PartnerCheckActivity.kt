@@ -1,11 +1,15 @@
 package com.init_android.app.presentation.ui.open.partner
 
+import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import androidx.activity.viewModels
+import androidx.viewpager2.widget.ViewPager2
 import com.google.android.material.tabs.TabLayoutMediator
 import com.init_android.R
 import com.init_android.app.presentation.ui.open.partner.adapter.PartnerTabAdapter
+import com.init_android.app.presentation.ui.open.team.TeamReviewActivity
 import com.init_android.app.presentation.ui.open.viewmodel.ProjectViewModel
 import com.init_android.databinding.ActivityPartnerCheckBinding
 import com.playtogether_android.app.presentation.base.BaseActivity
@@ -19,6 +23,7 @@ class PartnerCheckActivity :
     //val pNum = intent.getIntExtra("pNum", 1)
     val pNum = 1
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -27,6 +32,14 @@ class PartnerCheckActivity :
         backBtnClickListener()
         initSetting()
 
+        initReviewEvent()
+
+    }
+
+    private fun initReviewEvent(){
+        binding.btnPartnerJoin.setOnClickListener {
+            startActivity(Intent(this,TeamReviewActivity::class.java))
+        }
     }
 
     private fun initSetting() {
@@ -57,6 +70,7 @@ class PartnerCheckActivity :
             GameFragment(),
             ServerFragment()
         )
+
         partnerTabAdapter = PartnerTabAdapter(this)
         partnerTabAdapter.fragments.addAll(fragmentList)
 
@@ -69,6 +83,9 @@ class PartnerCheckActivity :
         TabLayoutMediator(binding.tlPartnerTab, binding.vpPartnerTab) { tab, position ->
             tab.text = tabLabel[position]
         }.attach()
+
+        Log.d("hello",tabLabel.toString())
+        Log.d("hello",tabLabel.size.toString())
     }
 
 

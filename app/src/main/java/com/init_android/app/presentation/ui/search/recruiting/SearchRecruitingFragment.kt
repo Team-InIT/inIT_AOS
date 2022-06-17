@@ -1,40 +1,77 @@
 package com.init_android.app.presentation.ui.search.recruiting
 
-import android.graphics.Color
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.widget.Toast
+import androidx.fragment.app.viewModels
 import com.init_android.R
 import com.init_android.app.data.model.ProjectItemData
 import com.init_android.app.data.model.SelectableData
+import com.init_android.app.data.response.ResponseGetRecruitingProject
 import com.init_android.app.presentation.ui.home.adapter.ProjectItemRVAdapter
+import com.init_android.app.presentation.ui.search.SearchViewModel
 import com.init_android.app.util.CustomBottomSheetDialog
+import com.init_android.app.util.DateUtil
 import com.init_android.databinding.FragmentSearchRecruitingBinding
 import com.playtogether_android.app.presentation.base.BaseFragment
 
 class SearchRecruitingFragment:BaseFragment<FragmentSearchRecruitingBinding>(R.layout.fragment_search_recruiting) {
 
-
+    private val searchViewModel : SearchViewModel by viewModels()
     private val partBottomSheetDialog = CustomBottomSheetDialog("프로젝트 타입","완료")
+    private val myProjectItemDataList = mutableListOf<ProjectItemData>()
+    private val searchResultList = mutableListOf<ProjectItemData>()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        initAdapter()
+        // initAdapter()
         clickListener()
         initRefreshEvent()
+        initSearchEvent()
 
     }
 
     private fun initAdapter(){
         val adapter = ProjectItemRVAdapter(requireContext())
         binding.rvProject.adapter = adapter
-        adapter.submitList(
-            listOf(
-                ProjectItemData(0,"졸업프로젝트 같이 할 사람",0,3,"2021.03.05","2021.04.05",
-                "이혜빈",0,-1,-1)
-            )
-        )
+
+        searchViewModel.getRecruitingProject()
+
+        searchViewModel.recruitingData.observe(viewLifecycleOwner){
+            myProjectItemDataList.clear()
+
+            val projectItemDataList = it.recruitingProject?.toMutableList()
+            val writerList = it.writer!!.toMutableList()
+            for (i in projectItemDataList!!.indices){
+                val data = projectItemDataList[i]
+
+                val totalNum = data.pPlan + data.pDesign + data.pAos + data.pIos + data.pWeb + data.pGame + data.pServer
+                val pStartDate =  DateUtil().dateToString(data.pStart).replace("-",".")
+                val pEndDate = DateUtil().dateToString(data.pDue).replace("-",".")
+
+                myProjectItemDataList.add(ProjectItemData(data.pType,data.pDescription,data.pOnOff,totalNum,pStartDate,pEndDate,writerList[i].mName,
+                data.pState!!,data.pNum,data.mNum))
+            }
+
+
+            myProjectItemDataList.distinct()
+            /*if (searchViewModel.searchFlags.value == true){
+                adapter.submitList(null)
+            }else{
+                adapter.setProjectList(myProjectItemDataList)
+                adapter.submitList(myProjectItemDataList)
+            }*/
+            adapter.setProjectList(myProjectItemDataList)
+            adapter.submitList(myProjectItemDataList)
+        }
+
+    }
+
+    override fun onResume() {
+        super.onResume()
+        initAdapter()
     }
 
     private fun initRefreshEvent(){
@@ -42,6 +79,44 @@ class SearchRecruitingFragment:BaseFragment<FragmentSearchRecruitingBinding>(R.l
             binding.ivRefresh.visibility = View.GONE // 초기화 버튼 활성화
             binding.layoutProjectType.background =
                 resources.getDrawable(R.drawable.rectangle_stroke_gray_radius_16, null)
+        }
+    }
+
+    // 키워드로 검색하기
+    private fun initSearchEvent(){
+        binding.btnSearch.setOnClickListener {
+
+            searchViewModel.searchResultData.removeObservers(this)
+            searchViewModel.recruitingData.removeObservers(this)
+
+            val adapter = ProjectItemRVAdapter(requireContext())
+            binding.rvProject.adapter = adapter
+
+            searchViewModel.recruitingData.removeObservers(this)
+            // 서버통신
+            searchViewModel.postSearchIng(binding.etvSearch.text.toString())
+
+            // 데이터 받아오기
+            searchViewModel.searchResultData.observe(viewLifecycleOwner){
+                searchResultList.clear()
+                val projectItemDataList = it.projectInfo?.toMutableList()
+                for (i in projectItemDataList!!.indices){
+                    val data = projectItemDataList[i]
+
+                    val totalNum = data.pPlan + data.pDesign + data.pAos + data.pIos + data.pWeb + data.pGame + data.pServer
+                    val pStartDate =  DateUtil().dateToString(data.pStart).replace("-",".")
+                    val pEndDate = DateUtil().dateToString(data.pDue).replace("-",".")
+
+                    searchResultList.add(ProjectItemData(data.pType,data.pDescription,data.pOnOff,totalNum,pStartDate,pEndDate,data.Member.mName,
+                        data.pState!!,data.pNum,data.mNum))
+                }
+
+                Log.d("plz",searchResultList.toString())
+                searchResultList.distinct()
+                adapter.setProjectList(searchResultList)
+                adapter.submitList(searchResultList)
+            }
+
         }
     }
 

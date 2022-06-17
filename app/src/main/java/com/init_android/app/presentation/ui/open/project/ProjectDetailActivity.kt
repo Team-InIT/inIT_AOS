@@ -29,7 +29,7 @@ class ProjectDetailActivity :
     private val projectViewModel: ProjectViewModel by viewModels()
     val partBottomSheetDialog = CustomBottomSheetDialog("지원할 파트", "지원하기")
     private lateinit var partnerTabAdapter: PartnerTabAdapter
-    private val mainViewModel: MainViewModel by viewModels()
+    val mainViewModel: MainViewModel by viewModels()
 
 
     //val pNum = intent.getIntExtra("pNum", 1)
@@ -37,7 +37,10 @@ class ProjectDetailActivity :
     val mNum = 1
     //val mNum = mainViewModel.signData.value?.mNum ?: 1
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
+
+
         super.onCreate(savedInstanceState)
 
         backBtnListener()

@@ -21,7 +21,7 @@ class GameFragment : BaseFragment<FragmentGameBinding>(R.layout.fragment_game) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
+        Log.d("testing","game")
     }
 
     override fun onResume() {

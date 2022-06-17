@@ -5,8 +5,10 @@ import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.activity.viewModels
+import androidx.fragment.app.activityViewModels
 import com.init_android.R
 import com.init_android.app.data.request.mypage.RequestModifyBasicInfo
+import com.init_android.app.presentation.ui.main.MainViewModel
 import com.init_android.app.presentation.ui.mypage.viewmodel.MyPageViewModel
 import com.init_android.databinding.ActivityMyPageModifyBasicInfoBinding
 import com.playtogether_android.app.presentation.base.BaseActivity
@@ -14,6 +16,7 @@ import com.playtogether_android.app.presentation.base.BaseActivity
 class MyPageModifyBasicInfoActivity : BaseActivity<ActivityMyPageModifyBasicInfoBinding>(R.layout.activity_my_page_modify_basic_info) {
 
     private val myPageViewModel : MyPageViewModel by viewModels()
+    private val mainViewModel : MainViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -137,13 +140,17 @@ class MyPageModifyBasicInfoActivity : BaseActivity<ActivityMyPageModifyBasicInfo
             } else if(binding.btnEtc.isSelected) {
                 gender = 2
             }
+
+
             val requestModifyBasicInfo = RequestModifyBasicInfo(
-                mNum = 1,
+                mNum = intent.getIntExtra("mNum",1),
                 mEmail = binding.etMyPageBasicInfoEmail.text.toString(),
                 mDept = binding.etMyPageBasicInfoBelong.text.toString(),
                 mAcademic = mAcademic,
                 mGender = gender
             )
+            Log.d("MyPageModifyBasicInfo", "" + mainViewModel.mNum.value)
+
             myPageViewModel.postModifyBasicInfo(requestModifyBasicInfo)
 
             Toast.makeText(this, "기본 정보 수정이 완료되었습니다.", Toast.LENGTH_SHORT).show()

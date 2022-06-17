@@ -23,7 +23,7 @@ class IosFragment : BaseFragment<FragmentIosBinding>(R.layout.fragment_ios){
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
+        Log.d("testing","ios")
     }
 
     override fun onResume() {

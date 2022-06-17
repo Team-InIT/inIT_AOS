@@ -24,6 +24,7 @@ class WebFragment : BaseFragment<FragmentWebBinding>(R.layout.fragment_web) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        Log.d("testing","웹")
 
     }
 
