@@ -55,12 +55,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
             android:fontFamily="@font/noto_sans_kr_medium"
             android:includeFontPadding="false"
             android:text="D-DAY"
             android:textColor="@color/black"
             android:textSize="16sp"
-            android:layout_marginTop="20dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/cl_open_project_top" />
 
@@ -87,9 +87,9 @@
             android:id="@+id/tv_open_project_part"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
             android:fontFamily="@font/noto_sans_kr_medium"
             android:includeFontPadding="false"
-            android:layout_marginTop="16dp"
             android:text="팀원 파트"
             android:textColor="@color/black"
             android:textSize="16sp"
@@ -121,10 +121,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
+            android:layout_marginTop="16dp"
             android:fontFamily="@font/noto_sans_kr_medium"
             android:includeFontPadding="false"
             android:text="팀원 태그"
-            android:layout_marginTop="16dp"
             android:textColor="@color/black"
             android:textSize="16sp"
             app:layout_constraintStart_toStartOf="parent"
@@ -149,30 +149,68 @@
             app:layout_constraintStart_toStartOf="@id/tv_open_project_partner"
             app:layout_constraintTop_toBottomOf="@id/tv_open_project_partner" />
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rv_partner"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/cl_member"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            android:orientation="horizontal"
-            tools:listitem="@layout/item_to_do_partner_list"
+            android:layout_marginTop="12dp"
+            android:background="@drawable/rectangle_stroke_main_radius_10"
+            android:paddingBottom="12dp"
+            android:visibility="gone"
             app:layout_constraintStart_toStartOf="@+id/et_open_project_partner"
-            app:layout_constraintTop_toBottomOf="@+id/et_open_project_partner" />
+            app:layout_constraintTop_toBottomOf="@+id/et_open_project_partner">
+
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:layout_marginTop="6dp"
+                android:layout_marginEnd="6dp"
+                android:src="@drawable/ic_close"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/iv_partner"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginEnd="20dp"
+
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageView"
+                tools:src="@drawable/ic_launcher_background" />
+
+            <TextView
+                android:id="@+id/tv_partner_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:layout_marginTop="4dp"
+                android:textColor="@color/black"
+                android:textSize="12sp"
+                app:layout_constraintEnd_toEndOf="@+id/iv_partner"
+                app:layout_constraintStart_toStartOf="@+id/iv_partner"
+                app:layout_constraintTop_toBottomOf="@+id/iv_partner"
+                tools:text="김공삼" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
 
         <TextView
             android:id="@+id/tv_open_project_todo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
+            android:layout_marginTop="16dp"
             android:fontFamily="@font/noto_sans_kr_medium"
             android:includeFontPadding="false"
             android:text="할 일 입력"
-            android:layout_marginTop="16dp"
             android:textColor="@color/black"
             android:textSize="16sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/rv_partner" />
+            app:layout_constraintTop_toBottomOf="@+id/cl_member" />
 
         <EditText
             android:id="@+id/et_open_project_todo"
@@ -186,11 +224,11 @@
             android:hint="@string/open_project_write"
             android:includeFontPadding="false"
             android:inputType="textPersonName"
+            android:maxLines="2"
             android:paddingVertical="13dp"
             android:textColor="@color/black"
             android:textColorHint="@color/gray_6"
             android:textSize="14sp"
-            android:maxLines="2"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@id/tv_open_project_todo"
             app:layout_constraintTop_toBottomOf="@id/tv_open_project_todo" />
@@ -198,13 +236,13 @@
         <Button
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:background="@drawable/rectangle_fill_main_radius_10"
-            android:text="@string/finish"
-            android:layout_marginBottom="24dp"
             android:layout_marginStart="16dp"
             android:layout_marginEnd="16dp"
-            android:textSize="16sp"
+            android:layout_marginBottom="24dp"
+            android:background="@drawable/rectangle_fill_main_radius_10"
             android:fontFamily="@font/noto_sans_kr_bold"
+            android:text="@string/finish"
+            android:textSize="16sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />

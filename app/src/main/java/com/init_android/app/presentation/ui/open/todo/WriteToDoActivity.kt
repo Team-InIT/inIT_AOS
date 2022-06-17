@@ -5,6 +5,7 @@ import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import androidx.activity.viewModels
 import androidx.core.content.ContextCompat
 import com.init_android.R
@@ -30,8 +31,14 @@ class WriteToDoActivity : BaseActivity<ActivityWriteToDoBinding>(R.layout.activi
 
         initDatePickerDialogToDo()
         initPart()
+        backBtnListener()
     }
 
+    private fun backBtnListener() {
+        binding.ivOpenProjectBack.setOnClickListener {
+            finish()
+        }
+    }
 
     private fun initDatePickerDialogToDo() {
         binding.etOpenProjectName.setOnClickListener {
@@ -73,67 +80,73 @@ class WriteToDoActivity : BaseActivity<ActivityWriteToDoBinding>(R.layout.activi
     }
 
     private fun initPart() {
+
+        //파트 바텀시트
+        var partData = mutableListOf(
+            SelectableData(0, "기획", false),
+            SelectableData(1, "디자인", false),
+            SelectableData(2, "웹", false),
+            SelectableData(3, "안드로이드", false),
+            SelectableData(4, "IOS", false),
+            SelectableData(5, "게임", false),
+            SelectableData(6, "서버", false),
+        )
+        partBottomSheetDialog.setDataList(partData)
+
         binding.etOpenProjectPart.setOnClickListener {
-            //파트 바텀시트
-            var partData = mutableListOf(
-                SelectableData(0, "기획", false),
-                SelectableData(1, "디자인", false),
-                SelectableData(2, "웹", false),
-                SelectableData(3, "안드로이드", false),
-                SelectableData(4, "IOS", false),
-                SelectableData(5, "게임", false),
-                SelectableData(6, "서버", false),
+            partBottomSheetDialog.show(
+                supportFragmentManager,
+                partBottomSheetDialog.tag
             )
-            partBottomSheetDialog.setDataList(partData)
-
-            binding.etOpenProjectPart.setOnClickListener {
-                partBottomSheetDialog.show(
-                    supportFragmentManager,
-                    partBottomSheetDialog.tag
-                )
-
-                val firstMajorPeriod = partBottomSheetDialog.getSelectedData()
-
-                partBottomSheetDialog.setCompleteListener {
-                    mainViewModel.part.value = firstMajorPeriod?.name
-                    partBottomSheetDialog.binding.btnBottomsheetCancel
-
-                    mainViewModel.part.observe(this) {
-                        binding.etOpenProjectPart.setText(it)
-                        binding.etOpenProjectPart.setTextColor(Color.parseColor("#FF000000"))
-
-                    }
-                }
+        }
 
 
-                val requestToDoMember = RequestToDoMember(1, firstMajorPeriod?.id ?: 1)
-                Log.d("partNum", firstMajorPeriod?.id.toString())
-                todoViewModel.postToDoMember(requestToDoMember)
-                todoViewModel.todoMember.observe(this) {
-                    val data = it.members.toMutableList()
-                    val dataList = mutableListOf<SelectableData>()
-                    for (i in data.indices) {
-                        dataList.add(SelectableData(data[i].mNum, data[i].mName, false))
-                    }
-                    memberBottomSheetDialog.setDataList(dataList)
-                }
-                //버튼 클릭해서 바텀시트 생성되는 부분
-                binding.etOpenProjectPartner.setOnClickListener {
-                    memberBottomSheetDialog.show(
-                        supportFragmentManager,
-                        memberBottomSheetDialog.tag
-                    )
+        val firstMajorPeriod2 = partBottomSheetDialog.getSelectedData()
+        partBottomSheetDialog.setCompleteListener {
+            val firstMajorPeriod = partBottomSheetDialog.getSelectedData()
+            mainViewModel.part.value = firstMajorPeriod?.name
+            partBottomSheetDialog.binding.btnBottomsheetCancel
+            binding.etOpenProjectPart.setText(firstMajorPeriod?.name)
+            binding.etOpenProjectPart.setTextColor(Color.parseColor("#FF000000"))
 
-                    //클릭 완료되었을때 일어나는 리스너
-                    memberBottomSheetDialog.setCompleteListener {
-                        val part = memberBottomSheetDialog.getSelectedData()
+            mainViewModel.part.observe(this) {
+                binding.etOpenProjectPart.setText(it)
+                binding.etOpenProjectPart.setTextColor(Color.parseColor("#FF000000"))
 
-                        memberBottomSheetDialog.binding.btnBottomsheetCancel
+            }
+        }
 
 
+        val requestToDoMember = RequestToDoMember(1, firstMajorPeriod2?.id ?: 1)
+        Log.d("partNum", firstMajorPeriod2?.id.toString())
+        todoViewModel.postToDoMember(requestToDoMember)
+        todoViewModel.todoMember.observe(this) {
+            val data = it.members.toMutableList()
+            val dataList = mutableListOf<SelectableData>()
+            dataList.clear()
+            for (i in data.indices) {
+                dataList.add(SelectableData(data[i].mNum, data[i].mName, false))
+            }
+            memberBottomSheetDialog.setDataList(dataList)
+        }
+        //버튼 클릭해서 바텀시트 생성되는 부분
+        binding.etOpenProjectPartner.setOnClickListener {
+            memberBottomSheetDialog.show(
+                supportFragmentManager,
+                memberBottomSheetDialog.tag
+            )
+        }
 
-                    }
-                }
+        //클릭 완료되었을때 일어나는 리스너
+        memberBottomSheetDialog.setCompleteListener {
+            val part = memberBottomSheetDialog.getSelectedData()
+
+            memberBottomSheetDialog.binding.btnBottomsheetCancel
+
+            binding.clMember.visibility = View.VISIBLE
+            binding.tvPartnerName.setText(part?.name ?: "")
+            binding.imageView.setOnClickListener {
+                binding.clMember.visibility = View.GONE
             }
         }
 
