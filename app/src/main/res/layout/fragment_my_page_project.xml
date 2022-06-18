@@ -150,9 +150,11 @@
             android:id="@+id/cl_my_page_heart"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
             android:background="@drawable/rectagnle_fill_white_radius_8"
-            app:layout_constraintEnd_toEndOf="@+id/cl_my_page_upload"
-            app:layout_constraintStart_toStartOf="@+id/cl_my_page_upload"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/cl_my_page_approve"
             app:layout_constraintTop_toTopOf="@+id/cl_my_page_approve">
 
             <TextView

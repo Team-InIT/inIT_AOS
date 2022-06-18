@@ -73,6 +73,10 @@ class MyPageViewModel() : ViewModel() {
         get() = _uploadList
 
 
+    private val _myEvaluation = MutableLiveData<ResponseEvaluation.MyEvaluation>()
+    val myEvaluation: LiveData<ResponseEvaluation.MyEvaluation>
+        get() = _myEvaluation
+
     // 서버통신
     fun postMyInfo(requestMyInfo: RequestMyInfo) {
         viewModelScope.launch {
@@ -296,6 +300,23 @@ class MyPageViewModel() : ViewModel() {
                 .onFailure {
                     it.printStackTrace()
                     Log.d("UploadList", "서버 통신 실패")
+                }
+        }
+    }
+
+    //팀원평가 서버통신
+    fun postEvalMem(requestWaitingApproval: RequestWaitingApproval) {
+        viewModelScope.launch {
+            kotlin.runCatching {
+                ServiceCreator.initService.postMyEvaluation(requestWaitingApproval)
+            }
+                .onSuccess {
+                    _myEvaluation.value = it
+                    Log.d("MyEvaluation", "서버 통신 성공")
+                }
+                .onFailure {
+                    it.printStackTrace()
+                    Log.d("MyEvaluation", "서버 통신 실패")
                 }
         }
     }

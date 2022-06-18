@@ -51,37 +51,26 @@ class MyPageJoinActivity : BaseActivity<ActivityMyPageJoinBinding>(R.layout.acti
     }
 
     private fun initIngNetwork() {
-
-
-        mainViewModel.mNum.observe(this) {
-            val mNum = it
-
-
-            val requestWaitingApproval = RequestWaitingApproval(mNum = mNum)
-            myPageViewModel.postIngProject(requestWaitingApproval)
-            readyAdapter = ReadyAdapter(1)
-            binding.rvMypageJoin.adapter = readyAdapter
-            myPageViewModel.waitingApprove.observe(this) {
-                readyAdapter.setQuestionPost((it.projectInfoList) as MutableList<ResponsemyWaitingApproval.ProjectInfo>)
-            }
+        val mNum = mainViewModel.otherNum.value ?: 1
+        val requestWaitingApproval = RequestWaitingApproval(mNum = mNum)
+        myPageViewModel.postIngProject(requestWaitingApproval)
+        readyAdapter = ReadyAdapter(1)
+        binding.rvMypageJoin.adapter = readyAdapter
+        myPageViewModel.waitingApprove.observe(this) {
+            readyAdapter.setQuestionPost((it.projectInfoList) as MutableList<ResponsemyWaitingApproval.ProjectInfo>)
         }
-
-
     }
 
     private fun initEndNetwork() {
-        mainViewModel.mNum.observe(this) {
-            val mNum = it
-            val requestWaitingApproval =
-                RequestWaitingApproval(mNum = mNum)
-            myPageViewModel.postEndProject(requestWaitingApproval)
-            readyAdapter = ReadyAdapter(1)
-            binding.rvMypageJoin.adapter = readyAdapter
-            myPageViewModel.endApprove.observe(this) {
-                readyAdapter.setQuestionPost((it.projectInfoList) as MutableList<ResponsemyWaitingApproval.ProjectInfo>)
-            }
+        val mNum = mainViewModel.otherNum.value ?: 1
+        val requestWaitingApproval =
+            RequestWaitingApproval(mNum = mNum)
+        myPageViewModel.postEndProject(requestWaitingApproval)
+        readyAdapter = ReadyAdapter(1)
+        binding.rvMypageJoin.adapter = readyAdapter
+        myPageViewModel.endApprove.observe(this) {
+            readyAdapter.setQuestionPost((it.projectInfoList) as MutableList<ResponsemyWaitingApproval.ProjectInfo>)
         }
     }
-
 
 }

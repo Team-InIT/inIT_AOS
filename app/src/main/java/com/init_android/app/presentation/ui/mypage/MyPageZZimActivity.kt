@@ -7,6 +7,7 @@ import androidx.activity.viewModels
 import com.init_android.R
 import com.init_android.app.data.request.mypage.RequestWaitingApproval
 import com.init_android.app.data.response.project.approve.ResponsemyWaitingApproval
+import com.init_android.app.presentation.ui.main.MainViewModel
 import com.init_android.app.presentation.ui.mypage.adapter.ReadyAdapter
 import com.init_android.app.presentation.ui.mypage.viewmodel.MyPageViewModel
 import com.init_android.databinding.ActivityMyPageZzimBinding
@@ -14,6 +15,7 @@ import com.playtogether_android.app.presentation.base.BaseActivity
 
 class MyPageZZimActivity : BaseActivity<ActivityMyPageZzimBinding>(R.layout.activity_my_page_zzim) {
 
+    private val mainViewModel: MainViewModel by viewModels()
     private val myPageViewModel: MyPageViewModel by viewModels()
     private lateinit var readyAdapter: ReadyAdapter
 
@@ -32,8 +34,8 @@ class MyPageZZimActivity : BaseActivity<ActivityMyPageZzimBinding>(R.layout.acti
     }
 
     private fun initNetwork() {
-        Log.d("TEst", "TEST")
-        val requestWaitingApproval = RequestWaitingApproval(mNum = 1)
+        val mNum = mainViewModel.otherNum.value ?: 1
+        val requestWaitingApproval = RequestWaitingApproval(mNum = mNum)
         myPageViewModel.postZzimProject(requestWaitingApproval)
         readyAdapter = ReadyAdapter(1)
         binding.rvMypageZzim.adapter = readyAdapter

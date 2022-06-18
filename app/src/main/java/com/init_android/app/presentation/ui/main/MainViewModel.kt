@@ -20,4 +20,10 @@ class MainViewModel() : ViewModel() {
     var part = MutableLiveData<String>()
     var partNum = MutableLiveData<Int>()
     var project = MutableLiveData<String>()
+
+    //프로젝트 넘버
+    var projectNum = MutableLiveData<Int>()
+
+    //다른 유저 아이디
+    var otherNum = MutableLiveData<Int>()
 }

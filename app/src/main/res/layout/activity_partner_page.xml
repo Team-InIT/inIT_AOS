@@ -119,16 +119,6 @@
                 app:layout_constraintStart_toEndOf="@+id/iv_my_page_profile"
                 app:layout_constraintTop_toTopOf="@+id/iv_my_page_profile" />
 
-            <ImageView
-                android:id="@+id/iv_my_page_email"
-                android:layout_width="18dp"
-                android:layout_height="18dp"
-                android:src="@drawable/ic_email_main"
-                android:layout_marginStart="6dp"
-                app:layout_constraintBottom_toBottomOf="@+id/tv_my_page_profile_name"
-                app:layout_constraintStart_toEndOf="@+id/tv_my_page_profile_name"
-                app:layout_constraintTop_toTopOf="@+id/tv_my_page_profile_name" />
-
 
             <TextView
                 android:id="@+id/tv_my_page_postion"
