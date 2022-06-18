@@ -32,9 +32,6 @@ class ProjectDetailActivity :
     val mainViewModel: MainViewModel by viewModels()
 
 
-
-
-
     override fun onCreate(savedInstanceState: Bundle?) {
 
 
@@ -86,8 +83,8 @@ class ProjectDetailActivity :
         projectViewModel.detailProject.observe(this) {
             binding.project = it.detailInfo
 
-            //click listenr 2번 변경경
-           binding.btnDetailApply.setOnClickListener {
+
+            binding.btnDetailApply.setOnClickListener {
                 projectViewModel.detailProject.observe(this) {
                     binding.project = it.detailInfo
 
@@ -100,13 +97,12 @@ class ProjectDetailActivity :
 //                            .show()
                         clickListener()
 
-                    } else if(it.detailInfo?.writerInfo?.mNum == mNum) {
-                        Toast.makeText(this@ProjectDetailActivity, "내 프로젝트 입니다", Toast.LENGTH_SHORT).show()
+                    } else if (it.detailInfo?.writerInfo?.mNum == mNum) {
+                        Toast.makeText(this@ProjectDetailActivity, "내 프로젝트 입니다", Toast.LENGTH_SHORT)
+                            .show()
                         Log.d("Test", "내 프로젝트")
 
-                    }
-
-                    else {
+                    } else {
                         clickListener()
                     }
                 }
@@ -253,26 +249,25 @@ class ProjectDetailActivity :
         partBottomSheetDialog.setDataList(partData)
 
         //버튼 클릭해서 바텀시트 생성되는 부분
-        binding.btnDetailApply.setOnClickListener {
-            partBottomSheetDialog.show(
-                supportFragmentManager,
-                partBottomSheetDialog.tag
-            )
+        partBottomSheetDialog.show(
+            supportFragmentManager,
+            partBottomSheetDialog.tag
+        )
 
-            //클릭 완료되었을때 일어나는 리스너
-            partBottomSheetDialog.setCompleteListener {
-                val part = partBottomSheetDialog.getSelectedData()
-                //뷰모델에 넣어주는 코드
-                mainViewModel.part.value = part?.name
-                mainViewModel.partNum.value = part?.id
-                partBottomSheetDialog.binding.btnBottomsheetCancel
-                //알럿
+        //클릭 완료되었을때 일어나는 리스너
+        partBottomSheetDialog.setCompleteListener {
+            val part = partBottomSheetDialog.getSelectedData()
+            //뷰모델에 넣어주는 코드
+            mainViewModel.part.value = part?.name
+            mainViewModel.partNum.value = part?.id
+            partBottomSheetDialog.binding.btnBottomsheetCancel
+            //알럿
+            initAlert()
+            partBottomSheetDialog.binding.btnBottomsheetComplete.setOnClickListener {
+                Log.d("클릭", "완료")
                 initAlert()
-                partBottomSheetDialog.binding.btnBottomsheetComplete.setOnClickListener {
-                    Log.d("클릭", "완료")
-                    initAlert()
-                }
             }
+
         }
     }
 
@@ -285,7 +280,7 @@ class ProjectDetailActivity :
         val pNum = intent.getIntExtra("pNum", 1)
         val mNum = 1
 
-        Log.d("pNum", ""+pNum)
+        Log.d("pNum", "" + pNum)
 
         dialog.setOnClickedListener(object : CustomDialog.ButtonClickListener {
             val requestApply = RequestApplyProject(

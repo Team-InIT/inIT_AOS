@@ -18,6 +18,7 @@ class TeamReviewActivity:BaseActivity<ActivityTeamReviewBinding>(R.layout.activi
 
         initAdapter()
         initTabLayout()
+        backBtnListener()
     }
 
     // viewpager2 초기화
@@ -46,5 +47,11 @@ class TeamReviewActivity:BaseActivity<ActivityTeamReviewBinding>(R.layout.activi
                 1 -> {tab.text = "평가"}
             }
         }.attach()
+    }
+
+    private fun backBtnListener() {
+        binding.ivBack.setOnClickListener {
+            finish()
+        }
     }
 }

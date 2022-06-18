@@ -16,16 +16,12 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        android:background="@drawable/rectangle_stroke_main_radius_10">
+        android:layout_height="wrap_content">
 
         <ImageView
             android:id="@+id/iv_check_box"
-            android:layout_width="16dp"
-            android:layout_height="16dp"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
             android:layout_marginStart="16dp"
             android:layout_marginTop="14dp"
             android:src="@drawable/selector_check_box"
@@ -39,7 +35,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:textColor="@color/main_default"
-            android:textSize="12sp"
+            android:textSize="14sp"
             app:layout_constraintBottom_toBottomOf="@+id/iv_check_box"
             app:layout_constraintStart_toEndOf="@+id/iv_check_box"
             app:layout_constraintTop_toTopOf="@+id/iv_check_box"
@@ -53,7 +49,7 @@
             android:layout_marginTop="4dp"
             app:layout_constraintStart_toStartOf="@+id/tv_end_date"
             app:layout_constraintTop_toBottomOf="@+id/tv_end_date"
-            tools:background="@drawable/ic_launcher_background" />
+            tools:background="@drawable/test" />
 
         <TextView
             android:id="@+id/tv_subject"
@@ -78,6 +74,7 @@
             timeStampToDate="@{todo.TodoInfo.TWritedate}"
             android:textColor="@color/tet_gray_2"
             android:textSize="12sp"
+            android:layout_marginEnd="4dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@+id/iv_delete"
             app:layout_constraintTop_toBottomOf="@+id/tv_subject"
@@ -92,6 +89,17 @@
             app:layout_constraintBottom_toBottomOf="@+id/tv_end_date"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@+id/tv_end_date" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:background="@color/gray_5"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="8dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            app:layout_constraintTop_toBottomOf="@+id/tv_start_date" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

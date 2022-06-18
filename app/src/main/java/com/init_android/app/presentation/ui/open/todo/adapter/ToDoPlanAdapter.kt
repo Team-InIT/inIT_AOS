@@ -14,17 +14,6 @@ import com.init_android.databinding.ItemToDoListBinding
 class ToDoPlanAdapter() : RecyclerView.Adapter<ToDoPlanAdapter.PartnerListViewHolder>() {
     var partnerData = mutableListOf<ResponseAllToDo.Todo>()
 
-    private lateinit var mlistener : onItemClickListener
-
-    interface onItemClickListener {
-        fun onItemClick(position: Int)
-    }
-
-    fun setOnItemClickListener(listener: onItemClickListener) {
-        mlistener = listener
-    }
-
-
 
     override fun onCreateViewHolder(
         parent: ViewGroup,
@@ -54,14 +43,6 @@ class ToDoPlanAdapter() : RecyclerView.Adapter<ToDoPlanAdapter.PartnerListViewHo
             binding.apply {
                 todo = partnerData
                 executePendingBindings()
-            }
-        }
-        val check = binding.ivCheckBox
-
-        init {
-            check.setOnClickListener {
-                mlistener.onItemClick(adapterPosition)
-                //check.isSelected = true
             }
         }
     }
