@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.LinearLayout
+import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import com.google.android.material.chip.Chip
 import com.google.android.material.chip.ChipGroup
@@ -18,8 +19,9 @@ import com.playtogether_android.app.presentation.base.BaseFragment
 
 class MyPageInfoFragment : BaseFragment<FragmentMyPageInfoBinding>(R.layout.fragment_my_page_info) {
 
+    private val mainViewModel: MainViewModel by activityViewModels()
     private val myPageViewModel: MyPageViewModel by viewModels()
-    private val mainViewModel: MainViewModel by viewModels()
+    //private val mainViewModel: MainViewModel by viewModels()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -47,7 +49,7 @@ class MyPageInfoFragment : BaseFragment<FragmentMyPageInfoBinding>(R.layout.frag
     private fun initNetwork() {
 
 
-        val mNum = 1
+        val mNum = mainViewModel.otherNum.value ?: 1
         val requestMyInfo = RequestMyInfo(
             mNum = mNum
         )
@@ -126,18 +128,18 @@ class MyPageInfoFragment : BaseFragment<FragmentMyPageInfoBinding>(R.layout.frag
     }
 
     private fun initModifyBtn() {
-        mainViewModel.mNum.observe(viewLifecycleOwner) {
-            val mNum = it
-            if (mNum != 1) {
-                binding.tvMypageBasicLinkModify.visibility = View.GONE
-                binding.tvMypageBasicStackModify.visibility = View.GONE
-                binding.tvMypageBasicInfoModify.visibility = View.GONE
-            } else {
-                binding.tvMypageBasicLinkModify.visibility = View.VISIBLE
-                binding.tvMypageBasicStackModify.visibility = View.VISIBLE
-                binding.tvMypageBasicInfoModify.visibility = View.VISIBLE
-            }
+
+        val mNum = mainViewModel.otherNum.value ?: 1
+        if (mNum != 1) {
+            binding.tvMypageBasicLinkModify.visibility = View.GONE
+            binding.tvMypageBasicStackModify.visibility = View.GONE
+            binding.tvMypageBasicInfoModify.visibility = View.GONE
+        } else {
+            binding.tvMypageBasicLinkModify.visibility = View.VISIBLE
+            binding.tvMypageBasicStackModify.visibility = View.VISIBLE
+            binding.tvMypageBasicInfoModify.visibility = View.VISIBLE
         }
+
     }
 
 

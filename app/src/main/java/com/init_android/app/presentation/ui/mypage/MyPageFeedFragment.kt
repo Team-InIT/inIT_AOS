@@ -2,11 +2,13 @@ package com.init_android.app.presentation.ui.mypage
 
 import android.os.Bundle
 import android.view.View
+import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import com.init_android.R
 import com.init_android.app.data.model.FeedListData
 import com.init_android.app.data.request.RequestMyFeed
 import com.init_android.app.presentation.ui.feed.adapter.SearchFeedAdapter
+import com.init_android.app.presentation.ui.main.MainViewModel
 import com.init_android.app.presentation.ui.mypage.viewmodel.MyPageViewModel
 import com.init_android.databinding.FragmentMyPageFeedBinding
 import com.playtogether_android.app.presentation.base.BaseFragment
@@ -14,6 +16,7 @@ import com.playtogether_android.app.presentation.base.BaseFragment
 
 class MyPageFeedFragment : BaseFragment<FragmentMyPageFeedBinding>(R.layout.fragment_my_page_feed) {
 
+    private val mainViewModel: MainViewModel by activityViewModels()
     private val myPageViewModel : MyPageViewModel by viewModels()
     private var feedList = mutableListOf<FeedListData>()
 
@@ -25,8 +28,8 @@ class MyPageFeedFragment : BaseFragment<FragmentMyPageFeedBinding>(R.layout.frag
     private fun tryPostMyFeeds(){
         val adapter = SearchFeedAdapter(requireContext())
         binding.rvFeed.adapter = adapter
-
-        myPageViewModel.postMyFeeds(requestMyFeed = RequestMyFeed(1))
+        val mNum = mainViewModel.otherNum.value ?: 1
+        myPageViewModel.postMyFeeds(requestMyFeed = RequestMyFeed(mNum))
 
         myPageViewModel.feedList.observe(viewLifecycleOwner) {
             for (i in 0 until it.Feeds.size) {
@@ -39,16 +42,4 @@ class MyPageFeedFragment : BaseFragment<FragmentMyPageFeedBinding>(R.layout.frag
         }
     }
 
-    /*private fun initAdapter() {
-        feedAdapter = FeedAdapter()
-        binding.rvFeed.adapter = feedAdapter
-
-        feedAdapter.rateList.addAll(
-            listOf(
-
-            )
-        )
-
-        feedAdapter.notifyDataSetChanged()
-    }*/
 }

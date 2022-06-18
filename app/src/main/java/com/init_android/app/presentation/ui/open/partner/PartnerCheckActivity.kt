@@ -23,10 +23,6 @@ class PartnerCheckActivity :
     private val projectViewModel: ProjectViewModel by viewModels()
     private val mainViewModel : MainViewModel by viewModels()
 
-    //val pNum = intent.getIntExtra("pNum", 1)
-    //val pNum = 1
-
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -47,13 +43,9 @@ class PartnerCheckActivity :
 
     private fun initSetting() {
         val pNum = intent.getIntExtra("pNum", 1)
-        Log.d("Test", "" + pNum)
         mainViewModel.projectNum.value = pNum
 
-
-        Log.d("main", "" + mainViewModel.projectNum.value)
         projectViewModel.detailProject.observe(this) {
-
             if (it.isApproval == true) {
                 binding.btnPartnerJoin.visibility = View.VISIBLE
             } else {
@@ -92,10 +84,5 @@ class PartnerCheckActivity :
         TabLayoutMediator(binding.tlPartnerTab, binding.vpPartnerTab) { tab, position ->
             tab.text = tabLabel[position]
         }.attach()
-
-        Log.d("hello",tabLabel.toString())
-        Log.d("hello",tabLabel.size.toString())
     }
-
-
 }
