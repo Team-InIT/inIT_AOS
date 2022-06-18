@@ -11,6 +11,7 @@ import com.init_android.app.data.request.todo.RequestToDoMember
 import com.init_android.app.data.request.todo.RequestWriteToDo
 import com.init_android.app.data.response.todo.ResponseAllToDo
 import com.init_android.app.data.response.todo.ResponseToDoMember
+import com.init_android.app.data.response.todo.ResponseWriteToDo
 import kotlinx.coroutines.launch
 
 class ToDoViewModel() : ViewModel() {
@@ -22,6 +23,10 @@ class ToDoViewModel() : ViewModel() {
     private val _todoMember = MutableLiveData<ResponseToDoMember>()
     val todoMember: LiveData<ResponseToDoMember>
         get() = _todoMember
+
+    private val _writeToDo = MutableLiveData<ResponseWriteToDo>()
+    val writeToDo : LiveData<ResponseWriteToDo>
+    get() = _writeToDo
 
     //todo 기획 조회
     fun postReadPlanToDo(requestProjectMember: RequestProjectMember) {
@@ -165,6 +170,7 @@ class ToDoViewModel() : ViewModel() {
         viewModelScope.launch {
             kotlin.runCatching { ServiceCreator.initService.postWriteTodo(requestWriteToDo) }
                 .onSuccess {
+                    _writeToDo.value = it
                     Log.d("writeToDo", "서버 통신 성공")
                 }
                 .onFailure {

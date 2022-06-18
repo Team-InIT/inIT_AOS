@@ -6,11 +6,13 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.core.content.ContextCompat
 import com.init_android.R
 import com.init_android.app.data.model.SelectableData
 import com.init_android.app.data.request.todo.RequestToDoMember
+import com.init_android.app.data.request.todo.RequestWriteToDo
 import com.init_android.app.presentation.ui.main.MainViewModel
 import com.init_android.app.presentation.ui.mypage.viewmodel.MyPageViewModel
 import com.init_android.app.presentation.ui.open.todo.viewmodel.ToDoViewModel
@@ -23,6 +25,7 @@ class WriteToDoActivity : BaseActivity<ActivityWriteToDoBinding>(R.layout.activi
 
     private val mainViewModel: MainViewModel by viewModels()
     private val todoViewModel: ToDoViewModel by viewModels()
+
     val partBottomSheetDialog = CustomBottomSheetDialog("팀원 파트", "완료")
     val memberBottomSheetDialog = CustomBottomSheetDialog("팀원", "완료")
 
@@ -101,7 +104,7 @@ class WriteToDoActivity : BaseActivity<ActivityWriteToDoBinding>(R.layout.activi
         }
 
 
-        val firstMajorPeriod2 = partBottomSheetDialog.getSelectedData()
+
         partBottomSheetDialog.setCompleteListener {
             val firstMajorPeriod = partBottomSheetDialog.getSelectedData()
             mainViewModel.part.value = firstMajorPeriod?.name
@@ -114,45 +117,62 @@ class WriteToDoActivity : BaseActivity<ActivityWriteToDoBinding>(R.layout.activi
                 binding.etOpenProjectPart.setTextColor(Color.parseColor("#FF000000"))
 
             }
-        }
 
 
-        val requestToDoMember = RequestToDoMember(1, firstMajorPeriod2?.id ?: 1)
-        Log.d("partNum", firstMajorPeriod2?.id.toString())
-        todoViewModel.postToDoMember(requestToDoMember)
-        todoViewModel.todoMember.observe(this) {
-            val data = it.members.toMutableList()
-            val dataList = mutableListOf<SelectableData>()
-            dataList.clear()
-            for (i in data.indices) {
-                dataList.add(SelectableData(data[i].mNum, data[i].mName, false))
+            val requestToDoMember = RequestToDoMember(1, firstMajorPeriod?.id ?: 1)
+            Log.d("partNum", firstMajorPeriod?.id.toString())
+            todoViewModel.postToDoMember(requestToDoMember)
+            todoViewModel.todoMember.observe(this) {
+                val data = it.members.toMutableList()
+                val dataList = mutableListOf<SelectableData>()
+                dataList.clear()
+                for (i in data.indices) {
+                    dataList.add(SelectableData(data[i].mNum, data[i].mName, false))
+                }
+                memberBottomSheetDialog.setDataList(dataList)
             }
-            memberBottomSheetDialog.setDataList(dataList)
-        }
-        //버튼 클릭해서 바텀시트 생성되는 부분
-        binding.etOpenProjectPartner.setOnClickListener {
-            memberBottomSheetDialog.show(
-                supportFragmentManager,
-                memberBottomSheetDialog.tag
-            )
-        }
+            //버튼 클릭해서 바텀시트 생성되는 부분
+            binding.etOpenProjectPartner.setOnClickListener {
+                memberBottomSheetDialog.show(
+                    supportFragmentManager,
+                    memberBottomSheetDialog.tag
+                )
+            }
 
-        //클릭 완료되었을때 일어나는 리스너
-        memberBottomSheetDialog.setCompleteListener {
-            val part = memberBottomSheetDialog.getSelectedData()
 
-            memberBottomSheetDialog.binding.btnBottomsheetCancel
+            //클릭 완료되었을때 일어나는 리스너
+            memberBottomSheetDialog.setCompleteListener {
 
-            binding.clMember.visibility = View.VISIBLE
-            binding.tvPartnerName.setText(part?.name ?: "")
-            binding.imageView.setOnClickListener {
-                binding.clMember.visibility = View.GONE
+                val part = memberBottomSheetDialog.getSelectedData()
+                memberBottomSheetDialog.binding.btnBottomsheetCancel
+
+                binding.clMember.visibility = View.VISIBLE
+                binding.tvPartnerName.setText(part?.name ?: "")
+
+                binding.imageView.setOnClickListener {
+                    binding.clMember.visibility = View.GONE
+                }
+
+
+                //서버 통신
+                binding.btnFinish.setOnClickListener {
+                    val requestWriteToDo = RequestWriteToDo(
+                        tTodo = binding.etOpenProjectTodo.text.toString(),
+                        tPart = firstMajorPeriod?.id ?: 1,
+                        tDday = binding.etOpenProjectName.text.toString(),
+                        mNums = part?.id ?: 1,
+                        pNum = 1
+                    )
+
+                    todoViewModel.postWriteToDo(requestWriteToDo)
+                    todoViewModel.writeToDo.observe(this) {
+                        if (it.code == 201) {
+                            Toast.makeText(this, "todo 작성이 완료되었습니다.", Toast.LENGTH_SHORT).show()
+                            finish()
+                        }
+                    }
+                }
             }
         }
-
-    }
-
-    private fun initPerson() {
-
     }
 }
