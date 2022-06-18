@@ -59,12 +59,13 @@ class MyPageInfoFragment : BaseFragment<FragmentMyPageInfoBinding>(R.layout.frag
             binding.user = it.mInfo
 
             val list = it.mInfo.mStacks
+            val dataList = mutableListOf<Chip>()
 
 
             if (list?.size != null) {
                 for (i in 0 until list?.size!!) {
+                    dataList.clear()
                     val chip = Chip(binding.chipMypage.getContext())
-
                     val layoutParams = LinearLayout.LayoutParams(
                         LinearLayout.LayoutParams.WRAP_CONTENT,
                         LinearLayout.LayoutParams.WRAP_CONTENT
@@ -79,7 +80,9 @@ class MyPageInfoFragment : BaseFragment<FragmentMyPageInfoBinding>(R.layout.frag
                     //chip.closeIconTint = resources.getColorStateList(R.color.white)
                     chip.isClickable = true
                     chip.isCheckable = false
-                    binding.chipMypage.addView(chip)
+
+                    dataList.add(chip)
+                    //binding.chipMypage.addView(chip)
 
                 }
             }

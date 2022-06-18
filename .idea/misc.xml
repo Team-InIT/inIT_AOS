@@ -37,6 +37,7 @@
         <entry key="..\:/Users/82104/inIT_AOS/app/src/main/res/drawable/selector_skill_btn.xml" value="0.1" />
         <entry key="..\:/Users/82104/inIT_AOS/app/src/main/res/drawable/selector_skill_left_btn.xml" value="0.132" />
         <entry key="..\:/Users/82104/inIT_AOS/app/src/main/res/drawable/selector_skill_right_btn.xml" value="0.132" />
+        <entry key="..\:/Users/82104/inIT_AOS/app/src/main/res/drawable/selector_team_item.xml" value="0.123" />
         <entry key="..\:/Users/82104/inIT_AOS/app/src/main/res/drawable/selector_text.xml" value="0.1" />
         <entry key="..\:/Users/82104/inIT_AOS/app/src/main/res/drawable/selector_text_gray_to_main.xml" value="0.125" />
         <entry key="..\:/Users/82104/inIT_AOS/app/src/main/res/layout/activity_feed_writing.xml" value="0.1" />
@@ -116,6 +117,7 @@
         <entry key="..\:/Users/82104/inIT_AOS/app/src/main/res/layout/item_rv_project.xml" value="0.176" />
         <entry key="..\:/Users/82104/inIT_AOS/app/src/main/res/layout/item_search_partner.xml" value="0.22135416666666666" />
         <entry key="..\:/Users/82104/inIT_AOS/app/src/main/res/layout/item_stack.xml" value="0.19739583333333333" />
+        <entry key="..\:/Users/82104/inIT_AOS/app/src/main/res/layout/item_team_list.xml" value="0.2078125" />
         <entry key="..\:/Users/82104/inIT_AOS/app/src/main/res/layout/item_to_do_list.xml" value="0.264" />
         <entry key="..\:/Users/82104/inIT_AOS/app/src/main/res/layout/item_to_do_member.xml" value="0.13425925925925927" />
         <entry key="..\:/Users/82104/inIT_AOS/app/src/main/res/layout/item_to_do_partner_list.xml" value="0.4" />
