@@ -46,25 +46,25 @@ class MyPageInfoFragment : BaseFragment<FragmentMyPageInfoBinding>(R.layout.frag
 
     private fun initNetwork() {
 
-        mainViewModel.mNum.observe(viewLifecycleOwner) {
-            val mNum = it
-            val requestMyInfo = RequestMyInfo(
-                mNum = mNum
-            )
-            myPageViewModel.postMyInfo(requestMyInfo)
-        }
+
+        val mNum = 1
+        val requestMyInfo = RequestMyInfo(
+            mNum = mNum
+        )
+        myPageViewModel.postMyInfo(requestMyInfo)
+
 
 
         myPageViewModel.myInfoData.observe(viewLifecycleOwner) {
             binding.user = it.mInfo
 
             val list = it.mInfo.mStacks
-            val dataList = mutableListOf<Chip>()
+
 
 
             if (list?.size != null) {
+                binding.chipMypage.removeAllViews()
                 for (i in 0 until list?.size!!) {
-                    dataList.clear()
                     val chip = Chip(binding.chipMypage.getContext())
                     val layoutParams = LinearLayout.LayoutParams(
                         LinearLayout.LayoutParams.WRAP_CONTENT,
@@ -81,8 +81,7 @@ class MyPageInfoFragment : BaseFragment<FragmentMyPageInfoBinding>(R.layout.frag
                     chip.isClickable = true
                     chip.isCheckable = false
 
-                    dataList.add(chip)
-                    //binding.chipMypage.addView(chip)
+                    binding.chipMypage.addView(chip)
 
                 }
             }
