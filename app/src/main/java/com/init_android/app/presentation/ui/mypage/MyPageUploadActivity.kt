@@ -1,14 +1,11 @@
 package com.init_android.app.presentation.ui.mypage
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import androidx.activity.viewModels
 import com.init_android.R
 import com.init_android.app.data.request.mypage.RequestWaitingApproval
 import com.init_android.app.data.response.mypage.ResponseUpload
-import com.init_android.app.data.response.project.approve.ResponsemyWaitingApproval
-import com.init_android.app.presentation.ui.mypage.adapter.ReadyAdapter
 import com.init_android.app.presentation.ui.mypage.adapter.UploadAdapter
 import com.init_android.app.presentation.ui.mypage.viewmodel.MyPageViewModel
 import com.init_android.databinding.ActivityMyPageUploadBinding

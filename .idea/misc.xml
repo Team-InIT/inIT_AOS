@@ -16,7 +16,13 @@
         <entry key="..\:/Users/82104/inIT_AOS/app/src/main/res/drawable/ic_back.xml" value="0.1355" />
         <entry key="..\:/Users/82104/inIT_AOS/app/src/main/res/drawable/ic_baseline_arrow.xml" value="0.129" />
         <entry key="..\:/Users/82104/inIT_AOS/app/src/main/res/drawable/ic_calendar.xml" value="0.1" />
+        <entry key="..\:/Users/82104/inIT_AOS/app/src/main/res/drawable/ic_check_box_gray.xml" value="0.128" />
+        <entry key="..\:/Users/82104/inIT_AOS/app/src/main/res/drawable/ic_check_box_main.xml" value="0.1055" />
+        <entry key="..\:/Users/82104/inIT_AOS/app/src/main/res/drawable/ic_checked.xml" value="0.128" />
         <entry key="..\:/Users/82104/inIT_AOS/app/src/main/res/drawable/ic_close.xml" value="0.1395" />
+        <entry key="..\:/Users/82104/inIT_AOS/app/src/main/res/drawable/ic_feed.xml" value="0.128" />
+        <entry key="..\:/Users/82104/inIT_AOS/app/src/main/res/drawable/ic_home.xml" value="0.128" />
+        <entry key="..\:/Users/82104/inIT_AOS/app/src/main/res/drawable/ic_location.xml" value="0.128" />
         <entry key="..\:/Users/82104/inIT_AOS/app/src/main/res/drawable/inset_horizontal_58.xml" value="0.1" />
         <entry key="..\:/Users/82104/inIT_AOS/app/src/main/res/drawable/rectagnle_fill_main_radius_10.xml" value="0.1965" />
         <entry key="..\:/Users/82104/inIT_AOS/app/src/main/res/drawable/rectagnle_fill_white_radius_8.xml" value="0.111" />
@@ -126,6 +132,7 @@
         <entry key="..\:/Users/82104/inIT_AOS/app/src/main/res/layout/item_upload_project.xml" value="0.21197916666666666" />
         <entry key="..\:/Users/82104/inIT_AOS/app/src/main/res/layout/item_vp_project.xml" value="0.2" />
         <entry key="..\:/Users/82104/inIT_AOS/app/src/main/res/layout/spinner_item.xml" value="0.536" />
+        <entry key="..\:/Users/82104/inIT_AOS/app/src/main/res/menu/btn_menu.xml" value="0.21614583333333334" />
         <entry key="..\:/Users/82104/inIT_AOS/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.1" />
         <entry key="..\:/Users/Lenovo/StudioProjects/inIT_AOS/app/src/main/res/drawable/ic_writing.xml" value="0.238" />
         <entry key="..\:/Users/Lenovo/StudioProjects/inIT_AOS/app/src/main/res/drawable/menu_selector_drawable.xml" value="0.158" />

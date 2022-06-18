@@ -54,6 +54,7 @@ class MyPageProjectFragment :
     }
 
     private fun initMove() {
+
         binding.clMyPageUpload.setOnClickListener {
             startActivity(Intent(requireActivity(), MyPageUploadActivity::class.java))
         }
