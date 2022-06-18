@@ -8,9 +8,11 @@ import androidx.activity.viewModels
 import androidx.viewpager2.widget.ViewPager2
 import com.google.android.material.tabs.TabLayoutMediator
 import com.init_android.R
+import com.init_android.app.presentation.ui.main.MainViewModel
 import com.init_android.app.presentation.ui.open.partner.adapter.PartnerTabAdapter
 import com.init_android.app.presentation.ui.open.team.TeamReviewActivity
 import com.init_android.app.presentation.ui.open.viewmodel.ProjectViewModel
+import com.init_android.app.util.PreferenceUtil
 import com.init_android.databinding.ActivityPartnerCheckBinding
 import com.playtogether_android.app.presentation.base.BaseActivity
 
@@ -19,9 +21,10 @@ class PartnerCheckActivity :
 
     private lateinit var partnerTabAdapter: PartnerTabAdapter
     private val projectViewModel: ProjectViewModel by viewModels()
+    private val mainViewModel : MainViewModel by viewModels()
 
     //val pNum = intent.getIntExtra("pNum", 1)
-    val pNum = 1
+    //val pNum = 1
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -43,6 +46,12 @@ class PartnerCheckActivity :
     }
 
     private fun initSetting() {
+        val pNum = intent.getIntExtra("pNum", 1)
+        Log.d("Test", "" + pNum)
+        mainViewModel.projectNum.value = pNum
+
+
+        Log.d("main", "" + mainViewModel.projectNum.value)
         projectViewModel.detailProject.observe(this) {
 
             if (it.isApproval == true) {

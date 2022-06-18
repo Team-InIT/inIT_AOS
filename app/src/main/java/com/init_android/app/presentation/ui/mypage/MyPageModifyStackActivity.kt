@@ -24,10 +24,24 @@ class MyPageModifyStackActivity : BaseActivity<ActivityMyPageModifyStackBinding>
         super.onCreate(savedInstanceState)
 
         initChipGroup()
-        initNetwork()
+        //initNetwork()
         modifyStack()
+        backBtnListener()
 
     }
+
+    override fun onResume() {
+        super.onResume()
+        initNetwork()
+    }
+
+
+    private fun backBtnListener() {
+        binding.ivMyPageStackBack.setOnClickListener {
+            finish()
+        }
+    }
+
 
     //칩그룹
     private fun initChipGroup() {
@@ -79,6 +93,7 @@ class MyPageModifyStackActivity : BaseActivity<ActivityMyPageModifyStackBinding>
             Log.d("Test", "" + list?.size!!)
 
             if (list?.size != null) {
+                binding.chipGroup.removeAllViews()
                 for (i in 0 until list?.size!!) {
                     val chip = Chip(binding.chipGroup.getContext())
                     val layoutParams = LinearLayout.LayoutParams(
@@ -101,8 +116,6 @@ class MyPageModifyStackActivity : BaseActivity<ActivityMyPageModifyStackBinding>
                 }
             }
         }
-
-
     }
 
     private fun modifyStack() {
