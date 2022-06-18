@@ -32,7 +32,7 @@ data class ResponseProjectDetail(
             val pRecruitStart: String?,
             val pServer: Int?,
             val pServerf: Int?,
-            val pStack: Int?,
+            val pStack: List<String>,
             val pStart: String?,
             val pState: Int?,
             val pTitle: String?,

@@ -7,7 +7,7 @@
 
         <variable
             name="Project"
-            type="com.init_android.app.data.response.project.ResponseProjectDetail" />
+            type="com.init_android.app.data.response.project.ResponseProjectDetail.DetailInfo" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

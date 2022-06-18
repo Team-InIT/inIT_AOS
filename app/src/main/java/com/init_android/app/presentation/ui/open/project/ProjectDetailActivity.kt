@@ -32,10 +32,7 @@ class ProjectDetailActivity :
     val mainViewModel: MainViewModel by viewModels()
 
 
-    //val pNum = intent.getIntExtra("pNum", 1)
-    val pNum = 1
-    val mNum = 1
-    //val mNum = mainViewModel.signData.value?.mNum ?: 1
+
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -70,6 +67,12 @@ class ProjectDetailActivity :
 
     private fun initNetwork() {
 
+        val pNum = intent.getIntExtra("pNum", 1)
+        Log.d("Test", "" + pNum)
+        //val pNum = 1
+        //val mNum = 1
+        val mNum = mainViewModel.signData.value?.mNum ?: 1
+
         //val mNum = 1
 
         Log.d("pNum", " " + pNum)
@@ -81,12 +84,12 @@ class ProjectDetailActivity :
 
         projectViewModel.postProjectDetail(requestProjectDetail)
         projectViewModel.detailProject.observe(this) {
-            binding.project = it
+            binding.project = it.detailInfo
 
             //click listenr 2번 변경경
            binding.btnDetailApply.setOnClickListener {
                 projectViewModel.detailProject.observe(this) {
-                    binding.project = it
+                    binding.project = it.detailInfo
 
                     if (it.code == 201) {
 //                        Toast.makeText(
@@ -97,7 +100,7 @@ class ProjectDetailActivity :
 //                            .show()
                         clickListener()
 
-                    } else if(it.writerInfo?.mNum == mNum) {
+                    } else if(it.detailInfo?.writerInfo?.mNum == mNum) {
                         Toast.makeText(this@ProjectDetailActivity, "내 프로젝트 입니다", Toast.LENGTH_SHORT).show()
                         Log.d("Test", "내 프로젝트")
 
@@ -111,112 +114,109 @@ class ProjectDetailActivity :
 
 
 
-            if (it.projectInfo?.pGender == 0) {
+            if (it.detailInfo?.projectInfo?.pGender == 0) {
                 binding.ivDetailMan.isSelected = true
                 binding.tvDetailMan.isSelected = true
-            } else if (it.projectInfo?.pGender == 1) {
+            } else if (it.detailInfo?.projectInfo?.pGender == 1) {
                 binding.ivDetailWoman.isSelected = true
                 binding.tvDetailWoman.isSelected = true
             }
 
 
-            if (it.projectInfo?.pAcademic == 0) {
+            if (it.detailInfo?.projectInfo?.pAcademic == 0) {
                 binding.ivDetailInschool.isSelected = true
                 binding.tvDetailInschool.isSelected = true
-            } else if (it.projectInfo?.pAcademic == 1) {
+            } else if (it.detailInfo?.projectInfo?.pAcademic == 1) {
                 binding.ivDetailRest.isSelected = true
                 binding.tvDetailRest.isSelected = true
-            } else if (it.projectInfo?.pAcademic == 2) {
+            } else if (it.detailInfo?.projectInfo?.pAcademic == 2) {
                 binding.ivDetailGraduate.isSelected = true
                 binding.tvDetailGraduate.isSelected = true
             }
 
-            if (it.projectInfo?.pPlanf == 0) {
+            if (it.detailInfo?.projectInfo?.pPlanf == 0) {
                 binding.ivDetailPlanTop.isSelected = true
                 binding.tvDetailPlanTop.isSelected = true
-            } else if (it.projectInfo?.pPlanf == 1) {
+            } else if (it.detailInfo?.projectInfo?.pPlanf == 1) {
                 binding.ivDetailPlanMiddle.isSelected = true
                 binding.tvDetailPlanMiddle.isSelected = true
-            } else if (it.projectInfo?.pPlanf == 2) {
+            } else if (it.detailInfo?.projectInfo?.pPlanf == 2) {
                 binding.ivDetailPlanLow.isSelected = true
                 binding.tvDetailPlanLow.isSelected = true
             }
 
-            if (it.projectInfo?.pDesignf == 0) {
+            if (it.detailInfo?.projectInfo?.pDesignf == 0) {
                 binding.ivDetailDesignTop.isSelected = true
                 binding.tvDetailDesignTop.isSelected = true
-            } else if (it.projectInfo?.pDesignf == 1) {
+            } else if (it.detailInfo?.projectInfo?.pDesignf == 1) {
                 binding.ivDetailDesignMiddle.isSelected = true
                 binding.tvDetailDesignMiddle.isSelected = true
-            } else if (it.projectInfo?.pDesignf == 2) {
+            } else if (it.detailInfo?.projectInfo?.pDesignf == 2) {
                 binding.ivDetailDesignLow.isSelected = true
                 binding.tvDetailDesignLow.isSelected = true
             }
 
 
-            if (it.projectInfo?.pWebf == 0) {
+            if (it.detailInfo?.projectInfo?.pWebf == 0) {
                 binding.ivDetailWebTop.isSelected = true
                 binding.tvDetailWebTop.isSelected = true
-            } else if (it.projectInfo?.pWebf == 1) {
+            } else if (it.detailInfo?.projectInfo?.pWebf == 1) {
                 binding.ivDetailWebMiddle.isSelected = true
                 binding.tvDetailWebMiddle.isSelected = true
-            } else if (it.projectInfo?.pWebf == 2) {
+            } else if (it.detailInfo?.projectInfo?.pWebf == 2) {
                 binding.ivDetailWebLow.isSelected = true
                 binding.tvDetailWebLow.isSelected = true
             }
 
-            if (it.projectInfo?.pAosf == 0) {
+            if (it.detailInfo?.projectInfo?.pAosf == 0) {
                 binding.ivDetailAosTop.isSelected = true
                 binding.tvDetailAosTop.isSelected = true
-            } else if (it.projectInfo?.pAosf == 1) {
+            } else if (it.detailInfo?.projectInfo?.pAosf == 1) {
                 binding.ivDetailAosMiddle.isSelected = true
                 binding.tvDetailAosMiddle.isSelected = true
-            } else if (it.projectInfo?.pAosf == 2) {
+            } else if (it.detailInfo?.projectInfo?.pAosf == 2) {
                 binding.ivDetailAosLow.isSelected = true
                 binding.tvDetailAosLow.isSelected = true
             }
 
-            if (it.projectInfo?.pIosf == 0) {
+            if (it.detailInfo?.projectInfo?.pIosf == 0) {
                 binding.ivDetailIosTop.isSelected = true
                 binding.tvDetailIosTop.isSelected = true
-            } else if (it.projectInfo?.pIosf == 1) {
+            } else if (it.detailInfo?.projectInfo?.pIosf == 1) {
                 binding.ivDetailIosMiddle.isSelected = true
                 binding.tvDetailIosMiddle.isSelected = true
-            } else if (it.projectInfo?.pIosf == 2) {
+            } else if (it.detailInfo?.projectInfo?.pIosf == 2) {
                 binding.ivDetailIosLow.isSelected = true
                 binding.tvDetailIosLow.isSelected = true
             }
 
-            if (it.projectInfo?.pGamef == 0) {
+            if (it.detailInfo?.projectInfo?.pGamef == 0) {
                 binding.ivDetailGameTop.isSelected = true
                 binding.tvDetailGameTop.isSelected = true
-            } else if (it.projectInfo?.pGamef == 1) {
+            } else if (it.detailInfo?.projectInfo?.pGamef == 1) {
                 binding.ivDetailGameMiddle.isSelected = true
                 binding.tvDetailGameMiddle.isSelected = true
-            } else if (it.projectInfo?.pGamef == 2) {
+            } else if (it.detailInfo?.projectInfo?.pGamef == 2) {
                 binding.ivDetailGameLow.isSelected = true
                 binding.tvDetailGameLow.isSelected = true
             }
 
-            if (it.projectInfo?.pServerf == 0) {
+            if (it.detailInfo?.projectInfo?.pServerf == 0) {
                 binding.ivDetailServerTop.isSelected = true
                 binding.tvDetailServerTop.isSelected = true
-            } else if (it.projectInfo?.pServerf == 1) {
+            } else if (it.detailInfo?.projectInfo?.pServerf == 1) {
                 binding.ivDetailServerMiddle.isSelected = true
                 binding.tvDetailServerMiddle.isSelected = true
-            } else if (it.projectInfo?.pServerf == 2) {
+            } else if (it.detailInfo?.projectInfo?.pServerf == 2) {
                 binding.ivDetailServerLow.isSelected = true
                 binding.tvDetailServerLow.isSelected = true
             }
 
 
-            val myList = it.projectInfo?.pStack
-            Log.d("test", "" + myList)
-            //val myList = arrayOf("Chip1", "Chip2", "Chip3", "Chip4")
+            val myList = it.detailInfo?.projectInfo?.pStack
 
             if (myList?.size != null) {
                 for (i in 0 until myList?.size!!) {
-                    // Here I am creating Chip view dynamically using current Context
                     val chip = Chip(binding.clDetailStack.getContext())
                     val layoutParams = LinearLayout.LayoutParams(
                         LinearLayout.LayoutParams.WRAP_CONTENT,
@@ -224,12 +224,10 @@ class ProjectDetailActivity :
                     )
                     layoutParams.setMargins(5, 0, 5, 0)
                     chip.layoutParams = layoutParams
-                    chip.setText(myList.get(i))
+                    chip.setText(myList?.get(i))
                     chip.closeIcon!!.isVisible
-                    //chip.isCloseIconEnabled = true
                     chip.chipBackgroundColor = resources.getColorStateList(R.color.main_default)
                     chip.setTextColor(resources.getColorStateList(R.color.white))
-                    //chip.closeIconTint = resources.getColorStateList(R.color.white)
                     chip.isClickable = true
                     chip.isCheckable = false
                     binding.clDetailStack.addView(chip)
@@ -286,10 +284,8 @@ class ProjectDetailActivity :
 
         val pNum = intent.getIntExtra("pNum", 1)
         val mNum = 1
-        //val mNum = intent.getIntExtra("mNum", 1)
 
-        Log.d("ApplypNum", " " + pNum)
-        Log.d("ApplymNum", " " + mNum)
+        Log.d("pNum", ""+pNum)
 
         dialog.setOnClickedListener(object : CustomDialog.ButtonClickListener {
             val requestApply = RequestApplyProject(
@@ -322,6 +318,8 @@ class ProjectDetailActivity :
 
     // todo 버튼 클릭 리스너
     private fun initToDoBtnListener() {
+        val pNum = intent.getIntExtra("pNum", 1)
+
         binding.tvDetailTodo.setOnClickListener {
             val intentToDo = Intent(this, ToDoMainActivity::class.java)
             intentToDo.putExtra("pNum", pNum)
@@ -332,6 +330,7 @@ class ProjectDetailActivity :
     //팀원 정보 확인 클릭 리스너
     private fun initMemListener() {
         binding.tvDetailMember.setOnClickListener {
+            val pNum = intent.getIntExtra("pNum", 1)
             val intentMem = Intent(this, PartnerCheckActivity::class.java)
             intentMem.putExtra("pNum", pNum)
             startActivity(intentMem)
