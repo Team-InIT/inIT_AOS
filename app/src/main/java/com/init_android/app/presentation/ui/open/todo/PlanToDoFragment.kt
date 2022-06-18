@@ -38,11 +38,9 @@ class PlanToDoFragment : BaseFragment<FragmentPlanToDoBinding>(R.layout.fragment
         val requestProjectMember = RequestProjectMember(pNum = 1)
         todoViewModel.postReadPlanToDo(requestProjectMember)
         toDoPlanAdapter = ToDoPlanAdapter()
-        toDoPlanImageAdapter = ToDoPlanImageAdapter()
         binding.rvPlan.adapter = toDoPlanAdapter
         todoViewModel.readAllToDo.observe(viewLifecycleOwner) {
             toDoPlanAdapter.setQuestionPost((it.todoList) as MutableList<ResponseAllToDo.Todo>)
-            toDoPlanImageAdapter.setQuestionPost((it.todoList) as MutableList<ResponseAllToDo.Todo.Member>)
         }
     }
 
