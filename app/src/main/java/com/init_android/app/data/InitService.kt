@@ -12,6 +12,7 @@ import com.init_android.app.data.response.mypage.*
 import com.init_android.app.data.response.project.ResponseApplyProject
 import com.init_android.app.data.response.project.ResponseProjectDetail
 import com.init_android.app.data.response.project.approve.*
+import com.init_android.app.data.response.project.ready.*
 import com.init_android.app.data.response.todo.ResponseAllToDo
 import com.init_android.app.data.response.todo.ResponseToDoMember
 import com.init_android.app.data.response.todo.ResponseWriteToDo
@@ -261,4 +262,31 @@ interface InitService {
     @POST("/myEvaluation")
     suspend fun postMyEvaluation(@Body requestWaitingApproval: RequestWaitingApproval) : ResponseEvaluation
 
+    //내 프로젝트 팀원 승인/승인 전 - 기획
+    @POST("/myCrewPlan")
+    suspend fun postCrewPlan(@Body requestProjectMember: RequestProjectMember) : ResponseReadyPlan
+
+    //디자인
+    @POST("/myCrewDesign")
+    suspend fun postCrewDesign(@Body requestProjectMember: RequestProjectMember) : ResponseReadyDesign
+
+    //IOS
+    @POST("/myCrewIos")
+    suspend fun postCrewIos(@Body requestProjectMember: RequestProjectMember) : ResponseReadyIos
+
+    //AOS
+    @POST("/myCrewAos")
+    suspend fun postCrewAos(@Body requestProjectMember: RequestProjectMember) : ResponseReadyAos
+
+    //Web
+    @POST("/myCrewWeb")
+    suspend fun postCrewWeb(@Body requestProjectMember: RequestProjectMember) : ResponseReadyWeb
+
+    //Game
+    @POST("/myCrewGame")
+    suspend fun postCrewGame(@Body requestProjectMember: RequestProjectMember) : ResponseReadyGame
+
+    //Server
+    @POST("/myCrewServer")
+    suspend fun postCrewServer(@Body requestProjectMember: RequestProjectMember) : ResponseReadyServer
 }
