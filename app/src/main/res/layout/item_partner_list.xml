@@ -6,18 +6,15 @@
     <data>
         <variable
             name="Member"
-            type="com.init_android.app.data.response.project.approve.ResponseProjectMember.ApprovedPlan" />
+            type="com.init_android.app.data.response.project.ready.ResponseReadyPlan.ApprovedPlan" />
 
 
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
+        android:layout_marginTop="8dp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@drawable/rectangle_stroke_main_radius_10">
+        android:layout_height="wrap_content">
 
         <ImageView
             android:id="@+id/iv_partner"
@@ -56,6 +53,7 @@
             app:layout_constraintTop_toBottomOf="@+id/tv_partner_name" />
 
         <TextView
+            android:id="@+id/tv_email"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@{Member.MEmail}"
@@ -66,6 +64,17 @@
             app:layout_constraintBottom_toBottomOf="@+id/iv_partner_email"
             app:layout_constraintStart_toEndOf="@+id/iv_partner_email"
             app:layout_constraintTop_toTopOf="@+id/iv_partner_email" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:background="@color/gray_5"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="8dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            app:layout_constraintTop_toBottomOf="@+id/tv_email" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

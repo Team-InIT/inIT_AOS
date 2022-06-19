@@ -4,6 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+        <variable
+            name="ready"
+            type="com.init_android.app.data.response.project.ready.ResponseReadyPlan.WaitingPlan" />
 
 
     </data>
@@ -23,7 +26,8 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="14dp"
             android:layout_marginBottom="14dp"
-            android:src="@drawable/ic_launcher_background"
+            imageBind="@{ready.MPhoto}"
+            tools:src="@drawable/ic_launcher_background"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -34,7 +38,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="4dp"
-            android:text="이름"
+            android:text="@{ready.MName}"
             android:textColor="@color/black"
             android:textSize="16sp"
             app:layout_constraintStart_toEndOf="@+id/iv_partner"
@@ -56,7 +60,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="4dp"
             android:includeFontPadding="false"
-            android:text="nana@gmail.com"
+            android:text="@{ready.MEmail}"
             android:textColor="@color/tet_gray_2"
             android:textSize="12sp"
             app:layout_constraintBottom_toBottomOf="@+id/iv_partner_email"

@@ -66,6 +66,7 @@ class FeedWritingActivity :
         initSpinner()
         tryPostFeed()
         initBottomSheet()
+        backBtnListen()
     }
 
     private fun initSpinner() {
@@ -204,6 +205,12 @@ class FeedWritingActivity :
             }
 
             //feedViewModel.postAddFeed()
+        }
+    }
+
+    private fun backBtnListen() {
+        binding.ivFeedBack.setOnClickListener {
+            finish()
         }
     }
 }

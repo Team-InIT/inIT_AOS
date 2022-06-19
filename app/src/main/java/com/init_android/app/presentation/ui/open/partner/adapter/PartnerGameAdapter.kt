@@ -6,12 +6,13 @@ import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.init_android.app.data.response.project.approve.ResponseProjectMember
+import com.init_android.app.data.response.project.ready.ResponseReadyGame
 import com.init_android.app.presentation.ui.mypage.PartnerPageActivity
 import com.init_android.databinding.ItemPartnerAosListBinding
 import com.init_android.databinding.ItemPartnerGameListBinding
 
 class PartnerGameAdapter(var userId : Int) : RecyclerView.Adapter<PartnerGameAdapter.PartnerListViewHolder>() {
-    var partnerData = mutableListOf<ResponseProjectMember.ApprovedGame>()
+    var partnerData = mutableListOf<ResponseReadyGame.ApprovedGame>()
 
     override fun onCreateViewHolder(
         parent: ViewGroup,
@@ -47,7 +48,7 @@ class PartnerGameAdapter(var userId : Int) : RecyclerView.Adapter<PartnerGameAda
     inner class PartnerListViewHolder(
         val binding: ItemPartnerGameListBinding
     ) : RecyclerView.ViewHolder(binding.root) {
-        fun onBind(partnerData: ResponseProjectMember.ApprovedGame) {
+        fun onBind(partnerData: ResponseReadyGame.ApprovedGame) {
             binding.apply {
                 member = partnerData
                 executePendingBindings()
@@ -55,7 +56,7 @@ class PartnerGameAdapter(var userId : Int) : RecyclerView.Adapter<PartnerGameAda
         }
     }
 
-    fun setQuestionPost(partnerData: MutableList<ResponseProjectMember.ApprovedGame>) {
+    fun setQuestionPost(partnerData: MutableList<ResponseReadyGame.ApprovedGame>) {
         this.partnerData = partnerData
         notifyDataSetChanged()
 

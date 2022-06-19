@@ -19,7 +19,6 @@
             android:id="@+id/cl_partner_approve"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:visibility="gone"
             app:layout_constraintTop_toTopOf="parent">
 
             <TextView
@@ -62,7 +61,6 @@
                 android:layout_marginTop="16dp"
                 android:layout_marginEnd="16dp"
                 android:layout_marginBottom="16dp"
-                android:background="@drawable/rectangle_white_border_8"
                 android:paddingBottom="16dp"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -109,7 +107,7 @@
                     android:layout_width="0dp"
                     android:layout_height="12dp"
                     android:fontFamily="@font/noto_sans_kr_bold"
-                    android:text="@{Integer.toString(info.RApproval)}"
+                    android:text="2"
                     android:textColor="@color/white"
                     android:textSize="12sp"
                     app:layout_constraintStart_toStartOf="parent"
@@ -134,7 +132,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/noto_sans_kr_bold"
-                    android:text="@{Integer.toString(info.RApproval)}"
+                    android:text="3"
                     android:textColor="@color/white"
                     android:textSize="12sp"
                     android:layout_marginStart="2dp"
@@ -157,7 +155,6 @@
                 android:layout_marginTop="16dp"
                 android:layout_marginEnd="16dp"
                 android:layout_marginBottom="16dp"
-                android:background="@drawable/rectangle_white_border_8"
                 android:paddingBottom="16dp"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                 app:layout_constraintEnd_toEndOf="parent"

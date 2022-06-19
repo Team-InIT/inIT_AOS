@@ -6,11 +6,12 @@ import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.init_android.app.data.response.project.approve.ResponseProjectMember
+import com.init_android.app.data.response.project.ready.ResponseReadyDesign
 import com.init_android.app.presentation.ui.mypage.PartnerPageActivity
 import com.init_android.databinding.ItemPartnerDesignListBinding
 
 class PartnerDesignAdapter(var userId : Int) : RecyclerView.Adapter<PartnerDesignAdapter.PartnerListViewHolder>() {
-    var partnerData = mutableListOf<ResponseProjectMember.ApprovedDesign>()
+    var partnerData = mutableListOf<ResponseReadyDesign.ApprovedDesign>()
 
     override fun onCreateViewHolder(
         parent: ViewGroup,
@@ -46,7 +47,7 @@ class PartnerDesignAdapter(var userId : Int) : RecyclerView.Adapter<PartnerDesig
     inner class PartnerListViewHolder(
         val binding: ItemPartnerDesignListBinding
     ) : RecyclerView.ViewHolder(binding.root) {
-        fun onBind(partnerData: ResponseProjectMember.ApprovedDesign) {
+        fun onBind(partnerData: ResponseReadyDesign.ApprovedDesign) {
             binding.apply {
                 member = partnerData
                 executePendingBindings()
@@ -54,7 +55,7 @@ class PartnerDesignAdapter(var userId : Int) : RecyclerView.Adapter<PartnerDesig
         }
     }
 
-    fun setQuestionPost(partnerData: MutableList<ResponseProjectMember.ApprovedDesign>) {
+    fun setQuestionPost(partnerData: MutableList<ResponseReadyDesign.ApprovedDesign>) {
         this.partnerData = partnerData
         notifyDataSetChanged()
 

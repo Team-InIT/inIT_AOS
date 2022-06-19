@@ -3,6 +3,7 @@ package com.init_android.app.data
 import com.init_android.app.data.request.*
 import com.init_android.app.data.request.mypage.*
 import com.init_android.app.data.request.project.RequestApplyProject
+import com.init_android.app.data.request.project.RequestApproveProject
 import com.init_android.app.data.request.project.RequestProjectDetail
 import com.init_android.app.data.request.project.RequestProjectMember
 import com.init_android.app.data.request.todo.RequestToDoMember
@@ -12,6 +13,7 @@ import com.init_android.app.data.response.mypage.*
 import com.init_android.app.data.response.project.ResponseApplyProject
 import com.init_android.app.data.response.project.ResponseProjectDetail
 import com.init_android.app.data.response.project.approve.*
+import com.init_android.app.data.response.project.ready.*
 import com.init_android.app.data.response.todo.ResponseAllToDo
 import com.init_android.app.data.response.todo.ResponseToDoMember
 import com.init_android.app.data.response.todo.ResponseWriteToDo
@@ -123,30 +125,6 @@ interface InitService {
     //팀원 조회
     @POST("/teamMember")
     suspend fun postProjectMember(@Body body: RequestProjectMember): ResponseProjectMember
-
-    //팀원 정보_기획자
-    @POST("/memberPlanner")
-    suspend fun postPlanMember(@Body body: RequestProjectMember): ResponseApprovePlan
-
-    //팀원 정보_디자이너
-    @POST("/memberDesigner")
-    suspend fun postDesignMember(@Body body: RequestProjectMember): ResponseApproveDesign
-
-    //팀원 정보_IOS
-    @POST("/memberIos")
-    suspend fun postIosMember(@Body body: RequestProjectMember): ResponseApproveIos
-
-    //팀원 정보_AOS
-    suspend fun postAosMember(@Body body: RequestProjectMember): ResponseApproveAos
-
-    //팀원 정보_웹
-    suspend fun postWebMember(@Body body: RequestProjectMember): ResponseApproveWeb
-
-    //팀원 정보_게임
-    suspend fun postGameMember(@Body body: RequestProjectMember): ResponseApproveGame
-
-    //팀원 정보_서버
-    suspend fun postServerMember(@Body body: RequestProjectMember): ResponseApproveServer
 
 
     // 피드 상세보기
@@ -260,5 +238,37 @@ interface InitService {
     //마이페이지 팀원 평가 확인
     @POST("/myEvaluation")
     suspend fun postMyEvaluation(@Body requestWaitingApproval: RequestWaitingApproval) : ResponseEvaluation
+
+    //내 프로젝트 팀원 승인/승인 전 - 기획
+    @POST("/myCrewPlan")
+    suspend fun postCrewPlan(@Body requestProjectMember: RequestProjectMember) : ResponseReadyPlan
+
+    //디자인
+    @POST("/myCrewDesign")
+    suspend fun postCrewDesign(@Body requestProjectMember: RequestProjectMember) : ResponseReadyDesign
+
+    //IOS
+    @POST("/myCrewIos")
+    suspend fun postCrewIos(@Body requestProjectMember: RequestProjectMember) : ResponseReadyIos
+
+    //AOS
+    @POST("/myCrewAos")
+    suspend fun postCrewAos(@Body requestProjectMember: RequestProjectMember) : ResponseReadyAos
+
+    //Web
+    @POST("/myCrewWeb")
+    suspend fun postCrewWeb(@Body requestProjectMember: RequestProjectMember) : ResponseReadyWeb
+
+    //Game
+    @POST("/myCrewGame")
+    suspend fun postCrewGame(@Body requestProjectMember: RequestProjectMember) : ResponseReadyGame
+
+    //Server
+    @POST("/myCrewServer")
+    suspend fun postCrewServer(@Body requestProjectMember: RequestProjectMember) : ResponseReadyServer
+
+    //프로젝트 승인
+    @POST("/approve")
+    suspend fun postApprove(@Body requestApproveProject: RequestApproveProject) : ResponseApproveProject
 
 }

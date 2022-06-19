@@ -80,7 +80,9 @@ class PartnerPageActivity : BaseActivity<ActivityPartnerPageBinding>(R.layout.ac
 
     private fun contactListener() {
         binding.tvMyPageContact.setOnClickListener {
+            val mNum = intent.getIntExtra("userId", 2)
             val intent = Intent(this, WriteMessageActivity::class.java)
+            intent.putExtra("pNum", mNum)
             startActivity(intent)
         }
     }
