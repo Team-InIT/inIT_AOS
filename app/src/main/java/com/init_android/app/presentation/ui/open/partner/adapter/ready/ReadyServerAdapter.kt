@@ -29,16 +29,16 @@ class ReadyServerAdapter(var userId : Int) : RecyclerView.Adapter<ReadyServerAda
         position: Int
     ) {
         holder.onBind(partnerData[position])
-        holder.binding.root.setOnClickListener {
-
-            val context = holder.itemView.context
-
-            val intent = Intent(context, PartnerPageActivity::class.java)
-            val userId = partnerData[position].mNum
-            intent.putExtra("userId", userId)
-            ContextCompat.startActivity(holder.itemView.context,intent, null)
-
-        }
+//        holder.binding.root.setOnClickListener {
+//
+//            val context = holder.itemView.context
+//
+//            val intent = Intent(context, PartnerPageActivity::class.java)
+//            val userId = partnerData[position].mNum
+//            intent.putExtra("userId", userId)
+//            ContextCompat.startActivity(holder.itemView.context,intent, null)
+//
+//        }
     }
 
     override fun getItemCount(): Int = partnerData.size

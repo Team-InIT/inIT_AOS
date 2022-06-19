@@ -41,17 +41,17 @@ class ReadyPlanAdapter(var userId : Int) : RecyclerView.Adapter<ReadyPlanAdapter
         position: Int
     ) {
         holder.onBind(partnerData[position])
-
-        holder.binding.root.setOnClickListener {
-
-            val context = holder.itemView.context
-
-            val intent = Intent(context, PlanFragment::class.java)
-            val userId = partnerData[position].mNum
-
-            intent.putExtra("userId", userId)
-            //ContextCompat.startActivity(holder.itemView.context,intent, null)
-        }
+//
+//        holder.binding.root.setOnClickListener {
+//
+//            val context = holder.itemView.context
+//
+//            val intent = Intent(context, PlanFragment::class.java)
+//            val userId = partnerData[position].mNum
+//
+//            intent.putExtra("userId", userId)
+//            //ContextCompat.startActivity(holder.itemView.context,intent, null)
+//        }
 
     }
 
