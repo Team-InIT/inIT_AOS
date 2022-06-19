@@ -1,7 +1,10 @@
 package com.init_android.app.presentation.ui.open.partner
 
+import android.content.Context
 import android.os.Bundle
+import android.util.Log
 import android.view.View
+import android.widget.Toast
 import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import com.init_android.R
@@ -11,6 +14,7 @@ import com.init_android.app.presentation.ui.main.MainViewModel
 import com.init_android.app.presentation.ui.open.partner.adapter.PartnerPlanAdapter
 import com.init_android.app.presentation.ui.open.partner.adapter.ready.ReadyPlanAdapter
 import com.init_android.app.presentation.ui.open.viewmodel.ProjectViewModel
+import com.init_android.app.util.CustomDialog
 import com.init_android.databinding.FragmentPlanBinding
 import com.playtogether_android.app.presentation.base.BaseFragment
 
@@ -49,6 +53,7 @@ class PlanFragment : BaseFragment<FragmentPlanBinding>(R.layout.fragment_plan) {
         }
     }
 
+
     private fun initApprove() {
         val pNum = mainViewModel.projectNum.value ?: 1
         val requestProjectMember = RequestProjectMember(pNum = pNum)
@@ -58,6 +63,29 @@ class PlanFragment : BaseFragment<FragmentPlanBinding>(R.layout.fragment_plan) {
         projectViewModel.myCrewPlan.observe(viewLifecycleOwner) {
             readyPlanAdapter.setQuestionPost((it.waitingPlan) as MutableList<ResponseReadyPlan.WaitingPlan>)
         }
+
+        readyPlanAdapter.setOnItemClickListener(object : ReadyPlanAdapter.onItemClickListener{
+            override fun onItemClick(user: String, position: Int) {
+
+                val title = "해당 팀원을 승인하시겠습니까?"
+                val dialog = CustomDialog(requireContext(), title)
+                dialog.showChoiceDialog(R.layout.dialog_yes_no)
+
+                dialog.setOnClickedListener(object : CustomDialog.ButtonClickListener {
+                    override fun onClicked(num: Int) {
+                        if (num == 1) {
+                            Log.d("승인", "성공")
+                            Toast.makeText(requireContext(), "메시지 전송이 완료되었습니다.", Toast.LENGTH_SHORT).show()
+
+                        } else {
+                            Log.d("승인", "거절")
+                            Toast.makeText(requireContext(), "메시지 전송이 취소되었습니다.", Toast.LENGTH_SHORT).show()
+                        }
+                    }
+                })
+            }
+
+        })
     }
 
     private fun initNetwork() {
