@@ -271,4 +271,8 @@ interface InitService {
     @POST("/approve")
     suspend fun postApprove(@Body requestApproveProject: RequestApproveProject) : ResponseApproveProject
 
+    //프로젝트 거절
+    @POST("/reject")
+    suspend fun postReject(@Body requestApproveProject: RequestApproveProject) : ResponseApproveProject
+
 }

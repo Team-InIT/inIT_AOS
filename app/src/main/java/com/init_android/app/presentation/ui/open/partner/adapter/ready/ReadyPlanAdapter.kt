@@ -68,10 +68,14 @@ class ReadyPlanAdapter(var userId : Int) : RecyclerView.Adapter<ReadyPlanAdapter
         }
 
         val retwit = binding.tvPartnerApprove
+        val reject = binding.tvPartnerUnapprove
 
         init {
             retwit.setOnClickListener {
                 listener.onItemClick(binding.ready!!.mNum,adapterPosition)
+            }
+            reject.setOnClickListener {
+                listener.onItemClick(binding.ready!!.mNum, adapterPosition)
             }
         }
     }

@@ -25,7 +25,7 @@ class DesignFragment : BaseFragment<FragmentDesignBinding>(R.layout.fragment_des
     private val projectViewModel: ProjectViewModel by viewModels()
     private val mainViewModel: MainViewModel by activityViewModels()
     private lateinit var partnerDesignAdapter: PartnerDesignAdapter
-    private lateinit var readyDesignAdapter : ReadyDesignAdapter
+    private lateinit var readyDesignAdapter: ReadyDesignAdapter
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -41,12 +41,11 @@ class DesignFragment : BaseFragment<FragmentDesignBinding>(R.layout.fragment_des
 
     private fun initSetting() {
         val pNum = mainViewModel.projectNum.value ?: 1
-        if(pNum != 1) {
+        if (pNum != 1) {
             binding.tvPartnerApprove.visibility = View.GONE
             binding.tvPartnerApproveNum.visibility = View.GONE
             binding.rvApproveAos.visibility = View.GONE
-        }
-        else {
+        } else {
             binding.tvPartnerApprove.visibility = View.VISIBLE
             binding.tvPartnerApproveNum.visibility = View.VISIBLE
             binding.rvApproveAos.visibility = View.VISIBLE
@@ -86,16 +85,15 @@ class DesignFragment : BaseFragment<FragmentDesignBinding>(R.layout.fragment_des
                 dialog.showChoiceDialog(R.layout.dialog_yes_no)
 
                 dialog.setOnClickedListener(object : CustomDialog.ButtonClickListener {
+                    val userId = user
+                    val requestApproveProject = RequestApproveProject(
+                        mNum = 1,
+                        pNum = 1,
+                        apply = userId
+                    )
+
                     override fun onClicked(num: Int) {
                         if (num == 1) {
-                            val userId = user
-                            val requestApproveProject = RequestApproveProject(
-                                mNum = 1,
-                                pNum = 1,
-                                apply = userId
-                            )
-                            Log.d("TestUSerId", userId.toString())
-
                             projectViewModel.postApprove(requestApproveProject)
                             projectViewModel.applyProject.observe(viewLifecycleOwner) {
                                 if (it.code == 201) {
@@ -105,26 +103,24 @@ class DesignFragment : BaseFragment<FragmentDesignBinding>(R.layout.fragment_des
                                         "승인이 완료되었습니다.",
                                         Toast.LENGTH_SHORT
                                     ).show()
-                                    initNetwork()
-                                    initApprove()
                                 } else {
-                                    Log.d("승인", "거절")
-                                    Toast.makeText(
-                                        requireContext(),
-                                        "메시지 전송이 취소되었습니다.",
-                                        Toast.LENGTH_SHORT
-                                    ).show()
-                                    initNetwork()
-                                    initApprove()
+                                    projectViewModel.postReject(requestApproveProject)
+                                    projectViewModel.reject.observe(viewLifecycleOwner) {
+                                        if (it.code == 201) {
+                                            Log.d("승인", "성공")
+                                            Toast.makeText(
+                                                requireContext(),
+                                                "승인이 거절되었습니다.",
+                                                Toast.LENGTH_SHORT
+                                            ).show()
+                                        }
+                                    }
                                 }
                             }
-
-
                         }
                     }
                 })
             }
         })
     }
-
 }

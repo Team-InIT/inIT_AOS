@@ -66,56 +66,6 @@ class PlanFragment : BaseFragment<FragmentPlanBinding>(R.layout.fragment_plan) {
         initModelListener()
     }
 
-    private fun initModelListener() {
-        readyPlanAdapter.setOnItemClickListener(object : ReadyPlanAdapter.onItemClickListener {
-            override fun onItemClick(user: Int, position: Int) {
-
-                val title = "해당 팀원을 승인하시겠습니까?"
-                val dialog = CustomDialog(requireContext(), title)
-                dialog.showChoiceDialog(R.layout.dialog_yes_no)
-
-                dialog.setOnClickedListener(object : CustomDialog.ButtonClickListener {
-                    override fun onClicked(num: Int) {
-                        if (num == 1) {
-                            val userId = user
-                            val requestApproveProject = RequestApproveProject(
-                                mNum = 1,
-                                pNum = 1,
-                                apply = userId
-                            )
-                            Log.d("TestUSerId", userId.toString())
-
-                            projectViewModel.postApprove(requestApproveProject)
-                            projectViewModel.applyProject.observe(viewLifecycleOwner) {
-                                if (it.code == 201) {
-                                    Log.d("승인", "성공")
-                                    Toast.makeText(
-                                        requireContext(),
-                                        "승인이 완료되었습니다.",
-                                        Toast.LENGTH_SHORT
-                                    ).show()
-                                    initNetwork()
-                                    initApprove()
-                                } else {
-                                    Log.d("승인", "거절")
-                                    Toast.makeText(
-                                        requireContext(),
-                                        "메시지 전송이 취소되었습니다.",
-                                        Toast.LENGTH_SHORT
-                                    ).show()
-                                    initNetwork()
-                                    initApprove()
-                                }
-                            }
-
-
-                        }
-                    }
-                })
-            }
-        })
-    }
-
     private fun initNetwork() {
         val pNum = mainViewModel.projectNum.value ?: 1
         val requestProjectMember = RequestProjectMember(pNum = pNum)
@@ -125,5 +75,53 @@ class PlanFragment : BaseFragment<FragmentPlanBinding>(R.layout.fragment_plan) {
         projectViewModel.myCrewPlan.observe(viewLifecycleOwner) {
             partnerPlanAdapter.setQuestionPost((it.approvedPlan) as MutableList<ResponseReadyPlan.ApprovedPlan>)
         }
+    }
+
+    private fun initModelListener() {
+        readyPlanAdapter.setOnItemClickListener(object : ReadyPlanAdapter.onItemClickListener {
+            override fun onItemClick(user: Int, position: Int) {
+
+                val title = "해당 팀원을 승인하시겠습니까?"
+                val dialog = CustomDialog(requireContext(), title)
+                dialog.showChoiceDialog(R.layout.dialog_yes_no)
+
+                dialog.setOnClickedListener(object : CustomDialog.ButtonClickListener {
+                    val userId = user
+                    val requestApproveProject = RequestApproveProject(
+                        mNum = 1,
+                        pNum = 1,
+                        apply = userId
+                    )
+
+                    override fun onClicked(num: Int) {
+                        if (num == 1) {
+                            projectViewModel.postApprove(requestApproveProject)
+                            projectViewModel.applyProject.observe(viewLifecycleOwner) {
+                                if (it.code == 201) {
+                                    Log.d("승인", "성공")
+                                    Toast.makeText(
+                                        requireContext(),
+                                        "승인이 완료되었습니다.",
+                                        Toast.LENGTH_SHORT
+                                    ).show()
+                                } else {
+                                    projectViewModel.postReject(requestApproveProject)
+                                    projectViewModel.reject.observe(viewLifecycleOwner) {
+                                        if (it.code == 201) {
+                                            Log.d("승인", "성공")
+                                            Toast.makeText(
+                                                requireContext(),
+                                                "승인이 거절되었습니다.",
+                                                Toast.LENGTH_SHORT
+                                            ).show()
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                })
+            }
+        })
     }
 }

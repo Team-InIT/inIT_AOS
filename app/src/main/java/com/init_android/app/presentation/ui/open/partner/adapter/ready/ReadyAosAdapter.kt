@@ -64,10 +64,14 @@ class ReadyAosAdapter(var userId : Int) : RecyclerView.Adapter<ReadyAosAdapter.P
         }
 
         val retwit = binding.tvPartnerApprove
+        val reject = binding.tvPartnerUnapprove
 
         init {
             retwit.setOnClickListener {
                 listener.onItemClick(binding.ready!!.mNum,adapterPosition)
+            }
+            reject.setOnClickListener {
+                listener.onItemClick(binding.ready!!.mNum, adapterPosition)
             }
         }
     }
