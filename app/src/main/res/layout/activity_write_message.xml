@@ -4,8 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
-
+        <variable
+            name="User"
+            type="com.init_android.app.data.response.mypage.ResponseMyInfo.MInfo" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -21,6 +22,19 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/tv_my_page_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/noto_sans_kr_medium"
+                android:text="@{User.mName}"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                android:layout_marginStart="16dp"
+                app:layout_constraintBottom_toBottomOf="@+id/iv_message_move_page"
+                app:layout_constraintStart_toEndOf="@+id/iv_message_move_page"
+                app:layout_constraintTop_toTopOf="@+id/iv_message_move_page" />
 
             <ImageView
                 android:id="@+id/iv_message_move_page"
@@ -43,19 +57,19 @@
                 android:text="@string/message_write"
                 android:textColor="@color/white"
                 android:textSize="20sp"
-                android:layout_marginStart="16dp"
-                app:layout_constraintBottom_toBottomOf="@+id/iv_message_move_page"
-                app:layout_constraintStart_toEndOf="@+id/iv_message_move_page"
-                app:layout_constraintTop_toTopOf="@+id/iv_message_move_page" />
+                app:layout_constraintBottom_toBottomOf="@+id/tv_my_page_name"
+                app:layout_constraintStart_toEndOf="@+id/tv_my_page_name"
+                app:layout_constraintTop_toTopOf="@+id/tv_my_page_name" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <ImageView
             android:id="@+id/iv_message_profile"
             android:layout_width="48dp"
             android:layout_height="48dp"
+            imageBind="@{User.MPhoto}"
             android:layout_marginTop="16dp"
             android:layout_marginStart="16dp"
-            android:background="@drawable/ic_launcher_background"
+            tools:background="@drawable/ic_launcher_background"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/cl_message_main_title" />
 
@@ -65,7 +79,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:fontFamily="@font/noto_sans_kr_medium"
-            android:text="정지연"
+            android:text="@{User.mName}"
             android:layout_marginStart="16dp"
             android:textColor="@color/black"
             android:textSize="16sp"
@@ -115,7 +129,7 @@
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="20dp"
             android:layout_marginBottom="20dp"
-            android:background="@drawable/selector_rectangle_gray_to_mint"
+            android:background="@drawable/rectangle_fill_main_radius_10"
             android:gravity="center"
             android:paddingVertical="6dp"
             android:text="@string/message_send"

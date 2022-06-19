@@ -63,6 +63,7 @@
             android:hint="@string/input_pw"
             android:lines="1"
             android:maxLines="1"
+            android:inputType="textVisiblePassword"
             android:paddingStart="19dp"
             android:paddingTop="20dp"
             android:paddingBottom="20dp"
