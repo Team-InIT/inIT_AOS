@@ -1,6 +1,6 @@
 package com.init_android.app.data.response.mypage
 
-data class ResponseEvaluation(
+data class teset(
     val code: Int,
     val myEvaluations: List<MyEvaluation>,
     val writer: List<Writer>

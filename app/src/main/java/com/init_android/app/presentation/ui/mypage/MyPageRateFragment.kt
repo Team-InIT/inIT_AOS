@@ -38,7 +38,7 @@ class MyPageRateFragment : BaseFragment<FragmentMyPageRateBinding>(R.layout.frag
         ratingAdapter = RatingAdapter()
         binding.rvRating.adapter = ratingAdapter
         myPageViewModel.myEvaluation.observe(viewLifecycleOwner) {
-            ratingAdapter.setQuestionPost((listOf(it)) as MutableList<ResponseEvaluation.MyEvaluation>)
+            ratingAdapter.setQuestionPost((it.myEvaluations) as MutableList<ResponseEvaluation.MyEvaluation>)
         }
     }
 

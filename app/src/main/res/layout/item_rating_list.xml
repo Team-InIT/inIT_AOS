@@ -4,6 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
+        <variable
+            name="rating"
+            type="com.init_android.app.data.response.mypage.ResponseEvaluation.Writer" />
+
         <variable
             name="rate"
             type="com.init_android.app.data.response.mypage.ResponseEvaluation.MyEvaluation" />
@@ -22,9 +27,9 @@
             android:id="@+id/iv_mypage_rate_img"
             android:layout_width="24dp"
             android:layout_height="24dp"
+            imageBind="@{rating.MPhoto}"
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
-            imageBind="@{rate.writer.MPhoto}"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:src="@drawable/ic_launcher_background"/>
@@ -34,8 +39,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/noto_sans_kr_medium"
-            android:text="@{rate.writer.MName}"
             android:textSize="16dp"
+            android:text="@{rating.MName}"
             android:layout_marginStart="12dp"
             app:layout_constraintStart_toEndOf="@+id/iv_mypage_rate_img"
             app:layout_constraintTop_toTopOf="@+id/iv_mypage_rate_img"
@@ -47,7 +52,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:fontFamily="@font/noto_sans_kr_regular"
-            android:text="@{rate.Evaluation.projectInfo.PTitle}"
+            android:text="@{rate.projectInfo.PTitle}"
             android:textColor="@color/tet_gray_2"
             android:textSize="12dp"
             app:layout_constraintBottom_toBottomOf="@+id/tv_mypage_rate_name"
@@ -59,7 +64,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/noto_sans_kr_regular"
-            android:text="@{rate.Evaluation.EComment}"
+            android:text="@{rate.EComment}"
             android:textColor="@color/black"
             android:textSize="16dp"
             android:layout_marginTop="12dp"
