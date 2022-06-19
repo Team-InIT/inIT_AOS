@@ -6,6 +6,7 @@ import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.init_android.app.data.response.project.approve.ResponseProjectMember
+import com.init_android.app.data.response.project.ready.ResponseReadyIos
 import com.init_android.app.presentation.ui.mypage.PartnerPageActivity
 import com.init_android.databinding.ItemPartnerAosListBinding
 import com.init_android.databinding.ItemPartnerDesignListBinding
@@ -13,7 +14,7 @@ import com.init_android.databinding.ItemPartnerIosListBinding
 import com.init_android.databinding.ItemPartnerListBinding
 
 class PartnerIosAdapter(var userId : Int) : RecyclerView.Adapter<PartnerIosAdapter.PartnerListViewHolder>() {
-    var partnerData = mutableListOf<ResponseProjectMember.ApprovedIo>()
+    var partnerData = mutableListOf<ResponseReadyIos.ApprovedIos>()
 
     override fun onCreateViewHolder(
         parent: ViewGroup,
@@ -49,7 +50,7 @@ class PartnerIosAdapter(var userId : Int) : RecyclerView.Adapter<PartnerIosAdapt
     inner class PartnerListViewHolder(
         val binding: ItemPartnerIosListBinding
     ) : RecyclerView.ViewHolder(binding.root) {
-        fun onBind(partnerData: ResponseProjectMember.ApprovedIo) {
+        fun onBind(partnerData: ResponseReadyIos.ApprovedIos) {
             binding.apply {
                 member = partnerData
                 executePendingBindings()
@@ -57,7 +58,7 @@ class PartnerIosAdapter(var userId : Int) : RecyclerView.Adapter<PartnerIosAdapt
         }
     }
 
-    fun setQuestionPost(partnerData: MutableList<ResponseProjectMember.ApprovedIo>) {
+    fun setQuestionPost(partnerData: MutableList<ResponseReadyIos.ApprovedIos>) {
         this.partnerData = partnerData
         notifyDataSetChanged()
 

@@ -6,12 +6,13 @@ import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.init_android.app.data.response.project.approve.ResponseProjectMember
+import com.init_android.app.data.response.project.ready.ResponseReadyServer
 import com.init_android.app.presentation.ui.mypage.PartnerPageActivity
 import com.init_android.databinding.ItemPartnerAosListBinding
 import com.init_android.databinding.ItemPartnerServerListBinding
 
 class PartnerServerAdapter(var userId : Int) : RecyclerView.Adapter<PartnerServerAdapter.PartnerListViewHolder>() {
-    var partnerData = mutableListOf<ResponseProjectMember.ApprovedServer>()
+    var partnerData = mutableListOf<ResponseReadyServer.ApprovedServer>()
 
     override fun onCreateViewHolder(
         parent: ViewGroup,
@@ -47,7 +48,7 @@ class PartnerServerAdapter(var userId : Int) : RecyclerView.Adapter<PartnerServe
     inner class PartnerListViewHolder(
         val binding: ItemPartnerServerListBinding
     ) : RecyclerView.ViewHolder(binding.root) {
-        fun onBind(partnerData: ResponseProjectMember.ApprovedServer) {
+        fun onBind(partnerData: ResponseReadyServer.ApprovedServer) {
             binding.apply {
                 member = partnerData
                 executePendingBindings()
@@ -55,7 +56,7 @@ class PartnerServerAdapter(var userId : Int) : RecyclerView.Adapter<PartnerServe
         }
     }
 
-    fun setQuestionPost(partnerData: MutableList<ResponseProjectMember.ApprovedServer>) {
+    fun setQuestionPost(partnerData: MutableList<ResponseReadyServer.ApprovedServer>) {
         this.partnerData = partnerData
         notifyDataSetChanged()
 

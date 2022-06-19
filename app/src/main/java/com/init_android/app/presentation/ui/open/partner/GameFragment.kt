@@ -8,6 +8,7 @@ import androidx.fragment.app.viewModels
 import com.init_android.R
 import com.init_android.app.data.request.project.RequestProjectMember
 import com.init_android.app.data.response.project.approve.ResponseProjectMember
+import com.init_android.app.data.response.project.ready.ResponseReadyGame
 import com.init_android.app.presentation.ui.main.MainViewModel
 import com.init_android.app.presentation.ui.open.partner.adapter.PartnerGameAdapter
 import com.init_android.app.presentation.ui.open.partner.adapter.PartnerIosAdapter
@@ -34,11 +35,11 @@ class GameFragment : BaseFragment<FragmentGameBinding>(R.layout.fragment_game) {
     private fun initNetwork() {
         val pNum = mainViewModel.projectNum.value ?: 1
         val requestProjectMember = RequestProjectMember(pNum = pNum)
-        projectViewModel.postProjectMember(requestProjectMember)
+        projectViewModel.postMyCrewGame(requestProjectMember)
         partnerGameAdapter = PartnerGameAdapter(1)
         binding.rvAos.adapter = partnerGameAdapter
-        projectViewModel.projectMember.observe(viewLifecycleOwner) {
-            partnerGameAdapter.setQuestionPost((it.approvedGame) as MutableList<ResponseProjectMember.ApprovedGame>)
+        projectViewModel.myCrewGame.observe(viewLifecycleOwner) {
+            partnerGameAdapter.setQuestionPost((it.approvedGame) as MutableList<ResponseReadyGame.ApprovedGame>)
         }
     }
 }

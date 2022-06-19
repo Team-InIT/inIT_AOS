@@ -10,7 +10,9 @@ import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import com.init_android.R
 import com.init_android.app.data.request.project.RequestProjectMember
+import com.init_android.app.data.response.project.approve.ResponseApproveIos
 import com.init_android.app.data.response.project.approve.ResponseProjectMember
+import com.init_android.app.data.response.project.ready.ResponseReadyIos
 import com.init_android.app.presentation.ui.main.MainViewModel
 import com.init_android.app.presentation.ui.open.partner.adapter.PartnerDesignAdapter
 import com.init_android.app.presentation.ui.open.partner.adapter.PartnerIosAdapter
@@ -36,11 +38,11 @@ class IosFragment : BaseFragment<FragmentIosBinding>(R.layout.fragment_ios){
     private fun initNetwork() {
         val pNum = mainViewModel.projectNum.value ?: 1
         val requestProjectMember = RequestProjectMember(pNum = pNum)
-        projectViewModel.postProjectMember(requestProjectMember)
+        projectViewModel.postMyCrewIos(requestProjectMember)
         partnerIosAdapter = PartnerIosAdapter(1)
         binding.rvAos.adapter = partnerIosAdapter
-        projectViewModel.projectMember.observe(viewLifecycleOwner) {
-            partnerIosAdapter.setQuestionPost((it.approvedIos) as MutableList<ResponseProjectMember.ApprovedIo>)
+        projectViewModel.myCrewIos.observe(viewLifecycleOwner) {
+            partnerIosAdapter.setQuestionPost((it.approvedIos) as MutableList<ResponseReadyIos.ApprovedIos>)
         }
     }
 }

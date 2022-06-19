@@ -1,16 +1,16 @@
 package com.init_android.app.data.response.project.ready
 
 data class ResponseReadyDesign(
-    val approvedPlan: List<ApprovedDesign>,
+    val approvedDesign: List<ApprovedDesign>?,
     val code: Int,
-    val waitingPlan: List<WaitingDesign>
+    val waitingDesign: List<WaitingDesign>?
 ) {
     data class ApprovedDesign(
-        val Recruits: List<Recruit>,
+        val Recruits: List<Recruit>?,
         val mEmail: String,
         val mName: String,
         val mNum: Int,
-        val mPhoto: String
+        val mPhoto: String?
     ) {
         data class Recruit(
             val mNum: Int,
@@ -22,11 +22,11 @@ data class ResponseReadyDesign(
     }
 
     data class WaitingDesign(
-        val Recruits: List<Recruit>,
+        val Recruits: List<Recruit>?,
         val mEmail: String,
         val mName: String,
         val mNum: Int,
-        val mPhoto: Any
+        val mPhoto: String?
     ) {
         data class Recruit(
             val mNum: Int,

@@ -10,7 +10,7 @@ data class ResponseReadyPlan(
         val mEmail: String,
         val mName: String,
         val mNum: Int,
-        val mPhoto: String
+        val mPhoto: String?
     ) {
         data class Recruit(
             val mNum: Int,

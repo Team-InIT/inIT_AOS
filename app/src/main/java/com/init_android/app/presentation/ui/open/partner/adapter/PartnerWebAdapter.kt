@@ -5,12 +5,14 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
+import com.init_android.app.data.response.project.approve.ResponseApproveWeb
 import com.init_android.app.data.response.project.approve.ResponseProjectMember
+import com.init_android.app.data.response.project.ready.ResponseReadyWeb
 import com.init_android.app.presentation.ui.mypage.PartnerPageActivity
 import com.init_android.databinding.ItemPartnerWebListBinding
 
 class PartnerWebAdapter(var userId : Int) : RecyclerView.Adapter<PartnerWebAdapter.PartnerListViewHolder>() {
-    var partnerData = mutableListOf<ResponseProjectMember.ApprovedWeb>()
+    var partnerData = mutableListOf<ResponseReadyWeb.ApprovedWeb>()
 
     override fun onCreateViewHolder(
         parent: ViewGroup,
@@ -46,7 +48,7 @@ class PartnerWebAdapter(var userId : Int) : RecyclerView.Adapter<PartnerWebAdapt
     inner class PartnerListViewHolder(
         val binding: ItemPartnerWebListBinding
     ) : RecyclerView.ViewHolder(binding.root) {
-        fun onBind(partnerData: ResponseProjectMember.ApprovedWeb) {
+        fun onBind(partnerData: ResponseReadyWeb.ApprovedWeb) {
             binding.apply {
                 member = partnerData
                 executePendingBindings()
@@ -54,7 +56,7 @@ class PartnerWebAdapter(var userId : Int) : RecyclerView.Adapter<PartnerWebAdapt
         }
     }
 
-    fun setQuestionPost(partnerData: MutableList<ResponseProjectMember.ApprovedWeb>) {
+    fun setQuestionPost(partnerData: MutableList<ResponseReadyWeb.ApprovedWeb>) {
         this.partnerData = partnerData
         notifyDataSetChanged()
 

@@ -1,23 +1,25 @@
-package com.init_android.app.presentation.ui.open.partner.adapter
+package com.init_android.app.presentation.ui.open.partner.adapter.ready
 
 import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
-import com.init_android.app.data.response.project.approve.ResponseProjectMember
-import com.init_android.app.data.response.project.ready.ResponseReadyDesign
+import com.init_android.app.data.response.project.ready.ResponseReadyAos
+import com.init_android.app.data.response.project.ready.ResponseReadyPlan
 import com.init_android.app.presentation.ui.mypage.PartnerPageActivity
-import com.init_android.databinding.ItemPartnerDesignListBinding
+import com.init_android.databinding.ItemAosApproveListBinding
+import com.init_android.databinding.ItemPartnerAosListBinding
+import com.init_android.databinding.ItemPartnerApproveListBinding
 
-class PartnerDesignAdapter(var userId : Int) : RecyclerView.Adapter<PartnerDesignAdapter.PartnerListViewHolder>() {
-    var partnerData = mutableListOf<ResponseReadyDesign.ApprovedDesign>()
+class ReadyAosAdapter(var userId : Int) : RecyclerView.Adapter<ReadyAosAdapter.PartnerListViewHolder>() {
+    var partnerData = mutableListOf<ResponseReadyAos.WaitingAos>()
 
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
     ): PartnerListViewHolder {
-        val binding = ItemPartnerDesignListBinding.inflate(
+        val binding = ItemAosApproveListBinding.inflate(
             LayoutInflater.from(parent.context),
             parent,
             false
@@ -45,17 +47,17 @@ class PartnerDesignAdapter(var userId : Int) : RecyclerView.Adapter<PartnerDesig
     override fun getItemCount(): Int = partnerData.size
 
     inner class PartnerListViewHolder(
-        val binding: ItemPartnerDesignListBinding
+        val binding: ItemAosApproveListBinding
     ) : RecyclerView.ViewHolder(binding.root) {
-        fun onBind(partnerData: ResponseReadyDesign.ApprovedDesign) {
+        fun onBind(partnerData: ResponseReadyAos.WaitingAos) {
             binding.apply {
-                member = partnerData
+                ready = partnerData
                 executePendingBindings()
             }
         }
     }
 
-    fun setQuestionPost(partnerData: MutableList<ResponseReadyDesign.ApprovedDesign>) {
+    fun setQuestionPost(partnerData: MutableList<ResponseReadyAos.WaitingAos>) {
         this.partnerData = partnerData
         notifyDataSetChanged()
 

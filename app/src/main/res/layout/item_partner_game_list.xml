@@ -6,7 +6,7 @@
     <data>
         <variable
             name="Member"
-            type="com.init_android.app.data.response.project.approve.ResponseProjectMember.ApprovedGame" />
+            type="com.init_android.app.data.response.project.ready.ResponseReadyGame.ApprovedGame" />
 
 
     </data>

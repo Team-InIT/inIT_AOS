@@ -1,15 +1,13 @@
-package com.init_android.app.presentation.ui.open.partner.adapter
+package com.init_android.app.presentation.ui.open.partner.adapter.ready
 
 import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
-import com.init_android.app.data.response.project.approve.ResponseProjectMember
 import com.init_android.app.data.response.project.ready.ResponseReadyPlan
 import com.init_android.app.presentation.ui.mypage.PartnerPageActivity
 import com.init_android.databinding.ItemPartnerApproveListBinding
-import com.init_android.databinding.ItemPartnerListBinding
 
 class ReadyPlanAdapter(var userId : Int) : RecyclerView.Adapter<ReadyPlanAdapter.PartnerListViewHolder>() {
     var partnerData = mutableListOf<ResponseReadyPlan.WaitingPlan>()
