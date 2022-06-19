@@ -5,18 +5,18 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
-import com.init_android.app.data.response.project.ready.ResponseReadyAos
+import com.init_android.app.data.response.project.ready.ResponseReadyGame
 import com.init_android.app.presentation.ui.mypage.PartnerPageActivity
-import com.init_android.databinding.ItemAosApproveListBinding
+import com.init_android.databinding.ItemGameApproveListBinding
 
-class ReadyAosAdapter(var userId : Int) : RecyclerView.Adapter<ReadyAosAdapter.PartnerListViewHolder>() {
-    var partnerData = mutableListOf<ResponseReadyAos.WaitingAos>()
+class ReadyGameAdapter(var userId : Int) : RecyclerView.Adapter<ReadyGameAdapter.PartnerListViewHolder>() {
+    var partnerData = mutableListOf<ResponseReadyGame.WaitingGame>()
 
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
     ): PartnerListViewHolder {
-        val binding = ItemAosApproveListBinding.inflate(
+        val binding = ItemGameApproveListBinding.inflate(
             LayoutInflater.from(parent.context),
             parent,
             false
@@ -44,9 +44,9 @@ class ReadyAosAdapter(var userId : Int) : RecyclerView.Adapter<ReadyAosAdapter.P
     override fun getItemCount(): Int = partnerData.size
 
     inner class PartnerListViewHolder(
-        val binding: ItemAosApproveListBinding
+        val binding: ItemGameApproveListBinding
     ) : RecyclerView.ViewHolder(binding.root) {
-        fun onBind(partnerData: ResponseReadyAos.WaitingAos) {
+        fun onBind(partnerData: ResponseReadyGame.WaitingGame) {
             binding.apply {
                 ready = partnerData
                 executePendingBindings()
@@ -54,7 +54,7 @@ class ReadyAosAdapter(var userId : Int) : RecyclerView.Adapter<ReadyAosAdapter.P
         }
     }
 
-    fun setQuestionPost(partnerData: MutableList<ResponseReadyAos.WaitingAos>) {
+    fun setQuestionPost(partnerData: MutableList<ResponseReadyGame.WaitingGame>) {
         this.partnerData = partnerData
         notifyDataSetChanged()
 

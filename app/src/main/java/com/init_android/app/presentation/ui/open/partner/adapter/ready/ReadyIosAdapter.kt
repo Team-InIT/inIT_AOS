@@ -5,18 +5,18 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
-import com.init_android.app.data.response.project.ready.ResponseReadyAos
+import com.init_android.app.data.response.project.ready.ResponseReadyIos
 import com.init_android.app.presentation.ui.mypage.PartnerPageActivity
-import com.init_android.databinding.ItemAosApproveListBinding
+import com.init_android.databinding.ItemIosApproveListBinding
 
-class ReadyAosAdapter(var userId : Int) : RecyclerView.Adapter<ReadyAosAdapter.PartnerListViewHolder>() {
-    var partnerData = mutableListOf<ResponseReadyAos.WaitingAos>()
+class ReadyIosAdapter(var userId : Int) : RecyclerView.Adapter<ReadyIosAdapter.PartnerListViewHolder>() {
+    var partnerData = mutableListOf<ResponseReadyIos.WaitingIos>()
 
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
     ): PartnerListViewHolder {
-        val binding = ItemAosApproveListBinding.inflate(
+        val binding = ItemIosApproveListBinding.inflate(
             LayoutInflater.from(parent.context),
             parent,
             false
@@ -44,9 +44,9 @@ class ReadyAosAdapter(var userId : Int) : RecyclerView.Adapter<ReadyAosAdapter.P
     override fun getItemCount(): Int = partnerData.size
 
     inner class PartnerListViewHolder(
-        val binding: ItemAosApproveListBinding
+        val binding: ItemIosApproveListBinding
     ) : RecyclerView.ViewHolder(binding.root) {
-        fun onBind(partnerData: ResponseReadyAos.WaitingAos) {
+        fun onBind(partnerData: ResponseReadyIos.WaitingIos) {
             binding.apply {
                 ready = partnerData
                 executePendingBindings()
@@ -54,7 +54,7 @@ class ReadyAosAdapter(var userId : Int) : RecyclerView.Adapter<ReadyAosAdapter.P
         }
     }
 
-    fun setQuestionPost(partnerData: MutableList<ResponseReadyAos.WaitingAos>) {
+    fun setQuestionPost(partnerData: MutableList<ResponseReadyIos.WaitingIos>) {
         this.partnerData = partnerData
         notifyDataSetChanged()
 

@@ -6,7 +6,7 @@
     <data>
         <variable
             name="ready"
-            type="com.init_android.app.data.response.project.ready.ResponseReadyAos.WaitingAos" />
+            type="com.init_android.app.data.response.project.ready.ResponseReadyWeb.WaitingWeb" />
 
 
     </data>

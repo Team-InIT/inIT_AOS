@@ -5,18 +5,18 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
-import com.init_android.app.data.response.project.ready.ResponseReadyAos
+import com.init_android.app.data.response.project.ready.ResponseReadyServer
 import com.init_android.app.presentation.ui.mypage.PartnerPageActivity
-import com.init_android.databinding.ItemAosApproveListBinding
+import com.init_android.databinding.ItemServerApproveListBinding
 
-class ReadyAosAdapter(var userId : Int) : RecyclerView.Adapter<ReadyAosAdapter.PartnerListViewHolder>() {
-    var partnerData = mutableListOf<ResponseReadyAos.WaitingAos>()
+class ReadyServerAdapter(var userId : Int) : RecyclerView.Adapter<ReadyServerAdapter.PartnerListViewHolder>() {
+    var partnerData = mutableListOf<ResponseReadyServer.WaitingServer>()
 
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
     ): PartnerListViewHolder {
-        val binding = ItemAosApproveListBinding.inflate(
+        val binding = ItemServerApproveListBinding.inflate(
             LayoutInflater.from(parent.context),
             parent,
             false
@@ -44,9 +44,9 @@ class ReadyAosAdapter(var userId : Int) : RecyclerView.Adapter<ReadyAosAdapter.P
     override fun getItemCount(): Int = partnerData.size
 
     inner class PartnerListViewHolder(
-        val binding: ItemAosApproveListBinding
+        val binding: ItemServerApproveListBinding
     ) : RecyclerView.ViewHolder(binding.root) {
-        fun onBind(partnerData: ResponseReadyAos.WaitingAos) {
+        fun onBind(partnerData: ResponseReadyServer.WaitingServer) {
             binding.apply {
                 ready = partnerData
                 executePendingBindings()
@@ -54,7 +54,7 @@ class ReadyAosAdapter(var userId : Int) : RecyclerView.Adapter<ReadyAosAdapter.P
         }
     }
 
-    fun setQuestionPost(partnerData: MutableList<ResponseReadyAos.WaitingAos>) {
+    fun setQuestionPost(partnerData: MutableList<ResponseReadyServer.WaitingServer>) {
         this.partnerData = partnerData
         notifyDataSetChanged()
 
