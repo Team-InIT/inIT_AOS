@@ -12,6 +12,16 @@ import com.init_android.databinding.ItemAosApproveListBinding
 class ReadyAosAdapter(var userId : Int) : RecyclerView.Adapter<ReadyAosAdapter.PartnerListViewHolder>() {
     var partnerData = mutableListOf<ResponseReadyAos.WaitingAos>()
 
+    private lateinit var mlistener : onItemClickListener
+
+    interface onItemClickListener {
+        fun onItemClick(user: Int, position: Int)
+    }
+
+    fun setOnItemClickListener(listener: onItemClickListener) {
+        mlistener = listener
+    }
+
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
@@ -21,7 +31,7 @@ class ReadyAosAdapter(var userId : Int) : RecyclerView.Adapter<ReadyAosAdapter.P
             parent,
             false
         )
-        return PartnerListViewHolder(binding)
+        return PartnerListViewHolder(binding, mlistener)
     }
 
     override fun onBindViewHolder(
@@ -44,12 +54,24 @@ class ReadyAosAdapter(var userId : Int) : RecyclerView.Adapter<ReadyAosAdapter.P
     override fun getItemCount(): Int = partnerData.size
 
     inner class PartnerListViewHolder(
-        val binding: ItemAosApproveListBinding
+        val binding: ItemAosApproveListBinding, listener: onItemClickListener
     ) : RecyclerView.ViewHolder(binding.root) {
         fun onBind(partnerData: ResponseReadyAos.WaitingAos) {
             binding.apply {
                 ready = partnerData
                 executePendingBindings()
+            }
+        }
+
+        val retwit = binding.tvPartnerApprove
+        val reject = binding.tvPartnerUnapprove
+
+        init {
+            retwit.setOnClickListener {
+                listener.onItemClick(binding.ready!!.mNum,adapterPosition)
+            }
+            reject.setOnClickListener {
+                listener.onItemClick(binding.ready!!.mNum, adapterPosition)
             }
         }
     }

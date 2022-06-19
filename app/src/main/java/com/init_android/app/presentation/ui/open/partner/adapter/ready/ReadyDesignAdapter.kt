@@ -12,6 +12,18 @@ import com.init_android.databinding.ItemDesignApproveListBinding
 class ReadyDesignAdapter(var userId : Int) : RecyclerView.Adapter<ReadyDesignAdapter.PartnerListViewHolder>() {
     var partnerData = mutableListOf<ResponseReadyDesign.WaitingDesign>()
 
+
+    private lateinit var mlistener : onItemClickListener
+
+    interface onItemClickListener {
+        fun onItemClick(user: Int, position: Int)
+    }
+
+    fun setOnItemClickListener(listener: onItemClickListener) {
+        mlistener = listener
+    }
+
+
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
@@ -21,7 +33,7 @@ class ReadyDesignAdapter(var userId : Int) : RecyclerView.Adapter<ReadyDesignAda
             parent,
             false
         )
-        return PartnerListViewHolder(binding)
+        return PartnerListViewHolder(binding, mlistener)
     }
 
     override fun onBindViewHolder(
@@ -29,27 +41,39 @@ class ReadyDesignAdapter(var userId : Int) : RecyclerView.Adapter<ReadyDesignAda
         position: Int
     ) {
         holder.onBind(partnerData[position])
-        holder.binding.root.setOnClickListener {
-
-            val context = holder.itemView.context
-
-            val intent = Intent(context, PartnerPageActivity::class.java)
-            val userId = partnerData[position].mNum
-            intent.putExtra("userId", userId)
-            ContextCompat.startActivity(holder.itemView.context,intent, null)
-
-        }
+//        holder.binding.root.setOnClickListener {
+//
+//            val context = holder.itemView.context
+//
+//            val intent = Intent(context, PartnerPageActivity::class.java)
+//            val userId = partnerData[position].mNum
+//            intent.putExtra("userId", userId)
+//            ContextCompat.startActivity(holder.itemView.context,intent, null)
+//
+//        }
     }
 
     override fun getItemCount(): Int = partnerData.size
 
     inner class PartnerListViewHolder(
-        val binding: ItemDesignApproveListBinding
+        val binding: ItemDesignApproveListBinding, listener: onItemClickListener
     ) : RecyclerView.ViewHolder(binding.root) {
         fun onBind(partnerData: ResponseReadyDesign.WaitingDesign) {
             binding.apply {
                 ready = partnerData
                 executePendingBindings()
+            }
+        }
+
+        val retwit = binding.tvPartnerApprove
+        val reject = binding.tvPartnerUnapprove
+
+        init {
+            retwit.setOnClickListener {
+                listener.onItemClick(binding.ready!!.mNum,adapterPosition)
+            }
+            reject.setOnClickListener {
+                listener.onItemClick(binding.ready!!.mNum, adapterPosition)
             }
         }
     }

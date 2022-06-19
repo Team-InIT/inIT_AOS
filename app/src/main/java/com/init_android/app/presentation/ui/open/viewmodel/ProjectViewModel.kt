@@ -78,6 +78,10 @@ class ProjectViewModel() : ViewModel() {
     val approve: LiveData<ResponseApproveProject>
         get() = _approve
 
+    private val _reject = MutableLiveData<ResponseApproveProject>()
+    val reject: LiveData<ResponseApproveProject>
+        get() = _reject
+
 
     //프로젝트 작성 서버통신
     fun postOpenProject(requestAddProject: RequestAddProject) {
@@ -256,6 +260,21 @@ class ProjectViewModel() : ViewModel() {
                 .onFailure {
                     it.printStackTrace()
                     Log.d("TeamApprove", "서버 통신 실패")
+                }
+        }
+    }
+
+    //팀원 거절
+    fun postReject(requestApproveProject: RequestApproveProject) {
+        viewModelScope.launch {
+            kotlin.runCatching { ServiceCreator.initService.postReject(requestApproveProject) }
+                .onSuccess {
+                    _reject.value = it
+                    Log.d("TeamReject", "서버 통신 성공")
+                }
+                .onFailure {
+                    it.printStackTrace()
+                    Log.d("TeamReject", "서버 통신 실패")
                 }
         }
     }
