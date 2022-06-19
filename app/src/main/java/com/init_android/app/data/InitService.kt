@@ -3,6 +3,7 @@ package com.init_android.app.data
 import com.init_android.app.data.request.*
 import com.init_android.app.data.request.mypage.*
 import com.init_android.app.data.request.project.RequestApplyProject
+import com.init_android.app.data.request.project.RequestApproveProject
 import com.init_android.app.data.request.project.RequestProjectDetail
 import com.init_android.app.data.request.project.RequestProjectMember
 import com.init_android.app.data.request.todo.RequestToDoMember
@@ -265,4 +266,9 @@ interface InitService {
     //Server
     @POST("/myCrewServer")
     suspend fun postCrewServer(@Body requestProjectMember: RequestProjectMember) : ResponseReadyServer
+
+    //프로젝트 승인
+    @POST("/approve")
+    suspend fun postApprove(@Body requestApproveProject: RequestApproveProject) : ResponseApproveProject
+
 }

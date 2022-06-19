@@ -8,17 +8,21 @@ import androidx.lifecycle.viewModelScope
 import com.init_android.app.data.ServiceCreator
 import com.init_android.app.data.request.RequestAddProject
 import com.init_android.app.data.request.project.RequestApplyProject
+import com.init_android.app.data.request.project.RequestApproveProject
 import com.init_android.app.data.request.project.RequestProjectDetail
 import com.init_android.app.data.request.project.RequestProjectMember
 import com.init_android.app.data.response.ResponseAddProject
 import com.init_android.app.data.response.project.ResponseApplyProject
 import com.init_android.app.data.response.project.ResponseProjectDetail
 import com.init_android.app.data.response.project.approve.ResponseApprovePlan
+import com.init_android.app.data.response.project.approve.ResponseApproveProject
 import com.init_android.app.data.response.project.approve.ResponseProjectMember
 import com.init_android.app.data.response.project.ready.*
 import kotlinx.coroutines.launch
 
 class ProjectViewModel() : ViewModel() {
+
+    var approveNum = MutableLiveData<Int>()
 
     private val _openProject = MutableLiveData<ResponseAddProject>()
     val openProject: LiveData<ResponseAddProject>
@@ -69,6 +73,10 @@ class ProjectViewModel() : ViewModel() {
     private val _myCrewServer = MutableLiveData<ResponseReadyServer>()
     val myCrewServer: LiveData<ResponseReadyServer>
         get() = _myCrewServer
+
+    private val _approve = MutableLiveData<ResponseApproveProject>()
+    val approve: LiveData<ResponseApproveProject>
+        get() = _approve
 
 
     //프로젝트 작성 서버통신
@@ -233,6 +241,21 @@ class ProjectViewModel() : ViewModel() {
                 .onFailure {
                     it.printStackTrace()
                     Log.d("MyCrewServer", "서버 통신 실패")
+                }
+        }
+    }
+
+    //팀원 승인
+    fun postApprove(requestApproveProject: RequestApproveProject) {
+        viewModelScope.launch {
+            kotlin.runCatching { ServiceCreator.initService.postApprove(requestApproveProject) }
+                .onSuccess {
+                    _approve.value = it
+                    Log.d("TeamApprove", "서버 통신 성공")
+                }
+                .onFailure {
+                    it.printStackTrace()
+                    Log.d("TeamApprove", "서버 통신 실패")
                 }
         }
     }

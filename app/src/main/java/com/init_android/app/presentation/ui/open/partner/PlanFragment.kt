@@ -8,6 +8,7 @@ import android.widget.Toast
 import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import com.init_android.R
+import com.init_android.app.data.request.project.RequestApproveProject
 import com.init_android.app.data.request.project.RequestProjectMember
 import com.init_android.app.data.response.project.ready.ResponseReadyPlan
 import com.init_android.app.presentation.ui.main.MainViewModel
@@ -24,7 +25,7 @@ class PlanFragment : BaseFragment<FragmentPlanBinding>(R.layout.fragment_plan) {
     private val mainViewModel: MainViewModel by activityViewModels()
     private val projectViewModel: ProjectViewModel by viewModels()
     private lateinit var partnerPlanAdapter: PartnerPlanAdapter
-    private lateinit var readyPlanAdapter : ReadyPlanAdapter
+    private lateinit var readyPlanAdapter: ReadyPlanAdapter
 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -41,12 +42,11 @@ class PlanFragment : BaseFragment<FragmentPlanBinding>(R.layout.fragment_plan) {
 
     private fun initSetting() {
         val pNum = mainViewModel.projectNum.value ?: 1
-        if(pNum != 1) {
+        if (pNum != 1) {
             binding.tvPartnerApprove.visibility = View.GONE
             binding.tvPartnerApproveNum.visibility = View.GONE
             binding.rvApprovePlan.visibility = View.GONE
-        }
-        else {
+        } else {
             binding.tvPartnerApprove.visibility = View.VISIBLE
             binding.tvPartnerApproveNum.visibility = View.VISIBLE
             binding.rvApprovePlan.visibility = View.VISIBLE
@@ -63,9 +63,12 @@ class PlanFragment : BaseFragment<FragmentPlanBinding>(R.layout.fragment_plan) {
         projectViewModel.myCrewPlan.observe(viewLifecycleOwner) {
             readyPlanAdapter.setQuestionPost((it.waitingPlan) as MutableList<ResponseReadyPlan.WaitingPlan>)
         }
+        initModelListener()
+    }
 
-        readyPlanAdapter.setOnItemClickListener(object : ReadyPlanAdapter.onItemClickListener{
-            override fun onItemClick(user: String, position: Int) {
+    private fun initModelListener() {
+        readyPlanAdapter.setOnItemClickListener(object : ReadyPlanAdapter.onItemClickListener {
+            override fun onItemClick(user: Int, position: Int) {
 
                 val title = "해당 팀원을 승인하시겠습니까?"
                 val dialog = CustomDialog(requireContext(), title)
@@ -74,17 +77,42 @@ class PlanFragment : BaseFragment<FragmentPlanBinding>(R.layout.fragment_plan) {
                 dialog.setOnClickedListener(object : CustomDialog.ButtonClickListener {
                     override fun onClicked(num: Int) {
                         if (num == 1) {
-                            Log.d("승인", "성공")
-                            Toast.makeText(requireContext(), "메시지 전송이 완료되었습니다.", Toast.LENGTH_SHORT).show()
+                            val userId = user
+                            val requestApproveProject = RequestApproveProject(
+                                mNum = 1,
+                                pNum = 1,
+                                apply = userId
+                            )
+                            Log.d("TestUSerId", userId.toString())
 
-                        } else {
-                            Log.d("승인", "거절")
-                            Toast.makeText(requireContext(), "메시지 전송이 취소되었습니다.", Toast.LENGTH_SHORT).show()
+                            projectViewModel.postApprove(requestApproveProject)
+                            projectViewModel.applyProject.observe(viewLifecycleOwner) {
+                                if (it.code == 201) {
+                                    Log.d("승인", "성공")
+                                    Toast.makeText(
+                                        requireContext(),
+                                        "승인이 완료되었습니다.",
+                                        Toast.LENGTH_SHORT
+                                    ).show()
+                                    initNetwork()
+                                    initApprove()
+                                } else {
+                                    Log.d("승인", "거절")
+                                    Toast.makeText(
+                                        requireContext(),
+                                        "메시지 전송이 취소되었습니다.",
+                                        Toast.LENGTH_SHORT
+                                    ).show()
+                                    initNetwork()
+                                    initApprove()
+                                }
+                            }
+
+
                         }
                     }
                 })
             }
-
         })
     }
 
