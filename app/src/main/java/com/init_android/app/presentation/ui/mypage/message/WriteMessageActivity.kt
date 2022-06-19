@@ -3,15 +3,18 @@ package com.init_android.app.presentation.ui.mypage.message
 import android.graphics.Color
 import android.os.Bundle
 import android.util.Log
+import android.widget.Toast
 import androidx.activity.viewModels
 import com.init_android.R
 import com.init_android.app.data.model.SelectableData
 import com.init_android.app.data.request.RequestFinishProject
 import com.init_android.app.data.request.mypage.RequestMyInfo
+import com.init_android.app.data.request.project.RequestApplyProject
 import com.init_android.app.presentation.ui.feed.FeedViewModel
 import com.init_android.app.presentation.ui.main.MainViewModel
 import com.init_android.app.presentation.ui.mypage.viewmodel.MyPageViewModel
 import com.init_android.app.util.CustomBottomSheetDialog
+import com.init_android.app.util.CustomDialog
 import com.init_android.databinding.ActivityWriteMessageBinding
 import com.playtogether_android.app.presentation.base.BaseActivity
 
@@ -28,6 +31,7 @@ class WriteMessageActivity :
         backBtnListener()
         bottomSheetListener()
         initNetwork()
+        finishBtnClick()
     }
 
     private fun backBtnListener() {
@@ -38,11 +42,12 @@ class WriteMessageActivity :
 
 
     private fun initNetwork() {
-        val mNum = intent.getIntExtra("userId", 2)
-        mainViewModel.otherNum.value = mNum
+        val mNum = intent.getIntExtra("pNum", 2)
+        //mainViewModel.otherNum.value = mNum
+
         val requestMyInfo = RequestMyInfo(
             //인텐트로 넘겨 온 mNum 세팅
-            mNum = intent.getIntExtra("userId", 2)
+            mNum = mNum
         )
 
 
@@ -86,6 +91,7 @@ class WriteMessageActivity :
                 partBottomSheetDialog.binding.btnBottomsheetCancel
 
                binding.tvMessageProject.text = part?.name
+                binding.tvMessageProject.setTextColor(Color.parseColor("#000000"))
                 partBottomSheetDialog.binding.btnBottomsheetComplete.setOnClickListener {
                     Log.d("클릭", "완료")
 
@@ -93,5 +99,29 @@ class WriteMessageActivity :
             }
         }
 
+    }
+
+    private fun finishBtnClick() {
+        binding.tvFinish.setOnClickListener {
+            val title = "메시지를 보내시겠습니까?\n 한번 보낸 메시지는 취소할 수 없습니다."
+            val dialog = CustomDialog(this, title)
+            dialog.showChoiceDialog(R.layout.dialog_yes_no)
+
+            val pNum = intent.getIntExtra("pNum", 1)
+            val mNum = 1
+
+            Log.d("pNum", "" + pNum)
+
+            dialog.setOnClickedListener(object : CustomDialog.ButtonClickListener {
+                override fun onClicked(num: Int) {
+                    if (num == 1) {
+                        Toast.makeText(this@WriteMessageActivity, "메시지 전송이 완료되었습니다.", Toast.LENGTH_SHORT).show()
+                        finish()
+                    } else {
+                        Toast.makeText(this@WriteMessageActivity, "메시지 전송이 취소되었습니다.", Toast.LENGTH_SHORT).show()
+                    }
+                }
+            })
+        }
     }
 }
