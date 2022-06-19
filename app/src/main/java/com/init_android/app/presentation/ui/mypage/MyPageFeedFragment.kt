@@ -22,7 +22,7 @@ class MyPageFeedFragment : BaseFragment<FragmentMyPageFeedBinding>(R.layout.frag
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        tryPostMyFeeds()
+        //tryPostMyFeeds()
     }
 
     private fun tryPostMyFeeds(){
@@ -32,9 +32,9 @@ class MyPageFeedFragment : BaseFragment<FragmentMyPageFeedBinding>(R.layout.frag
         myPageViewModel.postMyFeeds(requestMyFeed = RequestMyFeed(mNum))
 
         myPageViewModel.feedList.observe(viewLifecycleOwner) {
-            for (i in 0 until it.Feeds.size) {
+            for (i in 0 until it.Feeds?.size!!) {
                 val img_uri = it.Feeds[i].fTest
-                feedList.add(FeedListData(it.Feeds[i].fTitle, img_uri, it.Feeds[i].fNum))
+                feedList.add(FeedListData(it.Feeds[i].fTitle ?: "", img_uri, it.Feeds[i].fNum ?: 1))
 
             }
             adapter.submitList(feedList)
