@@ -5,8 +5,6 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
-import com.init_android.app.data.response.project.approve.ResponseApproveWeb
-import com.init_android.app.data.response.project.approve.ResponseProjectMember
 import com.init_android.app.data.response.project.ready.ResponseReadyWeb
 import com.init_android.app.presentation.ui.mypage.PartnerPageActivity
 import com.init_android.databinding.ItemPartnerWebListBinding

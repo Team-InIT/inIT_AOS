@@ -125,30 +125,6 @@ interface InitService {
     @POST("/teamMember")
     suspend fun postProjectMember(@Body body: RequestProjectMember): ResponseProjectMember
 
-    //팀원 정보_기획자
-    @POST("/memberPlanner")
-    suspend fun postPlanMember(@Body body: RequestProjectMember): ResponseApprovePlan
-
-    //팀원 정보_디자이너
-    @POST("/memberDesigner")
-    suspend fun postDesignMember(@Body body: RequestProjectMember): ResponseApproveDesign
-
-    //팀원 정보_IOS
-    @POST("/memberIos")
-    suspend fun postIosMember(@Body body: RequestProjectMember): ResponseApproveIos
-
-    //팀원 정보_AOS
-    suspend fun postAosMember(@Body body: RequestProjectMember): ResponseApproveAos
-
-    //팀원 정보_웹
-    suspend fun postWebMember(@Body body: RequestProjectMember): ResponseApproveWeb
-
-    //팀원 정보_게임
-    suspend fun postGameMember(@Body body: RequestProjectMember): ResponseApproveGame
-
-    //팀원 정보_서버
-    suspend fun postServerMember(@Body body: RequestProjectMember): ResponseApproveServer
-
 
     // 피드 상세보기
     @POST("/detailFeed")
