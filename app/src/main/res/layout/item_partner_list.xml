@@ -6,7 +6,7 @@
     <data>
         <variable
             name="Member"
-            type="com.init_android.app.data.response.project.approve.ResponseProjectMember.ApprovedPlan" />
+            type="com.init_android.app.data.response.project.ready.ResponseReadyPlan.ApprovedPlan" />
 
 
     </data>

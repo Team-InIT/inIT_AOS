@@ -8,16 +8,17 @@ import androidx.recyclerview.widget.RecyclerView
 import com.init_android.app.data.response.project.approve.ResponseProjectMember
 import com.init_android.app.data.response.project.ready.ResponseReadyPlan
 import com.init_android.app.presentation.ui.mypage.PartnerPageActivity
+import com.init_android.databinding.ItemPartnerApproveListBinding
 import com.init_android.databinding.ItemPartnerListBinding
 
-class PartnerPlanAdapter(var userId : Int) : RecyclerView.Adapter<PartnerPlanAdapter.PartnerListViewHolder>() {
-    var partnerData = mutableListOf<ResponseReadyPlan.ApprovedPlan>()
+class ReadyPlanAdapter(var userId : Int) : RecyclerView.Adapter<ReadyPlanAdapter.PartnerListViewHolder>() {
+    var partnerData = mutableListOf<ResponseReadyPlan.WaitingPlan>()
 
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
     ): PartnerListViewHolder {
-        val binding = ItemPartnerListBinding.inflate(
+        val binding = ItemPartnerApproveListBinding.inflate(
             LayoutInflater.from(parent.context),
             parent,
             false
@@ -45,17 +46,17 @@ class PartnerPlanAdapter(var userId : Int) : RecyclerView.Adapter<PartnerPlanAda
     override fun getItemCount(): Int = partnerData.size
 
     inner class PartnerListViewHolder(
-        val binding: ItemPartnerListBinding
+        val binding: ItemPartnerApproveListBinding
     ) : RecyclerView.ViewHolder(binding.root) {
-        fun onBind(partnerData: ResponseReadyPlan.ApprovedPlan) {
+        fun onBind(partnerData: ResponseReadyPlan.WaitingPlan) {
             binding.apply {
-                member = partnerData
+                ready = partnerData
                 executePendingBindings()
             }
         }
     }
 
-    fun setQuestionPost(partnerData: MutableList<ResponseReadyPlan.ApprovedPlan>) {
+    fun setQuestionPost(partnerData: MutableList<ResponseReadyPlan.WaitingPlan>) {
         this.partnerData = partnerData
         notifyDataSetChanged()
 

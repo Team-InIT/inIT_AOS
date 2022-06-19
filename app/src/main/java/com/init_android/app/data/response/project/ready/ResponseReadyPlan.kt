@@ -26,7 +26,7 @@ data class ResponseReadyPlan(
         val mEmail: String,
         val mName: String,
         val mNum: Int,
-        val mPhoto: Any
+        val mPhoto: String?
     ) {
         data class Recruit(
             val mNum: Int,
