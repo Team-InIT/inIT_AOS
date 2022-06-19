@@ -32,6 +32,21 @@ class PlanFragment : BaseFragment<FragmentPlanBinding>(R.layout.fragment_plan) {
         super.onResume()
         initNetwork()
         initApprove()
+        initSetting()
+    }
+
+    private fun initSetting() {
+        val pNum = mainViewModel.projectNum.value ?: 1
+        if(pNum != 1) {
+            binding.tvPartnerApprove.visibility = View.GONE
+            binding.tvPartnerApproveNum.visibility = View.GONE
+            binding.rvApprovePlan.visibility = View.GONE
+        }
+        else {
+            binding.tvPartnerApprove.visibility = View.VISIBLE
+            binding.tvPartnerApproveNum.visibility = View.VISIBLE
+            binding.rvApprovePlan.visibility = View.VISIBLE
+        }
     }
 
     private fun initApprove() {

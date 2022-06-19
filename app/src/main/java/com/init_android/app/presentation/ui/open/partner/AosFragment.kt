@@ -1,6 +1,7 @@
 package com.init_android.app.presentation.ui.open.partner
 
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
@@ -30,12 +31,28 @@ class AosFragment : BaseFragment<FragmentAosBinding>(R.layout.fragment_aos) {
         super.onResume()
         initNetwork()
         initApprove()
+        initSetting()
+    }
+
+    private fun initSetting() {
+        val pNum = mainViewModel.projectNum.value ?: 1
+        if(pNum != 1) {
+            binding.tvPartnerApprove.visibility = View.GONE
+            binding.tvPartnerApproveNum.visibility = View.GONE
+            binding.rvApproveAos.visibility = View.GONE
+        }
+        else {
+            binding.tvPartnerApprove.visibility = View.VISIBLE
+            binding.tvPartnerApproveNum.visibility = View.VISIBLE
+            binding.rvApproveAos.visibility = View.VISIBLE
+        }
     }
 
     //승인 대기 중
     private fun initApprove() {
         val pNum = mainViewModel.projectNum.value ?: 1
         val requestProjectMember = RequestProjectMember(pNum = pNum)
+
         projectViewModel.postMyCrewAos(requestProjectMember)
         readyAosAdapter = ReadyAosAdapter(1)
         binding.rvApproveAos.adapter = readyAosAdapter

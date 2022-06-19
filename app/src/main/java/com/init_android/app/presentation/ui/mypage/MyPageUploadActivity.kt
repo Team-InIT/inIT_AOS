@@ -38,7 +38,7 @@ class MyPageUploadActivity : BaseActivity<ActivityMyPageUploadBinding>(R.layout.
         myPageViewModel.postUploadProject(requestUpload)
         uploadAdapter = UploadAdapter(1)
         binding.rvMypageUpload.adapter = uploadAdapter
-        myPageViewModel.zzimList.observe(this) {
+        myPageViewModel.uploadList.observe(this) {
             uploadAdapter.setQuestionPost((it.projectInfoList) as MutableList<ResponseUpload.ProjectInfo>)
         }
     }
