@@ -45,9 +45,10 @@
             android:id="@+id/iv_profile"
             imageBind="@{mem.MPhoto}"
             android:layout_width="24dp"
+            android:layout_marginStart="12dp"
             android:layout_height="24dp"
             android:layout_marginTop="4dp"
-            app:layout_constraintStart_toStartOf="@+id/tv_end_date"
+            app:layout_constraintStart_toStartOf="@+id/iv_check_box"
             app:layout_constraintTop_toBottomOf="@+id/tv_end_date"
             tools:background="@drawable/test" />
 

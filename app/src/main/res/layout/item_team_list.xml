@@ -12,11 +12,7 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="16dp"
-        android:background="@drawable/selector_team_item">
+        android:layout_height="wrap_content">
 
         <ImageView
             android:id="@+id/iv_partner"
@@ -52,6 +48,17 @@
             android:textSize="12sp"
             app:layout_constraintStart_toStartOf="@id/tv_team_name"
             app:layout_constraintTop_toBottomOf="@id/tv_team_name" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:background="@color/gray_5"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="8dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            app:layout_constraintTop_toBottomOf="@+id/iv_partner" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
