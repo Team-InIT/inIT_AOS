@@ -259,6 +259,6 @@ interface InitService {
 
     //마이페이지 팀원 평가 확인
     @POST("/myEvaluation")
-    suspend fun postMyEvaluation(@Body requestWaitingApproval: RequestWaitingApproval) : ResponseEvaluation.MyEvaluation
+    suspend fun postMyEvaluation(@Body requestWaitingApproval: RequestWaitingApproval) : ResponseEvaluation
 
 }

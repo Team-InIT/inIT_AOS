@@ -8,7 +8,7 @@ import com.init_android.app.data.response.mypage.ResponseEvaluation
 import com.init_android.app.data.response.project.approve.ResponseProjectMember
 import com.init_android.databinding.ItemRatingListBinding
 
-class RatingAdapter : RecyclerView.Adapter<RatingAdapter.PartnerListViewHolder>() {
+class RatingAdapter() : RecyclerView.Adapter<RatingAdapter.PartnerListViewHolder>() {
     var partnerData = mutableListOf<ResponseEvaluation.MyEvaluation>()
 
     override fun onCreateViewHolder(

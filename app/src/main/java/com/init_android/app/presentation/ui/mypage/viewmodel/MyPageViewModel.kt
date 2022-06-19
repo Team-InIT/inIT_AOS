@@ -73,8 +73,8 @@ class MyPageViewModel() : ViewModel() {
         get() = _uploadList
 
 
-    private val _myEvaluation = MutableLiveData<ResponseEvaluation.MyEvaluation>()
-    val myEvaluation: LiveData<ResponseEvaluation.MyEvaluation>
+    private val _myEvaluation = MutableLiveData<ResponseEvaluation>()
+    val myEvaluation: LiveData<ResponseEvaluation>
         get() = _myEvaluation
 
     // 서버통신
