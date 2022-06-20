@@ -54,10 +54,10 @@ object BindingAdapter {
             0 -> {
                 textView.text = "D-DAY"
             }
-            1 -> {
+            2 -> {
                 textView.text = "FIN"
             }
-            2 -> {
+            1 -> {
                 textView.text = "ING"
             }
         }
@@ -71,11 +71,28 @@ object BindingAdapter {
                 view.background = ContextCompat.getDrawable(view.context,R.drawable.rectangle_fill_red_radius_14)
 
             }
-            1 -> {
+            2 -> {
                 view.background = ContextCompat.getDrawable(view.context,R.drawable.rectangle_fill_gray_radius_14)
             }
-            2 -> {
+            1 -> {
                 view.background = ContextCompat.getDrawable(view.context,R.drawable.rectangle_fill_black_radius_14)
+            }
+        }
+    }
+
+    @JvmStatic
+    @BindingAdapter("pStateBind")
+    fun setState(view: View, pState: Int) {
+        when (pState) {
+            0 -> {
+                view.background = ContextCompat.getDrawable(view.context,R.drawable.rectangle_fill_black_radius_14)
+
+            }
+            2 -> {
+                view.background = ContextCompat.getDrawable(view.context,R.drawable.rectangle_fill_gray_radius_14)
+            }
+            1 -> {
+                view.background = ContextCompat.getDrawable(view.context,R.drawable.rectangle_fill_red_radius_14)
             }
         }
     }

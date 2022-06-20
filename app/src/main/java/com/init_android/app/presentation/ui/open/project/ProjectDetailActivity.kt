@@ -87,24 +87,7 @@ class ProjectDetailActivity :
             binding.btnDetailApply.setOnClickListener {
                 projectViewModel.detailProject.observe(this) {
                     binding.project = it.detailInfo
-
-                    if (it.code == 201) {
-//                        Toast.makeText(
-//                            this@ProjectDetailActivity,
-//                            "이미 지원한 프로젝트입니다.",
-//                            Toast.LENGTH_SHORT
-//                        )
-//                            .show()
-                        clickListener()
-
-                    } else if (it.detailInfo?.writerInfo?.mNum == mNum) {
-                        Toast.makeText(this@ProjectDetailActivity, "내 프로젝트 입니다", Toast.LENGTH_SHORT)
-                            .show()
-                        Log.d("Test", "내 프로젝트")
-
-                    } else {
-                        clickListener()
-                    }
+                    clickListener()
                 }
             }
 
@@ -278,6 +261,7 @@ class ProjectDetailActivity :
         dialog.showChoiceDialog(R.layout.dialog_yes_no)
 
         val pNum = intent.getIntExtra("pNum", 1)
+        Log.d("Test", pNum.toString())
         val mNum = 1
 
         Log.d("pNum", "" + pNum)

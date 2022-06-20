@@ -31,12 +31,11 @@
 
         <ImageView
             android:id="@+id/iv_partner"
+            android:background="@drawable/ic_basic_profile"
             android:layout_width="36dp"
             android:layout_height="36dp"
             android:layout_marginStart="20dp"
             android:layout_marginEnd="20dp"
-            android:layout_marginTop="4dp"
-            imageBind="@{member.MPhoto}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/imageView" />

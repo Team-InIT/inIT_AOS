@@ -62,6 +62,7 @@
             <ImageView
                 android:id="@+id/iv_position_icon"
                 android:layout_width="wrap_content"
+                android:visibility="gone"
                 android:layout_height="wrap_content"
                 android:src="@drawable/ic_android" />
 
@@ -70,6 +71,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:gravity="center"
+                android:visibility="gone"
                 android:text="Android Developer"
                 android:textSize="16sp" />
         </LinearLayout>

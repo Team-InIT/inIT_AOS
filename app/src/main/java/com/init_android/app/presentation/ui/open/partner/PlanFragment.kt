@@ -117,6 +117,8 @@ class PlanFragment : BaseFragment<FragmentPlanBinding>(R.layout.fragment_plan) {
                                         }
                                     }
                                 }
+                                initApprove()
+                                initNetwork()
                             }
                         }
                     }

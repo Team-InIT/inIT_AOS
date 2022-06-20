@@ -12,22 +12,23 @@ import com.init_android.databinding.ActivityOpenProjectSecondBinding
 import com.playtogether_android.app.presentation.base.BaseActivity
 import java.text.SimpleDateFormat
 
+
 class OpenProjectSecondActivity :
     BaseActivity<ActivityOpenProjectSecondBinding>(R.layout.activity_open_project_second) {
 
     private val projectViewModel: ProjectViewModel by viewModels()
-    private val mainViewModel : MainViewModel by viewModels()
+    private val mainViewModel: MainViewModel by viewModels()
 
     val formatter = SimpleDateFormat("yyyy-MM-dd")
-    var pGender: Int? = 0
-    var pAcademic: Int? = 0
-    var pPlanf: Int? = 0
-    var pDesignf: Int? = 0
-    var pIosf: Int? = 0
-    var pAosf: Int? = 0
-    var pGamef: Int? = 0
-    var pWebf: Int? = 0
-    var pServerf: Int? = 0
+    var pGender: Int? = null
+    var pAcademic: Int? = null
+    var pPlanf: Int? = null
+    var pDesignf: Int? = null
+    var pAosf: Int? = null
+    var pIosf: Int? = null
+    var pGamef: Int? = null
+    var pServerf: Int? = null
+    var pWebf: Int? = null
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -41,14 +42,14 @@ class OpenProjectSecondActivity :
 
         with(binding) {
             makeRadioButton2(tvMale, tvFemale)
-            makeRadioButton3(tvEnroll, tvLeave, tvGraduate)
-            makeRadioButton3(tvPlanHigh, tvPlanMid, tvPlanLow)
-            makeRadioButton3(tvDesignHigh, tvDesignMid, tvDesignLow)
-            makeRadioButton3(tvWebHigh,tvWebMid,tvWebLow)
-            makeRadioButton3(tvIosHigh,tvIosMid,tvIosLow)
-            makeRadioButton3(tvAosHigh, tvAosMid, tvAosLow)
-            makeRadioButton3(tvGameHigh, tvGameMid, tvGameLow)
-            makeRadioButton3(tvServerHigh, tvServerMid, tvServerLow)
+            makeEnroll(tvEnroll, tvLeave, tvGraduate)
+            makePlan(tvPlanHigh, tvPlanMid, tvPlanLow)
+            makeDesign(tvDesignHigh, tvDesignMid, tvDesignLow)
+            makeWeb(tvWebHigh, tvWebMid, tvWebLow)
+            makeIos(tvIosHigh, tvIosMid, tvIosLow)
+            makeAos(tvAosHigh, tvAosMid, tvAosLow)
+            makeGame(tvGameHigh, tvGameMid, tvGameLow)
+            makeServer(tvServerHigh, tvServerMid, tvServerLow)
         }
 
     }
@@ -154,17 +155,9 @@ class OpenProjectSecondActivity :
         }
     }
 
-    //끝내기 버튼튼
+    //끝내기 버튼
     private fun initNextBtn() {
 
-
-        if (binding.tvMale.isSelected) {
-            pGender = 0
-        } else if (binding.tvFemale.isSelected) {
-            pGender = 1
-        } else {
-            pGender = null
-        }
 
         if (binding.tvEnroll.isSelected) {
             pAcademic = 0
@@ -243,9 +236,8 @@ class OpenProjectSecondActivity :
         } else {
             pServerf = null
         }
-
-
     }
+
 
     private fun initNetwork() {
         binding.tvFinish.setOnClickListener {
@@ -283,7 +275,7 @@ class OpenProjectSecondActivity :
 
             projectViewModel.postOpenProject(requestAddProject)
             projectViewModel.openProject.observe(this) {
-                if(it.code == 201) {
+                if (it.code == 201) {
                     finish()
                 } else {
                     projectViewModel.postOpenProject(requestAddProject)
@@ -294,13 +286,15 @@ class OpenProjectSecondActivity :
         }
     }
 
-    private fun makeRadioButton3(view1: View, view2: View, view3: View) {
+    private fun makeEnroll(view1: View, view2: View, view3: View) {
         view1.setOnClickListener {
             if (!view1.isSelected) {
                 view1.isSelected = true
                 view2.isSelected = false
                 view3.isSelected = false
             }
+            pAcademic = 0
+
         }
         view2.setOnClickListener {
             if (!view2.isSelected) {
@@ -308,6 +302,7 @@ class OpenProjectSecondActivity :
                 view2.isSelected = true
                 view3.isSelected = false
             }
+            pAcademic = 1
         }
         view3.setOnClickListener {
             if (!view3.isSelected) {
@@ -315,7 +310,205 @@ class OpenProjectSecondActivity :
                 view2.isSelected = false
                 view3.isSelected = true
             }
+            pAcademic = 2
         }
+        pAcademic = null
+    }
+
+    private fun makePlan(view1: View, view2: View, view3: View) {
+        view1.setOnClickListener {
+            if (!view1.isSelected) {
+                view1.isSelected = true
+                view2.isSelected = false
+                view3.isSelected = false
+            }
+            pPlanf = 0
+        }
+        view2.setOnClickListener {
+            if (!view2.isSelected) {
+                view1.isSelected = false
+                view2.isSelected = true
+                view3.isSelected = false
+            }
+            pPlanf = 1
+        }
+        view3.setOnClickListener {
+            if (!view3.isSelected) {
+                view1.isSelected = false
+                view2.isSelected = false
+                view3.isSelected = true
+            }
+            pPlanf = 2
+        }
+        pPlanf = null
+    }
+
+    private fun makeDesign(view1: View, view2: View, view3: View) {
+        view1.setOnClickListener {
+            if (!view1.isSelected) {
+                view1.isSelected = true
+                view2.isSelected = false
+                view3.isSelected = false
+            }
+            pDesignf = 0
+        }
+        view2.setOnClickListener {
+            if (!view2.isSelected) {
+                view1.isSelected = false
+                view2.isSelected = true
+                view3.isSelected = false
+            }
+            pDesignf = 1
+        }
+        view3.setOnClickListener {
+            if (!view3.isSelected) {
+                view1.isSelected = false
+                view2.isSelected = false
+                view3.isSelected = true
+            }
+            pDesignf = 2
+        }
+        pDesignf = null
+    }
+
+    private fun makeWeb(view1: View, view2: View, view3: View) {
+        view1.setOnClickListener {
+            if (!view1.isSelected) {
+                view1.isSelected = true
+                view2.isSelected = false
+                view3.isSelected = false
+            }
+            pWebf = 0
+        }
+        view2.setOnClickListener {
+            if (!view2.isSelected) {
+                view1.isSelected = false
+                view2.isSelected = true
+                view3.isSelected = false
+            }
+            pWebf = 1
+        }
+        view3.setOnClickListener {
+            if (!view3.isSelected) {
+                view1.isSelected = false
+                view2.isSelected = false
+                view3.isSelected = true
+            }
+            pWebf = 2
+        }
+        pWebf = null
+    }
+
+    private fun makeIos(view1: View, view2: View, view3: View) {
+        view1.setOnClickListener {
+            if (!view1.isSelected) {
+                view1.isSelected = true
+                view2.isSelected = false
+                view3.isSelected = false
+            }
+            pIosf = 0
+        }
+        view2.setOnClickListener {
+            if (!view2.isSelected) {
+                view1.isSelected = false
+                view2.isSelected = true
+                view3.isSelected = false
+            }
+            pIosf = 1
+        }
+        view3.setOnClickListener {
+            if (!view3.isSelected) {
+                view1.isSelected = false
+                view2.isSelected = false
+                view3.isSelected = true
+            }
+            pIosf = 2
+        }
+        pIosf = null
+    }
+
+    private fun makeAos(view1: View, view2: View, view3: View) {
+        view1.setOnClickListener {
+            if (!view1.isSelected) {
+                view1.isSelected = true
+                view2.isSelected = false
+                view3.isSelected = false
+            }
+            pAosf = 0
+        }
+        view2.setOnClickListener {
+            if (!view2.isSelected) {
+                view1.isSelected = false
+                view2.isSelected = true
+                view3.isSelected = false
+            }
+            pAosf = 1
+        }
+        view3.setOnClickListener {
+            if (!view3.isSelected) {
+                view1.isSelected = false
+                view2.isSelected = false
+                view3.isSelected = true
+            }
+            pAosf = 2
+        }
+        pAosf = null
+    }
+
+    private fun makeGame(view1: View, view2: View, view3: View) {
+        view1.setOnClickListener {
+            if (!view1.isSelected) {
+                view1.isSelected = true
+                view2.isSelected = false
+                view3.isSelected = false
+            }
+            pGamef = 0
+        }
+        view2.setOnClickListener {
+            if (!view2.isSelected) {
+                view1.isSelected = false
+                view2.isSelected = true
+                view3.isSelected = false
+            }
+            pGamef = 1
+        }
+        view3.setOnClickListener {
+            if (!view3.isSelected) {
+                view1.isSelected = false
+                view2.isSelected = false
+                view3.isSelected = true
+            }
+            pGamef = 2
+        }
+        pGamef = null
+    }
+
+    private fun makeServer(view1: View, view2: View, view3: View) {
+        view1.setOnClickListener {
+            if (!view1.isSelected) {
+                view1.isSelected = true
+                view2.isSelected = false
+                view3.isSelected = false
+            }
+            pServerf = 0
+        }
+        view2.setOnClickListener {
+            if (!view2.isSelected) {
+                view1.isSelected = false
+                view2.isSelected = true
+                view3.isSelected = false
+            }
+            pServerf = 1
+        }
+        view3.setOnClickListener {
+            if (!view3.isSelected) {
+                view1.isSelected = false
+                view2.isSelected = false
+                view3.isSelected = true
+            }
+            pServerf = 2
+        }
+        pServerf = null
     }
 
     private fun makeRadioButton2(view1: View, view2: View) {
@@ -324,13 +517,17 @@ class OpenProjectSecondActivity :
                 view1.isSelected = true
                 view2.isSelected = false
             }
+            pGender = 0
         }
         view2.setOnClickListener {
             if (!view2.isSelected) {
                 view1.isSelected = false
                 view2.isSelected = true
             }
+            pGender = 1
         }
+        pGender = null
+
     }
 
     private fun backBtnListener() {

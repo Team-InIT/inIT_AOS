@@ -122,7 +122,9 @@ class WriteToDoActivity : BaseActivity<ActivityWriteToDoBinding>(R.layout.activi
             val requestToDoMember = RequestToDoMember(1, firstMajorPeriod?.id ?: 1)
             Log.d("partNum", firstMajorPeriod?.id.toString())
             todoViewModel.postToDoMember(requestToDoMember)
+            //dataList.clear()
             todoViewModel.todoMember.observe(this) {
+                //dataList.clear()
                 val data = it.members.toMutableList()
                 val dataList = mutableListOf<SelectableData>()
                 dataList.clear()

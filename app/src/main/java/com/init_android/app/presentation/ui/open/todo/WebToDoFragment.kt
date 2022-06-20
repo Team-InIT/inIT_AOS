@@ -24,6 +24,7 @@ class WebTodoFragment : BaseFragment<FragmentWebToDoBinding>(R.layout.fragment_w
     override fun onResume() {
         super.onResume()
         initNetwork()
+        initCheckClick()
     }
 
     private fun initNetwork() {
@@ -34,5 +35,14 @@ class WebTodoFragment : BaseFragment<FragmentWebToDoBinding>(R.layout.fragment_w
         todoViewModel.readAllToDo.observe(viewLifecycleOwner) {
             toDoPlanAdapter.setQuestionPost((it.todoList) as MutableList<ResponseAllToDo.Todo>)
         }
+    }
+
+    private fun initCheckClick() {
+        toDoPlanAdapter.setOnItemClickListener(object : ToDoPlanAdapter.onItemClickListener{
+            override fun onItemClick(position: Int) {
+
+            }
+
+        })
     }
 }

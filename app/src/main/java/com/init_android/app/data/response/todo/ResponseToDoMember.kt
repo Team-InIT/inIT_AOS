@@ -8,7 +8,7 @@ data class ResponseToDoMember(
         val Recruits: List<Recruit>,
         val mName: String,
         val mNum: Int,
-        val mPhoto: String
+        val mPhoto: String?
     ) {
         data class Recruit(
             val mNum: Int,
