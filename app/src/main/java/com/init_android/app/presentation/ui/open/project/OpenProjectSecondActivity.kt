@@ -3,9 +3,6 @@ package com.init_android.app.presentation.ui.open.project
 import android.os.Bundle
 import android.util.Log
 import android.view.View
-import android.widget.RadioButton
-import android.widget.RadioGroup
-import android.widget.Toast
 import androidx.activity.viewModels
 import com.init_android.R
 import com.init_android.app.data.request.RequestAddProject
@@ -23,16 +20,6 @@ class OpenProjectSecondActivity :
     private val mainViewModel: MainViewModel by viewModels()
 
     val formatter = SimpleDateFormat("yyyy-MM-dd")
-//    var pGender: Int? = null
-//    var pAcademic: Int?
-//    var pPlanf: Int
-//    var pDesignf: Int? = 0
-//    var pIosf: Int? = 0
-//    var pAosf: Int? = 0
-//    var pGamef: Int? = 0
-//    var pWebf: Int? = 0
-//    var pServerf: Int? = 0
-
     var pGender: Int? = null
     var pAcademic: Int? = null
     var pPlanf: Int? = null
@@ -55,14 +42,14 @@ class OpenProjectSecondActivity :
 
         with(binding) {
             makeRadioButton2(tvMale, tvFemale)
-            makeRadioButton3(tvEnroll, tvLeave, tvGraduate)
-            makeRadioButton3(tvPlanHigh, tvPlanMid, tvPlanLow)
-            makeRadioButton3(tvDesignHigh, tvDesignMid, tvDesignLow)
-            makeRadioButton3(tvWebHigh, tvWebMid, tvWebLow)
-            makeRadioButton3(tvIosHigh, tvIosMid, tvIosLow)
-            makeRadioButton3(tvAosHigh, tvAosMid, tvAosLow)
-            makeRadioButton3(tvGameHigh, tvGameMid, tvGameLow)
-            makeRadioButton3(tvServerHigh, tvServerMid, tvServerLow)
+            makeEnroll(tvEnroll, tvLeave, tvGraduate)
+            makePlan(tvPlanHigh, tvPlanMid, tvPlanLow)
+            makeDesign(tvDesignHigh, tvDesignMid, tvDesignLow)
+            makeWeb(tvWebHigh, tvWebMid, tvWebLow)
+            makeIos(tvIosHigh, tvIosMid, tvIosLow)
+            makeAos(tvAosHigh, tvAosMid, tvAosLow)
+            makeGame(tvGameHigh, tvGameMid, tvGameLow)
+            makeServer(tvServerHigh, tvServerMid, tvServerLow)
         }
 
     }
@@ -170,110 +157,87 @@ class OpenProjectSecondActivity :
 
     //끝내기 버튼
     private fun initNextBtn() {
-        with(binding) {
-//            makeRadioButton2(tvMale, tvFemale)
-//            makeRadioButton3(tvEnroll, tvLeave, tvGraduate)
-//            makeRadioButton3(tvPlanHigh, tvPlanMid, tvPlanLow)
-//            makeRadioButton3(tvDesignHigh, tvDesignMid, tvDesignLow)
-//            makeRadioButton3(tvWebHigh, tvWebMid, tvWebLow)
-//            makeRadioButton3(tvIosHigh, tvIosMid, tvIosLow)
-//            makeRadioButton3(tvAosHigh, tvAosMid, tvAosLow)
-//            makeRadioButton3(tvGameHigh, tvGameMid, tvGameLow)
-//            makeRadioButton3(tvServerHigh, tvServerMid, tvServerLow)
 
 
-//            if (binding.tvMale.isSelected) {
-//                pGender = 0
-//            } else if (binding.tvFemale.isSelected) {
-//                pGender = 1
-//            } else {
-//                pGender = null
-//            }
-
-            if (binding.tvEnroll.isSelected) {
-                pAcademic = 0
-            } else if (binding.tvLeave.isSelected) {
-                pAcademic = 1
-            } else {
-                pAcademic = null
-            }
-
-            if (binding.tvPlanHigh.isSelected) {
-                pPlanf = 0
-            } else if (binding.tvPlanMid.isSelected) {
-                pPlanf = 1
-            } else if (binding.tvPlanLow.isSelected) {
-                pPlanf = 2
-            } else {
-                pPlanf = null
-            }
-
-            if (binding.tvDesignHigh.isSelected) {
-                pDesignf = 0
-            } else if (binding.tvDesignMid.isSelected) {
-                pDesignf = 1
-            } else if (binding.tvDesignLow.isSelected) {
-                pDesignf = 2
-            } else {
-                pDesignf = null
-            }
-
-            if (binding.tvIosHigh.isSelected) {
-                pIosf = 0
-            } else if (binding.tvIosMid.isSelected) {
-                pIosf = 1
-            } else if (binding.tvIosLow.isSelected) {
-                pIosf = 2
-            } else {
-                pIosf = null
-            }
-
-            if (binding.tvAosHigh.isSelected) {
-                pAosf = 0
-            } else if (binding.tvAosMid.isSelected) {
-                pAosf = 1
-            } else if (binding.tvAosLow.isSelected) {
-                pAosf = 2
-            } else {
-                pAosf = null
-            }
-
-            if (binding.tvGameHigh.isSelected) {
-                pGamef = 0
-            } else if (binding.tvGameMid.isSelected) {
-                pGamef = 1
-            } else if (binding.tvGameLow.isSelected) {
-                pGamef = 2
-            } else {
-                pGamef = null
-            }
-
-            if (binding.tvWebHigh.isSelected) {
-                pWebf = 0
-            } else if (binding.tvWebMid.isSelected) {
-                pWebf = 1
-            } else if (binding.tvWebLow.isSelected) {
-                pWebf = 2
-            } else {
-                pWebf = null
-            }
-
-            if (binding.tvServerHigh.isSelected) {
-                pServerf = 0
-            } else if (binding.tvServerMid.isSelected) {
-                pServerf = 1
-            } else if (binding.tvServerLow.isSelected) {
-                pServerf = 2
-            } else {
-                pServerf = null
-            }
-
-            Log.d("pServerf", pServerf.toString())
-            Log.d("pWebf", pWebf.toString())
-            Log.d("pGender", pGender.toString())
+        if (binding.tvEnroll.isSelected) {
+            pAcademic = 0
+        } else if (binding.tvLeave.isSelected) {
+            pAcademic = 1
+        } else {
+            pAcademic = null
         }
 
+        if (binding.tvPlanHigh.isSelected) {
+            pPlanf = 0
+        } else if (binding.tvPlanMid.isSelected) {
+            pPlanf = 1
+        } else if (binding.tvPlanLow.isSelected) {
+            pPlanf = 2
+        } else {
+            pPlanf = null
+        }
+
+        if (binding.tvDesignHigh.isSelected) {
+            pDesignf = 0
+        } else if (binding.tvDesignMid.isSelected) {
+            pDesignf = 1
+        } else if (binding.tvDesignLow.isSelected) {
+            pDesignf = 2
+        } else {
+            pDesignf = null
+        }
+
+        if (binding.tvIosHigh.isSelected) {
+            pIosf = 0
+        } else if (binding.tvIosMid.isSelected) {
+            pIosf = 1
+        } else if (binding.tvIosLow.isSelected) {
+            pIosf = 2
+        } else {
+            pIosf = null
+        }
+
+        if (binding.tvAosHigh.isSelected) {
+            pAosf = 0
+        } else if (binding.tvAosMid.isSelected) {
+            pAosf = 1
+        } else if (binding.tvAosLow.isSelected) {
+            pAosf = 2
+        } else {
+            pAosf = null
+        }
+
+        if (binding.tvGameHigh.isSelected) {
+            pGamef = 0
+        } else if (binding.tvGameMid.isSelected) {
+            pGamef = 1
+        } else if (binding.tvGameLow.isSelected) {
+            pGamef = 2
+        } else {
+            pGamef = null
+        }
+
+        if (binding.tvWebHigh.isSelected) {
+            pWebf = 0
+        } else if (binding.tvWebMid.isSelected) {
+            pWebf = 1
+        } else if (binding.tvWebLow.isSelected) {
+            pWebf = 2
+        } else {
+            pWebf = null
+        }
+
+        if (binding.tvServerHigh.isSelected) {
+            pServerf = 0
+        } else if (binding.tvServerMid.isSelected) {
+            pServerf = 1
+        } else if (binding.tvServerLow.isSelected) {
+            pServerf = 2
+        } else {
+            pServerf = null
+        }
     }
+
 
     private fun initNetwork() {
         binding.tvFinish.setOnClickListener {
@@ -322,13 +286,15 @@ class OpenProjectSecondActivity :
         }
     }
 
-    private fun makeRadioButton3(view1: View, view2: View, view3: View) {
+    private fun makeEnroll(view1: View, view2: View, view3: View) {
         view1.setOnClickListener {
             if (!view1.isSelected) {
                 view1.isSelected = true
                 view2.isSelected = false
                 view3.isSelected = false
             }
+            pAcademic = 0
+
         }
         view2.setOnClickListener {
             if (!view2.isSelected) {
@@ -336,6 +302,7 @@ class OpenProjectSecondActivity :
                 view2.isSelected = true
                 view3.isSelected = false
             }
+            pAcademic = 1
         }
         view3.setOnClickListener {
             if (!view3.isSelected) {
@@ -343,7 +310,205 @@ class OpenProjectSecondActivity :
                 view2.isSelected = false
                 view3.isSelected = true
             }
+            pAcademic = 2
         }
+        pAcademic = null
+    }
+
+    private fun makePlan(view1: View, view2: View, view3: View) {
+        view1.setOnClickListener {
+            if (!view1.isSelected) {
+                view1.isSelected = true
+                view2.isSelected = false
+                view3.isSelected = false
+            }
+            pPlanf = 0
+        }
+        view2.setOnClickListener {
+            if (!view2.isSelected) {
+                view1.isSelected = false
+                view2.isSelected = true
+                view3.isSelected = false
+            }
+            pPlanf = 1
+        }
+        view3.setOnClickListener {
+            if (!view3.isSelected) {
+                view1.isSelected = false
+                view2.isSelected = false
+                view3.isSelected = true
+            }
+            pPlanf = 2
+        }
+        pPlanf = null
+    }
+
+    private fun makeDesign(view1: View, view2: View, view3: View) {
+        view1.setOnClickListener {
+            if (!view1.isSelected) {
+                view1.isSelected = true
+                view2.isSelected = false
+                view3.isSelected = false
+            }
+            pDesignf = 0
+        }
+        view2.setOnClickListener {
+            if (!view2.isSelected) {
+                view1.isSelected = false
+                view2.isSelected = true
+                view3.isSelected = false
+            }
+            pDesignf = 1
+        }
+        view3.setOnClickListener {
+            if (!view3.isSelected) {
+                view1.isSelected = false
+                view2.isSelected = false
+                view3.isSelected = true
+            }
+            pDesignf = 2
+        }
+        pDesignf = null
+    }
+
+    private fun makeWeb(view1: View, view2: View, view3: View) {
+        view1.setOnClickListener {
+            if (!view1.isSelected) {
+                view1.isSelected = true
+                view2.isSelected = false
+                view3.isSelected = false
+            }
+            pWebf = 0
+        }
+        view2.setOnClickListener {
+            if (!view2.isSelected) {
+                view1.isSelected = false
+                view2.isSelected = true
+                view3.isSelected = false
+            }
+            pWebf = 1
+        }
+        view3.setOnClickListener {
+            if (!view3.isSelected) {
+                view1.isSelected = false
+                view2.isSelected = false
+                view3.isSelected = true
+            }
+            pWebf = 2
+        }
+        pWebf = null
+    }
+
+    private fun makeIos(view1: View, view2: View, view3: View) {
+        view1.setOnClickListener {
+            if (!view1.isSelected) {
+                view1.isSelected = true
+                view2.isSelected = false
+                view3.isSelected = false
+            }
+            pIosf = 0
+        }
+        view2.setOnClickListener {
+            if (!view2.isSelected) {
+                view1.isSelected = false
+                view2.isSelected = true
+                view3.isSelected = false
+            }
+            pIosf = 1
+        }
+        view3.setOnClickListener {
+            if (!view3.isSelected) {
+                view1.isSelected = false
+                view2.isSelected = false
+                view3.isSelected = true
+            }
+            pIosf = 2
+        }
+        pIosf = null
+    }
+
+    private fun makeAos(view1: View, view2: View, view3: View) {
+        view1.setOnClickListener {
+            if (!view1.isSelected) {
+                view1.isSelected = true
+                view2.isSelected = false
+                view3.isSelected = false
+            }
+            pAosf = 0
+        }
+        view2.setOnClickListener {
+            if (!view2.isSelected) {
+                view1.isSelected = false
+                view2.isSelected = true
+                view3.isSelected = false
+            }
+            pAosf = 1
+        }
+        view3.setOnClickListener {
+            if (!view3.isSelected) {
+                view1.isSelected = false
+                view2.isSelected = false
+                view3.isSelected = true
+            }
+            pAosf = 2
+        }
+        pAosf = null
+    }
+
+    private fun makeGame(view1: View, view2: View, view3: View) {
+        view1.setOnClickListener {
+            if (!view1.isSelected) {
+                view1.isSelected = true
+                view2.isSelected = false
+                view3.isSelected = false
+            }
+            pGamef = 0
+        }
+        view2.setOnClickListener {
+            if (!view2.isSelected) {
+                view1.isSelected = false
+                view2.isSelected = true
+                view3.isSelected = false
+            }
+            pGamef = 1
+        }
+        view3.setOnClickListener {
+            if (!view3.isSelected) {
+                view1.isSelected = false
+                view2.isSelected = false
+                view3.isSelected = true
+            }
+            pGamef = 2
+        }
+        pGamef = null
+    }
+
+    private fun makeServer(view1: View, view2: View, view3: View) {
+        view1.setOnClickListener {
+            if (!view1.isSelected) {
+                view1.isSelected = true
+                view2.isSelected = false
+                view3.isSelected = false
+            }
+            pServerf = 0
+        }
+        view2.setOnClickListener {
+            if (!view2.isSelected) {
+                view1.isSelected = false
+                view2.isSelected = true
+                view3.isSelected = false
+            }
+            pServerf = 1
+        }
+        view3.setOnClickListener {
+            if (!view3.isSelected) {
+                view1.isSelected = false
+                view2.isSelected = false
+                view3.isSelected = true
+            }
+            pServerf = 2
+        }
+        pServerf = null
     }
 
     private fun makeRadioButton2(view1: View, view2: View) {
@@ -352,7 +517,6 @@ class OpenProjectSecondActivity :
                 view1.isSelected = true
                 view2.isSelected = false
             }
-            binding.tvMale.isSelected = true
             pGender = 0
         }
         view2.setOnClickListener {
@@ -360,7 +524,6 @@ class OpenProjectSecondActivity :
                 view1.isSelected = false
                 view2.isSelected = true
             }
-            binding.tvFemale.isSelected = true
             pGender = 1
         }
         pGender = null
