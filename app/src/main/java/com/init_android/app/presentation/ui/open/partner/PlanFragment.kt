@@ -47,9 +47,9 @@ class PlanFragment : BaseFragment<FragmentPlanBinding>(R.layout.fragment_plan) {
             binding.tvPartnerApproveNum.visibility = View.GONE
             binding.rvApprovePlan.visibility = View.GONE
         } else {
-            binding.tvPartnerApprove.visibility = View.GONE
-            binding.tvPartnerApproveNum.visibility = View.GONE
-            binding.rvApprovePlan.visibility = View.GONE
+            binding.tvPartnerApprove.visibility = View.VISIBLE
+            binding.tvPartnerApproveNum.visibility = View.VISIBLE
+            binding.rvApprovePlan.visibility = View.VISIBLE
         }
     }
 
@@ -117,6 +117,8 @@ class PlanFragment : BaseFragment<FragmentPlanBinding>(R.layout.fragment_plan) {
                                         }
                                     }
                                 }
+                                initApprove()
+                                initNetwork()
                             }
                         }
                     }

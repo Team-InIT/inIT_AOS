@@ -45,9 +45,9 @@ class AosFragment : BaseFragment<FragmentAosBinding>(R.layout.fragment_aos) {
             binding.tvPartnerApproveNum.visibility = View.GONE
             binding.rvApproveAos.visibility = View.GONE
         } else {
-            binding.tvPartnerApprove.visibility = View.GONE
-            binding.tvPartnerApproveNum.visibility = View.GONE
-            binding.rvApproveAos.visibility = View.GONE
+            binding.tvPartnerApprove.visibility = View.VISIBLE
+            binding.tvPartnerApproveNum.visibility = View.VISIBLE
+            binding.rvApproveAos.visibility = View.VISIBLE
         }
     }
 

@@ -39,7 +39,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
-                android:background="@drawable/rectangle_fill_black_radius_14"
+                android:background="@color/white"
                 android:fontFamily="@font/noto_sans_kr_bold"
                 android:paddingStart="18dp"
                 android:paddingTop="4dp"
