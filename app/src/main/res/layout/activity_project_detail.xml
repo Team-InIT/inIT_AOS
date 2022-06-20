@@ -175,7 +175,7 @@
                         android:paddingTop="4dp"
                         android:paddingEnd="18dp"
                         android:paddingBottom="4dp"
-                        android:text="ING"
+                        android:text="@{Project.projectState}"
                         android:textColor="@color/white"
                         android:textSize="12sp"
                         app:layout_constraintBottom_toBottomOf="@+id/tv_detial_title"

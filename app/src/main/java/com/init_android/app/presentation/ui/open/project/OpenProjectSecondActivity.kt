@@ -3,6 +3,9 @@ package com.init_android.app.presentation.ui.open.project
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.widget.RadioButton
+import android.widget.RadioGroup
+import android.widget.Toast
 import androidx.activity.viewModels
 import com.init_android.R
 import com.init_android.app.data.request.RequestAddProject
@@ -12,22 +15,33 @@ import com.init_android.databinding.ActivityOpenProjectSecondBinding
 import com.playtogether_android.app.presentation.base.BaseActivity
 import java.text.SimpleDateFormat
 
+
 class OpenProjectSecondActivity :
     BaseActivity<ActivityOpenProjectSecondBinding>(R.layout.activity_open_project_second) {
 
     private val projectViewModel: ProjectViewModel by viewModels()
-    private val mainViewModel : MainViewModel by viewModels()
+    private val mainViewModel: MainViewModel by viewModels()
 
     val formatter = SimpleDateFormat("yyyy-MM-dd")
-    var pGender: Int? = 0
-    var pAcademic: Int? = 0
-    var pPlanf: Int? = 0
-    var pDesignf: Int? = 0
-    var pIosf: Int? = 0
-    var pAosf: Int? = 0
-    var pGamef: Int? = 0
-    var pWebf: Int? = 0
-    var pServerf: Int? = 0
+//    var pGender: Int? = null
+//    var pAcademic: Int?
+//    var pPlanf: Int
+//    var pDesignf: Int? = 0
+//    var pIosf: Int? = 0
+//    var pAosf: Int? = 0
+//    var pGamef: Int? = 0
+//    var pWebf: Int? = 0
+//    var pServerf: Int? = 0
+
+    var pGender: Int? = null
+    var pAcademic: Int? = null
+    var pPlanf: Int? = null
+    var pDesignf: Int? = null
+    var pAosf: Int? = null
+    var pIosf: Int? = null
+    var pGamef: Int? = null
+    var pServerf: Int? = null
+    var pWebf: Int? = null
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -44,8 +58,8 @@ class OpenProjectSecondActivity :
             makeRadioButton3(tvEnroll, tvLeave, tvGraduate)
             makeRadioButton3(tvPlanHigh, tvPlanMid, tvPlanLow)
             makeRadioButton3(tvDesignHigh, tvDesignMid, tvDesignLow)
-            makeRadioButton3(tvWebHigh,tvWebMid,tvWebLow)
-            makeRadioButton3(tvIosHigh,tvIosMid,tvIosLow)
+            makeRadioButton3(tvWebHigh, tvWebMid, tvWebLow)
+            makeRadioButton3(tvIosHigh, tvIosMid, tvIosLow)
             makeRadioButton3(tvAosHigh, tvAosMid, tvAosLow)
             makeRadioButton3(tvGameHigh, tvGameMid, tvGameLow)
             makeRadioButton3(tvServerHigh, tvServerMid, tvServerLow)
@@ -154,96 +168,110 @@ class OpenProjectSecondActivity :
         }
     }
 
-    //끝내기 버튼튼
+    //끝내기 버튼
     private fun initNextBtn() {
+        with(binding) {
+//            makeRadioButton2(tvMale, tvFemale)
+//            makeRadioButton3(tvEnroll, tvLeave, tvGraduate)
+//            makeRadioButton3(tvPlanHigh, tvPlanMid, tvPlanLow)
+//            makeRadioButton3(tvDesignHigh, tvDesignMid, tvDesignLow)
+//            makeRadioButton3(tvWebHigh, tvWebMid, tvWebLow)
+//            makeRadioButton3(tvIosHigh, tvIosMid, tvIosLow)
+//            makeRadioButton3(tvAosHigh, tvAosMid, tvAosLow)
+//            makeRadioButton3(tvGameHigh, tvGameMid, tvGameLow)
+//            makeRadioButton3(tvServerHigh, tvServerMid, tvServerLow)
 
 
-        if (binding.tvMale.isSelected) {
-            pGender = 0
-        } else if (binding.tvFemale.isSelected) {
-            pGender = 1
-        } else {
-            pGender = null
+//            if (binding.tvMale.isSelected) {
+//                pGender = 0
+//            } else if (binding.tvFemale.isSelected) {
+//                pGender = 1
+//            } else {
+//                pGender = null
+//            }
+
+            if (binding.tvEnroll.isSelected) {
+                pAcademic = 0
+            } else if (binding.tvLeave.isSelected) {
+                pAcademic = 1
+            } else {
+                pAcademic = null
+            }
+
+            if (binding.tvPlanHigh.isSelected) {
+                pPlanf = 0
+            } else if (binding.tvPlanMid.isSelected) {
+                pPlanf = 1
+            } else if (binding.tvPlanLow.isSelected) {
+                pPlanf = 2
+            } else {
+                pPlanf = null
+            }
+
+            if (binding.tvDesignHigh.isSelected) {
+                pDesignf = 0
+            } else if (binding.tvDesignMid.isSelected) {
+                pDesignf = 1
+            } else if (binding.tvDesignLow.isSelected) {
+                pDesignf = 2
+            } else {
+                pDesignf = null
+            }
+
+            if (binding.tvIosHigh.isSelected) {
+                pIosf = 0
+            } else if (binding.tvIosMid.isSelected) {
+                pIosf = 1
+            } else if (binding.tvIosLow.isSelected) {
+                pIosf = 2
+            } else {
+                pIosf = null
+            }
+
+            if (binding.tvAosHigh.isSelected) {
+                pAosf = 0
+            } else if (binding.tvAosMid.isSelected) {
+                pAosf = 1
+            } else if (binding.tvAosLow.isSelected) {
+                pAosf = 2
+            } else {
+                pAosf = null
+            }
+
+            if (binding.tvGameHigh.isSelected) {
+                pGamef = 0
+            } else if (binding.tvGameMid.isSelected) {
+                pGamef = 1
+            } else if (binding.tvGameLow.isSelected) {
+                pGamef = 2
+            } else {
+                pGamef = null
+            }
+
+            if (binding.tvWebHigh.isSelected) {
+                pWebf = 0
+            } else if (binding.tvWebMid.isSelected) {
+                pWebf = 1
+            } else if (binding.tvWebLow.isSelected) {
+                pWebf = 2
+            } else {
+                pWebf = null
+            }
+
+            if (binding.tvServerHigh.isSelected) {
+                pServerf = 0
+            } else if (binding.tvServerMid.isSelected) {
+                pServerf = 1
+            } else if (binding.tvServerLow.isSelected) {
+                pServerf = 2
+            } else {
+                pServerf = null
+            }
+
+            Log.d("pServerf", pServerf.toString())
+            Log.d("pWebf", pWebf.toString())
+            Log.d("pGender", pGender.toString())
         }
-
-        if (binding.tvEnroll.isSelected) {
-            pAcademic = 0
-        } else if (binding.tvLeave.isSelected) {
-            pAcademic = 1
-        } else {
-            pAcademic = null
-        }
-
-        if (binding.tvPlanHigh.isSelected) {
-            pPlanf = 0
-        } else if (binding.tvPlanMid.isSelected) {
-            pPlanf = 1
-        } else if (binding.tvPlanLow.isSelected) {
-            pPlanf = 2
-        } else {
-            pPlanf = null
-        }
-
-        if (binding.tvDesignHigh.isSelected) {
-            pDesignf = 0
-        } else if (binding.tvDesignMid.isSelected) {
-            pDesignf = 1
-        } else if (binding.tvDesignLow.isSelected) {
-            pDesignf = 2
-        } else {
-            pDesignf = null
-        }
-
-        if (binding.tvIosHigh.isSelected) {
-            pIosf = 0
-        } else if (binding.tvIosMid.isSelected) {
-            pIosf = 1
-        } else if (binding.tvIosLow.isSelected) {
-            pIosf = 2
-        } else {
-            pIosf = null
-        }
-
-        if (binding.tvAosHigh.isSelected) {
-            pAosf = 0
-        } else if (binding.tvAosMid.isSelected) {
-            pAosf = 1
-        } else if (binding.tvAosLow.isSelected) {
-            pAosf = 2
-        } else {
-            pAosf = null
-        }
-
-        if (binding.tvGameHigh.isSelected) {
-            pGamef = 0
-        } else if (binding.tvGameMid.isSelected) {
-            pGamef = 1
-        } else if (binding.tvGameLow.isSelected) {
-            pGamef = 2
-        } else {
-            pGamef = null
-        }
-
-        if (binding.tvWebHigh.isSelected) {
-            pWebf = 0
-        } else if (binding.tvWebMid.isSelected) {
-            pWebf = 1
-        } else if (binding.tvWebLow.isSelected) {
-            pWebf = 2
-        } else {
-            pWebf = null
-        }
-
-        if (binding.tvServerHigh.isSelected) {
-            pServerf = 0
-        } else if (binding.tvServerMid.isSelected) {
-            pServerf = 1
-        } else if (binding.tvServerLow.isSelected) {
-            pServerf = 2
-        } else {
-            pServerf = null
-        }
-
 
     }
 
@@ -283,7 +311,7 @@ class OpenProjectSecondActivity :
 
             projectViewModel.postOpenProject(requestAddProject)
             projectViewModel.openProject.observe(this) {
-                if(it.code == 201) {
+                if (it.code == 201) {
                     finish()
                 } else {
                     projectViewModel.postOpenProject(requestAddProject)
@@ -324,13 +352,19 @@ class OpenProjectSecondActivity :
                 view1.isSelected = true
                 view2.isSelected = false
             }
+            binding.tvMale.isSelected = true
+            pGender = 0
         }
         view2.setOnClickListener {
             if (!view2.isSelected) {
                 view1.isSelected = false
                 view2.isSelected = true
             }
+            binding.tvFemale.isSelected = true
+            pGender = 1
         }
+        pGender = null
+
     }
 
     private fun backBtnListener() {
