@@ -4,27 +4,20 @@ import android.Manifest
 import android.app.Activity
 import android.content.Intent
 import android.content.pm.PackageManager
-import android.graphics.Bitmap
-import android.graphics.BitmapFactory
 import android.net.Uri
 import android.os.Bundle
 import android.util.Log
-import android.view.View
 import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
 import androidx.core.content.ContextCompat
-import androidx.fragment.app.viewModels
 import com.bumptech.glide.Glide
 import com.init_android.R
 import com.init_android.app.data.model.SelectableData
-import com.init_android.app.data.request.RequestAddFeed
 import com.init_android.app.data.request.RequestFinishProject
-import com.init_android.app.data.response.ResponseFinishProject
 import com.init_android.app.presentation.ui.feed.FeedViewModel
-import com.init_android.app.presentation.ui.home.signin.viewmodel.SignViewModel
 import com.init_android.app.presentation.ui.home.viewmodel.HomeViewModel
 import com.init_android.app.presentation.ui.open.project.SpinnerAdapter
 import com.init_android.app.util.CustomBottomSheetDialog
@@ -32,11 +25,7 @@ import com.init_android.app.util.MultiPartUtil
 import com.init_android.databinding.ActivityFeedWritingBinding
 import com.playtogether_android.app.presentation.base.BaseActivity
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
-import okhttp3.MultipartBody
 import okhttp3.RequestBody.Companion.toRequestBody
-import java.io.ByteArrayOutputStream
-import java.io.File
-import java.io.InputStream
 
 class FeedWritingActivity :
     BaseActivity<ActivityFeedWritingBinding>(R.layout.activity_feed_writing) {
@@ -171,7 +160,7 @@ class FeedWritingActivity :
                 projectListBottomSheetDialog.binding.btnBottomsheetCancel
                 //알럿
                 // initAlert()
-                binding.tvSelectProjectList.text = "인잇"
+                binding.tvSelectProjectList.text = part?.name
                 projectListBottomSheetDialog.binding.btnBottomsheetComplete.setOnClickListener {
                     Log.d("클릭", "완료")
                     // initAlert()
@@ -183,7 +172,10 @@ class FeedWritingActivity :
     // 피드 등록
     private fun tryPostFeed() {
         binding.btnPost.setOnClickListener {
-            val file = MultiPartUtil(this).uriToFilePath(fileUri)
+            val file = MultiPartUtil(this)?.uriToFilePath(fileUri)
+
+            //val file = ""
+
             // val file = MultiPartUtil(this).createMultiPart(fileUri!!)
             val fTitle = "안드로이드 프로젝트입니다.".toRequestBody("text/plain".toMediaTypeOrNull())
             val fDescription = binding.etvDetail.text.toString().toRequestBody("text/plain".toMediaTypeOrNull())

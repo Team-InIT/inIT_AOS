@@ -46,6 +46,7 @@
                 android:paddingEnd="18dp"
                 android:paddingBottom="4dp"
                 android:text="1/3"
+                android:visibility="gone"
                 android:textColor="@color/white"
                 android:textSize="12sp"
                 app:layout_constraintBottom_toBottomOf="@+id/tv_partner_approve"
@@ -92,6 +93,7 @@
                 android:paddingStart="18dp"
                 android:paddingTop="4dp"
                 android:paddingEnd="18dp"
+                android:visibility="gone"
                 android:paddingBottom="4dp"
                 android:background="@drawable/rectangle_fill_black_radius_14"
                 app:layout_constraintBottom_toBottomOf="@+id/tv_partner_info"
@@ -100,8 +102,8 @@
 
                 <TextView
                     android:id="@+id/tv_partner_num"
-                    android:layout_width="0dp"
-                    android:layout_height="12dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:fontFamily="@font/noto_sans_kr_bold"
                     android:text="2"
                     android:textColor="@color/white"

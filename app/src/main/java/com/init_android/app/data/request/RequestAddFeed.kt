@@ -15,7 +15,7 @@ import retrofit2.http.Part
 */
 
 data class RequestAddFeed(
-    @Part val file: MultipartBody.Part,
+    @Part val file: MultipartBody.Part?,
     @Part ("fTitle") val fTitle: RequestBody,
     @Part ("fDescription") val fDescription: RequestBody,
     @Part ("fLink") val fLink: RequestBody,

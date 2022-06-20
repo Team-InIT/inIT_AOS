@@ -28,6 +28,7 @@ class AosToDoFragment : BaseFragment<FragmentAosToDoBinding>(R.layout.fragment_a
     override fun onResume() {
         super.onResume()
         initNetwork()
+        initCheckClick()
     }
 
     private fun initNetwork() {
@@ -38,5 +39,14 @@ class AosToDoFragment : BaseFragment<FragmentAosToDoBinding>(R.layout.fragment_a
         todoViewModel.readAllToDo.observe(viewLifecycleOwner) {
             toDoPlanAdapter.setQuestionPost((it.todoList) as MutableList<ResponseAllToDo.Todo>)
         }
+    }
+
+    private fun initCheckClick() {
+        toDoPlanAdapter.setOnItemClickListener(object : ToDoPlanAdapter.onItemClickListener{
+            override fun onItemClick(position: Int) {
+
+            }
+
+        })
     }
 }

@@ -25,13 +25,14 @@ class PlanToDoFragment : BaseFragment<FragmentPlanToDoBinding>(R.layout.fragment
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        initNetwork()
+        //initNetwork()
 
     }
 
     override fun onResume() {
         super.onResume()
         initNetwork()
+        initCheckClick()
     }
 
     private fun initNetwork() {
@@ -42,6 +43,15 @@ class PlanToDoFragment : BaseFragment<FragmentPlanToDoBinding>(R.layout.fragment
         todoViewModel.readAllToDo.observe(viewLifecycleOwner) {
             toDoPlanAdapter.setQuestionPost((it.todoList) as MutableList<ResponseAllToDo.Todo>)
         }
+    }
+
+    private fun initCheckClick() {
+        toDoPlanAdapter.setOnItemClickListener(object : ToDoPlanAdapter.onItemClickListener{
+            override fun onItemClick(position: Int) {
+
+            }
+
+        })
     }
 
 

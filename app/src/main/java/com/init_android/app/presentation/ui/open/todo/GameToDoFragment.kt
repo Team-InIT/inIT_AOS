@@ -24,6 +24,7 @@ class GameTodoFragment : BaseFragment<FragmentGameToDoBinding>(R.layout.fragment
     override fun onResume() {
         super.onResume()
         initNetwork()
+        initCheckClick()
     }
 
     private fun initNetwork() {
@@ -34,5 +35,14 @@ class GameTodoFragment : BaseFragment<FragmentGameToDoBinding>(R.layout.fragment
         todoViewModel.readAllToDo.observe(viewLifecycleOwner) {
             toDoPlanAdapter.setQuestionPost((it.todoList) as MutableList<ResponseAllToDo.Todo>)
         }
+    }
+
+    private fun initCheckClick() {
+        toDoPlanAdapter.setOnItemClickListener(object : ToDoPlanAdapter.onItemClickListener{
+            override fun onItemClick(position: Int) {
+
+            }
+
+        })
     }
 }
