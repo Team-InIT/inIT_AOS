@@ -89,12 +89,12 @@ class ProjectDetailActivity :
                     binding.project = it.detailInfo
 
                     if (it.code == 201) {
-//                        Toast.makeText(
-//                            this@ProjectDetailActivity,
-//                            "이미 지원한 프로젝트입니다.",
-//                            Toast.LENGTH_SHORT
-//                        )
-//                            .show()
+                        Toast.makeText(
+                            this@ProjectDetailActivity,
+                            "이미 지원한 프로젝트입니다.",
+                            Toast.LENGTH_SHORT
+                        )
+                            .show()
                         clickListener()
 
                     } else if (it.detailInfo?.writerInfo?.mNum == mNum) {

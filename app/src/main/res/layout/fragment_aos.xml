@@ -71,7 +71,7 @@
                         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/tv_partner_approve_num"
+                        app:layout_constraintTop_toBottomOf="@+id/tv_partner_approve"
                         tools:itemCount="4"
                         tools:listitem="@layout/item_partner_approve_list" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
