@@ -3,12 +3,10 @@ package com.init_android.app.presentation.ui.search.recruiting
 import android.os.Bundle
 import android.util.Log
 import android.view.View
-import android.widget.Toast
 import androidx.fragment.app.viewModels
 import com.init_android.R
 import com.init_android.app.data.model.ProjectItemData
 import com.init_android.app.data.model.SelectableData
-import com.init_android.app.data.response.ResponseGetRecruitingProject
 import com.init_android.app.presentation.ui.home.adapter.ProjectItemRVAdapter
 import com.init_android.app.presentation.ui.search.SearchViewModel
 import com.init_android.app.util.CustomBottomSheetDialog
@@ -50,7 +48,7 @@ class SearchRecruitingFragment:BaseFragment<FragmentSearchRecruitingBinding>(R.l
                 val pStartDate =  DateUtil().dateToString(data.recruitingProject.pStart!!).replace("-",".")
                 val pEndDate = DateUtil().dateToString(data.recruitingProject.pDue).replace("-",".")
 
-                myProjectItemDataList.add(ProjectItemData(data.recruitingProject.pType!!,data.recruitingProject.pDescription!!,data.recruitingProject.pOnOff!!,totalNum,pStartDate,pEndDate,data.recruitingProject.Member.mName,
+                myProjectItemDataList.add(ProjectItemData(data.recruitingProject.pType!!,data.recruitingProject.pTitle!!,data.recruitingProject.pOnOff!!,totalNum,pStartDate,pEndDate,data.recruitingProject.Member.mName,
                     data.recruitingProject.pState!!,data.recruitingProject.pNum!!,data.recruitingProject.mNum!!,data.projectState))
             }
 
@@ -106,7 +104,7 @@ class SearchRecruitingFragment:BaseFragment<FragmentSearchRecruitingBinding>(R.l
                     val pStartDate =  DateUtil().dateToString(data.recruitingProject.pStart!!).replace("-",".")
                     val pEndDate = DateUtil().dateToString(data.recruitingProject.pDue).replace("-",".")
 
-                    searchResultList.add(ProjectItemData(data.recruitingProject.pType!!,data.recruitingProject.pDescription!!,data.recruitingProject.pOnOff!!,totalNum,pStartDate,pEndDate,data.recruitingProject.Member.mName,
+                    searchResultList.add(ProjectItemData(data.recruitingProject.pType!!,data.recruitingProject.pTitle!!,data.recruitingProject.pOnOff!!,totalNum,pStartDate,pEndDate,data.recruitingProject.Member.mName,
                         data.recruitingProject.pState!!,data.recruitingProject.pNum!!,data.recruitingProject.mNum!!,data.projectState))
                 }
 

@@ -139,8 +139,8 @@
             android:layout_marginTop="12dp"
             android:layout_marginEnd="8dp"
             android:paddingVertical="4dp"
-            pStateBgBind = "@{projectItem.pState}"
-            android:background="@drawable/rectangle_fill_red_radius_14"
+            pStateBind="@{projectItem.pState}"
+            tools:background="@drawable/rectangle_fill_red_radius_14"
             android:paddingHorizontal="10dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent">

@@ -81,6 +81,23 @@ object BindingAdapter {
     }
 
     @JvmStatic
+    @BindingAdapter("pStateBind")
+    fun setState(view: View, pState: Int) {
+        when (pState) {
+            0 -> {
+                view.background = ContextCompat.getDrawable(view.context,R.drawable.rectangle_fill_black_radius_14)
+
+            }
+            2 -> {
+                view.background = ContextCompat.getDrawable(view.context,R.drawable.rectangle_fill_gray_radius_14)
+            }
+            1 -> {
+                view.background = ContextCompat.getDrawable(view.context,R.drawable.rectangle_fill_red_radius_14)
+            }
+        }
+    }
+
+    @JvmStatic
     @BindingAdapter("pOnOffBind")
     fun setPOnOff(textView: TextView, pType: Int) {
         when (pType) {

@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="projectItem"
             type="com.init_android.app.data.model.ProjectItemData" />
@@ -12,12 +13,13 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginBottom="12dp"
         android:layout_marginHorizontal="16dp"
+        android:layout_marginBottom="12dp"
         android:background="@drawable/rectangle_stroke_main_radius_8">
 
         <TextView
             android:id="@+id/tv_position"
+            pTypeBind="@{projectItem.pType}"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="12dp"
@@ -25,10 +27,9 @@
             android:textColor="@color/main_default"
             android:textSize="12sp"
             android:textStyle="bold"
-            pTypeBind = "@{projectItem.pType}"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:text ="@string/type_android"/>
+            tools:text="@string/type_android" />
 
         <TextView
             android:id="@+id/tv_title"
@@ -38,9 +39,9 @@
             android:layout_marginTop="6dp"
             android:ellipsize="end"
             android:maxLines="1"
+            android:text="@{projectItem.pTitle}"
             android:textColor="@color/black"
             android:textStyle="bold"
-            android:text="@{projectItem.pTitle}"
             app:layout_constraintEnd_toStartOf="@+id/layout_d_day"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tv_position"
@@ -74,10 +75,10 @@
 
                 <TextView
                     android:id="@+id/tv_on_off"
+                    pOnOffBind="@{projectItem.pOnOff}"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="2dp"
-                    pOnOffBind = "@{projectItem.pOnOff}"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toEndOf="@id/iv_location"
                     app:layout_constraintTop_toTopOf="parent"
@@ -135,14 +136,14 @@
 
         <LinearLayout
             android:id="@+id/layout_d_day"
+            pStateBind="@{projectItem.pState}"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
             android:layout_marginEnd="8dp"
-            android:paddingVertical="4dp"
-            pStateBgBind = "@{projectItem.pState}"
             android:background="@drawable/rectangle_fill_red_radius_14"
             android:paddingHorizontal="10dp"
+            android:paddingVertical="4dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
@@ -151,13 +152,13 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_gravity="center"
-                android:layout_marginVertical="1dp"
                 android:layout_marginHorizontal="4dp"
-                pStateBind="@{projectItem.pState}"
+                android:layout_marginVertical="1dp"
+                android:text="@{projectItem.projectState}"
                 android:textColor="@color/white"
                 android:textSize="12sp"
                 android:textStyle="bold"
-                tools:text="@string/dday_dday"/>
+                tools:text="@string/dday_dday" />
         </LinearLayout>
 
         <TextView
@@ -168,7 +169,7 @@
             android:textColor="@color/black"
             app:layout_constraintBottom_toBottomOf="@id/layout_more_info"
             app:layout_constraintEnd_toEndOf="@id/layout_d_day"
-            tools:text="@string/writer"/>
+            tools:text="@string/writer" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

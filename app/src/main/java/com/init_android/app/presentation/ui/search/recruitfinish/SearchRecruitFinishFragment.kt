@@ -38,7 +38,7 @@ class SearchRecruitFinishFragment:BaseFragment<FragmentSearchRecruitFinishBindin
                 val pStartDate =  DateUtil().dateToString(data.notRecruitingProject.pStart!!).replace("-",".")
                 val pEndDate = DateUtil().dateToString(data.notRecruitingProject.pDue).replace("-",".")
 
-                myProjectItemDataList.add(ProjectItemData(data.notRecruitingProject.pType!!,data.notRecruitingProject.pDescription!!,data.notRecruitingProject.pOnOff!!,totalNum,pStartDate,pEndDate,data.notRecruitingProject.Member.mName,
+                myProjectItemDataList.add(ProjectItemData(data.notRecruitingProject.pType!!,data.notRecruitingProject.pTitle!!,data.notRecruitingProject.pOnOff!!,totalNum,pStartDate,pEndDate,data.notRecruitingProject.Member.mName,
                     data.notRecruitingProject.pState!!,data.notRecruitingProject.pNum!!,data.notRecruitingProject.mNum!!,data.projectState))
             }
 
