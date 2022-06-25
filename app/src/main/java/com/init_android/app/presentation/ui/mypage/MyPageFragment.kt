@@ -42,6 +42,7 @@ class MyPageFragment : BaseFragment<FragmentMyPageBinding>(R.layout.fragment_my_
     private fun initNetwork() {
 
 
+
         mainViewModel.mNum.observe(viewLifecycleOwner) {
             val mNum = it
             val requestMyInfo = RequestMyInfo(

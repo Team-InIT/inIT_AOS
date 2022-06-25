@@ -24,9 +24,7 @@ import retrofit2.http.*
 
 interface InitService {
     @POST("/login")
-    suspend fun postLogin(
-        @Body body: RequestSignIn
-    ): ResponseSignIn
+    suspend fun postLogin(@Body body: RequestSignIn): ResponseSignIn
 
     @POST("/idCheck")
     fun postIdCheck(
