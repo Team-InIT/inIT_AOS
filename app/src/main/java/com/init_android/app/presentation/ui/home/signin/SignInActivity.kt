@@ -94,9 +94,11 @@ class SignInActivity : BaseActivity<ActivitySignInBinding>(R.layout.activity_sig
 
 
         signViewModel.postSignIn(requestSignIn)
+        //Log.d("SignViewModel", signViewModel.logIn.value.member.indexOf(0))
         signViewModel.logIn.observe(this) {
             if (it.code == 204) {
                 val userId = signViewModel.signIn.value?.mNum ?: 1
+                Log.d("TestUserId", userId.toString())
                 val position = signViewModel.signIn.value?.mPosition ?: 1
                 val level = signViewModel.signIn.value?.mLevel ?: 1
 
